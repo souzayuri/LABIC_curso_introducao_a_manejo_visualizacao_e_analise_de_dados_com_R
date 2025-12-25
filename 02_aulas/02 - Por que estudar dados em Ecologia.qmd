@@ -1,0 +1,169 @@
+---
+title: "Por que estudar dados em Ecologia?"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/07/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Porque meu orientador pediu!
+
+:::: columns
+::: {width="50%" style="text-align: center"}
+"Sabe o que seria <strong>SUPER LEGAL</strong>?!!!"\
+![](img/mauro.jpg){width="300"}
+:::
+::::
+
+## Porque meu orientador pediu!
+
+::::: columns
+:::: {width="50%" style="text-align: center"}
+"Sabe o que seria <strong>SUPER LEGAL</strong>?!!!"\
+![](img/mauro.jpg){width="300"}
+
+::: {width="100%" style="font-size: 25px"}
+<strong>Entender como seus dados finais devem parecer,<br> te ajuda no desenho amostral da coleta.</strong>
+:::
+::::
+:::::
+
+## Descrever a natureza
+
+::::: columns
+::: {.column width="50%"}
+![](img/morro_baleia.jpg){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+![](img/natureza_diagrama.jpg){fig-align="right"}
+:::
+:::::
+
+## Descrever a natureza
+
+::::: columns
+::: {.column width="50%"}
+![](img/morro_baleia.jpg){fig-align="left"}
+:::
+
+::: {.column width="50%"}
+![](img/natureza_diagrama.jpg){fig-align="right"}
+:::
+:::::
+
+::: {width="100%" style="text-align: center"}
+<strong>A natureza é complexa e nosso cérebro limitado</strong>
+:::
+
+## Encontrar padrões
+
+<br>
+
+::::: columns
+::: {.column width="50%" style="font-size:  10px"}
+![](img/carbon.png){fig-align="left"}
+
+<https://www.e-education.psu.edu/earth103/node/1018>
+:::
+
+::: {.column width="50%" style="font-size: 10px"}
+:::
+:::::
+
+## Encontrar padrões
+
+<br>
+
+::::: columns
+::: {.column width="50%" style="font-size:  10px"}
+![](img/carbon.png){fig-align="left"}
+
+<https://www.e-education.psu.edu/earth103/node/1018>
+:::
+
+::: {.column width="50%" style="font-size: 10px"}
+![](img/sazonalidade.jpg){fig-align="right"}
+
+<https://pt.wikipedia.org/wiki/Sazonalidade_ambiental>
+:::
+:::::
+
+## Fazer predições
+
+:::: columns
+::: {width="50%" style="text-align: center; font-size: 10px;"}
+![](img/lilian_model.png){fig-align="center" width="400"}
+
+[(Sales et al., 2020)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.15374)
+:::
+::::
+
+## Avaliar estratégias de conservação
+
+:::: columns
+::: {width="50%" style="text-align: center; font-size: 10px;"}
+![](img/20250908_roadkill.png){fig-align="center" width="900"}
+
+INCAB, 2025
+:::
+::::
+
+## Comunicar
+
+:::: columns
+::: {width="50%" style="text-align: center; font-size: 10px;"}
+![](img/mapbiomas.jpg){fig-align="center" width="1000"}
+
+[(MapBiomas, 2025)](https://brasil.mapbiomas.org/infograficos/)
+:::
+::::
+
+## Sugestões
+
+### Canais no YouTube
+
+-   [StatQuest with Josh Starmer](https://www.youtube.com/@statquest)
+
+-   [Riffomonas Project](https://www.youtube.com/@Riffomonas)
+
+-   [yuzaR Data Science](https://www.youtube.com/@yuzaR-Data-Science)
+
+-   [RLadies São Paulo](https://www.youtube.com/c/RLadiesS%C3%A3oPaulo)
+
+-   [R-Ladies Global](https://www.youtube.com/@RLadiesGlobal)
+
+-   [Ecological Forecasting](https://www.youtube.com/@BusinessScience)
+
+-   [🔥 Matt Dancho 🔥 (Business Science)](https://www.youtube.com/@rfortherestofus)
+
+-   [R for the Rest of Us](https://www.youtube.com/@ecoforecast)
+
+## Sugestões
+
+### Livros
+
+::: {.columns style="text-align: right; font-size: 15px;"}
+![](img/livros.jpg){width="4038"}
+
+[R for Data Science (2e)](https://r4ds.hadley.nz/)
+
+[The Analysis of Biological Data](https://whitlockschluter3e.zoology.ubc.ca/)
+
+
+:::

@@ -1,0 +1,243 @@
+---
+title: "introdução ao R, ambiente R e GitHub"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/07/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+![](img/R.jpg){fig-align="center" width="600"}
+
+## Definições {.smaller}
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação voltada para a resolução de problemas estatísticos e para a visualização gráfica de dados (Prof. Marcelo Perlin)
+:::
+
+## Definições {.smaller}
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação voltada para a resolução de problemas estatísticos e para a visualização gráfica de dados (Prof. Marcelo Perlin)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é um conjunto de pacotes e ferramentas estatísticas, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até análises de dados complexos, com visualizações bem acabadas (Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD)
+:::
+
+## Definições {.smaller}
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação voltada para a resolução de problemas estatísticos e para a visualização gráfica de dados (Prof. Marcelo Perlin)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é um conjunto de pacotes e ferramentas estatísticas, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até análises de dados complexos, com visualizações bem acabadas (Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação livre (open source), direcionada ao manejo, análise e visualização de dados, com diversas expansões (pacotes) para o uso de dados com formatos específicos (Maurício Vancine)
+:::
+
+## Definições {.smaller}
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação voltada para a resolução de problemas estatísticos e para a visualização gráfica de dados (Prof. Marcelo Perlin)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é um conjunto de pacotes e ferramentas estatísticas, munido de funções que facilitam sua utilização, desde a criação de simples rotinas até análises de dados complexos, com visualizações bem acabadas (Instituto Brasileiro de Pesquisa e Análise de Dados - IBPAD)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação livre (open source), direcionada ao manejo, análise e visualização de dados, com diversas expansões (pacotes) para o uso de dados com formatos específicos (Maurício Vancine)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   O R é uma linguagem de programação livre, de sintaxe fácil e intuitiva, com funções e pacotes destinados à exploração, visualização e análise de dados, além de dispor de um conjunto de ferramentas voltadas para comunicações, apresentações e desenvolvimento web (Yuri Souza).
+:::
+
+## Por que usar o R?
+
+::: {.columns style="font-size: 90%;"}
+1.  É **grátis**!
+2.  Implementação e automação de rotinas (repetir várias operações)
+3.  Formas diversas de **visualizar** os resultados (**gráficos e dashboards**)
+4.  Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
+:::
+
+## Por que usar o R?
+
+::: {.columns style="font-size: 90%;"}
+1.  É **grátis**!
+2.  Implementação e automação de rotinas (repetir várias operações)
+3.  Formas diversas de **visualizar** os resultados (**gráficos e dashboards**)
+4.  Atualmente é a **principal linguagem** utilizada para análises de dados em Ecologia
+5.  Tem se tornado quase um **pré-requisito** para pós-graduação e consultorias
+:::
+
+## Aplicações da linguagem R
+
+#### Análises
+
+::: {.columns style="font-size: 80%;"}
+-   Estatísticas univariada e multivariada
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   Análises de dados ecológicos (população, comunidades, ecossistemas)
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   Análise de dados espaciais, temporais e sonoros
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   Análise de dados funcionais, genéticos e filogenéticos
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   Modelos de nicho ecológico
+:::
+
+::: {.columns style="font-size: 80%;"}
+-   Gráficos para publicação
+:::
+
+## Aplicações da linguagem R
+
+#### R Markdown
+
+::::::: {.columns style="font-size: 80%;"}
+:::::: columns
+::::: columns
+::: {.column width="50%"}
+-   Textos em HTML, PDF, Word, ODT, Markdown
+
+-   Apresentação de slides
+
+-   Websites e Blogs
+
+-   Livros
+
+-   Artigos para publicação
+
+-   Artigos para publicação
+:::
+
+::: {.column width="50%"}
+![](img/rmark.png)
+:::
+:::::
+::::::
+:::::::
+
+## R & R Studio
+
+::::::::: columns
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="100%"}
+![](img/R.jpg){fig-align="left" width="300"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="105%"}
+![](img/rstudio-og.png){fig-align="right" width="800"}
+:::
+::::
+:::::
+:::::::::
+
+## R & R Studio
+
+::::::::: columns
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="100%"}
+![](img/R.jpg){fig-align="left" width="300"} ![](img/r_env.png){fig-align="left" width="400"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="105%"}
+![](img/rstudio-og.png){fig-align="right" width="800"} ![](img/rstudio-og_env.png){fig-align="right" width="500"}
+:::
+::::
+:::::
+:::::::::
+
+## R & R Studio
+
+::::::::: columns
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="100%"}
+![](img/R.jpg){fig-align="left" width="300"} ![](img/r_env_no.png){fig-align="left" width="400"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+:::: columns
+::: {.column width="105%"}
+![](img/rstudio-og.png){fig-align="right" width="800"} ![](img/rstudio-og_env_coracao.png){fig-align="right" width="500"}
+:::
+::::
+:::::
+:::::::::
+
+## Git
+
+É um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo (Exemplo: alguns livros digitais são disponibilizados no GitHub e escrito aos poucos publicamente).
+
+-   É um **sistema de controle de versão**.
+
+    -   Serve para acompanhar mudanças em arquivos (código, textos, dados), permitindo:
+
+    -   salvar versões do projeto,
+
+    -   voltar a versões anteriores,
+
+## GitHub
+
+-   É uma **plataforma online** que usa Git.
+
+-   Serve para **armazenar repositórios na nuvem**.
+
+    -   Facilita:
+
+        -   colaboração entre pessoas,
+
+        -   compartilhamento de código,
+
+        -   controle de versões em equipe,
+
+        -   revisão de código,
+
+        -   documentação e divulgação de projetos científicos.
+
+## Git vs GitHub
+
+-   **Git** = ferramenta de versionamento
+
+-   **GitHub** = site que hospeda projetos versionados com Git

@@ -1,0 +1,204 @@
+---
+title: "Boas-vindas e apresentações<br><br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/07/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+-   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
+-   Mestre em Biologia<br>(University of Miami, 2022-2025)
+-   Analista de Dados<br>(IPÊ/INCAB, 2025)
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+-   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
+-   Mestre em Biologia<br>(University of Miami, 2022-2025)
+-   Analista de Dados<br>(IPÊ/INCAB, 2025)
+-   <strong> Não sou estátistico </strong>
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+## Sobre o curso
+
+Pedido do Prof. Mauro para treinamento do Labic
+
+<video width="100%" controls loop autoplay muted playsinline>
+
+<source src="img/mauro.mp4" type="video/mp4">
+
+Your browser does not support the video tag. </video>
+
+## Sobre os slides ![](img/logo.png){width="5%" left="-100" top="100"}
+
+<br>
+
+<br>
+
+::: text-center
+![](img/mauricio.png){width="300"}
+
+[*Maurício Vancini*](https://mauriciovancine.github.io/)
+:::
+
+![](img/meme_copyright.jpeg){.absolute width="40%" right="-100" top="140"}
+
+## Sobre o Conteúdo
+
+<br>
+
+<br>
+
+::: text-center
+![](img/mauricio.png){width="300"}
+
+[*Maurício Vancini*](https://mauriciovancine.github.io/)
+:::
+
+::: text-left
+![](img/livro_mauricio.jpeg){.absolute width="29%" right="-100" top="120"}
+
+[*Livro: Análises Ecológicas no R*](https://analises-ecologicas.netlify.app/)
+:::
+
+## Horários {.smaller}
+
+#### Duração: \~21h
+
+| Dia                                    | Horáros                        |
+|----------------------------------------|--------------------------------|
+| <strong>Dia 01</strong> <br>07/01/2026 | 09:00 - 12:00<br>14:00 - 17:00 |
+| <strong>Dia 02</strong> <br>08/01/2026 | 09:00 - 12:00<br>14:00 - 17:00 |
+| <strong>Dia 03</strong> <br>09/01/2026 | 09:00 - 12:00<br>14:00 - 17:00 |
+| <strong>Dia 04</strong> <br>10/01/2026 | 09:00 - 12:00                  |
+
+<br>
+
+## Cronograma {.smaller}
+
+:::: columns
+::: {width="100%" style="font-size: 22px"}
+| Dia | Atividade |
+|----|----|
+| <strong>Dia 01</strong> | Boas-vindas e apresentações |
+| <strong>Dia 01</strong> | Aula teórica 1: por que estudar dados em Ecologia? |
+| <strong>Dia 01</strong> | Aula teórica 1: introdução ao R, ambiente R e GitHub |
+| <strong>Dia 01</strong> | Aula prática 1: configurando o ambiente R e GitHub |
+| <strong>Dia 02</strong> | Aula prática 2: introdução à programação em R (Base R) |
+| <strong>Dia 02</strong> | Aula prática 2: introdução à programação em R (pacotes & tidyverse) |
+| <strong>Dia 02</strong> | Aula prática 2: introdução à programação em R (visualização) |
+| <strong>Dia 03</strong> | Aula teórica 3: visualização e comunicação de análises estatísticas (descritiva, Inferencial) |
+| <strong>Dia 03</strong> | Aula prática 3: visualização e comunicação de análises estatísticas (descritiva, Inferencial) |
+| <strong>Dia 04</strong> | Aula teórica 4: visualização e comunicação de análises estatísticas (preditiva) |
+| <strong>Dia 04</strong> | Aula prática 4: visualização e comunicação de análises estatísticas (preditiva) |
+:::
+::::
+
+## Quem são vocês?
+
+<br> 1. Nome
+
+2.  Formação
+
+3.  Conhece algo sobre R ou programação?
+
+4.  Como se sente em relação à disciplina?
+
+5.  O que faz ou pensa em fazer da vida?
+
+6.  Uma curiosidade sobre você
+
+## Importante
+
+<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem o máximo possível!<br>
+
+## Importante
+
+<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem o máximo possível!<br> <br> <strong>Evitem</strong> celular, redes sociais e outras <strong>distrações!</strong><br> <br> Estudar R e estatística geraram <strong>muitas oportunidades</strong> de parcerias em pesquisas e trabalho!<br>
+
+## Importante
+
+<br> Só se aprende R...<br> <br>
+
+## Importante
+
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br>
+
+## Importante
+
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br>
+
+## Importante
+
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender à <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br>
+
+## Importante
+
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender à <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br> Ponto positivo: <strong>há muito material disponível e grátis</strong> (e AI🙃)!<br><br>
+
+## IMPORTANTE!!!
+
+**Estamos num espaço seguro e amigável**
+
+-   Sintam-se à vontade para me interromper e tirar dúvidas
+
+<center><img src="img/general_starwars_teamwork.png" style="width:50%"/></center>
+
+::: footer
+Artwork by [\@allison_horst](https://x.com/allison_horst)
+:::
