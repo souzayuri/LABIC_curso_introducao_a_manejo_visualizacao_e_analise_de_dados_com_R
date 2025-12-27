@@ -1,0 +1,2974 @@
+---
+title: "Estruturas e Manipulação de Dados<br><br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/07/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Até agora nós vimos:
+
+-   **Introdução ao R e RStudio**
+
+    -   Instalação e configuração dos ambientes
+
+    -   Criação de projetos (`RProjects`)
+
+-   **Introdução ao Git e GitHub**
+
+    -   Instalação e configuração
+
+    -   Clonagem e criação de repositórios
+
+    -   Integração entre RStudio e GitHub
+
+    -   Upload de arquivos via *`commits`*
+
+## Até agora nós vimos:
+
+-   **Introdução ao R e RStudio**
+
+    -   Instalação e configuração dos ambientes
+
+    -   Criação de projetos (`RProjects`)
+
+    -   **`Comandos básicos de R`**
+
+-   **Introdução ao Git e GitHub**
+
+    -   Instalação e configuração
+
+    -   Clonagem e criação de repositórios
+
+    -   Integração entre RStudio e GitHub
+
+    -   Upload de arquivos via *`commits`*
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20)
+    y
+    ```
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20)
+    y
+    ```
+
+-   Inserir um comentário ou comentar uma linha de código: ***`#`***
+
+    ```{r}
+    # concatenei abaixo
+    y <- c(10,20)
+    y
+    ```
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20)
+    y
+    ```
+
+-   Inserir um comentário ou comentar uma linha de código: ***`#`***
+
+    ```{r}
+    # concatenei abaixo
+    y <- c(10,20)
+    y
+    ```
+
+-   Atalho para inserir um *pipe*, "**`%>%`**": **`ctrl`+`shift`+`m`**
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20)
+    y
+    ```
+
+-   Inserir um comentário ou comentar uma linha de código: ***`#`***
+
+    ```{r}
+    # concatenei abaixo
+    y <- c(10,20)
+    y
+    ```
+
+-   Atalho para inserir um *pipe*, "**`%>%`**": **`ctrl`+`shift`+`m`**
+
+-   Insere um separador no script: **`ctrl`+`shift`+`r`**
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20)
+    y
+    ```
+
+-   Inserir um comentário ou comentar uma linha de código: ***`#`***
+
+    ```{r}
+    # concatenei abaixo
+    y <- c(10,20)
+    y
+    ```
+
+-   Atalho para inserir um *pipe*, "**`%>%`**": **`ctrl`+`shift`+`m`**
+
+-   Insere um separador no script: **`ctrl`+`shift`+`r`**
+
+-   Abre uma janela com todos os atalhos disponíveis: **`alt`+`shift`+`K`**
+:::
+
+## Comandos básicos de R
+
+##### Comandos gerais
+
+::: {.columns style="font-size: 50%;"}
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+
+    ```{r}
+    x <- 10
+    ```
+
+-   Execultar uma linha selecionada no script: **`ctrl`+`enter`**
+
+    ```{r}
+    x <- 10 
+    x
+    ```
+
+-   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+
+    ```{r}
+    y <- c(10,20) 
+    y
+    ```
+
+-   Inserir um comentário ou comentar uma linha de código: ***`#`***
+
+    ```{r}
+    # concatenei abaixo 
+    y <- c(10,20) 
+    y
+    ```
+
+-   Atalho para inserir um *pipe*, "**`%>%`**": **`ctrl`+`shift`+`m`**
+
+-   Insere um separador no script: **`ctrl`+`shift`+`r`**
+
+-   Abre uma janela com todos os atalhos disponíveis: **`alt`+`shift`+`K`**
+
+-   Funções sempre terminam em parênteses: "**`print()`**". Você pode criar funções ou usar funções nativas do R e dos pacotes
+:::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+
+-   Multiplicação
+
+    ```{r}
+    10 * 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+
+-   Multiplicação
+
+    ```{r}
+    10 * 6
+    ```
+
+-   Divisão
+
+    ```{r}
+    10 / 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+
+-   Multiplicação
+
+    ```{r}
+    10 * 6
+    ```
+
+-   Divisão
+
+    ```{r}
+    10 / 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+-   Potência
+
+    ```{r}
+    10 ^ 6
+    ```
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+
+-   Multiplicação
+
+    ```{r}
+    10 * 6
+    ```
+
+-   Divisão
+
+    ```{r}
+    10 / 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+-   Potência
+
+    ```{r}
+    10 ^ 6
+    ```
+
+-   Raiz Quadrada
+
+    ```{r}
+    sqrt(10)
+    ```
+:::
+:::::
+
+## Comandos básicos de R
+
+##### Operações aritméticas e funções matemáticas básicas
+
+::::: columns
+::: {.column width="50%" style="font-size: 80%;"}
+-   Adição
+
+    ```{r}
+    10 + 10
+    ```
+
+-   Subtração
+
+    ```{r}
+    10 - 6
+    ```
+
+-   Multiplicação
+
+    ```{r}
+    10 * 6
+    ```
+
+-   Divisão
+
+    ```{r}
+    10 / 6
+    ```
+:::
+
+::: {.column width="50%" style="font-size: 80%;"}
+-   Potência
+
+    ```{r}
+    10 ^ 6
+    ```
+
+-   Raiz Quadrada
+
+    ```{r}
+    sqrt(10)
+    ```
+
+-   Logaritmo Natural
+
+    ```{r}
+    log(10)
+    ```
+:::
+:::::
+
+## Até agora nós vimos:
+
+-   **Introdução ao R e RStudio**
+
+    -   Instalação e configuração dos ambientes
+
+    -   Criação de projetos (`RProjects`)
+
+    -   Comandos básicos de R
+
+-   **Introdução ao Git e GitHub**
+
+    -   Instalação e configuração
+
+    -   Clonagem e criação de repositórios
+
+    -   Integração entre RStudio e GitHub
+
+    -   Upload de arquivos via *`commits`*
+
+## Tipos de dados
+
+###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
+
+## Tipos de dados
+
+###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
+
+###### Modos (*natureza*) são **três**:
+
+::: {.columns style="font-size: 60%"}
+-   numeric (`número`, inteiros ou não):
+
+    ```{r}
+    # str() é uma função nativa do R usada para checar a estrutura de algo. 
+    # Tbm poderia usar mode(), que só mostraria o modo.
+    x <- 1
+    str(x) 
+
+    ```
+:::
+
+## Tipos de dados
+
+###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
+
+###### Modos (*natureza*) são **três**:
+
+::: {.columns style="font-size: 60%"}
+-   numeric (`número`, inteiros ou não):
+
+    ```{r}
+    # str() é uma função nativa do R usada para checar a estrutura de algo.  
+    # Tbm poderia usar mode(), que só mostraria o modo. 
+    x <- 1 
+    str(x)  
+    ```
+
+-   character (`texto`). Tudo entre aspas é considerado texto.
+
+    ```{r}
+    y <- "espécie" 
+    str(y)
+    ```
+:::
+
+## Tipos de dados
+
+###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
+
+###### Modos (*natureza*) são **três**:
+
+::: {.columns style="font-size: 60%"}
+-   numeric (`número`, inteiros ou não):
+
+    ```{r}
+    # str() é uma função nativa do R usada para checar a estrutura de algo.  
+    # Tbm poderia usar mode(), que só mostraria o modo. 
+    x <- 1 
+    str(x)  
+    ```
+
+-   character (`texto`). Tudo entre aspas é considerado texto.
+
+    ```{r}
+    y <- "espécie" 
+    str(y)
+    ```
+
+-   logical (`lógico`) - ou `TRUE` ou `FALSE`
+
+    ```{r}
+    z <- TRUE 
+    mode(z)
+    ```
+:::
+
+## Tipos de dados - Exercícios
+
+::: columns
+<br>
+
+![](img/cat.gif){fig-align="center" width="400"}
+:::
+
+## Tipos de dados - Exercícios
+
+Chequem o `modo` de **cada um** dos seguintes elementos:
+
+::: {.columns style="font-size: 60%"}
+`"52"`, `FALSE`, `52`, `TRUE`, `"TRUE"`, `"FALSE"`, `"100"`, `0`, `1`, `FALSE`
+:::
+
+## Tipos de dados - Exercícios
+
+Chequem o `modo` de **cada um** dos seguintes elementos:
+
+::: {.columns style="font-size: 60%"}
+`"52"`, `FALSE`, `52`, `TRUE`, `"TRUE"`, `"FALSE"`, `"100"`, `0`, `1`, `FALSE`
+
+Exemplo:
+
+```{r}
+x <- 80 
+mode(x)
+```
+:::
+
+## Tipos de dados - Exercícios
+
+Chequem o `modo` de **cada um** dos seguintes elementos:
+
+::: {.columns style="font-size: 60%"}
+`"52"`, `FALSE`, `52`, `TRUE`, `"TRUE"`, `"FALSE"`, `"100"`, `0`, `1`, `FALSE`
+
+Exemplo:
+
+```{r}
+x <- 80 
+mode(x)
+```
+
+**Crie** um script chamado "**`script_01`**" no seu RProject (**`Curso-R-Labic-2026`,** que você clonou do GitHub)
+:::
+
+## Tipos de dados - Exercícios
+
+Chequem o `modo` de **cada um** dos seguintes elementos:
+
+::: {.columns style="font-size: 60%"}
+`"52"`, `FALSE`, `52`, `TRUE`, `"TRUE"`, `"FALSE"`, `"100"`, `0`, `1`, `FALSE`
+
+Exemplo:
+
+```{r}
+x <- 80  
+mode(x)
+```
+
+**Crie** um script chamado "**`script_01`**" no seu RProject (**`Curso-R-Labic-2026`,** que você clonou do GitHub)
+
+-   Quantos `numeric` tiveram?
+
+-   Quantos `character` tiveram?
+
+-   Quantos `logical` tiveram?
+:::
+
+## Tipos de dados - Exercícios
+
+Chequem o `modo` de **cada um** dos seguintes elementos:
+
+::: {.columns style="font-size: 60%"}
+`"52"`, `FALSE`, `52`, `TRUE`, `"TRUE"`, `"FALSE"`, `"100"`, `0`, `1`, `FALSE`
+
+Exemplo:
+
+```{r}
+x <- 80   
+mode(x)
+```
+
+**Crie** um script chamado "**`script_01`**" no seu RProject (**`Curso-R-Labic-2026`,** que você clonou do GitHub)
+
+-   Quantos `numeric` tiveram? **`3 (52, 0, 1)`**
+
+-   Quantos `character` tiveram? **`4 ("52", "TRUE", "FALSE", "100")`**
+
+-   Quantos `logical` tiveram? **`3 (TRUE, FALSE, FALSE)`**
+:::
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+:::: columns
+::: {.columns style="font-size: 80%"}
+Organização (**modos** e **dimensionalidade**) dos elementos dos objetos
+:::
+::::
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+::::::: columns
+:::::: {.columns style="font-size: 80%"}
+Organização (**modos** e **dimensionalidade**) dos elementos dos objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 70%"}
+**Modos (`numeric`, `character`, `logical`)**:
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+::::::: columns
+:::::: {.columns style="font-size: 80%"}
+Organização (**modos** e **dimensionalidade**) dos elementos dos objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 70%"}
+**Modos (`numeric`, `character`, `logical`)**:
+
+-   Homogeneos (1 unico **modo**):
+
+    **`vector`**, **`factor`**, **`matrix`**, **`array`**
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+::::::: columns
+:::::: {.columns style="font-size: 80%"}
+Organização (**modos** e **dimensionalidade**) dos elementos dos objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 70%"}
+**Modos (`numeric`, `character`, `logical`)**:
+
+-   Homogeneos (1 unico **modo**):
+
+    **`vector`**, **`factor`**, **`matrix`**, **`array`**
+
+-   Hererogeneros (vários **modos**):
+
+    **`data frame`** e **`list`**
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+#### Estruturas (*organização*): `vector`, `factor`, `list`, `matrix`, `data frame` e `array`
+
+::::::: columns
+:::::: {.columns style="font-size: 80%"}
+Organização (**modos** e **dimensionalidade**) dos elementos dos objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 70%"}
+**Modos (`numeric`, `character`, `logical`)**:
+
+-   Homogeneos (1 unico **modo**):
+
+    **`vector`**, **`factor`**, **`matrix`**, **`array`**
+
+-   Hererogeneros (vários **modos**):
+
+    **`data frame`** e **`list`**
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+**Dimensões**:\
+![](img/tipos_de_dados.png){width="500"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+amos <- c("amostra_1", "amostra_2", 
+          "amostra_3", "amostra_4", 
+          "amostra_5")
+amos
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+amos <- c("amostra_1", "amostra_2", 
+          "amostra_3", "amostra_4", 
+          "amostra_5")
+amos
+```
+
+```{r}
+se <- 1:10
+se
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+amos <- c("amostra_1", "amostra_2", 
+          "amostra_3", "amostra_4", 
+          "amostra_5")
+amos
+```
+
+```{r}
+se <- 1:10
+se
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+se.e <- seq(from = 0, to = 100, by = 10)
+se.e
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+amos <- c("amostra_1", "amostra_2", 
+          "amostra_3", "amostra_4", 
+          "amostra_5")
+amos
+```
+
+```{r}
+se <- 1:10
+se
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+se.e <- seq(from = 0, to = 100, by = 10)
+se.e
+```
+
+```{r}
+re.num.t <- rep(x = c(1,2), times = 5)
+re.num.t
+
+re.cha.t <- rep(x = c("a","b"), each = 5)
+re.cha.t
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+há diversas formas de se criar um:
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+temp <- c(30,32,34,34,35,32,30)
+temp
+
+```
+
+```{r}
+amos <- c("amostra_1", "amostra_2", 
+          "amostra_3", "amostra_4", 
+          "amostra_5")
+amos
+```
+
+```{r}
+se <- 1:10
+se
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+se.e <- seq(from = 0, to = 100, by = 10)
+se.e
+```
+
+```{r}
+re.num.t <- rep(x = c(1,2), times = 5)
+re.num.t
+
+re.cha.t <- rep(x = c("a","b"), each = 5)
+re.cha.t
+```
+
+```{r}
+am2 <- paste0("amostra_", 1:6, sep = "_0")
+am2
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ve <- c(1, TRUE, "a")
+mode(ve)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ve <- c(1, TRUE, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(1, TRUE)
+mode(ve)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ve <- c(1, TRUE, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(1, TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(1, "a")
+mode(ve)
+```
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ve <- c(1, TRUE, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(1, TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- mode(c("a", FALSE))
+ve
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+:::::: {.columns style="font-size: 80%"}
+**`vector`** : homogêneo (*um modo*) e unidimensional (**`uma dimensão`**)
+
+**E se misturarmos diferentes modos?**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+ve <- c("a", 1, TRUE)
+ve
+```
+
+```{r}
+ve <- c(1, "a", TRUE)
+mode(ve)
+```
+
+```{r}
+
+ve <- c(TRUE, 1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(TRUE, "a", 1)
+mode(ve)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ve <- c(1, TRUE, "a")
+mode(ve)
+```
+
+```{r}
+ve <- c(1, TRUE)
+mode(ve)
+```
+
+```{r}
+ve <- c(1, "a")
+mode(ve)
+```
+
+```{r}
+ve <- mode(c("a", FALSE))
+ve
+```
+:::
+
+`Coerção`: mudança do **modo** dos **para um mesmo modo** segue essa ordem:
+
+![](img/convers_dados.png){fig-align="center" width="800"}
+:::::
+::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.no <- factor(x = c("closed", "open", 
+                      "open", "open"),
+                levels = c("closed", "open"))
+fa.no
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.no <- factor(x = c("closed", "open", 
+                      "open", "open"),
+                levels = c("closed", "open"))
+fa.no
+```
+
+```{r}
+class(fa.no)
+levels(fa.no)
+mode(fa.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.no <- factor(x = c("closed", "open", 
+                      "open", "open"),
+                levels = c("closed", "open"))
+fa.no
+```
+
+```{r}
+class(fa.no)
+levels(fa.no)
+mode(fa.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+fa.or <- factor(x = c("alta", "media", 
+                      "baixa", "baixa", 
+                      "media", "alta"),
+                levels = c("baixa", "media", "alta"), 
+                ordered = TRUE)
+fa.or
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.no <- factor(x = c("closed", "open", 
+                      "open", "open"),
+                levels = c("closed", "open"))
+fa.no
+```
+
+```{r}
+class(fa.no)
+levels(fa.no)
+mode(fa.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+fa.or <- factor(x = c("alta", "media", 
+                      "baixa", "baixa", 
+                      "media", "alta"),
+                levels = c("baixa", "media", "alta"), 
+                ordered = TRUE)
+fa.or
+```
+
+```{r}
+class(fa.or)
+levels(fa.or)
+mode(fa.or)
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10)) 
+fa.num.no
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10)) 
+fa.num.no
+```
+
+```{r}
+class(fa.num.no)
+levels(fa.num.no)
+mode(fa.num.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10)) 
+fa.num.no
+```
+
+```{r}
+class(fa.num.no)
+levels(fa.num.no)
+mode(fa.num.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+fa.num.or <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10), ordered = TRUE) 
+fa.num.or
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+**`factor`** : homogêneo (*sempre numeric*), unidimensional (**`uma dimensão`**), e possui ainda `levels` (níveis).
+
+Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordinal`**
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+**Váriaveis nominais**
+
+```{r}
+fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10)) 
+fa.num.no
+```
+
+```{r}
+class(fa.num.no)
+levels(fa.num.no)
+mode(fa.num.no)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+**Variáveis ordinais**
+
+```{r}
+fa.num.or <- factor(x = c(1, 1, 1, 2, 3, 4,
+                          6, 10, 10, 10, 5),
+                    levels = c(1:10), ordered = TRUE) 
+fa.num.or
+```
+
+```{r}
+class(fa.num.or)
+levels(fa.num.or)
+mode(fa.num.or)
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+class(ve.ch)
+mode(ve.ch)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+class(ve.ch)
+mode(ve.ch)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+para **`Factor`** nominal
+
+```{r}
+fa.no <- as.factor(ve.ch)
+fa.no
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+class(ve.ch)
+mode(ve.ch)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+para **`Factor`** nominal
+
+```{r}
+fa.no <- as.factor(ve.ch)
+fa.no
+```
+
+```{r}
+class(fa.no)
+mode(fa.no)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+class(ve.ch)
+mode(ve.ch)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+para **`Factor`** nominal
+
+```{r}
+fa.no <- as.factor(ve.ch)
+fa.no
+```
+
+```{r}
+class(fa.no)
+mode(fa.no)
+```
+
+para **`Factor`** ordinal
+
+```{r}
+fa.or <- as.ordered(ve.ch)
+fa.or
+```
+
+```{r}
+
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+::::::: {.columns style="font-size: 70%"}
+::: {style="font-size: 80%"}
+Converter um `vector` character para **`factor`** nominal:
+:::
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+de **`Character`**
+
+```{r}
+ve.ch <- c("alta", "media", "baixa", "baixa", "media")
+ve.ch
+```
+
+```{r}
+class(ve.ch)
+mode(ve.ch)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+para **`Factor`** nominal
+
+```{r}
+fa.no <- as.factor(ve.ch)
+fa.no
+```
+
+```{r}
+class(fa.no)
+mode(fa.no)
+```
+
+para **`Factor`** ordinal
+
+```{r}
+fa.or <- as.ordered(ve.ch)
+fa.or
+```
+
+```{r}
+class(fa.or)
+mode(fa.or)
+```
+:::
+:::::
+:::::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 80%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::: {.columns style="font-size: 70%"}
+:::
+::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 80%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::: {.columns style="font-size: 70%"}
+-   A matrix representa os dados no formato de **tabela**, dispondo um `vetor` com `linhas` e `colunas`
+:::
+::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 80%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::: {.columns style="font-size: 70%"}
+-   A matrix representa os dados no formato de **tabela**, dispondo um `vetor` com `linhas` e `colunas`
+
+-   As **linhas** representam **unidades amostrais** (locais, transectos, parcelas) e as **coluncas** representam **variáveis quantitativas** (discretas ou contínuas) ou **descrições** (informações em texto)
+:::
+::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 80%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::: {.columns style="font-size: 70%"}
+-   A matrix representa os dados no formato de **tabela**, dispondo um `vetor` com `linhas` e `colunas`
+
+-   As **linhas** representam **unidades amostrais** (locais, transectos, parcelas) e as **coluncas** representam **variáveis quantitativas** (discretas ou contínuas) ou **descrições** (informações em texto)
+
+-   **O princípio da `Coerção` também se aplica aqui!**
+:::
+::::
+
+## Tipos de dados
+
+:::::::: {.columns style="font-size: 75%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::::::: columns
+:::::: {.columns width="50%"}
+**Duas** formas de fazer: **FORMA 1 - Dispondo elementos**
+
+::::: columns
+::: {.column width="50%"}
+Preenchimento por colunas - **vertical**
+
+```{r}
+ve <- 1:12 
+ma.col <- matrix(data = ve,                  
+                  nrow = 4,   
+                  ncol = 3,                   
+                  byrow = FALSE) 
+ma.col
+```
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+::::::::
+
+## Tipos de dados
+
+:::::::: {.columns style="font-size: 75%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::::::: columns
+:::::: {.columns width="50%"}
+**Duas** formas de fazer: **FORMA 1 - Dispondo elementos**
+
+::::: columns
+::: {.column width="50%"}
+Preenchimento por colunas - **vertical**
+
+```{r}
+ve <- 1:12 
+ma.col <- matrix(data = ve,                  
+                  nrow = 4,   
+                  ncol = 3,                   
+                  byrow = FALSE) 
+ma.col
+```
+:::
+
+::: {.column width="50%"}
+Preenchimento por colunas - **horizontal**
+
+```{r}
+ve <- 1:12 
+ma.row <- matrix(data = ve,                   
+                 nrow = 4,                   
+                 ncol = 3,                   
+                 byrow = TRUE) 
+ma.row 
+```
+:::
+:::::
+::::::
+:::::::
+::::::::
+
+## Tipos de dados
+
+:::::::: {.columns style="font-size: 75%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::::::: columns
+:::::: {.columns width="50%"}
+**Duas** formas de fazer: **FORMA 2 - Combinando vetores**
+
+::::: columns
+::: {.column width="50%"}
+Preenchimento por colunas - **vertical** **`rbind`**: *combina vetores por linha, i.e., vetor embaixo do outro*
+
+```{r}
+vec1 <- c(1, 2, 3)
+vec1
+vec2 <- c(4, 5, 6)
+vec2
+ma.rbind <- rbind(vec1, vec2)
+ma.rbind
+```
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+::::::::
+
+## Tipos de dados
+
+:::::::: {.columns style="font-size: 75%"}
+**`matrix`**: homogêneo, bidimensional (**`duas dimensões`**), e possui ainda `levels` (níveis).
+
+::::::: columns
+:::::: {.columns width="50%"}
+**Duas** formas de fazer: **FORMA 2 - Combinando vetores**
+
+::::: columns
+::: {.column width="50%"}
+Preenchimento por colunas - **vertical** **`rbind`**: *combina vetores por linha, i.e., vetor embaixo do outro*
+
+```{r}
+vec1 <- c(1, 2, 3)
+vec1
+vec2 <- c(4, 5, 6)
+vec2
+ma.rbind <- rbind(vec1, vec2)
+ma.rbind
+```
+:::
+
+::: {.column width="50%"}
+Preenchimento por colunas - **horizontal** **`cbind`**: *combina vetores por coluna, i.e., vetor ao lado do outro*
+
+```{r}
+vec1 <- c(1, 2, 3)
+vec1
+vec2 <- c(4, 5, 6)
+vec2
+ma.cbind <- cbind(vec1, vec2)
+ma.cbind
+```
+:::
+:::::
+::::::
+:::::::
+::::::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 70%"}
+**`array`**: homogêneo, multidimensional (**`mais que duas dimensões`**).
+
+::: columns
+-   array representa combinação de **tabelas**, com **`linhas`**, **`colunas`** e **`dimensões`**
+
+-   a `aplicação` de um procedimento em um `array` afeta `todas` as `dimensões` dele
+
+    ::::: columns
+    `array`: *dispõem um vetor em um certo número de linhas, colunas e dimensões*...
+
+    ::: {.column width="50%"}
+    ```{r}
+    ve <- 1:8
+    ve
+    ```
+    :::
+
+    ::: {.column width="50%"}
+    ```{r}
+    # 2 linhas, 2 colunas, 3 dimensões
+    ar <- array(data = ve, dim = c(2, 2, 3)) 
+    ar
+    ```
+    :::
+    :::::
+:::
+::::
+
+## Tipos de dados
+
+#### Até o momento nós vimos
+
+![](img/homogeneas.png){fig-align="center"}
+
+## Tipos de dados
+
+#### Agora veremos as estruturas heterogêneos
+
+![](img/homogeneas_heterogenea.png)
+
+## Tipos de dados
+
+::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+-   O data frame representa dados no formato de **tabela**, com `linhas` e `colunas`
+
+-   As `linhas` representam **unidades amostrais** (locais, transectos, parcelas) e as `colunas` representam **descrições** (informações em texto), **variáveis quantitativas** (discretas ou contínuas) e/ou **variáveis qualitativas** (nominais ou ordinais)
+:::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+
+```
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+df <- data.frame(vec.ch, vec.nu, vec.fa)
+df
+```
+
+```{r}
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+df <- data.frame(vec.ch, vec.nu, vec.fa)
+df
+str(df)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**.
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+df <- data.frame(vec.ch, vec.nu, vec.fa)
+df
+str(df)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#Também podemos informar/renomear o nome das colunas
+#nome novo = nome antigo
+df <- data.frame(especies = vec.ch, 
+                 abundancia = vec.nu, 
+                 vegetacao = vec.fa)
+df
+```
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**. Pórem, se usarmos o **`cbind`** **haverá** **`coerção`**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**. Pórem, se usarmos o **`cbind`** **haverá** **`coerção`**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+df <- cbind(vec.ch, vec.nu, vec.fa)
+df
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 80%"}
+`data frame` : heterogêneo (*mais de um* **`modo`**), bidimensional (**`duas dimensões`**).
+
+<br>
+
+:::::: {.columns style="font-size: 85%"}
+Há **uma forma** de se construir um **data frame** no R
+
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**. Pórem, se usarmos o **`cbind`** **haverá** **`coerção`**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+vec.ch <- c("sp1", "sp2", "sp3")
+vec.nu <- c(4, 5, 6)
+vec.fa <- factor(c("campo", "floresta", "floresta"))
+
+```
+
+```{r}
+df <- cbind(vec.ch, vec.nu, vec.fa)
+df
+```
+
+```{r}
+str(df)
+```
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+
+## Tipos de dados
+
+:::: {style="font-size: 80%"}
+`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+
+-   Tipo **especial de vetor** que aceita **objetos** como **elementos**
+-   Estrutura de dados utilizado para **agrupar objetos**
+-   É a **saída** de muitas funções que fazem **análises estatísticas**
+
+::: {.columns style="font-size: 85%"}
+
+```{r}
+li <- list(rep(1, 20), # vector
+           factor(1, 2, 3, 5, 99), # factor
+           cbind(c(1, 2), c(1, 2))) # matrix
+li
+```
+
+```{r}
+str(li)
+```
+:::
+::::
+
+## Tipos de dados - Exercícios
+
+::: columns
+<br>
+
+![](img/cat.gif){fig-align="center" width="400"}
+:::
+
+## Tipos de dados
+
+conversão de dados
+
+## Importação e exportação de dados
+
+#### Arquivos .txt, .csv, .xlsx
+
+## Manipulação de dados
+
+#### R básico
+
+## Manipulação de dados
+
+#### Pacote tidyverse e dplyr
+
+## Manipulação de dados
+
+#### Uso do operador pipe (%\>%)
+
+## Manipulação de dados
+
+#### Transformação de dados
+
+## Manipulação de dados
+
+#### Integração de múltiplos datasets
+
+## Visualização de dados
+
+#### Introdução ao ggplot2
+
+## Visualização de dados
+
+#### Tipos e customização de gráficos
+
+## Visualização de dados
+
+### Exportação de gráficos

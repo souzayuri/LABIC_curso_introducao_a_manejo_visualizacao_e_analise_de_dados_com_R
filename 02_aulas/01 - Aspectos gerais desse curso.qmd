@@ -34,11 +34,7 @@ lang: pt-br
 
 <strong> EXPERIÊNCIA </strong>
 
--   Bacharel em Ecologia<br>(UNESP, 2013-2016)
--   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
--   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
--   Mestre em Biologia<br>(University of Miami, 2022-2025)
--   Analista de Dados<br>(IPÊ/INCAB, 2025)
+
 :::
 ::::
 ::::::
@@ -46,6 +42,109 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
+
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+-   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
+
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+-   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
+-   Mestre em Biologia<br>(University of Miami, 2022-2025)
+
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
 
 ## Yuri Souza
 
@@ -65,7 +164,36 @@ lang: pt-br
 -   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
 -   Mestre em Biologia<br>(University of Miami, 2022-2025)
 -   Analista de Dados<br>(IPÊ/INCAB, 2025)
--   <strong> Não sou estátistico </strong>
+
+:::
+::::
+::::::
+
+::: footer
+<https://souzayuri.github.io/>
+:::
+
+
+
+## Yuri Souza
+
+:::::: columns
+::: {.column width="50%"}
+<center><br>![](img/avatar.jpg){style="border-radius: 50%" width="80%"}</center>
+:::
+
+:::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+<br>
+
+<strong> EXPERIÊNCIA </strong>
+
+-   Bacharel em Ecologia<br>(UNESP, 2013-2016)
+-   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
+-   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
+-   Mestre em Biologia<br>(University of Miami, 2022-2025)
+-   Analista de Dados<br>(IPÊ/INCAB, 2025)
+-   <strong> Não sou estátistico nem programador </strong>
 :::
 ::::
 ::::::
@@ -134,7 +262,7 @@ Your browser does not support the video tag. </video>
 :::: columns
 ::: {width="100%" style="font-size: 22px"}
 | Dia | Atividade |
-|----|----|
+|------------------------------------|------------------------------------|
 | <strong>Dia 01</strong> | Boas-vindas e apresentações |
 | <strong>Dia 01</strong> | Aula teórica 1: por que estudar dados em Ecologia? |
 | <strong>Dia 01</strong> | Aula teórica 1: introdução ao R, ambiente R e GitHub |
