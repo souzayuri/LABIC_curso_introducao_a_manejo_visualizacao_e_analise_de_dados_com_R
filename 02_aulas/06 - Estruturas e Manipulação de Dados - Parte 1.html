@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br"><head>
-<script src="06 - Estruturas e Manipulação de Dados_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/tabby.min.js"></script>
-<script src="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/popper.min.js"></script>
-<script src="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="06 - Estruturas e Manipulação de Dados_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/popper.min.js"></script>
+<script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content=" Yuri Souza">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,13 +95,13 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/dist/theme/quarto-db681e8cf5ce75a02abf7d79a08d6d97.css">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/dist/theme/quarto-db681e8cf5ce75a02abf7d79a08d6d97.css">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -2878,7 +2878,9 @@ vec2    4    5    6</code></pre>
 <li>Estrutura de dados utilizado para <strong>agrupar objetos</strong></li>
 <li>É a <strong>saída</strong> de muitas funções que fazem <strong>análises estatísticas</strong></li>
 </ul>
-<div class="columns" style="font-size: 80%">
+<div>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb442"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb442-1"><a href=""></a>li <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">20</span>), <span class="co"># vector</span></span>
 <span id="cb442-2"><a href=""></a>           <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), <span class="co"># factor</span></span>
@@ -2905,6 +2907,9 @@ Levels: 1 2 3 4 5
 3      sp3          6  floresta</code></pre>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
 </div>
 </div>
 </section>
@@ -3844,20 +3849,20 @@ Levels: Pasto Floresta Campo Urbano Rio
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="06 - Estruturas e Manipulação de Dados_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="06 - Estruturas e Manipulação de Dados - Parte 1_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

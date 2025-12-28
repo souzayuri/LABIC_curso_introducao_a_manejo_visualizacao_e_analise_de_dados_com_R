@@ -1,5 +1,5 @@
 ---
-title: "Estruturas e Manipulação de Dados<br><br>"
+title: "Estruturas e Manipulação de Dados  Parte 1<br><br>"
 subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
 author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
 date: "01/07/2026"
@@ -2568,6 +2568,35 @@ ma.cbind
 
     ::: {.column width="50%"}
     ```{r}
+
+    ```
+    :::
+    :::::
+:::
+::::
+
+## Tipos de dados
+
+:::: {.columns style="font-size: 70%"}
+**`array`**: homogêneo, multidimensional (**`mais que duas dimensões`**).
+
+::: columns
+-   array representa combinação de **tabelas**, com **`linhas`**, **`colunas`** e **`dimensões`**
+
+-   a `aplicação` de um procedimento em um `array` afeta `todas` as `dimensões` dele
+
+    ::::: columns
+    `array`: *dispõem um vetor em um certo número de linhas, colunas e dimensões*...
+
+    ::: {.column width="50%"}
+    ```{r}
+    ve <- 1:8
+    ve
+    ```
+    :::
+
+    ::: {.column width="50%"}
+    ```{r}
     # 2 linhas, 2 colunas, 3 dimensões
     ar <- array(data = ve, dim = c(2, 2, 3)) 
     ar
@@ -2849,8 +2878,8 @@ vec.fa <- factor(c("campo", "floresta", "floresta"))
 ```
 
 ```{r}
-df <- cbind(vec.ch, vec.nu, vec.fa)
-df
+df.cb <- cbind(vec.ch, vec.nu, vec.fa)
+df.cb
 ```
 
 ```{r}
@@ -2886,12 +2915,12 @@ vec.fa <- factor(c("campo", "floresta", "floresta"))
 ```
 
 ```{r}
-df <- cbind(vec.ch, vec.nu, vec.fa)
-df
+df.cb <- cbind(vec.ch, vec.nu, vec.fa)
+df.cb
 ```
 
 ```{r}
-str(df)
+str(df.cb)
 ```
 :::
 
@@ -2911,19 +2940,597 @@ str(df)
 -   É a **saída** de muitas funções que fazem **análises estatísticas**
 
 ::: {.columns style="font-size: 85%"}
-
 ```{r}
-li <- list(rep(1, 20), # vector
-           factor(1, 2, 3, 5, 99), # factor
-           cbind(c(1, 2), c(1, 2))) # matrix
-li
+
 ```
 
 ```{r}
-str(li)
+
 ```
 :::
 ::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 60%"}
+`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+
+-   Tipo **especial de vetor** que aceita **objetos** como **elementos**
+-   Estrutura de dados utilizado para **agrupar objetos**
+-   É a **saída** de muitas funções que fazem **análises estatísticas**
+
+<div>
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+li <- list(rep(1, 20), # vector
+           factor(1:5), # factor
+           cbind(c(1, 2), c(1, 2)),
+           df) # matrix
+li
+
+```
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+
+</div>
+:::::::
+## Tipos de dados
+
+::::::: {style="font-size: 60%"}
+`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+
+-   Tipo **especial de vetor** que aceita **objetos** como **elementos**
+-   Estrutura de dados utilizado para **agrupar objetos**
+-   É a **saída** de muitas funções que fazem **análises estatísticas**
+
+<div>
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+li <- list(rep(1, 20), # vector
+           factor(1:5), # factor
+           cbind(c(1, 2), c(1, 2)),
+           df) # matrix
+li
+
+```
+:::
+
+::: {.column width="50%"}
+Como acessar os elementos?
+
+```{r}
+li[[4]]
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+:::::
+
+</div>
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 60%"}
+`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+
+-   Tipo **especial de vetor** que aceita **objetos** como **elementos**
+-   Estrutura de dados utilizado para **agrupar objetos**
+-   É a **saída** de muitas funções que fazem **análises estatísticas**
+
+<div>
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+li <- list(rep(1, 20), # vector
+           factor(1:5), # factor
+           cbind(c(1, 2), c(1, 2)),
+           df) # matrix
+li
+
+```
+:::
+
+::: {.column width="50%"}
+Como acessar os elementos?
+
+```{r}
+li[[4]]
+
+```
+
+```{r}
+li[[1]]
+```
+
+```{r}
+
+```
+:::
+:::::
+
+</div>
+:::::::
+
+## Tipos de dados
+
+::::::: {style="font-size: 60%"}
+`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+
+-   Tipo **especial de vetor** que aceita **objetos** como **elementos**
+-   Estrutura de dados utilizado para **agrupar objetos**
+-   É a **saída** de muitas funções que fazem **análises estatísticas**
+
+<div>
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+li <- list(rep(1, 20), # vector
+           factor(1:5), # factor
+           cbind(c(1, 2), c(1, 2)),
+           df) # matrix
+li
+
+```
+:::
+
+::: {.column width="50%"}
+Como acessar os elementos?
+
+```{r}
+li[[4]]
+
+```
+
+```{r}
+li[[1]]
+```
+
+```{r}
+li[[2]]
+```
+:::
+:::::
+
+</div>
+:::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+::::: {.columns style="font-size: 60%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+:::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+::::: {.columns style="font-size: 60%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+char <- c("2009", "2010", "2012", "2015", "2026")
+char
+mode(char)
+
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+:::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+::::: {.columns style="font-size: 60%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+char <- c("2009", "2010", "2012", "2015", "2026")
+char
+mode(char)
+
+num <- as.numeric(char)
+num
+mode(num)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+:::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+::::: {.columns style="font-size: 60%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+char <- c("2009", "2010", "2012", "2015", "2026")
+char
+mode(char)
+
+num <- as.numeric(char)
+num
+mode(num)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+num <- c(2009, 2010, 2012, 2015, 2026)
+num
+mode(num)
+
+
+```
+:::
+:::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+::::: {.columns style="font-size: 60%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+char <- c("2009", "2010", "2012", "2015", "2026")
+char
+mode(char)
+
+num <- as.numeric(char)
+num
+mode(num)
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+num <- c(2009, 2010, 2012, 2015, 2026)
+num
+mode(num)
+
+char <- as.character(num)
+char
+mode(char)
+```
+:::
+:::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con <- df
+df.con
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con <- df
+df.con
+str(df.con)
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con <- df
+df.con
+str(df.con)
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con$abundancia <- as.character(df.con$abundancia)
+str(df.con)
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados
+
+#### conversão de dados
+
+:::::: {.columns style="font-size: 50%"}
+Podemos usar as funções como as:
+
+-   `as.numeric()`
+-   `as.character()`
+
+Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
+
+::::: {.columns style="font-size: 100%"}
+Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+
+A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con <- df
+df.con
+str(df.con)
+```
+:::
+
+::: {.column width="50%" style="font-size: 130%"}
+```{r}
+df.con$abundancia <- as.character(df.con$abundancia)
+str(df.con)
+
+df.con$abundancia <- as.numeric(df.con$abundancia)
+str(df.con)
+```
+:::
+:::::
+::::::
 
 ## Tipos de dados - Exercícios
 
@@ -2933,9 +3540,288 @@ str(li)
 ![](img/cat.gif){fig-align="center" width="400"}
 :::
 
-## Tipos de dados
+## Tipos de dados - Exercícios
 
-conversão de dados
+::: columns
+**Importante**: Deem nomes **diferentes** para os objetos
+
+-   Crie um `vector` `numeric` com **10 valores** (*slide 44*)
+
+-   Crie um **factor** representando **5 habitats** (*slide 59*)
+
+-   Crie uma `matrix` **3 × 2** com números de 1 a 9 (*slide 76*)
+
+-   Crie um `data frame` com **três colunas**: `ID,` `Habitat` e `Abundância`. (*slide 88*)
+
+-   Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*)
+:::
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 60%"}
+Importante: Deem nomes diferentes para os objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Crie um `vector` `numeric` com **10 valores** (*slide 44*)
+
+```{r}
+v.n <- 1:10
+v.n
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 60%"}
+Importante: Deem nomes diferentes para os objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Crie um `vector` `numeric` com **10 valores** (*slide 44*)
+
+```{r}
+v.n <- 1:10
+v.n
+```
+
+Crie um **factor** representando **5 habitats** (*slide 59*)
+
+```{r}
+f.c <- factor(x = c("Pasto", "Floresta", "Campo", "Urbano", "Rio", 
+                    "Pasto", "Floresta", "Campo", "Urbano", "Rio"),
+              levels = c("Pasto", "Floresta", "Campo", "Urbano", "Rio"))
+f.c
+```
+
+
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 60%"}
+Importante: Deem nomes diferentes para os objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Crie um `vector` `numeric` com **10 valores** (*slide 44*)
+
+```{r}
+v.n <- 1:10
+v.n
+```
+
+Crie um **factor** representando **5 habitats** (*slide 59*)
+
+```{r}
+f.c <- factor(x = c("Pasto", "Floresta", "Campo", "Urbano", "Rio", 
+                    "Pasto", "Floresta", "Campo", "Urbano", "Rio"),
+              levels = c("Pasto", "Floresta", "Campo", "Urbano", "Rio"))
+f.c
+```
+
+Crie uma `matrix` **3 × 2** com números de 1 a 9 (*slide 76*)
+
+```{r}
+m.n <- matrix(data = 1:9, nrow = 3, ncol = 2)
+m.n
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 60%"}
+Importante: Deem nomes diferentes para os objetos
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Crie um `vector` `numeric` com **10 valores** (*slide 44*)
+
+```{r}
+v.n <- 1:10
+v.n
+```
+
+Crie um **factor** representando **5 habitats** (*slide 59*)
+
+```{r}
+f.c <- factor(x = c("Pasto", "Floresta", "Campo", "Urbano", "Rio", 
+                    "Pasto", "Floresta", "Campo", "Urbano", "Rio"),
+              levels = c("Pasto", "Floresta", "Campo", "Urbano", "Rio"))
+f.c
+```
+
+Crie uma `matrix` **3 × 2** com números de 1 a 9 (*slide 76*)
+
+```{r}
+m.n <- matrix(data = 1:9, nrow = 3, ncol = 2)
+m.n
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+Crie um `data frame` com **três colunas**: `ID,` `Habitat` e `Abundância`. (*slide 88*)
+
+```{r}
+df.tc <- data.frame(ID = 1:5,
+                    Habitat = f.c,
+                    Abundancia = c(12, 8, 15, 3, 10))
+df.tc
+```
+:::
+:::::
+::::::
+
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 70%"}
+Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 70%"}
+Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+l.todos <- list(v.n, f.c, m.n, df.tc)
+l.todos
+```
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 70%"}
+Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+l.todos <- list(v.n, f.c, m.n, df.tc)
+l.todos
+```
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+# Selecionando um elemento para visualização
+l.todos[[4]]
+
+
+```
+:::
+:::::
+::::::
+
+## Tipos de dados - Exercícios
+
+:::::: {.columns style="font-size: 70%"}
+Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*)
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+l.todos <- list(v.n, f.c, m.n, df.tc)
+l.todos
+```
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+# Selecionando um elemento para visualização
+l.todos[[4]]
+
+# Extraindo esse elemento para um arquivo individual
+df.m <- l.todos[[4]]
+str(df.m)
+
+```
+:::
+:::::
+::::::
+
 
 ## Importação e exportação de dados
 
