@@ -1,0 +1,714 @@
+---
+title: "Estruturas e Manipulação de Dados  Parte 2<br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/08/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Importação e exportação de dados
+
+#### FAÇAM JUNTO COMIGO!!!
+
+::: {.columns style="font-size:70%"}
+-   Criem um **novo script** na **sua pasta** ou na **pasta do curso** que baixaram do **GitHub**.
+
+-   Coloquem ele dentro da pasta `00_scripts`
+
+-   Ambas devem estar no **disco** `C:/`
+
+-   **Se** forem **usar a sua pasta**, **copiem** os arquivos que estão dentro da pasta `01_dados` da pasta
+
+`LABIC_curso_introducao_a_manejo_visualizacao_e_analise_de_dados_com_R`
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 55%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Abrindo **`.txt`**
+
+-   Precisa **definir** como os **dados estão separados** = `sep = "\t"`
+-   Precisa definir que quer mostrar o **cabeçalho das colunas =** `header = TRUE`
+
+```{r}
+# indicar o caminho, usem a tecla tab 
+# e o R ira listar tudo que existe no diretório
+dados.txt <- read.table("../01_dados/biota_all_variables-2025-12-28.txt", 
+                    sep = "\t",
+                    header = TRUE)
+
+dim(dados.txt) # mostra número de linhas e de colunas
+
+```
+
+**IMPORTANTE**: vocês **não precisam usar** o `'../'` no **caminho** de vocês, **apenas eu preciso** por ser parte da estrutura de se fazer apresentações no R. **`Não se preocupem com isso`**!
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 55%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Abrindo **`.txt`**
+
+-   Precisa **definir** como os **dados estão separados** = `sep = "\t"`
+-   Precisa definir que quer mostrar o **cabeçalho das colunas =** `header = TRUE`
+
+```{r}
+# indicar o caminho, usem a tecla tab 
+# e o R ira listar tudo que existe no diretório
+dados.txt <- read.table("../01_dados/biota_all_variables-2025-12-28.txt", 
+                    sep = "\t",
+                    header = TRUE)
+
+head(dados.txt, n = 5) # mostra as primeiras 5 linhas
+```
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 57%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Abrindo **`.csv`**
+
+-   Por **padrão** as colunas são **separadas por** **`","`**
+-   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçario (**`header = TRUE`**)
+-   No entanto, **no Brasil separamos** por `";"`, por isso **usamos** **`read.csv2()`** ao invés de **`read.csv()`**
+
+```{r}
+# indicar o caminho, usem a tecla tab 
+# e o R ira listar tudo que existe no diretório
+dados.csv <- read.csv("../01_dados/biota_all_variables-2025-12-28.csv")
+
+dim(dados.csv) # mostra número de linhas e de colunas
+
+```
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 57%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Abrindo **`.csv`**
+
+-   Por **padrão** as colunas são **separadas por** **`","`**
+-   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçario (**`header = TRUE`**)
+-   No entanto, **no Brasil separamos** por `";"`, por isso **usamos** **`read.csv2()`** ao invés de **`read.csv()`**
+
+```{r}
+# indicar o caminho, usem a tecla tab 
+# e o R ira listar tudo que existe no diretório
+dados.csv <- read.csv("../01_dados/biota_all_variables-2025-12-28.csv")
+
+head(dados.csv, n = 5) # mostra as 5 primeiras linhas
+```
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 80%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Exportando `.txt` e `.csv`
+
+```{r}
+write.table(dados.txt, "../01_dados/dados.txt")
+
+
+
+```
+:::
+
+## Importação e exportação de dados
+
+::: {.columns style="font-size: 80%"}
+Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
+
+#### Exportando `.txt` e `.csv`
+
+```{r}
+write.table(dados.txt, "../01_dados/dados.txt")
+
+write.csv(dados.csv, "../01_dados/dados.csv")
+
+```
+:::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Estrutura e Inspeção**
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Estrutura e Inspeção**
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar nome das colunas
+colnames(dados.csv)
+
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Estrutura e Inspeção**
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar nome das colunas
+colnames(dados.csv)
+
+#checar nome das linhas
+rownames(dados.csv)
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Estrutura e Inspeção**
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar nome das colunas
+colnames(dados.csv)
+
+#checar nome das linhas
+rownames(dados.csv)
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar a classe do objeto
+class(dados.csv)
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Estrutura e Inspeção**
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar nome das colunas
+colnames(dados.csv)
+
+#checar nome das linhas
+rownames(dados.csv)
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 60%"}
+```{r}
+
+#checar a classe do objeto
+class(dados.csv)
+
+# resumo estatístico de cada coluna
+summary(dados.csv)
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+:::::: columns
+::::: columns
+#### **Operadores**
+
+criam condições
+
+::: {.column width="50%" style="font-size: 80%"}
+**Operador Relacional**
+
+| `<`  | **menor que**      |
+|------|--------------------|
+| `>`  | **maior que**      |
+| `<=` | **menor ou igual** |
+| `>=` | **maior ou igual** |
+| `==` | **igual**          |
+| `!=` | **diferentes**     |
+|      |                    |
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+:::::: columns
+::::: columns
+#### **Operadores**
+
+criam condições
+
+::: {.column width="50%" style="font-size: 80%"}
+**Operador Relacional**
+
+| `<`  | **menor que**      |
+|------|--------------------|
+| `>`  | **maior que**      |
+| `<=` | **menor ou igual** |
+| `>=` | **maior ou igual** |
+| `==` | **igual**          |
+| `!=` | **diferentes**     |
+|      |                    |
+:::
+
+::: {.column width="50%" style="font-size: 80%"}
+**Operador Lógico**
+
+| `!` | **não/exceto** |
+|-----|----------------|
+| `&` | **e**          |
+| `|` | **e/ou**       |
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+```{r}
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+head(dados.csv[,1], n = 5)
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+head(dados.csv[,1], n = 5)
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `subset()` para selecionar linhas **filtrando** por um atributo
+
+```{r}
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+head(dados.csv[,1], n = 5)
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `subset()` para selecionar linhas **filtrando** por um atributo
+
+```{r}
+
+subset(dados.csv, Location == "ITA")
+
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+head(dados.csv[,1], n = 5)
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `subset()` para selecionar linhas **filtrando** por um atributo
+
+```{r}
+
+subset(dados.csv, Location == "ITA")
+
+dim(subset(dados.csv, Location == "ITA"))
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::: {.columns style="font-size: 80%"}
+#### **Seleção e Filtragem**
+
+Usar **`which()`** descobrir as **posições** dos elementos **baseados** em **condições**
+
+```{r}
+
+```
+:::
+
+## Manipulação de dados - R Básico
+
+::: {.columns style="font-size: 80%"}
+#### **Seleção e Filtragem**
+
+Usar **`which()`** descobrir as **posições** dos elementos **baseados** em **condições**
+
+```{r}
+which(dados.csv$Richness > 10)
+
+
+```
+:::
+
+## Manipulação de dados - R Básico
+
+::: {.columns style="font-size: 80%"}
+#### **Seleção e Filtragem**
+
+Usar **`which()`** descobrir as **posições** dos elementos **baseados** em **condições**
+
+```{r}
+which(dados.csv$Richness > 10)
+
+
+which(dados.csv$Location == "ITA")
+
+
+```
+:::
+
+## Manipulação de dados - R Básico
+
+::: {.columns style="font-size: 80%"}
+#### **Seleção e Filtragem**
+
+Usar **`which()`** descobrir as **posições** dos elementos **baseados** em **condições**
+
+```{r}
+which(dados.csv$Richness > 10)
+
+
+which(dados.csv$Location == "CBO")
+
+```
+
+Usar operador `&` para implicar uma **condição dupla**
+
+```{r}
+
+which(dados.csv$Location == "CBO" & dados.csv$Richness > 10)
+```
+:::
+
+## Manipulação de dados
+
+::: {.columns style="font-size: 80%"}
+#### Ordenação
+
+`sort()` **ordenar** **um vetor**
+
+```{r}
+x <- c(10,1,11,23,4,6,5,8)  
+sort(x) 
+
+
+```
+:::
+
+## Manipulação de dados
+
+::: {.columns style="font-size: 80%"}
+#### Ordenação
+
+`sort()` **ordenar** **um vetor**
+
+```{r}
+x <- c(10,1,11,23,4,6,5,8)  
+sort(x) 
+
+sort(dados.csv$Date)
+
+```
+:::
+
+## Manipulação de dados
+
+::: {.columns style="font-size: 80%"}
+#### Ordenação
+
+`order()` ordena baseado na **posição** dos elementos.
+
+Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
+
+```{r}
+x <- c(10,1,11,23,4,6,5,8)
+order(x)
+
+```
+:::
+
+## Manipulação de dados
+
+::: {.columns style="font-size: 80%"}
+#### Ordenação
+
+`order()` ordena baseado na **posição** dos elementos.
+
+Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
+
+```{r}
+x <- c(10,1,11,23,4,6,5,8)  
+order(x)  
+
+dados.csv[order(dados.csv$Date), ] 
+```
+:::
+
+## Manipulação de dados
+
+#### Transformação de Dados
+
+## Manipulação de dados
+
+#### Valores Ausentes
+
+## Manipulação de dados
+
+**Valores Únicos e Duplicados**
+
+## Manipulação de dados
+
+**Aplicação de Funções**
+
+## Manipulação de dados
+
+#### Pacote tidyverse e dplyr
+
+## Manipulação de dados
+
+#### Uso do operador pipe (%\>%)
+
+## Manipulação de dados
+
+#### Transformação de dados
+
+## Manipulação de dados
+
+#### Integração de múltiplos datasets
+
+## Visualização de dados
+
+#### Introdução ao ggplot2
+
+## Visualização de dados
+
+#### Tipos e customização de gráficos
+
+## Visualização de dados
+
+### Exportação de gráficos

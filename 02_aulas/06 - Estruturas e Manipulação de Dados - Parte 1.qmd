@@ -1,8 +1,8 @@
 ---
-title: "Estruturas e Manipulação de Dados  Parte 1<br><br>"
+title: "Estruturas e Manipulação de Dados  Parte 1<br>"
 subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
 author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
-date: "01/07/2026"
+date: "01/08/2026"
 date-format: long
 format: 
   revealjs:
@@ -2974,8 +2974,6 @@ li
 :::
 
 ::: {.column width="50%"}
-
-
 ```{r}
 
 
@@ -2993,6 +2991,7 @@ li
 
 </div>
 :::::::
+
 ## Tipos de dados
 
 ::::::: {style="font-size: 60%"}
@@ -3570,13 +3569,9 @@ v.n <- 1:10
 v.n
 ```
 
-
-
 ```{r}
 
 ```
-
-
 
 ```{r}
 
@@ -3584,8 +3579,6 @@ v.n
 :::
 
 ::: {.column width="50%" style="font-size: 100%"}
-
-
 ```{r}
 
 ```
@@ -3616,23 +3609,18 @@ f.c <- factor(x = c("Pasto", "Floresta", "Campo", "Urbano", "Rio",
 f.c
 ```
 
-
-
 ```{r}
 
 ```
 :::
 
 ::: {.column width="50%" style="font-size: 100%"}
-
-
 ```{r}
 
 ```
 :::
 :::::
 ::::::
-
 
 ## Tipos de dados - Exercícios
 
@@ -3666,15 +3654,12 @@ m.n
 :::
 
 ::: {.column width="50%" style="font-size: 100%"}
-
-
 ```{r}
 
 ```
 :::
 :::::
 ::::::
-
 
 ## Tipos de dados - Exercícios
 
@@ -3720,7 +3705,6 @@ df.tc
 :::::
 ::::::
 
-
 ## Tipos de dados - Exercícios
 
 :::::: {.columns style="font-size: 70%"}
@@ -3734,8 +3718,6 @@ Agora **reúna todos os objetos** criados **em uma única** `list()` (*slide 96*
 :::
 
 ::: {.column width="50%"}
-
-
 ```{r}
 
 
@@ -3758,8 +3740,6 @@ l.todos
 :::
 
 ::: {.column width="50%"}
-
-
 ```{r}
 
 ```
@@ -3781,8 +3761,6 @@ l.todos
 :::
 
 ::: {.column width="50%"}
-
-
 ```{r}
 # Selecionando um elemento para visualização
 l.todos[[4]]
@@ -3807,8 +3785,6 @@ l.todos
 :::
 
 ::: {.column width="50%"}
-
-
 ```{r}
 # Selecionando um elemento para visualização
 l.todos[[4]]
@@ -3821,40 +3797,3 @@ str(df.m)
 :::
 :::::
 ::::::
-
-
-## Importação e exportação de dados
-
-#### Arquivos .txt, .csv, .xlsx
-
-## Manipulação de dados
-
-#### R básico
-
-## Manipulação de dados
-
-#### Pacote tidyverse e dplyr
-
-## Manipulação de dados
-
-#### Uso do operador pipe (%\>%)
-
-## Manipulação de dados
-
-#### Transformação de dados
-
-## Manipulação de dados
-
-#### Integração de múltiplos datasets
-
-## Visualização de dados
-
-#### Introdução ao ggplot2
-
-## Visualização de dados
-
-#### Tipos e customização de gráficos
-
-## Visualização de dados
-
-### Exportação de gráficos
