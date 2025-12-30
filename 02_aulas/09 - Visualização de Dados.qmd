@@ -1,5 +1,5 @@
 ---
-title: "Estruturas e Manipulação de Dados  Parte 4<br>"
+title: "Visualização de Dados<br>"
 subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
 author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
 date: "01/08/2026"
@@ -20,6 +20,50 @@ format:
 editor: source
 lang: pt-br
 ---
+
+## Até agora nós vimos:
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%"}
+-   **Introdução ao R e RStudio**
+
+    -   Instalação e configuração dos ambientes
+
+    -   Criação de projetos (`RProjects`)
+
+    -   Comandos básicos de R
+
+-   **Introdução ao Git e GitHub**
+
+    -   Instalação e configuração
+
+    -   Clonagem e criação de repositórios
+
+    -   Integração entre RStudio e GitHub
+
+    -   Upload de arquivos via *`commits`*
+:::
+
+::: {.column width="50%"}
+-   Tipos de Dados
+
+    -   Numéricos, caracteres, lógicos, fatores, binários
+
+    -   Vetores, data frames e listas
+
+-   **Importação e Exportação de Dado**s
+
+    -   Arquivos `.txt,` `.csv`
+
+-   **Manipulação de Dados o R básico**
+
+-   **Pacote tidyverse**
+
+    -   Uso do operador pipe (`%>%`)
+
+    -   Transformação de dados o Integração de múltiplos datasets
+:::
+:::::
 
 ## Visualização de dados
 
@@ -102,6 +146,7 @@ glimpse(dados)
 
 ::: {style="font-size: 70%"}
 **Relação entre duas variáveis contínuas**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -119,6 +164,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Adicionar terceira variável com cores**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -137,6 +183,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Variar tamanho dos pontos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -156,6 +203,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Ajustar transparência para sobreposição**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -175,6 +223,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Adicionar linha de tendência**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -195,6 +244,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Séries temporais ou sequenciais**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -216,6 +266,7 @@ dados %>%
 
 ::: {style="font-size: 70%"}
 **Linhas + pontos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -238,6 +289,7 @@ dados %>%
 
 ::: {style="font-size: 70%"}
 **Valores já calculados**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -258,6 +310,7 @@ dados %>%
 
 ::: {style="font-size: 70%"}
 **Contagem automática**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -277,6 +330,7 @@ ggplot(dados, aes(x = Location)) +
 
 ::: {style="font-size: 70%"}
 **Adicionar preenchimento por categoria**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -294,6 +348,7 @@ ggplot(dados, aes(x = Location,
 
 ::: {style="font-size: 70%"}
 **Posição dodge**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -311,6 +366,7 @@ ggplot(dados, aes(x = Location,
 
 ::: {style="font-size: 70%"}
 **Distribuição de uma variável contínua**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -327,6 +383,7 @@ ggplot(dados, aes(x = Richness)) +
 
 ::: {style="font-size: 70%"}
 **Controlar largura das barras**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -348,6 +405,7 @@ ggplot(dados, aes(x = Richness)) +
 
 ::: {style="font-size: 70%"}
 **Comparar distribuições**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -367,6 +425,7 @@ ggplot(dados, aes(x = Richness,
 
 ::: {style="font-size: 70%"}
 **Distribuição suavizada**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -386,6 +445,7 @@ ggplot(dados, aes(x = Richness,
 
 ::: {style="font-size: 70%"}
 **Distribuição e valores atípicos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -403,6 +463,7 @@ ggplot(dados, aes(x = Treatment,
 
 ::: {style="font-size: 70%"}
 **Combinar com dados brutos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -425,6 +486,7 @@ ggplot(dados, aes(x = Treatment,
 
 ::: {style="font-size: 70%"}
 **Densidade + boxplot**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -464,6 +526,7 @@ ggplot(dados, aes(x = Treatment,
 
 ::: {style="font-size: 70%"}
 **Média e desvio padrão**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -489,6 +552,7 @@ dados %>%
 
 ::: {style="font-size: 70%"}
 **Alternativa com pontos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -513,6 +577,7 @@ dados %>%
 
 ::: {style="font-size: 70%"}
 **Painéis por uma variável**
+
 ```{r}
 #| output-location: column
 #| fig-width: 6
@@ -532,6 +597,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Painéis por duas variáveis**
+
 ```{r}
 #| output-location: column
 #| fig-width: 6
@@ -552,6 +618,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Títulos e rótulos dos eixos**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -577,6 +644,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Limites e quebras**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -602,6 +670,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Definir paleta personalizada**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -625,6 +694,7 @@ ggplot(dados, aes(x = Treatment,
 
 ::: {style="font-size: 70%"}
 **Paletas acessíveis e bonitas**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -647,6 +717,7 @@ ggplot(dados, aes(x = Elevation,
 
 ::: {style="font-size: 70%"}
 **Paletas categóricas**
+
 ```{r}
 #| output-location: column
 #| fig-width: 5
@@ -751,6 +822,7 @@ ggplot(dados, aes(x = Treatment,
 
 ::: {style="font-size: 70%"}
 **Exportar gráficos**
+
 ```{r eval = FALSE}
 # Criar gráfico
 p <- ggplot(dados, aes(x = Elevation, y = Richness)) +
