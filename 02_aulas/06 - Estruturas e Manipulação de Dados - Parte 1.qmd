@@ -584,10 +584,10 @@ lang: pt-br
 
 ###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
 
-###### Modos (*natureza*) são **três**:
+Modos (*natureza*) são **três**:
 
-::: {.columns style="font-size: 60%"}
--   numeric (`número`, inteiros ou não):
+::: {.columns style="font-size: 50%"}
+-   `numeric` (`número`, inteiros ou não):
 
     ```{r}
     # str() é uma função nativa do R usada para checar a estrutura de algo. 
@@ -602,10 +602,10 @@ lang: pt-br
 
 ###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
 
-###### Modos (*natureza*) são **três**:
+Modos (*natureza*) são **três**:
 
-::: {.columns style="font-size: 60%"}
--   numeric (`número`, inteiros ou não):
+::: {.columns style="font-size: 50%"}
+-   `numeric` (`número`, inteiros ou não):
 
     ```{r}
     # str() é uma função nativa do R usada para checar a estrutura de algo.  
@@ -614,7 +614,7 @@ lang: pt-br
     str(x)  
     ```
 
--   character (`texto`). Tudo entre aspas é considerado texto.
+-   `character` (`texto`). Tudo entre aspas é considerado texto.
 
     ```{r}
     y <- "espécie" 
@@ -626,10 +626,10 @@ lang: pt-br
 
 ###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
 
-###### Modos (*natureza*) são **três**:
+Modos (*natureza*) são **três**:
 
-::: {.columns style="font-size: 60%"}
--   numeric (`número`, inteiros ou não):
+::: {.columns style="font-size: 50%"}
+-   `numeric` (`número`, inteiros ou não):
 
     ```{r}
     # str() é uma função nativa do R usada para checar a estrutura de algo.  
@@ -638,18 +638,56 @@ lang: pt-br
     str(x)  
     ```
 
--   character (`texto`). Tudo entre aspas é considerado texto.
+-   `character` (`texto`). Tudo entre aspas é considerado texto.
 
     ```{r}
     y <- "espécie" 
     str(y)
     ```
 
--   logical (`lógico`) - ou `TRUE` ou `FALSE`
+-   `logical` (`lógico`) - ou `TRUE` ou `FALSE`
 
     ```{r}
     z <- TRUE 
     mode(z)
+    ```
+:::
+
+## Tipos de dados
+
+###### A **natureza** dos **elementos** irá definir os **modos** dos objetos
+
+Modos (*natureza*) são **três**:
+
+::: {.columns style="font-size: 50%"}
+-   `numeric` (`número`, inteiros ou não):
+
+    ```{r}
+    # str() é uma função nativa do R usada para checar a estrutura de algo.  
+    # Tbm poderia usar mode(), que só mostraria o modo. 
+    x <- 1 
+    str(x)  
+    ```
+
+-   `character` (`texto`). Tudo entre aspas é considerado texto.
+
+    ```{r}
+    y <- "espécie" 
+    str(y)
+    ```
+
+-   `logical` (`lógico`) - ou `TRUE` ou `FALSE`
+
+    ```{r}
+    z <- TRUE 
+    mode(z)
+    ```
+
+-   `NA`, um **valor especial** que representa “ausência de informação” (`missing value`). O R **considera** ele como um `logical`
+
+    ```{r}
+    n <- NA
+    mode(n)
     ```
 :::
 
@@ -3536,6 +3574,32 @@ str(df.con)
 :::
 :::::
 ::::::
+
+## Tipos de dados
+
+#### Checar elementos únicos
+
+::: columns
+`unique()` checa quantos **elementos unicos** existem em uma `coluna`
+Retorna um `vector` com os elementos únicos daquela coluna
+
+```{r}
+
+```
+:::
+
+## Tipos de dados
+
+#### Checar elementos únicos
+
+::: columns
+`unique()` checa quantos **elementos unicos** existem em uma `coluna`
+Retorna um `vector` com os elementos únicos daquela coluna
+
+```{r}
+unique(df$especies)
+```
+:::
 
 ## Tipos de dados - Exercícios
 
