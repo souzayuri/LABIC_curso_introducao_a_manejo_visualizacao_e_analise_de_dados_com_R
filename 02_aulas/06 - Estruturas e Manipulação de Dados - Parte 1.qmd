@@ -3018,6 +3018,8 @@ li
 ::: {.column width="50%"}
 Como acessar os elementos?
 
+**`Indexação []`**
+
 ```{r}
 li[[4]]
 
@@ -3061,6 +3063,8 @@ li
 
 ::: {.column width="50%"}
 Como acessar os elementos?
+
+**`Indexação []`**
 
 ```{r}
 li[[4]]
@@ -3105,6 +3109,8 @@ li
 
 ::: {.column width="50%"}
 Como acessar os elementos?
+
+**`Indexação []`**
 
 ```{r}
 li[[4]]
@@ -3797,3 +3803,5 @@ str(df.m)
 :::
 :::::
 ::::::
+
+## 

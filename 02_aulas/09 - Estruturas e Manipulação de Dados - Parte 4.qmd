@@ -1,0 +1,854 @@
+---
+title: "Estruturas e Manipulação de Dados  Parte 4<br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/08/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Visualização de dados
+
+#### `ggplot2`
+
+::: {style="font-size: 70%"}
+-   Pacote para **criação de gráficos** no R
+
+-   Baseado na **Gramática de Gráficos** (*Grammar of Graphics*)
+
+-   Constrói gráficos em **camadas**
+
+-   Parte do **tidyverse**, funciona perfeitamente com o `%>%`
+
+-   Altamente **customizável** e com aparência **profissional**
+
+![](img/ggplot2_logo.png){fig-align="center" width="300"}
+:::
+
+## Visualização de dados
+
+#### Gramática de Gráficos
+
+::: {style="font-size: 70%"}
+**Estrutura em camadas**
+
+1.  **Dados** (`data`): o dataset a ser visualizado
+
+2.  **Estética** (`aes`): mapeamento de variáveis para elementos visuais (x, y, cor, forma)
+
+3.  **Geometria** (`geom`): tipo de gráfico (pontos, linhas, barras)
+
+4.  **Facetas** (`facet`): dividir em painéis
+
+5.  **Temas** (`theme`): aparência geral do gráfico
+
+-   Cada camada é **adicionada** com o operador `+`
+:::
+
+## Visualização de dados
+
+```{r echo=FALSE}
+library(tidyverse)
+```
+
+#### Estrutura básica
+
+::: {style="font-size: 70%"}
+```{r eval = FALSE}
+ggplot(data = dados, mapping = aes(x = variavel_x, y = variavel_y)) +
+  geom_point()
+```
+
+-   `ggplot()`: cria a **base** do gráfico
+
+-   `aes()`: define o **mapeamento estético** (quais variáveis usar)
+
+-   `geom_*()`: define a **geometria** (tipo de gráfico)
+
+-   Camadas são unidas com `+` (não `%>%`)
+:::
+
+## Visualização de dados
+
+#### Preparando os dados
+
+::: {style="font-size: 70%"}
+```{r}
+# Carregar dados
+dados <- read_csv("../01_dados/biota_diversidade.csv")
+
+# Visualizar estrutura
+glimpse(dados)
+```
+:::
+
+## Gráfico de dispersão
+
+#### `geom_point()`
+
+::: {style="font-size: 70%"}
+**Relação entre duas variáveis contínuas**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation, 
+                  y = Richness)) +
+  geom_point()
+```
+:::
+
+## Gráfico de dispersão
+
+#### `geom_point()` - cores
+
+::: {style="font-size: 70%"}
+**Adicionar terceira variável com cores**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation, 
+                  y = Richness,
+                  color = Treatment)) +
+  geom_point()
+```
+:::
+
+## Gráfico de dispersão
+
+#### `geom_point()` - tamanho
+
+::: {style="font-size: 70%"}
+**Variar tamanho dos pontos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation, 
+                  y = Richness,
+                  color = Treatment,
+                  size = Abundance)) +
+  geom_point()
+```
+:::
+
+## Gráfico de dispersão
+
+#### `geom_point()` - transparência
+
+::: {style="font-size: 70%"}
+**Ajustar transparência para sobreposição**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation, 
+                  y = Richness,
+                  color = Treatment)) +
+  geom_point(alpha = 0.6, 
+             size = 3)
+```
+:::
+
+## Gráfico de dispersão
+
+#### `geom_smooth()`
+
+::: {style="font-size: 70%"}
+**Adicionar linha de tendência**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation, 
+                  y = Richness)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+-   `method = "lm"`: regressão linear
+:::
+
+## Gráfico de linhas
+
+#### `geom_line()`
+
+::: {style="font-size: 70%"}
+**Séries temporais ou sequenciais**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+dados %>% 
+  group_by(Date, Treatment) %>% 
+  summarise(Richness_mean = mean(Richness)) %>% 
+  ggplot(aes(x = Date, 
+             y = Richness_mean,
+             color = Treatment)) +
+  geom_line()
+```
+:::
+
+## Gráfico de linhas
+
+#### Combinando geometrias
+
+::: {style="font-size: 70%"}
+**Linhas + pontos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+dados %>% 
+  group_by(Date, Treatment) %>% 
+  summarise(Richness_mean = mean(Richness)) %>% 
+  ggplot(aes(x = Date, 
+             y = Richness_mean,
+             color = Treatment)) +
+  geom_line() +
+  geom_point()
+```
+:::
+
+## Gráfico de barras
+
+#### `geom_col()`
+
+::: {style="font-size: 70%"}
+**Valores já calculados**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+dados %>% 
+  group_by(Location) %>% 
+  summarise(Richness_mean = mean(Richness)) %>% 
+  ggplot(aes(x = Location, 
+             y = Richness_mean)) +
+  geom_col()
+```
+:::
+
+## Gráfico de barras
+
+#### `geom_bar()`
+
+::: {style="font-size: 70%"}
+**Contagem automática**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Location)) +
+  geom_bar()
+```
+
+-   `geom_bar()`: conta automaticamente o número de observações
+-   `geom_col()`: usa valores fornecidos
+:::
+
+## Gráfico de barras
+
+#### Barras empilhadas
+
+::: {style="font-size: 70%"}
+**Adicionar preenchimento por categoria**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Location,
+                  fill = Treatment)) +
+  geom_bar()
+```
+:::
+
+## Gráfico de barras
+
+#### Barras lado a lado
+
+::: {style="font-size: 70%"}
+**Posição dodge**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Location,
+                  fill = Treatment)) +
+  geom_bar(position = "dodge")
+```
+:::
+
+## Histograma
+
+#### `geom_histogram()`
+
+::: {style="font-size: 70%"}
+**Distribuição de uma variável contínua**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Richness)) +
+  geom_histogram()
+```
+:::
+
+## Histograma
+
+#### Ajustando número de bins
+
+::: {style="font-size: 70%"}
+**Controlar largura das barras**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Richness)) +
+  geom_histogram(bins = 20,
+                 fill = "steelblue",
+                 color = "black")
+```
+
+-   `bins`: número de barras
+-   `binwidth`: largura de cada barra
+:::
+
+## Histograma
+
+#### Por categoria
+
+::: {style="font-size: 70%"}
+**Comparar distribuições**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Richness,
+                  fill = Treatment)) +
+  geom_histogram(bins = 15,
+                 alpha = 0.6,
+                 position = "identity")
+```
+:::
+
+## Densidade
+
+#### `geom_density()`
+
+::: {style="font-size: 70%"}
+**Distribuição suavizada**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Richness,
+                  fill = Treatment)) +
+  geom_density(alpha = 0.5)
+```
+
+-   Alternativa **suavizada** ao histograma
+:::
+
+## Boxplot
+
+#### `geom_boxplot()`
+
+::: {style="font-size: 70%"}
+**Distribuição e valores atípicos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness)) +
+  geom_boxplot()
+```
+:::
+
+## Boxplot
+
+#### Adicionando pontos
+
+::: {style="font-size: 70%"}
+**Combinar com dados brutos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  color = Treatment)) +
+  geom_boxplot() +
+  geom_jitter(alpha = 0.3,
+              width = 0.2)
+```
+
+-   `geom_jitter()`: adiciona dispersão para evitar sobreposição
+:::
+
+## Violin plot
+
+#### `geom_violin()`
+
+::: {style="font-size: 70%"}
+**Densidade + boxplot**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  fill = Treatment)) +
+  geom_violin()
+```
+
+-   Mostra a **densidade** da distribuição em cada categoria
+:::
+
+## Violin plot
+
+#### Combinando com boxplot
+
+::: {style="font-size: 70%"}
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  fill = Treatment)) +
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.2,
+               fill = "white")
+```
+:::
+
+## Barras de erro
+
+#### `geom_errorbar()`
+
+::: {style="font-size: 70%"}
+**Média e desvio padrão**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+dados %>% 
+  group_by(Treatment) %>% 
+  summarise(
+    mean = mean(Richness),
+    sd = sd(Richness)
+  ) %>% 
+  ggplot(aes(x = Treatment, y = mean)) +
+  geom_col(fill = "steelblue") +
+  geom_errorbar(aes(ymin = mean - sd,
+                    ymax = mean + sd),
+                width = 0.2)
+```
+:::
+
+## Barras de erro
+
+#### `geom_pointrange()`
+
+::: {style="font-size: 70%"}
+**Alternativa com pontos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+dados %>% 
+  group_by(Treatment) %>% 
+  summarise(
+    mean = mean(Richness),
+    sd = sd(Richness)
+  ) %>% 
+  ggplot(aes(x = Treatment, y = mean)) +
+  geom_pointrange(aes(ymin = mean - sd,
+                      ymax = mean + sd),
+                  size = 1)
+```
+:::
+
+## Facetas
+
+#### `facet_wrap()`
+
+::: {style="font-size: 70%"}
+**Painéis por uma variável**
+```{r}
+#| output-location: column
+#| fig-width: 6
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(~Treatment)
+```
+:::
+
+## Facetas
+
+#### `facet_grid()`
+
+::: {style="font-size: 70%"}
+**Painéis por duas variáveis**
+```{r}
+#| output-location: column
+#| fig-width: 6
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness)) +
+  geom_point() +
+  facet_grid(Location ~ Treatment)
+```
+
+-   Formato: `linhas ~ colunas`
+:::
+
+## Customização - Labels
+
+#### `labs()`
+
+::: {style="font-size: 70%"}
+**Títulos e rótulos dos eixos**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness,
+                  color = Treatment)) +
+  geom_point() +
+  labs(
+    title = "Riqueza de espécies por elevação",
+    subtitle = "Diferentes tratamentos",
+    x = "Elevação (m)",
+    y = "Riqueza de espécies",
+    color = "Tratamento"
+  )
+```
+:::
+
+## Customização - Escalas
+
+#### Eixos contínuos
+
+::: {style="font-size: 70%"}
+**Limites e quebras**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness)) +
+  geom_point() +
+  scale_x_continuous(
+    limits = c(0, 1000),
+    breaks = seq(0, 1000, 200)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 30),
+    breaks = seq(0, 30, 5)
+  )
+```
+:::
+
+## Customização - Cores
+
+#### Cores manuais
+
+::: {style="font-size: 70%"}
+**Definir paleta personalizada**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  fill = Treatment)) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = c("Control" = "#440154FF",
+               "Treatment1" = "#31688EFF",
+               "Treatment2" = "#35B779FF")
+  )
+```
+:::
+
+## Customização - Cores
+
+#### Paletas prontas - viridis
+
+::: {style="font-size: 70%"}
+**Paletas acessíveis e bonitas**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness,
+                  color = D_Shannon)) +
+  geom_point(size = 3) +
+  scale_color_viridis_c()
+```
+
+-   `_c`: escala contínua
+-   `_d`: escala discreta
+:::
+
+## Customização - Cores
+
+#### Paletas prontas - ColorBrewer
+
+::: {style="font-size: 70%"}
+**Paletas categóricas**
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  fill = Treatment)) +
+  geom_boxplot() +
+  scale_fill_brewer(palette = "Set2")
+```
+
+-   Paletas: `"Set1"`, `"Set2"`, `"Dark2"`, `"Paired"`, etc.
+:::
+
+## Customização - Temas
+
+#### Temas prontos
+
+::: {style="font-size: 70%"}
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness)) +
+  geom_point() +
+  theme_bw()
+```
+
+-   `theme_gray()`: padrão (fundo cinza)
+-   `theme_bw()`: fundo branco com grid
+-   `theme_minimal()`: minimalista
+-   `theme_classic()`: eixos clássicos
+:::
+
+## Customização - Temas
+
+#### `theme_minimal()`
+
+::: {style="font-size: 70%"}
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness,
+                  color = Treatment)) +
+  geom_point(size = 2) +
+  theme_minimal()
+```
+:::
+
+## Customização - Temas
+
+#### `theme_classic()`
+
+::: {style="font-size: 70%"}
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4
+
+ggplot(dados, aes(x = Elevation,
+                  y = Richness,
+                  color = Treatment)) +
+  geom_point(size = 2) +
+  theme_classic()
+```
+:::
+
+## Customização - Temas
+
+#### Personalização avançada
+
+::: {style="font-size: 60%"}
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 4.5
+
+ggplot(dados, aes(x = Treatment,
+                  y = Richness,
+                  fill = Treatment)) +
+  geom_boxplot() +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(size = 14, face = "bold"),
+    axis.text = element_text(size = 12),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  ) +
+  labs(title = "Riqueza por tratamento")
+```
+:::
+
+## Salvando gráficos
+
+#### `ggsave()`
+
+::: {style="font-size: 70%"}
+**Exportar gráficos**
+```{r eval = FALSE}
+# Criar gráfico
+p <- ggplot(dados, aes(x = Elevation, y = Richness)) +
+  geom_point() +
+  theme_minimal()
+
+# Salvar
+ggsave("grafico_riqueza.png", 
+       plot = p,
+       width = 8, 
+       height = 6,
+       dpi = 300)
+```
+
+-   Formatos: `.png`, `.pdf`, `.jpg`, `.svg`
+-   Especificar **tamanho** e **resolução**
+:::
+
+## Pipeline completo
+
+#### Exemplo integrado
+
+::: {style="font-size: 55%"}
+```{r}
+#| output-location: column
+#| fig-width: 6
+#| fig-height: 5
+
+dados %>% 
+  # Processar dados
+  filter(!is.na(Richness)) %>% 
+  group_by(Treatment, Location) %>% 
+  summarise(
+    Richness_mean = mean(Richness),
+    Richness_sd = sd(Richness)
+  ) %>% 
+  # Criar gráfico
+  ggplot(aes(x = Location, 
+             y = Richness_mean,
+             fill = Treatment)) +
+  geom_col(position = "dodge") +
+  geom_errorbar(
+    aes(ymin = Richness_mean - Richness_sd,
+        ymax = Richness_mean + Richness_sd),
+    position = position_dodge(0.9),
+    width = 0.2
+  ) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "Riqueza média por localidade",
+    x = "Localidade",
+    y = "Riqueza média",
+    fill = "Tratamento"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "top")
+```
+:::
+
+## Recursos adicionais
+
+#### Referências úteis
+
+::: {style="font-size: 70%"}
+**Documentação e tutoriais**
+
+-   [ggplot2 cheat sheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+
+-   [R Graph Gallery](https://r-graph-gallery.com/)
+
+-   [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
+
+-   [ggplot2 book](https://ggplot2-book.org/)
+
+**Extensões úteis**
+
+-   `ggpubr`: gráficos prontos para publicação
+-   `patchwork`: combinar múltiplos gráficos
+-   `gganimate`: animações
+-   `plotly`: gráficos interativos
+:::
+
+## Exercício prático
+
+::: {style="font-size: 70%"}
+**Tarefa**: Usando `biota_diversidade.csv`, crie um gráfico que:
+
+1.  Mostre a relação entre `Canopy_cover` e `D_Shannon`
+
+2.  Use cores para diferenciar os `Treatment`
+
+3.  Adicione uma linha de tendência
+
+4.  Use facetas para separar por `Location`
+
+5.  Customize com tema, labels e cores adequadas
+
+6.  Salve o gráfico em alta resolução
+
+**Tempo**: 15 minutos
+:::

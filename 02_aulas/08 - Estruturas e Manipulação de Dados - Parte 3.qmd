@@ -1,0 +1,1372 @@
+---
+title: "Estruturas e Manipulação de Dados  Parte 3<br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/08/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Manipulação de dados
+
+#### Pacotes
+
+::: {style="font-size: 70%"}
+-   O R apresenta **pacotes**, que são um **conjunto de funções**.
+
+-   Existem pacotes para **diversos tipos de funcionalidades** e uso
+
+-   A função do pacote é providenciar um **conjunto de funções**, assim você **não** precisa escrever elas.
+
+-   Dentre esses pacotes o mais famoso é o `tidyverse`:
+
+    -   um **pacote** com a função de **instalar** e **carregar** outros pacotes
+
+    -   pacotes para **manipulação de dados**, voltado para **Ciência de Dados**
+
+    -   É considerado um "universo" à parte do R, pois todas as suas **ferramentas** possuem formas de uso consistentes e **funcionam** muito bem em conjunto
+:::
+
+## Manipulação de dados
+
+![](img/tidyverse.jpg){fig-align="center"}
+
+## Manipulação de dados
+
+#### Pacotes
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%" style="font-size: 70%"}
+**Instalação de pacotes**
+
+-   só é necessário instalar **uma única vez**
+
+```{r eval = FALSE}
+
+install.packages("tidyverse")
+```
+
+```{r}
+
+```
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+```{r eval = FALSE}
+
+
+```
+:::
+:::::
+
+## Manipulação de dados
+
+#### Pacotes
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%" style="font-size: 70%"}
+**Instalação de pacotes**
+
+-   só é necessário instalar **uma única vez**
+
+```{r eval = FALSE}
+
+install.packages("tidyverse")
+```
+
+**Carregar pacotes**
+
+-   **Primeira coisa** a se fazer quando **começar um script**
+
+-   Necessário **carregar toda vez** que abrir um script
+
+```{r}
+#| message: true
+library("tidyverse")
+```
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+```{r eval = FALSE}
+
+
+```
+:::
+:::::
+
+## Manipulação de dados
+
+#### Pacotes
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%" style="font-size: 70%"}
+**Instalação de pacotes**
+
+-   só é necessário instalar **uma única vez**
+
+```{r eval = FALSE}
+
+install.packages("tidyverse")
+```
+
+**Carregar pacotes**
+
+-   **Primeira coisa** a se fazer quando **começar um script**
+
+-   Necessário **carregar toda vez** que abrir um script
+
+```{r}
+#| message: true
+library("tidyverse")
+```
+:::
+
+::: {.column width="50%" style="font-size: 70%"}
+**Boas práticas de programação!**
+
+-   Use **`nome do pacote::função`**
+
+    -   ex: `readr::read_csv()`
+
+    -   Os `::` faz a **conexão da função com o respectivo pacote**, assim **evitamos** falhas de incompatibilidade.
+
+```{r eval = FALSE}
+readr::read_csv2
+
+```
+:::
+:::::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+-   Criou o famoso **pipe =** `%>%`
+
+-   Serve para **passar o resultado de uma função direto para a próxima**, **sem** precisar criar vários **objetos intermediários**.
+
+-   A lógica é usar funções para irem sendo **precessadas em sequência de prioridade**
+
+    -   "pegue isso → faça isso → depois isso"
+
+-   O pipe coloca o **objeto como primeiro argumento da função seguinte**.
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+-   Criou o famoso **pipe =** `%>%`
+
+-   Serve para **passar o resultado de uma função direto para a próxima**, **sem** precisar criar vários **objetos intermediários**.
+
+-   A lógica é usar funções para irem sendo **precessadas em sequência de prioridade**
+
+    -   "pegue isso → faça isso → depois isso"
+
+-   O pipe coloca o **objeto como primeiro argumento da função seguinte**.
+
+-   Analogia: `produção de uma bebida`
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+-   Criou o famoso **pipe =** `%>%`
+
+-   Serve para **passar o resultado de uma função direto para a próxima**, **sem** precisar criar vários **objetos intermediários**.
+
+-   A lógica é usar funções para irem sendo **precessadas em sequência de prioridade**
+
+    -   "pegue isso → faça isso → depois isso"
+
+-   O pipe coloca o **objeto como primeiro argumento da função seguinte**.
+
+-   Analogia: `produção de uma bebida`
+
+    -   **Água** é o **input/entrada**, os equipamentos/processos **seguintes são funções** e são seguidos por um **`%>%` (pipe)**
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+-   Criou o famoso **pipe =** `%>%`
+
+-   Serve para **passar o resultado de uma função direto para a próxima**, **sem** precisar criar vários **objetos intermediários**.
+
+-   A lógica é usar funções para irem sendo **precessadas em sequência de prioridade**
+
+    -   "pegue isso → faça isso → depois isso"
+
+-   O pipe coloca o **objeto como primeiro argumento da função seguinte**.
+
+-   Analogia: `produção de uma bebida`
+
+    -   **Água** é o **input/entrada**, os equipamentos/processos **seguintes são funções** e são seguidos por um **`%>%` (pipe)**
+
+    -   O efeito **acaba na ultima função** a qual não tem mais nenhum `%>%` associado
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+-   Criou o famoso **pipe =** `%>%`
+
+-   Serve para **passar o resultado de uma função direto para a próxima**, **sem** precisar criar vários **objetos intermediários**.
+
+-   A lógica é usar funções para irem sendo **precessadas em sequência de prioridade**
+
+    -   "pegue isso → faça isso → depois isso"
+
+-   O pipe coloca o **objeto como primeiro argumento da função seguinte**.
+
+-   Analogia: `produção de uma bebida`
+
+    -   **Água** é o **input/entrada**, os equipamentos/processos **seguintes são funções** e são seguidos por um **`%>%` (pipe)**
+
+    -   O efeito **acaba na ultima função** a qual não tem mais nenhum `%>%` associado
+
+    -   O que restá é o `output/resultado`, a bebida pronta após todos os processos.
+:::
+
+## Manipulação de dados
+
+#### `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+![](img/tidy_pipespng.png){fig-align="center" width="700"}
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+```{r}
+
+dados.csv <- readr::read_csv("../01_dados/biota_diversidade.csv")
+dados.csv
+```
+:::
+
+## Manipulação de dados
+
+#### pacote `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+```{r eval = FALSE}
+dados.csv <- readr::read_csv("../01_dados/biota_diversidade.csv")  
+dados.tidy <- dados.csv %>% #seleciona o objeto     
+```
+:::
+
+## Manipulação de dados
+
+#### `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+```{r eval = FALSE}
+dados.csv <- readr::read_csv("../01_dados/biota_diversidade.csv")  
+dados.tidy <- dados.csv %>% #seleciona o objeto     
+  select(c(2,3,4)) %>% #seleciona as colunas de interesse     
+```
+:::
+
+## Manipulação de dados
+
+#### `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+```{r eval = FALSE}
+dados.csv <- readr::read_csv("../01_dados/biota_diversidade.csv")  
+dados.csv
+dados.tidy <- dados.csv %>% #seleciona o objeto     
+  select(c(2,3,4)) %>% #seleciona as colunas de interesse     
+  table() #vamos checar número de elementos repetidos 
+```
+:::
+
+## Manipulação de dados
+
+#### `magrittr`
+
+::: {style="font-size: 70%"}
+#### Uso do operador pipe (%\>%) (2014)
+
+```{r}
+dados.csv <- readr::read_csv("../01_dados/biota_diversidade.csv")  
+dados.tidy <- dados.csv %>% #seleciona o objeto     
+  dplyr::select(c(2,3,4)) %>% #seleciona as colunas de interesse     
+  table() #vamos checar número de elementos repetidos 
+dados.tidy 
+```
+:::
+
+## Manipulação de dados
+
+#### Carregar dados
+
+:::::: {style="font-size: 50%"}
+#### `readr` **Leitura de dados**
+
+-   Funções para **`importar dados`** de diferentes formatos
+-   Parte do **tidyverse**, mais **rápido** que funções base do R
+-   Identifica **automaticamente** os tipos de dados
+-   Usar `read_csv2()` e `read_table2()` se os dados estiverem em **PT-BR**
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Arquivo **separado** por `vírgula`
+
+```{r}
+# Arquivo separado por vírgula
+dados_csv <- readr::read_csv("../01_dados/biota_diversidade.csv")
+dados_csv
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Carregar dados
+
+:::::: {style="font-size: 50%"}
+#### `readr` **Leitura de dados**
+
+-   Funções para **`importar dados`** de diferentes formatos
+-   Parte do **tidyverse**, mais **rápido** que funções base do R
+-   Identifica **automaticamente** os tipos de dados
+-   Usar `read_csv2()` e `read_table2()` se os dados estiverem em **PT-BR**
+
+::::: columns
+::: {.column width="50%" style="font-size: 100%"}
+Arquivo **separado** por `vírgula`
+
+```{r}
+# Arquivo separado por vírgula
+dados_csv <- readr::read_csv("../01_dados/biota_diversidade.csv")
+dados_csv
+```
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+Arquivo **separado** por `tabulação`
+
+```{r}
+# Arquivo separado por tabulação
+dados_txt <- readr::read_table("../01_dados/biota_diversidade.txt")
+dados_txt
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Checar estrutura dos dados
+
+::: {style="font-size: 60%"}
+`glimpse()` visão **compacta** dos dados
+
+-   Mostra **modo de cada coluna**, **dimensões** e primeiras observações
+-   Alternativa mais **compacta** que `str()`
+
+```{r}
+dplyr::glimpse(dados_csv)
+```
+:::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select()` **Selecionar colunas específicas**
+
+::::: columns
+::: {.column width="50%"}
+Por `nome`
+
+```{r}
+dados_csv %>% 
+  dplyr::select(Id_plot, Location, Plots)
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select()` **Selecionar colunas específicas**
+
+::::: columns
+::: {.column width="50%"}
+Por `nome`
+
+```{r}
+dados_csv %>% 
+  dplyr::select(Id_plot, Location, Plots)
+```
+:::
+
+::: {.column width="50%"}
+Por `posição`
+
+```{r}
+dados_csv %>% 
+  dplyr::select(1, 2, 3)
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select(-c())` **remover colunas específicas**
+
+::::: columns
+::: {.column width="50%" style="font-size: 75%"}
+Por `nome`
+
+```{r}
+dados_csv %>%    
+  dplyr::select(-c(Id_plot, Location, Plots)) 
+```
+:::
+
+::: {.column width="50%" style="font-size: 75%"}
+```{r}
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select(-c())` **remover colunas específicas**
+
+::::: columns
+::: {.column width="50%" style="font-size: 75%"}
+Por `nome`
+
+```{r}
+dados_csv %>%    
+  dplyr::select(-c(Id_plot, Location, Plots)) 
+```
+:::
+
+::: {.column width="50%" style="font-size: 75%"}
+Por `posição`
+
+```{r}
+dados_csv %>%    
+  dplyr::select(-c(1, 2, 3))
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select()` funções auxiliares - **Seleção por padrões**
+
+::::: columns
+::: {.column width="50%"}
+**Colunas** que `começam` com **determinado texto**
+
+```{r}
+dados_csv %>% 
+  dplyr::select(dplyr::starts_with("D_"))
+
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+:::::: {style="font-size: 70%"}
+`select()` funções auxiliares - **Seleção por padrões**
+
+::::: columns
+::: {.column width="50%"}
+**Colunas** que `começam` com **determinado texto**
+
+```{r}
+dados_csv %>% 
+  dplyr::select(dplyr::starts_with("D_"))
+```
+:::
+
+::: {.column width="50%"}
+**Colunas** que `terminam` com **determinado texto**
+
+```{r}
+dados_csv %>% 
+  dplyr::select(dplyr::ends_with("on"))
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Seleção de Colunas
+
+::: {style="font-size: 70%"}
+`everything()` **Reordenar colunas**
+
+-   `everything()` seleciona **todas as outras colunas** restantes
+
+```{r}
+# Colocar Familia como primeira coluna
+dados_csv %>% 
+  dplyr::select(Treatment, dplyr::everything())
+```
+:::
+
+## Manipulação de dados
+
+#### Filtragem de Linhas
+
+#### `filter()`
+
+::: {style="font-size: 70%"}
+**Filtrar linhas por condição**
+
+```{r eval = FALSE}
+# Uma condição
+dados %>% 
+  filter(Bioma == "Mata Atlântica")
+```
+:::
+
+## Filtragem de Linhas
+
+#### `filter()`
+
+::: {style="font-size: 70%"}
+**Filtrar linhas por condição**
+
+```{r eval = FALSE}
+# Múltiplas condições (E)
+dados %>% 
+  filter(Bioma == "Mata Atlântica",
+         Ordem == "Carnivora")
+
+# Ou com &
+dados %>% 
+  filter(Bioma == "Mata Atlântica" & Ordem == "Carnivora")
+```
+:::
+
+## Filtragem de Linhas
+
+#### `filter()`
+
+::: {style="font-size: 70%"}
+**Operadores de comparação**
+
+```{r eval = FALSE}
+# Diferentes operadores
+== # igual
+!= # diferente
+>  # maior que
+<  # menor que
+>= # maior ou igual
+<= # menor ou igual
+```
+:::
+
+## Filtragem de Linhas
+
+#### `filter()`
+
+::: {style="font-size: 70%"}
+**Condições múltiplas (OU)**
+
+```{r eval = FALSE}
+# Bioma Mata Atlântica OU Cerrado
+dados %>% 
+  filter(Bioma == "Mata Atlântica" | Bioma == "Cerrado")
+
+# Alternativa com %in%
+dados %>% 
+  filter(Bioma %in% c("Mata Atlântica", "Cerrado"))
+```
+:::
+
+## Filtragem de Linhas
+
+#### `slice()`
+
+::: {style="font-size: 70%"}
+**Selecionar linhas por posição**
+
+```{r eval = FALSE}
+# Primeiras 5 linhas
+dados %>% 
+  slice(1:5)
+
+# Linhas específicas
+dados %>% 
+  slice(c(1, 5, 10))
+```
+:::
+
+## Filtragem de Linhas
+
+#### `slice_sample()`
+
+::: {style="font-size: 70%"}
+**Amostra aleatória**
+
+```{r eval = FALSE}
+# 10 linhas aleatórias
+dados %>% 
+  slice_sample(n = 10)
+
+# 10% dos dados
+dados %>% 
+  slice_sample(prop = 0.1)
+```
+:::
+
+## Filtragem de Linhas
+
+#### `distinct()`
+
+::: {style="font-size: 70%"}
+**Remover duplicatas**
+
+```{r eval = FALSE}
+# Linhas únicas baseado em todas as colunas
+dados %>% 
+  distinct()
+
+# Linhas únicas baseado em colunas específicas
+dados %>% 
+  distinct(Bioma, Ordem)
+```
+:::
+
+## Manipulação de dados
+
+#### Edição de Colunas
+
+::: {style="font-size: 65%"}
+`rename()`**Renomear colunas**
+
+-   Formato: **novo_nome = nome_antigo**
+
+```{r}
+dados_csv %>%       
+  dplyr::rename(Tratamento = Treatment,                      
+                Local = Location,                  
+                Parcelas = Plots,                 
+                ID = Id_plot)
+```
+:::
+
+## Manipulação de dados
+
+#### Edição de Colunas
+
+:::::: {style="font-size: 65%"}
+`column_to_rownames` pega uma `coluna` existente e **transforma** essa coluna em **nomes de linha**
+
+::::: {.columns style="font-size: 75%"}
+::: {.column width="50%"}
+
+```{}
+```
+:::
+
+::: {.column width="50%"}
+
+```{}
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Edição de Colunas
+
+:::::: {style="font-size: 65%"}
+`column_to_rownames` pega uma `coluna` existente e **transforma** essa coluna em **nomes de linha**
+
+::::: {.columns style="font-size: 75%"}
+::: {.column width="50%"}
+Super **importante** quando precisar deixar a **estrutura da tabela** para **análises** (`matrix` para PCA,, RDA, NMDS)
+
+```{r}
+dados_csv_col_n <- dados_csv %>% 
+  dplyr::filter(Date == 2019) %>% 
+  tibble::column_to_rownames("Id_plot") # seleciona a coluna existente
+dados_csv_col_n
+```
+:::
+
+::: {.column width="50%"}
+
+```{}
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados
+
+#### Edição de Colunas
+
+:::::: {style="font-size: 65%"}
+`column_to_rownames` pega uma `coluna` existente e **transforma** essa coluna em **nomes de linha**
+
+::::: {.columns style="font-size: 75%"}
+::: {.column width="50%"}
+Super **importante** quando precisar deixar a **estrutura da tabela** para **análises** (`matrix` para PCA,, RDA, NMDS)
+
+```{r}
+dados_csv_col_n <- dados_csv %>% 
+  dplyr::filter(Date == 2019) %>% 
+  tibble::column_to_rownames("Id_plot") # seleciona a coluna existente
+dados_csv_col_n
+```
+:::
+
+::: {.column width="50%"}
+Super **importante** quando precisar **transformar** uma
+
+`matrix` in `data frame`
+
+```{r}
+dados_csv_col_n %>% 
+  dplyr::filter(Date == 2019) %>% 
+  tibble::rownames_to_column("Id_plot") # nome da coluna a ser criada
+```
+:::
+:::::
+::::::
+
+## Criação e Modificação
+
+#### `mutate()`
+
+::: {style="font-size: 70%"}
+**Criar ou modificar colunas**
+
+```{r eval = FALSE}
+dados %>% 
+  mutate(riqueza_log = log(riqueza))
+```
+:::
+
+## Criação e Modificação
+
+#### `mutate()`
+
+::: {style="font-size: 70%"}
+**Criar múltiplas colunas**
+
+```{r eval = FALSE}
+dados %>% 
+  mutate(
+    riqueza_log = log(riqueza),
+    riqueza_padrao = riqueza / max(riqueza),
+    categoria = "alta"
+  )
+```
+
+-   Pode criar **várias colunas** de uma vez
+-   Novas colunas podem **usar** colunas recém-criadas
+:::
+
+## Criação e Modificação
+
+#### `if_else()`
+
+::: {style="font-size: 70%"}
+**Condicional simples**
+
+```{r eval = FALSE}
+dados %>% 
+  mutate(
+    riqueza_cat = if_else(riqueza > 10, 
+                          "alta", 
+                          "baixa")
+  )
+```
+
+-   **Se** condição for verdadeira, retorna primeiro valor
+-   **Senão**, retorna segundo valor
+:::
+
+## Criação e Modificação
+
+#### `case_when()`
+
+::: {style="font-size: 70%"}
+**Múltiplas condições**
+
+```{r eval = FALSE}
+dados %>% 
+  mutate(
+    riqueza_cat = case_when(
+      riqueza > 20 ~ "muito alta",
+      riqueza > 10 ~ "alta",
+      riqueza > 5 ~ "média",
+      TRUE ~ "baixa"  # condição padrão
+    )
+  )
+```
+
+-   Formato: **condição \~ resultado**
+-   Avalia condições **em ordem**
+:::
+
+## Ordenação
+
+#### `arrange()`
+
+::: {style="font-size: 70%"}
+**Ordenar linhas**
+
+```{r eval = FALSE}
+# Ordem crescente
+dados %>% 
+  arrange(riqueza)
+
+# Múltiplas colunas
+dados %>% 
+  arrange(Bioma, Ordem, riqueza)
+```
+:::
+
+## Ordenação
+
+#### `desc()`
+
+::: {style="font-size: 70%"}
+**Ordem decrescente**
+
+```{r eval = FALSE}
+# Ordem decrescente
+dados %>% 
+  arrange(desc(riqueza))
+
+# Combinando crescente e decrescente
+dados %>% 
+  arrange(Bioma, desc(riqueza))
+```
+:::
+
+## Agregação e Resumo
+
+#### `summarise()`
+
+::: {style="font-size: 70%"}
+**Resumir dados**
+
+```{r eval = FALSE}
+dados %>% 
+  summarise(
+    n_obs = n(),
+    riqueza_media = mean(riqueza),
+    riqueza_max = max(riqueza),
+    riqueza_min = min(riqueza)
+  )
+```
+
+-   Reduz os dados a **estatísticas resumidas**
+-   `n()` conta o **número de observações**
+:::
+
+## Agregação e Resumo
+
+#### `group_by()`
+
+::: {style="font-size: 70%"}
+**Agrupar por variáveis**
+
+```{r eval = FALSE}
+dados %>% 
+  group_by(Bioma) %>% 
+  summarise(
+    n_familias = n(),
+    riqueza_media = mean(riqueza)
+  )
+```
+
+-   **Agrupa** dados por categorias
+-   Operações seguintes são feitas **por grupo**
+:::
+
+## Agregação e Resumo
+
+#### `group_by()`
+
+::: {style="font-size: 70%"}
+**Múltiplas variáveis**
+
+```{r eval = FALSE}
+dados %>% 
+  group_by(Bioma, Ordem) %>% 
+  summarise(
+    n_familias = n(),
+    riqueza_total = sum(riqueza)
+  ) %>% 
+  ungroup()  # remove agrupamento
+```
+
+-   Pode agrupar por **múltiplas variáveis**
+-   `ungroup()` remove o **agrupamento** após resumir
+:::
+
+## Agregação e Resumo
+
+#### `count()`
+
+::: {style="font-size: 70%"}
+**Contar observações**
+
+```{r eval = FALSE}
+# Atalho para group_by() + summarise(n = n())
+dados %>% 
+  count(Bioma)
+
+# Com ordenação
+dados %>% 
+  count(Bioma, Ordem, sort = TRUE)
+```
+:::
+
+## Junção de Tabelas
+
+#### Tipos de joins
+
+::: {style="font-size: 70%"}
+![](img/joins.png){fig-align="center" width="600"}
+
+-   **Combinar** dados de diferentes tabelas
+-   Baseado em **colunas-chave** comuns
+:::
+
+## Junção de Tabelas
+
+#### Preparação
+
+::: {style="font-size: 70%"}
+```{r}
+# Carregar segunda tabela
+traits <- read_csv("../01_dados/biota_plant_traits.csv")
+
+# Visualizar estrutura
+glimpse(traits)
+```
+:::
+
+## Junção de Tabelas
+
+#### `left_join()`
+
+::: {style="font-size: 70%"}
+**Manter todas as linhas da tabela da esquerda**
+
+```{r eval = FALSE}
+dados %>% 
+  left_join(traits, by = "Familia")
+```
+
+-   Mantém **todas** as linhas de `dados`
+-   Adiciona colunas de `traits` quando há match
+-   **NA** quando não há correspondência
+:::
+
+## Junção de Tabelas
+
+#### `right_join()`
+
+::: {style="font-size: 70%"}
+**Manter todas as linhas da tabela da direita**
+
+```{r eval = FALSE}
+dados %>% 
+  right_join(traits, by = "Familia")
+```
+
+-   Mantém **todas** as linhas de `traits`
+-   Adiciona colunas de `dados` quando há match
+:::
+
+## Junção de Tabelas
+
+#### `inner_join()`
+
+::: {style="font-size: 70%"}
+**Manter apenas linhas com match em ambas**
+
+```{r eval = FALSE}
+dados %>% 
+  inner_join(traits, by = "Familia")
+```
+
+-   Mantém **apenas** linhas que têm correspondência em **ambas** tabelas
+-   **Remove** linhas sem match
+:::
+
+## Junção de Tabelas
+
+#### `full_join()`
+
+::: {style="font-size: 70%"}
+**Manter todas as linhas de ambas as tabelas**
+
+```{r eval = FALSE}
+dados %>% 
+  full_join(traits, by = "Familia")
+```
+
+-   Mantém **todas** as linhas de ambas tabelas
+-   **NA** onde não há correspondência
+:::
+
+## Junção de Tabelas
+
+#### `semi_join()`
+
+::: {style="font-size: 70%"}
+**Filtrar baseado em outra tabela**
+
+```{r eval = FALSE}
+dados %>% 
+  semi_join(traits, by = "Familia")
+```
+
+-   Mantém linhas de `dados` que **têm match** em `traits`
+-   **Não adiciona** colunas de `traits`
+-   Útil para **filtrar** dados
+:::
+
+## Junção de Tabelas
+
+#### `anti_join()`
+
+::: {style="font-size: 70%"}
+**Filtrar excluindo matches**
+
+```{r eval = FALSE}
+dados %>% 
+  anti_join(traits, by = "Familia")
+```
+
+-   Mantém linhas de `dados` que **NÃO têm match** em `traits`
+-   **Não adiciona** colunas de `traits`
+-   Útil para **identificar diferenças**
+:::
+
+## Valores Ausentes
+
+#### `replace_na()`
+
+::: {style="font-size: 70%"}
+**Substituir valores NA**
+
+```{r eval = FALSE}
+dados %>% 
+  mutate(
+    riqueza = replace_na(riqueza, 0)
+  )
+```
+
+-   Substitui **NA** por valor especificado
+-   Usar dentro de `mutate()`
+:::
+
+## Valores Ausentes
+
+#### `drop_na()`
+
+::: {style="font-size: 70%"}
+**Remover linhas com NA**
+
+```{r eval = FALSE}
+# Remover linhas com NA em qualquer coluna
+dados %>% 
+  drop_na()
+
+# Remover linhas com NA em colunas específicas
+dados %>% 
+  drop_na(riqueza, Bioma)
+```
+:::
+
+## Transformação de dados
+
+#### `tidyr`
+
+::: {style="font-size: 70%"}
+-   Pacote para **organizar e transformar** estrutura de dados
+
+-   Parte do **tidyverse**
+
+-   Funções principais:
+
+    -   `pivot_longer()`: converte dados de **largo para longo**
+    -   `pivot_wider()`: converte dados de **longo para largo**
+
+-   Essencial para **análise** e **visualização** de dados
+:::
+
+## Transformação de dados
+
+#### `pivot_longer()`
+
+::: {style="font-size: 70%"}
+**Largo → Longo**
+
+-   Quando nomes de **colunas** são na verdade **valores** de uma variável
+
+```{r}
+dados <- read_csv("../01_dados/biota_diversidade.csv")
+dados
+```
+:::
+
+## Transformação de dados
+
+#### `pivot_longer()`
+
+::: {style="font-size: 70%"}
+**Largo → Longo**
+
+```{r eval = FALSE}
+dados %>% 
+  select(Id_plot, Treatment, D_Shannon, D_Simpson) %>% 
+  pivot_longer(
+    cols = c(D_Shannon, D_Simpson),
+    names_to = "Metric",
+    values_to = "Value"
+  )
+```
+:::
+
+## Transformação de dados
+
+#### `pivot_longer()`
+
+::: {style="font-size: 70%"}
+**Largo → Longo**
+
+```{r}
+dados %>% 
+  select(Id_plot, Treatment, D_Shannon, D_Simpson) %>% 
+  pivot_longer(
+    cols = c(D_Shannon, D_Simpson),
+    names_to = "Metric",
+    values_to = "Value"
+  )
+```
+:::
+
+## Transformação de dados
+
+#### `pivot_wider()`
+
+::: {style="font-size: 70%"}
+**Longo → Largo**
+
+-   Quando uma **coluna** contém nomes de variáveis
+
+```{r}
+dados_long <- dados %>% 
+  select(Id_plot, Treatment, D_Shannon, D_Simpson) %>% 
+  pivot_longer(
+    cols = c(D_Shannon, D_Simpson),
+    names_to = "Metric",
+    values_to = "Value"
+  )
+dados_long
+```
+:::
+
+## Transformação de dados
+
+#### `pivot_wider()`
+
+::: {style="font-size: 70%"}
+**Longo → Largo**
+
+```{r eval = FALSE}
+dados_long %>% 
+  pivot_wider(
+    names_from = Metric,
+    values_from = Value
+  )
+```
+:::
+
+## Transformação de dados
+
+#### `pivot_wider()`
+
+::: {style="font-size: 70%"}
+**Longo → Largo**
+
+```{r}
+dados_long %>% 
+  pivot_wider(
+    names_from = Metric,
+    values_from = Value
+  )
+```
+:::
+
+## Exportar dados
+
+#### `write_csv()`
+
+::: {style="font-size: 70%"}
+**Salvar dados processados**
+
+```{r eval = FALSE}
+dados_processados <- dados %>% 
+  filter(Bioma == "Mata Atlântica") %>% 
+  select(Ordem, Familia, riqueza) %>% 
+  arrange(desc(riqueza))
+
+# Exportar
+write_csv(dados_processados, 
+          "../01_dados/dados_processados.csv")
+```
+
+-   Salva em formato **CSV**
+-   Especificar **caminho** e **nome** do arquivo
+:::
+
+## Pipeline completo
+
+#### Exemplo integrado
+
+::: {style="font-size: 60%"}
+```{r eval = FALSE}
+resultado <- dados %>% 
+  # 1. Filtrar dados
+  filter(Bioma == "Mata Atlântica") %>% 
+  # 2. Selecionar colunas
+  select(Ordem, Familia, riqueza) %>% 
+  # 3. Criar nova coluna
+  mutate(riqueza_cat = case_when(
+    riqueza > 10 ~ "alta",
+    riqueza > 5 ~ "média",
+    TRUE ~ "baixa"
+  )) %>% 
+  # 4. Agrupar e resumir
+  group_by(Ordem, riqueza_cat) %>% 
+  summarise(
+    n_familias = n(),
+    riqueza_total = sum(riqueza)
+  ) %>% 
+  # 5. Ordenar
+  arrange(desc(riqueza_total))
+
+# 6. Exportar
+write_csv(resultado, "../01_dados/resultado.csv")
+```
+:::
+
+Checar estrutura dos dados `glimpse()` - visão compacta dos dados
+
+Seleção de Colunas \* `select()` - selecionar colunas \* `rename()` - renomear colunas \* `everything()` - todas as colunas
+
+Filtragem de Linhas \* `filter()` - filtrar linhas por condição \* `slice()` - selecionar linhas por posição \* `slice_sample()` - amostra aleatória \* `distinct()` - remover duplicatas
+
+Criação e Modificação de Colunas \* `mutate()` - criar/modificar colunas \* `if_else()` - condicional vetorizada \* `case_when()` - múltiplas condições
+
+Ordenação \* `arrange()` - ordenar linhas \* `desc()` - ordem decrescente
+
+Agregação e Resumo \* `summarise()` / `summarize()` - resumir dados \* `group_by()` - agrupar por variáveis \* `ungroup()` - desagrupar \* `count()` - contar observações \* `n()` - número de observações no grupo
+
+Junção de Tabelas (usaria as que tenho: biota_diversidade.csv e biota_plant_traits.csv) \* `left_join()` - manter todas da esquerda \* `right_join()` - manter todas da direita \* `inner_join()` - manter apenas matches \* `full_join()` - manter todas \* `semi_join()` - filtrar baseado em outra tabela \* `anti_join()` - filtrar excluindo matches
+
+Valores Ausentes \* `replace_na()` - substituir NA por 0 \* `drop_na()` - remover linhas com NA
+
+Exportar tabelas write_csv()

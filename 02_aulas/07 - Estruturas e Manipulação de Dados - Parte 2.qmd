@@ -23,7 +23,7 @@ lang: pt-br
 
 ## Importação e exportação de dados
 
-#### FAÇAM JUNTO COMIGO!!!
+#### FAÇAM JUNTOS COMIGO!!!
 
 ::: {.columns style="font-size:70%"}
 -   Criem um **novo script** na **sua pasta** ou na **pasta do curso** que baixaram do **GitHub**.
@@ -50,7 +50,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 ```{r}
 # indicar o caminho, usem a tecla tab 
 # e o R ira listar tudo que existe no diretório
-dados.txt <- read.table("../01_dados/biota_all_variables-2025-12-28.txt", 
+dados.txt <- read.table("../01_dados/biota_diversidade.txt", 
                     sep = "\t",
                     header = TRUE)
 
@@ -74,7 +74,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 ```{r}
 # indicar o caminho, usem a tecla tab 
 # e o R ira listar tudo que existe no diretório
-dados.txt <- read.table("../01_dados/biota_all_variables-2025-12-28.txt", 
+dados.txt <- read.table("../01_dados/biota_diversidade.txt", 
                     sep = "\t",
                     header = TRUE)
 
@@ -96,7 +96,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 ```{r}
 # indicar o caminho, usem a tecla tab 
 # e o R ira listar tudo que existe no diretório
-dados.csv <- read.csv("../01_dados/biota_all_variables-2025-12-28.csv")
+dados.csv <- read.csv("../01_dados/biota_diversidade.csv")
 
 dim(dados.csv) # mostra número de linhas e de colunas
 
@@ -117,7 +117,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 ```{r}
 # indicar o caminho, usem a tecla tab 
 # e o R ira listar tudo que existe no diretório
-dados.csv <- read.csv("../01_dados/biota_all_variables-2025-12-28.csv")
+dados.csv <- read.csv("../01_dados/biota_diversidade.csv")
 
 head(dados.csv, n = 5) # mostra as 5 primeiras linhas
 ```
@@ -130,8 +130,12 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 
 #### Exportando `.txt` e `.csv`
 
+Indica o **objeto** que quer salva, seguido do **caminho da pasta** e do **nome** que vai **dar para a** **tabela** a ser salva.
+
+OBS: **`NUNCA`** use **ponto** `.` como separador dos nomes, pois o `.` indica a **extensão do arquivo**.
+
 ```{r}
-write.table(dados.txt, "../01_dados/dados.txt")
+write.table(dados.txt, "../01_dados/dados_aula_R.txt")
 
 
 
@@ -145,10 +149,14 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 
 #### Exportando `.txt` e `.csv`
 
-```{r}
-write.table(dados.txt, "../01_dados/dados.txt")
+Indica o **objeto** que quer salva, seguido do **caminho da pasta** e do **nome** que vai **dar para a** **tabela** a ser salva.
 
-write.csv(dados.csv, "../01_dados/dados.csv")
+OBS: **`NUNCA`** use **ponto** `.` como separador dos nomes, pois o `.` indica a **extensão do arquivo**.
+
+```{r}
+write.table(dados.txt, "../01_dados/dados_aula_R.txt")
+
+write.csv(dados.csv, "../01_dados/dados_aula_R.csv")
 
 ```
 :::
@@ -393,7 +401,7 @@ head(dados.csv$Id_plot, n = 5)
 
 ```
 
-xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+Usar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
 
 ```{r}
 dados.csv[1,]
@@ -422,37 +430,7 @@ head(dados.csv$Id_plot, n = 5)
 
 ```
 
-xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
-
-```{r}
-dados.csv[1,]
-
-head(dados.csv[,1], n = 5)
-```
-:::
-
-::: {.column width="50%" style="font-size: 55%"}
-```{r}
-
-```
-:::
-:::::
-
-## Manipulação de dados - R Básico
-
-::::: columns
-#### **Seleção e Filtragem**
-
-::: {.column width="50%" style="font-size: 55%"}
-Usar `$` para **selecionar** uma coluna
-
-```{r}
-
-head(dados.csv$Id_plot, n = 5)
-
-```
-
-xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+Usar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
 
 ```{r}
 dados.csv[1,]
@@ -462,8 +440,6 @@ head(dados.csv[,1], n = 5)
 :::
 
 ::: {.column width="50%" style="font-size: 55%"}
-Usar `subset()` para selecionar linhas **filtrando** por um atributo
-
 ```{r}
 
 ```
@@ -484,7 +460,7 @@ head(dados.csv$Id_plot, n = 5)
 
 ```
 
-xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+Usar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
 
 ```{r}
 dados.csv[1,]
@@ -498,8 +474,6 @@ Usar `subset()` para selecionar linhas **filtrando** por um atributo
 
 ```{r}
 
-subset(dados.csv, Location == "ITA")
-
 ```
 :::
 :::::
@@ -518,7 +492,7 @@ head(dados.csv$Id_plot, n = 5)
 
 ```
 
-xUsar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+Usar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
 
 ```{r}
 dados.csv[1,]
@@ -532,9 +506,47 @@ Usar `subset()` para selecionar linhas **filtrando** por um atributo
 
 ```{r}
 
-subset(dados.csv, Location == "ITA")
+subset(dados.csv, Location == "CBO")
 
-dim(subset(dados.csv, Location == "ITA"))
+dim(subset(dados.csv, Location == "CBO"))
+```
+:::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: columns
+#### **Seleção e Filtragem**
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `$` para **selecionar** uma coluna
+
+```{r}
+
+head(dados.csv$Id_plot, n = 5)
+
+```
+
+Usar `[X,]` para **selecionar** **linhas**, e `[,X]` para **colunas**
+
+```{r}
+dados.csv[1,]
+
+head(dados.csv[,1], n = 5)
+```
+:::
+
+::: {.column width="50%" style="font-size: 55%"}
+Usar `subset()` para selecionar linhas **filtrando** por um atributo
+
+```{r}
+
+head(subset(dados.csv, Location == "CBO"), n = 1)
+dim(subset(dados.csv, Location == "CBO"))
+
+head(subset(dados.csv, Location == "CBO" & Richness > 5), n = 1)
+dim(subset(dados.csv, Location == "CBO" & Richness > 5))
+
 ```
 :::
 :::::
@@ -576,7 +588,7 @@ Usar **`which()`** descobrir as **posições** dos elementos **baseados** em **c
 which(dados.csv$Richness > 10)
 
 
-which(dados.csv$Location == "ITA")
+which(dados.csv$Location == "CBO")
 
 
 ```
@@ -605,7 +617,7 @@ which(dados.csv$Location == "CBO" & dados.csv$Richness > 10)
 ```
 :::
 
-## Manipulação de dados
+## Manipulação de dados - R Básico
 
 ::: {.columns style="font-size: 80%"}
 #### Ordenação
@@ -620,7 +632,7 @@ sort(x)
 ```
 :::
 
-## Manipulação de dados
+## Manipulação de dados - R Básico
 
 ::: {.columns style="font-size: 80%"}
 #### Ordenação
@@ -636,9 +648,9 @@ sort(dados.csv$Date)
 ```
 :::
 
-## Manipulação de dados
+## Manipulação de dados - R Básico
 
-::: {.columns style="font-size: 80%"}
+::: {.columns style="font-size: 70%"}
 #### Ordenação
 
 `order()` ordena baseado na **posição** dos elementos.
@@ -652,63 +664,780 @@ order(x)
 ```
 :::
 
-## Manipulação de dados
+## Manipulação de dados - R Básico
 
-::: {.columns style="font-size: 80%"}
+::::: {.columns style="font-size: 70%"}
 #### Ordenação
 
 `order()` ordena baseado na **posição** dos elementos.
 
+:::: {.columns style="font-size: 80%"}
 Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 
+::: {.columns style="font-size: 140%"}
 ```{r}
 x <- c(10,1,11,23,4,6,5,8)  
 order(x)  
 
-dados.csv[order(dados.csv$Date), ] 
+# cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+order(dados.csv$Date)
+```
+:::
+::::
+:::::
+
+## Manipulação de dados - R Básico
+
+:::: {.columns style="font-size: 70%"}
+#### Ordenação
+
+`order()` ordena baseado na **posição** dos elementos.
+
+::: {.columns style="font-size: 80%"}
+Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
+
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+
+    ::: {.columns style="font-size: 140%"}
+    ```{r}
+    ```
+    :::
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+:::: {.columns style="font-size: 70%"}
+#### Ordenação
+
+`order()` ordena baseado na **posição** dos elementos.
+
+::: {.columns style="font-size: 80%"}
+Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
+
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+
+-   aplicamos isso usando a lógica `[X,]`, pedindo para as **linhas** do `data frame` seguirem a **mesma ordem** das **linhas** do `order(dados.csv$Date)`
+
+    ::: {.columns style="font-size: 140%"}
+    ```{r}
+    ```
+    :::
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+:::: {.columns style="font-size: 70%"}
+#### Ordenação
+
+`order()` ordena baseado na **posição** dos elementos.
+
+::: {.columns style="font-size: 80%"}
+Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
+
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+
+-   aplicamos isso usando a lógica `[X,]`, pedindo para as **linhas** do `data frame` seguirem a **mesma ordem** das **linhas** do `order(dados.csv$Date)`
+
+    ::: {.columns style="font-size: 140%"}
+    ```{r}
+
+    dados.csv[order(dados.csv$Date), ] 
+    ```
+    :::
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+:::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+`merge()` **juntar** `data frames` por uma chave
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+`merge()` **juntar** `data frames` por uma chave
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.traits <- read.csv("../01_dados/biota_plant_traits.csv")  
+head(dados.traits, n = 2)   
+
 ```
 :::
 
-## Manipulação de dados
+::: {.column width="50%" style="font-size: 67%"}
+```         
+```
+:::
+:::::
+::::::
 
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 80%"}
 #### Transformação de Dados
 
-## Manipulação de dados
+`merge()` **juntar** `data frames` por uma chave
 
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.traits <- read.csv("../01_dados/biota_plant_traits.csv")  
+head(dados.traits, n = 2)   
+names(dados.traits)  
+```
+:::
+
+::: {.column width="50%" style="font-size: 67%"}
+```         
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+`merge()` **juntar** `data frames` por uma chave
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.traits <- read.csv("../01_dados/biota_plant_traits.csv")   
+head(dados.traits, n = 2)    
+names(dados.traits)  
+```
+:::
+
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.csv.traits <- merge(dados.csv, dados.traits,     
+                          by = c("Id_plot", "Date"))  
+head(dados.csv.traits, n = 2)   
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+`merge()` **juntar** `data frames` por uma chave
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.traits <- read.csv("../01_dados/biota_plant_traits.csv")   
+head(dados.traits, n = 2)    
+names(dados.traits)  
+```
+:::
+
+::: {.column width="50%" style="font-size: 67%"}
+```{r}
+dados.csv.traits <- merge(dados.csv, dados.traits,     
+                          by = c("Id_plot", "Date"))  
+head(dados.csv.traits, n = 2)   
+names(dados.csv.traits)
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+:::: {.columns style="font-size: 80%"}
+`cbind()` - **combinar** por `colunas`
+
+::: {.column width="100%"}
+```{r}
+dados.cbind <- cbind(dados.csv, dados.traits$sla)
+head(dados.cbind, n = 3)
+
+```
+
+```{r}
+
+```
+:::
+::::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+:::: {.columns style="font-size: 80%"}
+`cbind()` - **combinar** por `colunas`
+
+::: {.column width="100%"}
+```{r}
+dados.cbind <- cbind(dados.csv, dados.traits$sla)
+head(dados.cbind, n = 3)
+
+```
+
+```{r}
+names(dados.cbind)[names(dados.cbind) == "dados.traits$sla"] <- "sla"
+
+```
+:::
+::::
+:::::
+
+## Manipulação de dados - R Básico
+
+::::: {.columns style="font-size: 80%"}
+#### Transformação de Dados
+
+:::: {.columns style="font-size: 80%"}
+`cbind()` - **combinar** por `colunas`
+
+::: {.column width="100%"}
+```{r}
+dados.cbind <- cbind(dados.csv, dados.traits$sla)
+head(dados.cbind, n = 3)
+
+```
+
+```{r}
+names(dados.cbind)[names(dados.cbind) == "dados.traits$sla"] <- "sla"
+names(dados.cbind)
+```
+:::
+::::
+:::::
+
+## Manipulação de dados - R Básico
+
+::: {.columns style="font-size: 80%"}
 #### Valores Ausentes
 
-## Manipulação de dados
+`is.na()` - **detectar `NA`** em todo um **`data frame`** ou apenas uma **`coluna`/`vector`**
 
-**Valores Únicos e Duplicados**
+```{r}
 
-## Manipulação de dados
+head(is.na(dados.traits$sla), n = 20)
+```
+:::
 
-**Aplicação de Funções**
+## Manipulação de dados - R Básico
 
-## Manipulação de dados
+:::::: {.columns style="font-size: 70%"}
+#### Valores Ausentes
 
-#### Pacote tidyverse e dplyr
+::::: {.columns style="font-size: 70%"}
+`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
 
-## Manipulação de dados
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+complete.cases(dados.csv)  
 
-#### Uso do operador pipe (%\>%)
+```
+:::
 
-## Manipulação de dados
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
 
-#### Transformação de dados
+```
+:::
+:::::
+::::::
 
-## Manipulação de dados
+## Manipulação de dados - R Básico
 
-#### Integração de múltiplos datasets
+:::::: {.columns style="font-size: 70%"}
+#### Valores Ausentes
 
-## Visualização de dados
+::::: {.columns style="font-size: 70%"}
+`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
 
-#### Introdução ao ggplot2
+`table()` - **tabula** o número de **elementos repetidos**
 
-## Visualização de dados
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+complete.cases(dados.csv)  
+table(complete.cases(dados.csv))
+```
+:::
 
-#### Tipos e customização de gráficos
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
 
-## Visualização de dados
+```
+:::
+:::::
+::::::
 
-### Exportação de gráficos
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 70%"}
+#### Valores Ausentes
+
+::::: {.columns style="font-size: 70%"}
+`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+
+`table()` - **tabula** o número de **elementos repetidos**
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+complete.cases(dados.csv)  
+table(complete.cases(dados.csv))
+```
+:::
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+dados_completos <- dados.csv[complete.cases(dados.csv), ]  
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 70%"}
+#### Valores Ausentes
+
+::::: {.columns style="font-size: 70%"}
+`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+
+`table()` - **tabula** o número de **elementos repetidos**
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+complete.cases(dados.csv)  
+table(complete.cases(dados.csv))
+```
+:::
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+dados_completos <- dados.csv[complete.cases(dados.csv), ]  
+dim(dados_completos)  
+
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+:::::: {.columns style="font-size: 70%"}
+#### Valores Ausentes
+
+::::: {.columns style="font-size: 70%"}
+`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+
+`table()` - **tabula** o número de **elementos repetidos**
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+complete.cases(dados.csv)  
+table(complete.cases(dados.csv))
+```
+:::
+
+::: {.column width="50%" style="font-size: 120%"}
+```{r}
+dados_completos <- dados.csv[complete.cases(dados.csv), ]  
+dim(dados_completos)  
+dim(dados.csv)
+```
+:::
+:::::
+::::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+unique(dados.csv$Treatment)
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+unique(dados.csv$Treatment)
+unique(dados.csv$Location)
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+unique(dados.csv$Treatment)
+unique(dados.csv$Location)
+unique(dados.csv$Date)
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+unique(dados.csv$Treatment)
+unique(dados.csv$Location)
+unique(dados.csv$Date)
+unique(dados.csv$Richness)
+
+```
+:::
+::::
+
+## Manipulação de dados - R Básico
+
+#### **Valores Únicos e Duplicados**
+
+:::: columns
+`unique()` - buscar por valores únicos
+
+::: {.column width="100%"}
+```{r}
+unique(dados.csv$Treatment)
+unique(dados.csv$Location)
+unique(dados.csv$Date)
+unique(dados.csv$Richness)
+sort(unique(dados.csv$Richness), decreasing = TRUE)
+
+```
+:::
+::::
+
+## Tipos de dados - Exercícios
+
+::: columns
+<br>
+
+![](img/cat.gif){fig-align="center" width="400"}
+:::
+
+## Exercícios
+
+::::::: columns
+Usando `dados.csv` faça
+
+:::::: {.columns style="font-size: 60%"}
+User `head()` se quiser ver o **output** mais **curto**
+
+Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+
+```
+:::
+
+**Organize** os resultados acima em **ordem `crescente`** e **`decrescente`**. **Slide (27)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+
+```
+:::
+
+Chequem os dados usando o **`sumário estatístico`**: **Slide (13)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+::::::
+:::::::
+
+## Exercícios
+
+::::::: columns
+Usando `dados.csv` faça
+
+:::::: {.columns style="font-size: 60%"}
+User `head()` se quiser ver o **output** mais **curto**
+
+Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+dados.ric.abn <- dados.csv$Abundance/dados.csv$Richness
+head(dados.ric.abn, n = 10)
+
+```
+:::
+
+**Organize** os resultados acima em **ordem `crescente`** e **`decrescente`**. **Slide (27)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+
+```
+:::
+
+Chequem os dados usando o **`sumário estatístico`**: **Slide (13)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+::::::
+:::::::
+
+## Exercícios
+
+::::::: columns
+Usando `dados.csv` faça
+
+:::::: {.columns style="font-size: 60%"}
+User `head()` se quiser ver o **output** mais **curto**
+
+Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+dados.ric.abn <- dados.csv$Abundance/dados.csv$Richness
+head(dados.ric.abn, n = 10)
+
+```
+:::
+
+**Organize** os resultados acima em **ordem `crescente`** e **`decrescente`**. **Slide (27)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+sort(head(dados.ric.abn, n = 10))
+
+```
+:::
+
+Chequem os dados usando o **`sumário estatístico`**: **Slide (13)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+```
+:::
+::::::
+:::::::
+
+## Exercícios
+
+::::::: columns
+Usando `dados.csv` faça
+
+:::::: {.columns style="font-size: 60%"}
+User `head()` se quiser ver o **output** mais **curto**
+
+Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+
+dados.ric.abn <- dados.csv$Abundance/dados.csv$Richness
+head(dados.ric.abn, n = 10)
+
+```
+:::
+
+**Organize** os resultados acima em **ordem `crescente`** e **`decrescente`**. **Slide (27)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+sort(head(dados.ric.abn, n = 10))
+
+```
+:::
+
+Chequem os dados usando o **`sumário estatístico`**: **Slide (13)**
+
+::: {.column width="100%" style="font-size: 100%"}
+```{r}
+summary(dados.ric.abn)
+```
+:::
+::::::
+:::::::
+
+## Exercícios
+
+::::: columns
+Usando `dados.csv` faça
+
+:::: {.columns style="font-size: 60%"}
+**Filtre** `dados.csv$Date` para o ano de **2019**., salve em um **novo objeto**, e cheque as **dimensões**. **Slide (22)**
+
+OBS: só use **aspas** quando filtar usando `mode` `character`
+
+::: {.column width="50%" style="font-size: 85%"}
+```{r}
+
+```
+:::
+::::
+:::::
+
+## Exercícios
+
+::::: columns
+Usando `dados.csv` faça
+
+:::: {.columns style="font-size: 60%"}
+**Filtre** `dados.csv$Date` para o ano de **2019**., salve em um **novo objeto**, e cheque as **dimensões**. **Slide (22)**
+
+OBS: só use **aspas** quando filtar usando `mode` `character`
+
+::: {.column width="50%" style="font-size: 85%"}
+```{r}
+filtrado <- subset(dados.csv, Date == 2019)
+head(filtrado, n = 3)
+
+dim(filtrado)
+```
+:::
+::::
+:::::
+
+## Exercícios
+
+::::: columns
+Usando `dados.csv` faça
+
+:::: {.columns style="font-size: 60%"}
+**Filtre** `dados.csv` para o **ano** de **`2019` & local `CBO`**. Salve em um **novo objeto**. **Slide (22)**
+
+OBS: só use **aspas** quando filtar usando `mode` `character`
+
+::: {.column width="100%" style="font-size: 85%"}
+```{r}
+
+```
+:::
+
+Cheque o número de elementos repetidos da coluna `Plots`. **Slide (44)**
+
+```{r}
+
+```
+::::
+:::::
+
+## Exercícios
+
+::::: columns
+Usando `dados.csv` faça
+
+:::: {.columns style="font-size: 60%"}
+**Filtre** `dados.csv` para o **ano** de **`2019` & local `CBO`**. Salve em um **novo objeto**. **Slide (22)**
+
+OBS: só use **aspas** quando filtar usando `mode` `character`
+
+::: {.column width="100%" style="font-size: 85%"}
+```{r}
+
+filtrado.cbo <- subset(dados.csv, Date == 2019 & Location == "CBO")
+head(filtrado.cbo, n = 3)
+
+dim(filtrado.cbo)
+```
+:::
+
+Cheque o número de elementos repetidos da coluna `Plots`. **Slide (44)**
+
+```{r}
+table(filtrado$Plots)
+```
+::::
+:::::
+
+## Exercícios
+
+::: {.columns style="font-size: 80%"}
+Exporte `filtrado.cbo` no formato `.csv` para a pasta `01_dados`. **Slide (8)**
+
+```{r}
+
+```
+:::
+
+## Exercícios
+
+::: {.columns style="font-size: 80%"}
+Exporte `filtrado.cbo` no formato `.csv` para a pasta `01_dados`. **Slide (8)**
+
+```{r}
+write.csv(filtrado.cbo, "../01_dados/filtrado_cbo.csv")
+```
+:::
+
+## 

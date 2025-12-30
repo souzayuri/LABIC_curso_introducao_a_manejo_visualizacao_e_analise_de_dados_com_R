@@ -210,7 +210,7 @@
 </section>
 <section class="slide level2">
 <h2>Importação e exportação de dados</h2>
-<h4>FAÇAM JUNTO COMIGO!!!</h4>
+<h4>FAÇAM JUNTOS COMIGO!!!</h4>
 <div class="columns" style="font-size:70%">
 <ul>
 <li><p>Criem um <strong>novo script</strong> na <strong>sua pasta</strong> ou na <strong>pasta do curso</strong> que baixaram do <strong>GitHub</strong>.</p></li>
@@ -231,7 +231,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># indicar o caminho, usem a tecla tab </span></span>
 <span id="cb1-2"><a href=""></a><span class="co"># e o R ira listar tudo que existe no diretório</span></span>
-<span id="cb1-3"><a href=""></a>dados.txt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"../01_dados/biota_all_variables-2025-12-28.txt"</span>, </span>
+<span id="cb1-3"><a href=""></a>dados.txt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"../01_dados/biota_diversidade.txt"</span>, </span>
 <span id="cb1-4"><a href=""></a>                    <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
 <span id="cb1-5"><a href=""></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-6"><a href=""></a></span>
@@ -254,7 +254,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># indicar o caminho, usem a tecla tab </span></span>
 <span id="cb3-2"><a href=""></a><span class="co"># e o R ira listar tudo que existe no diretório</span></span>
-<span id="cb3-3"><a href=""></a>dados.txt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"../01_dados/biota_all_variables-2025-12-28.txt"</span>, </span>
+<span id="cb3-3"><a href=""></a>dados.txt <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"../01_dados/biota_diversidade.txt"</span>, </span>
 <span id="cb3-4"><a href=""></a>                    <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,</span>
 <span id="cb3-5"><a href=""></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-6"><a href=""></a></span>
@@ -294,7 +294,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># indicar o caminho, usem a tecla tab </span></span>
 <span id="cb5-2"><a href=""></a><span class="co"># e o R ira listar tudo que existe no diretório</span></span>
-<span id="cb5-3"><a href=""></a>dados.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_all_variables-2025-12-28.csv"</span>)</span>
+<span id="cb5-3"><a href=""></a>dados.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
 <span id="cb5-4"><a href=""></a></span>
 <span id="cb5-5"><a href=""></a><span class="fu">dim</span>(dados.csv) <span class="co"># mostra número de linhas e de colunas</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -315,7 +315,7 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># indicar o caminho, usem a tecla tab </span></span>
 <span id="cb7-2"><a href=""></a><span class="co"># e o R ira listar tudo que existe no diretório</span></span>
-<span id="cb7-3"><a href=""></a>dados.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_all_variables-2025-12-28.csv"</span>)</span>
+<span id="cb7-3"><a href=""></a>dados.csv <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
 <span id="cb7-4"><a href=""></a></span>
 <span id="cb7-5"><a href=""></a><span class="fu">head</span>(dados.csv, <span class="at">n =</span> <span class="dv">5</span>) <span class="co"># mostra as 5 primeiras linhas</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -345,8 +345,10 @@
 <h2>Importação e exportação de dados</h2>
 <div class="columns" style="font-size: 80%">
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Exportando <code>.txt</code> e <code>.csv</code></h4>
+<p>Indica o <strong>objeto</strong> que quer salva, seguido do <strong>caminho da pasta</strong> e do <strong>nome</strong> que vai <strong>dar para a</strong> <strong>tabela</strong> a ser salva.</p>
+<p>OBS: <strong><code>NUNCA</code></strong> use <strong>ponto</strong> <code>.</code> como separador dos nomes, pois o <code>.</code> indica a <strong>extensão do arquivo</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados.txt"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados_aula_R.txt"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -354,10 +356,12 @@
 <h2>Importação e exportação de dados</h2>
 <div class="columns" style="font-size: 80%">
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Exportando <code>.txt</code> e <code>.csv</code></h4>
+<p>Indica o <strong>objeto</strong> que quer salva, seguido do <strong>caminho da pasta</strong> e do <strong>nome</strong> que vai <strong>dar para a</strong> <strong>tabela</strong> a ser salva.</p>
+<p>OBS: <strong><code>NUNCA</code></strong> use <strong>ponto</strong> <code>.</code> como separador dos nomes, pois o <code>.</code> indica a <strong>extensão do arquivo</strong>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados.txt"</span>)</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados_aula_R.txt"</span>)</span>
 <span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="fu">write.csv</span>(dados.csv, <span class="st">"../01_dados/dados.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href=""></a><span class="fu">write.csv</span>(dados.csv, <span class="st">"../01_dados/dados_aula_R.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -718,7 +722,7 @@
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
 </div>
-<p>xUsar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
+<p>Usar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -746,7 +750,7 @@
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
 </div>
-<p>xUsar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
+<p>Usar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -778,7 +782,7 @@
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
 </div>
-<p>xUsar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
+<p>Usar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -810,7 +814,7 @@
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
 </div>
-<p>xUsar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
+<p>Usar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -829,156 +833,176 @@
 </div><div class="column" style="font-size: 55%">
 <p>Usar <code>subset()</code> para selecionar linhas <strong>filtrando</strong> por um atributo</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"ITA"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Id_plot Location Plots Treatment Date Longitude  Latitude Elevation
-8   ITA_p06o      ITA     6      open 2019 -45.08730 -23.31726 1010.2900
-9   ITA_p15o      ITA    15      open 2019 -45.07243 -23.31044 1078.8500
-25  ITA_p10o      ITA    10      open 2019 -45.08239 -23.31430 1068.8500
-26  ITA_p12o      ITA    12      open 2019 -45.07941 -23.31129 1088.2300
-27  ITA_p14o      ITA    14      open 2019 -45.07499 -23.31049 1066.7500
-40  ITA_p02o      ITA     2      open 2017 -45.09526 -23.32281  990.0208
-62  ITA_p01c      ITA     1    closed 2019 -45.09422 -23.32396  999.3018
-63  ITA_p02o      ITA     2      open 2019 -45.09526 -23.32281  990.0208
-84  ITA_p01o      ITA     1      open 2017 -45.09433 -23.32396  998.7773
-85  ITA_p01c      ITA     1    closed 2017 -45.09422 -23.32396  999.3018
-86  ITA_p08o      ITA     8      open 2017 -45.08303 -23.31873 1024.3200
-87  ITA_p10o      ITA    10      open 2017 -45.08239 -23.31430 1068.8500
-88  ITA_p12o      ITA    12      open 2017 -45.07941 -23.31129 1088.2300
-89  ITA_p15o      ITA    15      open 2017 -45.07243 -23.31044 1078.8500
-107 ITA_p01o      ITA     1      open 2019 -45.09433 -23.32396  998.7773
-108 ITA_p02c      ITA     2    closed 2019 -45.09529 -23.32284  990.7439
-109 ITA_p04o      ITA     4      open 2019 -45.08520 -23.32176  988.8627
-110 ITA_p04c      ITA     4    closed 2019 -45.08532 -23.32167  986.7831
-111 ITA_p06c      ITA     6    closed 2019 -45.08725 -23.31732 1010.2900
-112 ITA_p08o      ITA     8      open 2019 -45.08303 -23.31873 1024.3200
-113 ITA_p08c      ITA     8    closed 2019 -45.08300 -23.31865 1027.6100
-114 ITA_p10c      ITA    10    closed 2019 -45.08225 -23.31432 1069.8200
-142 ITA_p02c      ITA     2    closed 2017 -45.09529 -23.32284  990.7439
-143 ITA_p04o      ITA     4      open 2017 -45.08520 -23.32176  988.8627
-144 ITA_p04c      ITA     4    closed 2017 -45.08532 -23.32167  986.7831
-145 ITA_p06o      ITA     6      open 2017 -45.08730 -23.31726 1010.2900
-146 ITA_p06c      ITA     6    closed 2017 -45.08725 -23.31732 1010.2900
-147 ITA_p08c      ITA     8    closed 2017 -45.08300 -23.31865 1027.6100
-148 ITA_p10c      ITA    10    closed 2017 -45.08225 -23.31432 1069.8200
-149 ITA_p12c      ITA    12    closed 2017 -45.07941 -23.31136 1088.2400
-150 ITA_p14o      ITA    14      open 2017 -45.07499 -23.31049 1066.7500
-151 ITA_p14c      ITA    14    closed 2017 -45.07497 -23.31047 1065.7300
-152 ITA_p15c      ITA    15    closed 2017 -45.07236 -23.31036 1080.5500
-167 ITA_p12c      ITA    12    closed 2019 -45.07941 -23.31136 1088.2400
-168 ITA_p14c      ITA    14    closed 2019 -45.07497 -23.31047 1065.7300
-169 ITA_p15c      ITA    15    closed 2019 -45.07236 -23.31036 1080.5500
+1   CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578
+2   CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435
+3   CBO_p09c      CBO     9    closed 2017 -47.98620 -24.07101  727.9145
+4   CBO_p04c      CBO     4    closed 2019 -47.99039 -24.06630  823.6266
+5   CBO_p05c      CBO     5    closed 2019 -47.98947 -24.06563  771.0035
+6   CBO_p11o      CBO    11      open 2019 -47.98570 -24.06291  804.2686
+11  CBO_p01o      CBO     1      open 2017 -47.99356 -24.06707  728.2861
+12  CBO_p11o      CBO    11      open 2017 -47.98570 -24.06291  804.2686
+13  CBO_p12o      CBO    12      open 2017 -47.98606 -24.06459  746.2596
+14  CBO_p14o      CBO    14      open 2017 -47.98390 -24.06217  745.2590
+17  CBO_p01c      CBO     1    closed 2019 -47.99359 -24.06701  730.7128
+18  CBO_p06c      CBO     6    closed 2019 -47.98778 -24.06406  805.8893
+19  CBO_p12c      CBO    12    closed 2019 -47.98604 -24.06442  747.1271
+20  CBO_p14o      CBO    14      open 2019 -47.98390 -24.06217  745.2590
+21  CBO_p15o      CBO    15      open 2019 -47.98211 -24.06130  747.0956
+22  CBO_p15c      CBO    15    closed 2019 -47.98242 -24.06155  745.3145
+34  CBO_p04o      CBO     4      open 2017 -47.99049 -24.06621  826.6245
+35  CBO_p09o      CBO     9      open 2017 -47.98609 -24.07105  727.4435
+36  CBO_p12c      CBO    12    closed 2017 -47.98604 -24.06442  747.1271
+37  CBO_p14c      CBO    14    closed 2017 -47.98401 -24.06219  748.4694
+38  CBO_p15o      CBO    15      open 2017 -47.98211 -24.06130  747.0956
+43  CBO_p01o      CBO     1      open 2019 -47.99356 -24.06707  728.2861
+44  CBO_p02o      CBO     2      open 2019 -47.99222 -24.06774  739.8513
+45  CBO_p02c      CBO     2    closed 2019 -47.99215 -24.06765  743.4908
+46  CBO_p05o      CBO     5      open 2019 -47.98935 -24.06565  772.3026
+47  CBO_p09c      CBO     9    closed 2019 -47.98620 -24.07101  727.9145
+48  CBO_p11c      CBO    11    closed 2019 -47.98581 -24.06290  802.0324
+69  CBO_p01c      CBO     1    closed 2017 -47.99359 -24.06701  730.7128
+70  CBO_p02c      CBO     2    closed 2017 -47.99215 -24.06765  743.4908
+71  CBO_p05o      CBO     5      open 2017 -47.98935 -24.06565  772.3026
+72  CBO_p05c      CBO     5    closed 2017 -47.98947 -24.06563  771.0035
+73  CBO_p06o      CBO     6      open 2017 -47.98784 -24.06410  807.0578
+74  CBO_p06c      CBO     6    closed 2017 -47.98778 -24.06406  805.8893
+75  CBO_p11c      CBO    11    closed 2017 -47.98581 -24.06290  802.0324
+76  CBO_p15c      CBO    15    closed 2017 -47.98242 -24.06155  745.3145
+100 CBO_p14c      CBO    14    closed 2019 -47.98401 -24.06219  748.4694
+124 CBO_p02o      CBO     2      open 2017 -47.99222 -24.06774  739.8513
+125 CBO_p04c      CBO     4    closed 2017 -47.99039 -24.06630  823.6266
+163 CBO_p04o      CBO     4      open 2019 -47.99049 -24.06621  826.6245
+164 CBO_p12o      CBO    12      open 2019 -47.98606 -24.06459  746.2596
     Richness Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult
-8          6        25 1.6715953 0.7928994        79.38              28
-9          2        15 0.6931472 0.5000000        62.19              18
-25         3        10 0.7356219 0.4062500        76.58              31
-26         3        12 1.0549202 0.6400000        89.59              38
-27         3        16 1.0986123 0.6666667        82.52              26
-40         8        41 1.8131584 0.7889546           NA              22
-62         9        46 1.9587271 0.8254848        71.38              17
-63         8        42 1.8351710 0.7977839        84.68              22
-84        10        29 2.0002012 0.8079585           NA              25
-85         9        50 1.7818046 0.7619048           NA              17
-86         4        21 1.3086054 0.7083333           NA              40
-87         2         5 0.5004024 0.3200000           NA              31
-88         3        11 1.0114043 0.6111111           NA              38
-89         3        14 0.9502705 0.5600000           NA              18
-107       10        32 2.2538576 0.8888889        84.55              25
-108        8        53 1.6271052 0.7519531        84.07              27
-109        6        18 1.6769878 0.7901235        60.68              32
-110        9        44 1.4733559 0.6262976        85.72              30
-111        5        62 1.3981437 0.7221172        71.67              30
-112        4        22 1.3296613 0.7222222        64.04              40
-113        4        60 1.0139047 0.5740741        71.90              34
-114        6        44 1.1384051 0.5621302        86.46              28
-142        8        42 1.5975441 0.7327806           NA              27
-143        5        13 1.4368287 0.7288889           NA              32
-144        9        45 1.4811906 0.6336742           NA              30
-145        6        28 1.6216835 0.7786961           NA              28
-146        6        60 1.3395366 0.6690909           NA              30
-147        4        30 0.9554471 0.5190311           NA              34
-148        5        21 1.1525646 0.5882353           NA              28
-149        4        13 1.2424533 0.6666667           NA              30
-150        4        18 1.1124566 0.5866667           NA              26
-151        6        52 1.0769220 0.5066163           NA              23
-152        9        61 1.3361080 0.6053728           NA              17
-167        5        36 1.3592367 0.6800000        89.68              30
-168        5        28 1.4708085 0.7400000        91.65              23
-169        8        40 1.6604076 0.7350000        82.60              17
+1         11        55 2.1831873 0.8580247        70.09              23
+2          9        23 1.9172155 0.8150000        69.88              20
+3          9        38 2.0097092 0.8359375           NA              22
+4          6        26 1.6769878 0.7901235        67.88              29
+5          5        48 1.4184837 0.7200000        72.43              17
+6          8        50 1.6466900 0.7572016        64.40              21
+11         9        64 1.8613437 0.8079012           NA              20
+12         9        51 1.7464349 0.7707605           NA              21
+13         6        24 1.7074754 0.8027682           NA              21
+14         6        23 1.5270527 0.7165533           NA               9
+17        12        37 2.3639211 0.8927336        72.22              26
+18         7        42 1.3167868 0.6016000        70.62              20
+19         6        44 1.0598536 0.5170068        73.20              28
+20         4        37 1.0735428 0.5625000        68.66               9
+21         4        33 1.2366849 0.6805556        63.57              23
+22         8        41 1.7832068 0.7892562        71.24              22
+34         5        20 1.5047883 0.7600000           NA              36
+35         9        23 1.9254082 0.8096886           NA              20
+36         6        16 1.4306853 0.6836735           NA              28
+37        10        37 2.1285490 0.8587258           NA              20
+38         6        36 1.4929576 0.7237654           NA              23
+43         9        90 1.1763048 0.5074971        67.39              20
+44         7        37 1.8343720 0.8200000        66.94              20
+45         7        30 1.8462202 0.8264463        65.92              21
+46         6        19 1.6094379 0.7600000        77.31              14
+47         9        45 2.0685135 0.8581315        70.62              22
+48        12        47 2.0249132 0.7984694        61.18              24
+69        12        49 2.3787188 0.8970051           NA              26
+70         8        34 1.9817912 0.8491124           NA              21
+71         6        14 1.7478681 0.8163265           NA              14
+72         6        25 1.6094379 0.7600000           NA              17
+73        12        61 2.2602036 0.8641975           NA              23
+74         6        41 1.1792337 0.5746692           NA              20
+75        14        58 2.2352126 0.8378906           NA              24
+76         6        26 1.5808185 0.7578125           NA              22
+100       10        57 2.1493917 0.8662132        73.34              20
+124        8        24 2.0011828 0.8526077           NA              20
+125        7        28 1.7540041 0.7962963           NA              29
+163        6        25 1.6715953 0.7928994        64.56              36
+164        5        73 0.5991882 0.2668038        71.97              21
     N_M_Eedulis_adult effort_cam_day_summed med_lar_mamm_spp_rich
-8                  11                   204                     1
-9                   3                   214                     6
-25                  7                   186                     4
-26                  9                   210                     6
-27                  3                   210                     7
-40                  2                    20                     1
-62                  2                   211                     0
-63                  2                   129                     4
-84                  5                    85                     1
-85                  2                    77                     0
-86                  4                    66                     0
-87                  7                    70                     1
-88                  9                   102                     4
-89                  3                    39                     2
-107                 5                   141                     4
-108                 8                   207                     0
-109                 8                   191                     6
-110                 4                   171                     0
-111                 7                   161                     0
-112                 4                   110                     5
-113                12                   211                     0
-114                 5                   211                     0
-142                 8                    39                     0
-143                 8                    83                     3
-144                 4                     0                     0
-145                11                    38                     1
-146                 7                     0                     0
-147                12                    81                     0
-148                 5                    47                     0
-149                 7                    85                     0
-150                 3                    86                     3
-151                 2                    69                     0
-152                 0                    84                     0
-167                 7                   135                     0
-168                 2                   198                     0
-169                 0                   154                     0
+1                   0                    91                     0
+2                   0                   170                     4
+3                   1                    78                     0
+4                   0                   119                     0
+5                   0                   179                     0
+6                   1                   174                     5
+11                  0                    35                     1
+12                  1                    89                     1
+13                  0                    61                     2
+14                  3                    88                     3
+17                  0                   177                     0
+18                  2                   101                     0
+19                  3                   164                     0
+20                  3                   178                     2
+21                  2                   178                     3
+22                 10                   130                     0
+34                  0                    79                     0
+35                  0                    87                     2
+36                  3                    87                     0
+37                  4                    87                     0
+38                  2                    88                     2
+43                  0                   177                     6
+44                  3                   132                     2
+45                  4                    83                     0
+46                  0                   179                     4
+47                  1                   197                     0
+48                  3                   165                     0
+69                  0                    84                     0
+70                  4                    86                     0
+71                  0                    90                     2
+72                  0                    36                     0
+73                  0                    84                     0
+74                  2                    85                     0
+75                  3                    89                     0
+76                 10                    37                     0
+100                 4                   178                     0
+124                 3                    86                     3
+125                 0                     8                     1
+163                 0                   132                     1
+164                 0                    59                     1
     hbvr_body_size_kg
-8            29.00000
-9            29.00000
-25           29.00000
-26           32.32174
-27           27.25000
-40           29.00000
-62            0.00000
-63           35.47458
-84           29.00000
-85            0.00000
-86            0.00000
-87           29.00000
-88           28.68182
-89           29.00000
-107          28.12500
-108           0.00000
-109          37.12766
-110           0.00000
-111           0.00000
-112          29.00000
-113           0.00000
-114           0.00000
-142           0.00000
-143          32.43114
-144           0.00000
-145          29.00000
-146           0.00000
-147           0.00000
-148           0.00000
-149           0.00000
-150          26.10345
-151           0.00000
-152           0.00000
-167           0.00000
-168           0.00000
-169           0.00000</code></pre>
+1             0.00000
+2           220.00000
+3             0.00000
+4             0.00000
+5             0.00000
+6            19.80000
+11            0.00000
+12          220.00000
+13           21.00000
+14           57.18182
+17            0.00000
+18            0.00000
+19            0.00000
+20          220.00000
+21           29.00000
+22            0.00000
+34            0.00000
+35            0.00000
+36            0.00000
+37            0.00000
+38          220.00000
+43           21.00000
+44           21.00000
+45            0.00000
+46           29.00000
+47            0.00000
+48            0.00000
+69            0.00000
+70            0.00000
+71          220.00000
+72            0.00000
+73           21.00000
+74            0.00000
+75            0.00000
+76            0.00000
+100           0.00000
+124         164.72222
+125           0.00000
+163           0.00000
+164          15.00000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">dim</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 40 18</code></pre>
 </div>
 </div>
 </div></div>
@@ -990,14 +1014,14 @@
 <div class="column" style="font-size: 55%">
 <p>Usar <code>$</code> para <strong>selecionar</strong> uma coluna</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">head</span>(dados.csv<span class="sc">$</span>Id_plot, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">head</span>(dados.csv<span class="sc">$</span>Id_plot, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
 </div>
-<p>xUsar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
+<p>Usar <code>[X,]</code> para <strong>selecionar</strong> <strong>linhas</strong>, e <code>[,X]</code> para <strong>colunas</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>dados.csv[<span class="dv">1</span>,]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Id_plot Location Plots Treatment Date Longitude Latitude Elevation Richness
 1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.0641  807.0578       11
@@ -1006,7 +1030,7 @@
   effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
 1                    91                     0                 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">head</span>(dados.csv[,<span class="dv">1</span>], <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">head</span>(dados.csv[,<span class="dv">1</span>], <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "CBO_p06o" "CBO_p09o" "CBO_p09c" "CBO_p04c" "CBO_p05c"</code></pre>
 </div>
@@ -1014,160 +1038,31 @@
 </div><div class="column" style="font-size: 55%">
 <p>Usar <code>subset()</code> para selecionar linhas <strong>filtrando</strong> por um atributo</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"ITA"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">head</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span>), <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     Id_plot Location Plots Treatment Date Longitude  Latitude Elevation
-8   ITA_p06o      ITA     6      open 2019 -45.08730 -23.31726 1010.2900
-9   ITA_p15o      ITA    15      open 2019 -45.07243 -23.31044 1078.8500
-25  ITA_p10o      ITA    10      open 2019 -45.08239 -23.31430 1068.8500
-26  ITA_p12o      ITA    12      open 2019 -45.07941 -23.31129 1088.2300
-27  ITA_p14o      ITA    14      open 2019 -45.07499 -23.31049 1066.7500
-40  ITA_p02o      ITA     2      open 2017 -45.09526 -23.32281  990.0208
-62  ITA_p01c      ITA     1    closed 2019 -45.09422 -23.32396  999.3018
-63  ITA_p02o      ITA     2      open 2019 -45.09526 -23.32281  990.0208
-84  ITA_p01o      ITA     1      open 2017 -45.09433 -23.32396  998.7773
-85  ITA_p01c      ITA     1    closed 2017 -45.09422 -23.32396  999.3018
-86  ITA_p08o      ITA     8      open 2017 -45.08303 -23.31873 1024.3200
-87  ITA_p10o      ITA    10      open 2017 -45.08239 -23.31430 1068.8500
-88  ITA_p12o      ITA    12      open 2017 -45.07941 -23.31129 1088.2300
-89  ITA_p15o      ITA    15      open 2017 -45.07243 -23.31044 1078.8500
-107 ITA_p01o      ITA     1      open 2019 -45.09433 -23.32396  998.7773
-108 ITA_p02c      ITA     2    closed 2019 -45.09529 -23.32284  990.7439
-109 ITA_p04o      ITA     4      open 2019 -45.08520 -23.32176  988.8627
-110 ITA_p04c      ITA     4    closed 2019 -45.08532 -23.32167  986.7831
-111 ITA_p06c      ITA     6    closed 2019 -45.08725 -23.31732 1010.2900
-112 ITA_p08o      ITA     8      open 2019 -45.08303 -23.31873 1024.3200
-113 ITA_p08c      ITA     8    closed 2019 -45.08300 -23.31865 1027.6100
-114 ITA_p10c      ITA    10    closed 2019 -45.08225 -23.31432 1069.8200
-142 ITA_p02c      ITA     2    closed 2017 -45.09529 -23.32284  990.7439
-143 ITA_p04o      ITA     4      open 2017 -45.08520 -23.32176  988.8627
-144 ITA_p04c      ITA     4    closed 2017 -45.08532 -23.32167  986.7831
-145 ITA_p06o      ITA     6      open 2017 -45.08730 -23.31726 1010.2900
-146 ITA_p06c      ITA     6    closed 2017 -45.08725 -23.31732 1010.2900
-147 ITA_p08c      ITA     8    closed 2017 -45.08300 -23.31865 1027.6100
-148 ITA_p10c      ITA    10    closed 2017 -45.08225 -23.31432 1069.8200
-149 ITA_p12c      ITA    12    closed 2017 -45.07941 -23.31136 1088.2400
-150 ITA_p14o      ITA    14      open 2017 -45.07499 -23.31049 1066.7500
-151 ITA_p14c      ITA    14    closed 2017 -45.07497 -23.31047 1065.7300
-152 ITA_p15c      ITA    15    closed 2017 -45.07236 -23.31036 1080.5500
-167 ITA_p12c      ITA    12    closed 2019 -45.07941 -23.31136 1088.2400
-168 ITA_p14c      ITA    14    closed 2019 -45.07497 -23.31047 1065.7300
-169 ITA_p15c      ITA    15    closed 2019 -45.07236 -23.31036 1080.5500
-    Richness Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult
-8          6        25 1.6715953 0.7928994        79.38              28
-9          2        15 0.6931472 0.5000000        62.19              18
-25         3        10 0.7356219 0.4062500        76.58              31
-26         3        12 1.0549202 0.6400000        89.59              38
-27         3        16 1.0986123 0.6666667        82.52              26
-40         8        41 1.8131584 0.7889546           NA              22
-62         9        46 1.9587271 0.8254848        71.38              17
-63         8        42 1.8351710 0.7977839        84.68              22
-84        10        29 2.0002012 0.8079585           NA              25
-85         9        50 1.7818046 0.7619048           NA              17
-86         4        21 1.3086054 0.7083333           NA              40
-87         2         5 0.5004024 0.3200000           NA              31
-88         3        11 1.0114043 0.6111111           NA              38
-89         3        14 0.9502705 0.5600000           NA              18
-107       10        32 2.2538576 0.8888889        84.55              25
-108        8        53 1.6271052 0.7519531        84.07              27
-109        6        18 1.6769878 0.7901235        60.68              32
-110        9        44 1.4733559 0.6262976        85.72              30
-111        5        62 1.3981437 0.7221172        71.67              30
-112        4        22 1.3296613 0.7222222        64.04              40
-113        4        60 1.0139047 0.5740741        71.90              34
-114        6        44 1.1384051 0.5621302        86.46              28
-142        8        42 1.5975441 0.7327806           NA              27
-143        5        13 1.4368287 0.7288889           NA              32
-144        9        45 1.4811906 0.6336742           NA              30
-145        6        28 1.6216835 0.7786961           NA              28
-146        6        60 1.3395366 0.6690909           NA              30
-147        4        30 0.9554471 0.5190311           NA              34
-148        5        21 1.1525646 0.5882353           NA              28
-149        4        13 1.2424533 0.6666667           NA              30
-150        4        18 1.1124566 0.5866667           NA              26
-151        6        52 1.0769220 0.5066163           NA              23
-152        9        61 1.3361080 0.6053728           NA              17
-167        5        36 1.3592367 0.6800000        89.68              30
-168        5        28 1.4708085 0.7400000        91.65              23
-169        8        40 1.6604076 0.7350000        82.60              17
-    N_M_Eedulis_adult effort_cam_day_summed med_lar_mamm_spp_rich
-8                  11                   204                     1
-9                   3                   214                     6
-25                  7                   186                     4
-26                  9                   210                     6
-27                  3                   210                     7
-40                  2                    20                     1
-62                  2                   211                     0
-63                  2                   129                     4
-84                  5                    85                     1
-85                  2                    77                     0
-86                  4                    66                     0
-87                  7                    70                     1
-88                  9                   102                     4
-89                  3                    39                     2
-107                 5                   141                     4
-108                 8                   207                     0
-109                 8                   191                     6
-110                 4                   171                     0
-111                 7                   161                     0
-112                 4                   110                     5
-113                12                   211                     0
-114                 5                   211                     0
-142                 8                    39                     0
-143                 8                    83                     3
-144                 4                     0                     0
-145                11                    38                     1
-146                 7                     0                     0
-147                12                    81                     0
-148                 5                    47                     0
-149                 7                    85                     0
-150                 3                    86                     3
-151                 2                    69                     0
-152                 0                    84                     0
-167                 7                   135                     0
-168                 2                   198                     0
-169                 0                   154                     0
-    hbvr_body_size_kg
-8            29.00000
-9            29.00000
-25           29.00000
-26           32.32174
-27           27.25000
-40           29.00000
-62            0.00000
-63           35.47458
-84           29.00000
-85            0.00000
-86            0.00000
-87           29.00000
-88           28.68182
-89           29.00000
-107          28.12500
-108           0.00000
-109          37.12766
-110           0.00000
-111           0.00000
-112          29.00000
-113           0.00000
-114           0.00000
-142           0.00000
-143          32.43114
-144           0.00000
-145          29.00000
-146           0.00000
-147           0.00000
-148           0.00000
-149           0.00000
-150          26.10345
-151           0.00000
-152           0.00000
-167           0.00000
-168           0.00000
-169           0.00000</code></pre>
+<pre><code>   Id_plot Location Plots Treatment Date Longitude Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.0641  807.0578       11
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="fu">dim</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"ITA"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">dim</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 36 18</code></pre>
+<pre><code>[1] 40 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">head</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span> <span class="sc">&amp;</span> Richness <span class="sc">&gt;</span> <span class="dv">5</span>), <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.0641  807.0578       11
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">dim</span>(<span class="fu">subset</span>(dados.csv, Location <span class="sc">==</span> <span class="st">"CBO"</span> <span class="sc">&amp;</span> Richness <span class="sc">&gt;</span> <span class="dv">5</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35 18</code></pre>
 </div>
 </div>
 </div></div>
@@ -1177,39 +1072,6 @@
 <div class="columns" style="font-size: 80%">
 <h4><strong>Seleção e Filtragem</strong></h4>
 <p>Usar <strong><code>which()</code></strong> descobrir as <strong>posições</strong> dos elementos <strong>baseados</strong> em <strong>condições</strong></p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Manipulação de dados - R Básico</h2>
-<div class="columns" style="font-size: 80%">
-<h4><strong>Seleção e Filtragem</strong></h4>
-<p>Usar <strong><code>which()</code></strong> descobrir as <strong>posições</strong> dos elementos <strong>baseados</strong> em <strong>condições</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]   1  17  24  29  30  33  48  58  64  65  69  73  75  78  92  93  97  99 102
-[20] 120 129 132 134 139 156 160 165</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Manipulação de dados - R Básico</h2>
-<div class="columns" style="font-size: 80%">
-<h4><strong>Seleção e Filtragem</strong></h4>
-<p>Usar <strong><code>which()</code></strong> descobrir as <strong>posições</strong> dos elementos <strong>baseados</strong> em <strong>condições</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]   1  17  24  29  30  33  48  58  64  65  69  73  75  78  92  93  97  99 102
-[20] 120 129 132 134 139 156 160 165</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"ITA"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1]   8   9  25  26  27  40  62  63  84  85  86  87  88  89 107 108 109 110 111
-[20] 112 113 114 142 143 144 145 146 147 148 149 150 151 152 167 168 169</code></pre>
-</div>
-</div>
 </div>
 </section>
 <section class="slide level2">
@@ -1223,7 +1085,41 @@
 <pre><code> [1]   1  17  24  29  30  33  48  58  64  65  69  73  75  78  92  93  97  99 102
 [20] 120 129 132 134 139 156 160 165</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4><strong>Seleção e Filtragem</strong></h4>
+<p>Usar <strong><code>which()</code></strong> descobrir as <strong>posições</strong> dos elementos <strong>baseados</strong> em <strong>condições</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   1  17  24  29  30  33  48  58  64  65  69  73  75  78  92  93  97  99 102
+[20] 120 129 132 134 139 156 160 165</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   1   2   3   4   5   6  11  12  13  14  17  18  19  20  21  22  34  35  36
+[20]  37  38  43  44  45  46  47  48  69  70  71  72  73  74  75  76 100 124 125
+[39] 163 164</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4><strong>Seleção e Filtragem</strong></h4>
+<p>Usar <strong><code>which()</code></strong> descobrir as <strong>posições</strong> dos elementos <strong>baseados</strong> em <strong>condições</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   1  17  24  29  30  33  48  58  64  65  69  73  75  78  92  93  97  99 102
+[20] 120 129 132 134 139 156 160 165</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   1   2   3   4   5   6  11  12  13  14  17  18  19  20  21  22  34  35  36
 [20]  37  38  43  44  45  46  47  48  69  70  71  72  73  74  75  76 100 124 125
@@ -1232,7 +1128,7 @@
 </div>
 <p>Usar operador <code>&amp;</code> para implicar uma <strong>condição dupla</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"CBO"</span> <span class="sc">&amp;</span> dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">which</span>(dados.csv<span class="sc">$</span>Location <span class="sc">==</span> <span class="st">"CBO"</span> <span class="sc">&amp;</span> dados.csv<span class="sc">$</span>Richness <span class="sc">&gt;</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1 17 48 69 73 75</code></pre>
 </div>
@@ -1240,13 +1136,13 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
+<h2>Manipulação de dados - R Básico</h2>
 <div class="columns" style="font-size: 80%">
 <h4>Ordenação</h4>
 <p><code>sort()</code> <strong>ordenar</strong> <strong>um vetor</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
-<span id="cb79-2"><a href=""></a><span class="fu">sort</span>(x) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
+<span id="cb85-2"><a href=""></a><span class="fu">sort</span>(x) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1  4  5  6  8 10 11 23</code></pre>
 </div>
@@ -1254,17 +1150,17 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
+<h2>Manipulação de dados - R Básico</h2>
 <div class="columns" style="font-size: 80%">
 <h4>Ordenação</h4>
 <p><code>sort()</code> <strong>ordenar</strong> <strong>um vetor</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
-<span id="cb81-2"><a href=""></a><span class="fu">sort</span>(x) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
+<span id="cb87-2"><a href=""></a><span class="fu">sort</span>(x) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  1  4  5  6  8 10 11 23</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">sort</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">sort</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017
  [16] 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017 2017
@@ -1283,14 +1179,14 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<div class="columns" style="font-size: 80%">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
 <h4>Ordenação</h4>
 <p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
 <p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)</span>
-<span id="cb85-2"><a href=""></a><span class="fu">order</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)</span>
+<span id="cb91-2"><a href=""></a><span class="fu">order</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 5 7 6 8 1 3 4</code></pre>
 </div>
@@ -1298,18 +1194,80 @@
 </div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<div class="columns" style="font-size: 80%">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
 <h4>Ordenação</h4>
 <p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
-<p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p>
+<div class="columns" style="font-size: 80%">
+<p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><div class="columns" style="font-size: 140%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
-<span id="cb87-2"><a href=""></a><span class="fu">order</span>(x)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="dv">11</span>,<span class="dv">23</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>)  </span>
+<span id="cb93-2"><a href=""></a><span class="fu">order</span>(x)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 5 7 6 8 1 3 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a>dados.csv[<span class="fu">order</span>(dados.csv<span class="sc">$</span>Date), ] </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="co"># cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</span></span>
+<span id="cb95-2"><a href=""></a><span class="fu">order</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]   3  11  12  13  14  15  16  34  35  36  37  38  39  40  41  42  69  70
+ [19]  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88
+ [37]  89  90  91  92  93  94  95  96  97  98  99 124 125 126 127 128 129 130
+ [55] 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148
+ [73] 149 150 151 152 153 154 155 156 157 158 159 160 161 162   1   2   4   5
+ [91]   6   7   8   9  10  17  18  19  20  21  22  23  24  25  26  27  28  29
+[109]  30  31  32  33  43  44  45  46  47  48  49  50  51  52  53  54  55  56
+[127]  57  58  59  60  61  62  63  64  65  66  67  68 100 101 102 103 104 105
+[145] 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123
+[163] 163 164 165 166 167 168 169 170 171 172</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Ordenação</h4>
+<p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
+<div class="columns" style="font-size: 80%">
+<p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p>
+<div class="columns" style="font-size: 140%">
+
+</div></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Ordenação</h4>
+<p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
+<div class="columns" style="font-size: 80%">
+<p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p></li>
+<li><p>aplicamos isso usando a lógica <code>[X,]</code>, pedindo para as <strong>linhas</strong> do <code>data frame</code> seguirem a <strong>mesma ordem</strong> das <strong>linhas</strong> do <code>order(dados.csv$Date)</code></p>
+<div class="columns" style="font-size: 140%">
+
+</div></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Ordenação</h4>
+<p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
+<div class="columns" style="font-size: 80%">
+<p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p></li>
+<li><p>aplicamos isso usando a lógica <code>[X,]</code>, pedindo para as <strong>linhas</strong> do <code>data frame</code> seguirem a <strong>mesma ordem</strong> das <strong>linhas</strong> do <code>order(dados.csv$Date)</code></p>
+<div class="columns" style="font-size: 140%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a>dados.csv[<span class="fu">order</span>(dados.csv<span class="sc">$</span>Date), ] </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Id_plot Location Plots Treatment Date Longitude  Latitude  Elevation
 3   CBO_p09c      CBO     9    closed 2017 -47.98620 -24.07101  727.91449
@@ -2005,51 +1963,826 @@
 172           0.00000</code></pre>
 </div>
 </div>
+</div></li>
+</ul>
+</div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
 <h4>Transformação de Dados</h4>
+<p><code>merge()</code> <strong>juntar</strong> <code>data frames</code> por uma chave</p>
+<div class="column" style="width:50%;">
+
+</div></div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<p><code>merge()</code> <strong>juntar</strong> <code>data frames</code> por uma chave</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a>dados.traits <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)  </span>
+<span id="cb99-2"><a href=""></a><span class="fu">head</span>(dados.traits, <span class="at">n =</span> <span class="dv">2</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date leaf_thickness seed_mass leaf_area sla
+1 CBO_p06o      CBO     6      open 2019             NA        NA        NA  NA
+2 CBO_p09o      CBO     9      open 2019             NA        NA        NA  NA
+  seed_length carbon_nitro leaf_damage
+1          NA           NA    1.808511
+2          NA           NA    1.909091</code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 67%">
+<pre><code></code></pre>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<p><code>merge()</code> <strong>juntar</strong> <code>data frames</code> por uma chave</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>dados.traits <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)  </span>
+<span id="cb102-2"><a href=""></a><span class="fu">head</span>(dados.traits, <span class="at">n =</span> <span class="dv">2</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date leaf_thickness seed_mass leaf_area sla
+1 CBO_p06o      CBO     6      open 2019             NA        NA        NA  NA
+2 CBO_p09o      CBO     9      open 2019             NA        NA        NA  NA
+  seed_length carbon_nitro leaf_damage
+1          NA           NA    1.808511
+2          NA           NA    1.909091</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="fu">names</span>(dados.traits)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Id_plot"        "Location"       "Plots"          "Treatment"     
+ [5] "Date"           "leaf_thickness" "seed_mass"      "leaf_area"     
+ [9] "sla"            "seed_length"    "carbon_nitro"   "leaf_damage"   </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 67%">
+<pre><code></code></pre>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<p><code>merge()</code> <strong>juntar</strong> <code>data frames</code> por uma chave</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a>dados.traits <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)   </span>
+<span id="cb107-2"><a href=""></a><span class="fu">head</span>(dados.traits, <span class="at">n =</span> <span class="dv">2</span>)    </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date leaf_thickness seed_mass leaf_area sla
+1 CBO_p06o      CBO     6      open 2019             NA        NA        NA  NA
+2 CBO_p09o      CBO     9      open 2019             NA        NA        NA  NA
+  seed_length carbon_nitro leaf_damage
+1          NA           NA    1.808511
+2          NA           NA    1.909091</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="fu">names</span>(dados.traits)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Id_plot"        "Location"       "Plots"          "Treatment"     
+ [5] "Date"           "leaf_thickness" "seed_mass"      "leaf_area"     
+ [9] "sla"            "seed_length"    "carbon_nitro"   "leaf_damage"   </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a>dados.csv.traits <span class="ot">&lt;-</span> <span class="fu">merge</span>(dados.csv, dados.traits,     </span>
+<span id="cb111-2"><a href=""></a>                          <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Id_plot"</span>, <span class="st">"Date"</span>))  </span>
+<span id="cb111-3"><a href=""></a><span class="fu">head</span>(dados.csv.traits, <span class="at">n =</span> <span class="dv">2</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Date Location.x Plots.x Treatment.x Longitude  Latitude Elevation
+1 CAR_p01c 2017        CAR       1      closed -47.92781 -25.09477  30.15032
+2 CAR_p01c 2019        CAR       1      closed -47.92781 -25.09477  30.15032
+  Richness Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult
+1        8        30  1.737983 0.7455621           NA              22
+2        8        25  1.893788 0.8099174        69.69              22
+  N_M_Eedulis_adult effort_cam_day_summed med_lar_mamm_spp_rich
+1                 2                    85                     0
+2                 2                   113                     0
+  hbvr_body_size_kg Location.y Plots.y Treatment.y leaf_thickness seed_mass
+1                 0        CAR       1      closed           0.22    642.21
+2                 0        CAR       1      closed             NA        NA
+  leaf_area   sla seed_length carbon_nitro leaf_damage
+1    7491.1 36.23       16.92        16.04          NA
+2        NA    NA          NA           NA    1.772727</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<p><code>merge()</code> <strong>juntar</strong> <code>data frames</code> por uma chave</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a>dados.traits <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)   </span>
+<span id="cb113-2"><a href=""></a><span class="fu">head</span>(dados.traits, <span class="at">n =</span> <span class="dv">2</span>)    </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date leaf_thickness seed_mass leaf_area sla
+1 CBO_p06o      CBO     6      open 2019             NA        NA        NA  NA
+2 CBO_p09o      CBO     9      open 2019             NA        NA        NA  NA
+  seed_length carbon_nitro leaf_damage
+1          NA           NA    1.808511
+2          NA           NA    1.909091</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">names</span>(dados.traits)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Id_plot"        "Location"       "Plots"          "Treatment"     
+ [5] "Date"           "leaf_thickness" "seed_mass"      "leaf_area"     
+ [9] "sla"            "seed_length"    "carbon_nitro"   "leaf_damage"   </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 67%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a>dados.csv.traits <span class="ot">&lt;-</span> <span class="fu">merge</span>(dados.csv, dados.traits,     </span>
+<span id="cb117-2"><a href=""></a>                          <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Id_plot"</span>, <span class="st">"Date"</span>))  </span>
+<span id="cb117-3"><a href=""></a><span class="fu">head</span>(dados.csv.traits, <span class="at">n =</span> <span class="dv">2</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Date Location.x Plots.x Treatment.x Longitude  Latitude Elevation
+1 CAR_p01c 2017        CAR       1      closed -47.92781 -25.09477  30.15032
+2 CAR_p01c 2019        CAR       1      closed -47.92781 -25.09477  30.15032
+  Richness Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult
+1        8        30  1.737983 0.7455621           NA              22
+2        8        25  1.893788 0.8099174        69.69              22
+  N_M_Eedulis_adult effort_cam_day_summed med_lar_mamm_spp_rich
+1                 2                    85                     0
+2                 2                   113                     0
+  hbvr_body_size_kg Location.y Plots.y Treatment.y leaf_thickness seed_mass
+1                 0        CAR       1      closed           0.22    642.21
+2                 0        CAR       1      closed             NA        NA
+  leaf_area   sla seed_length carbon_nitro leaf_damage
+1    7491.1 36.23       16.92        16.04          NA
+2        NA    NA          NA           NA    1.772727</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="fu">names</span>(dados.csv.traits)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Id_plot"               "Date"                  "Location.x"           
+ [4] "Plots.x"               "Treatment.x"           "Longitude"            
+ [7] "Latitude"              "Elevation"             "Richness"             
+[10] "Abundance"             "D_Shannon"             "D_Simpson"            
+[13] "Canopy_cover"          "N_M_Trees_adult"       "N_M_Eedulis_adult"    
+[16] "effort_cam_day_summed" "med_lar_mamm_spp_rich" "hbvr_body_size_kg"    
+[19] "Location.y"            "Plots.y"               "Treatment.y"          
+[22] "leaf_thickness"        "seed_mass"             "leaf_area"            
+[25] "sla"                   "seed_length"           "carbon_nitro"         
+[28] "leaf_damage"          </code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<div class="columns" style="font-size: 80%">
+<p><code>cbind()</code> - <strong>combinar</strong> por <code>colunas</code></p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a>dados.cbind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dados.csv, dados.traits<span class="sc">$</span>sla)</span>
+<span id="cb121-2"><a href=""></a><span class="fu">head</span>(dados.cbind, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude  Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578       11
+2 CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435        9
+3 CBO_p09c      CBO     9    closed 2017 -47.98620 -24.07101  727.9145        9
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+2        23  1.917216 0.8150000        69.88              20                 0
+3        38  2.009709 0.8359375           NA              22                 1
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0
+2                   170                     4               220
+3                    78                     0                 0
+  dados.traits$sla
+1               NA
+2               NA
+3         10845.44</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<div class="columns" style="font-size: 80%">
+<p><code>cbind()</code> - <strong>combinar</strong> por <code>colunas</code></p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a>dados.cbind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dados.csv, dados.traits<span class="sc">$</span>sla)</span>
+<span id="cb123-2"><a href=""></a><span class="fu">head</span>(dados.cbind, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude  Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578       11
+2 CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435        9
+3 CBO_p09c      CBO     9    closed 2017 -47.98620 -24.07101  727.9145        9
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+2        23  1.917216 0.8150000        69.88              20                 0
+3        38  2.009709 0.8359375           NA              22                 1
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0
+2                   170                     4               220
+3                    78                     0                 0
+  dados.traits$sla
+1               NA
+2               NA
+3         10845.44</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a><span class="fu">names</span>(dados.cbind)[<span class="fu">names</span>(dados.cbind) <span class="sc">==</span> <span class="st">"dados.traits$sla"</span>] <span class="ot">&lt;-</span> <span class="st">"sla"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
+<h4>Transformação de Dados</h4>
+<div class="columns" style="font-size: 80%">
+<p><code>cbind()</code> - <strong>combinar</strong> por <code>colunas</code></p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href=""></a>dados.cbind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dados.csv, dados.traits<span class="sc">$</span>sla)</span>
+<span id="cb126-2"><a href=""></a><span class="fu">head</span>(dados.cbind, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude  Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578       11
+2 CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435        9
+3 CBO_p09c      CBO     9    closed 2017 -47.98620 -24.07101  727.9145        9
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+2        23  1.917216 0.8150000        69.88              20                 0
+3        38  2.009709 0.8359375           NA              22                 1
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0
+2                   170                     4               220
+3                    78                     0                 0
+  dados.traits$sla
+1               NA
+2               NA
+3         10845.44</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a><span class="fu">names</span>(dados.cbind)[<span class="fu">names</span>(dados.cbind) <span class="sc">==</span> <span class="st">"dados.traits$sla"</span>] <span class="ot">&lt;-</span> <span class="st">"sla"</span></span>
+<span id="cb128-2"><a href=""></a><span class="fu">names</span>(dados.cbind)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Id_plot"               "Location"              "Plots"                
+ [4] "Treatment"             "Date"                  "Longitude"            
+ [7] "Latitude"              "Elevation"             "Richness"             
+[10] "Abundance"             "D_Shannon"             "D_Simpson"            
+[13] "Canopy_cover"          "N_M_Trees_adult"       "N_M_Eedulis_adult"    
+[16] "effort_cam_day_summed" "med_lar_mamm_spp_rich" "hbvr_body_size_kg"    
+[19] "sla"                  </code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 80%">
 <h4>Valores Ausentes</h4>
+<p><code>is.na()</code> - <strong>detectar <code>NA</code></strong> em todo um <strong><code>data frame</code></strong> ou apenas uma <strong><code>coluna</code>/<code>vector</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a><span class="fu">head</span>(<span class="fu">is.na</span>(dados.traits<span class="sc">$</span>sla), <span class="at">n =</span> <span class="dv">20</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+[13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<p><strong>Valores Únicos e Duplicados</strong></p>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Valores Ausentes</h4>
+<div class="columns" style="font-size: 70%">
+<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[157] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[169]  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 120%">
+
+</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<p><strong>Aplicação de Funções</strong></p>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Valores Ausentes</h4>
+<div class="columns" style="font-size: 70%">
+<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[157] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[169]  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a><span class="fu">table</span>(<span class="fu">complete.cases</span>(dados.csv))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+FALSE  TRUE 
+   86    86 </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 120%">
+
+</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<h4>Pacote tidyverse e dplyr</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Valores Ausentes</h4>
+<div class="columns" style="font-size: 70%">
+<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[157] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[169]  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href=""></a><span class="fu">table</span>(<span class="fu">complete.cases</span>(dados.csv))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+FALSE  TRUE 
+   86    86 </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href=""></a>dados_completos <span class="ot">&lt;-</span> dados.csv[<span class="fu">complete.cases</span>(dados.csv), ]  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<h4>Uso do operador pipe (%&gt;%)</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Valores Ausentes</h4>
+<div class="columns" style="font-size: 70%">
+<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[157] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[169]  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href=""></a><span class="fu">table</span>(<span class="fu">complete.cases</span>(dados.csv))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+FALSE  TRUE 
+   86    86 </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href=""></a>dados_completos <span class="ot">&lt;-</span> dados.csv[<span class="fu">complete.cases</span>(dados.csv), ]  </span>
+<span id="cb147-2"><a href=""></a><span class="fu">dim</span>(dados_completos)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86 18</code></pre>
+</div>
+</div>
+</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<h4>Transformação de dados</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<div class="columns" style="font-size: 70%">
+<h4>Valores Ausentes</h4>
+<div class="columns" style="font-size: 70%">
+<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [25]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [49]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+ [61]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[109]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[121]  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[157] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+[169]  TRUE  TRUE  TRUE  TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href=""></a><span class="fu">table</span>(<span class="fu">complete.cases</span>(dados.csv))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+FALSE  TRUE 
+   86    86 </code></pre>
+</div>
+</div>
+</div><div class="column" style="font-size: 120%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href=""></a>dados_completos <span class="ot">&lt;-</span> dados.csv[<span class="fu">complete.cases</span>(dados.csv), ]  </span>
+<span id="cb153-2"><a href=""></a><span class="fu">dim</span>(dados_completos)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86 18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href=""></a><span class="fu">dim</span>(dados.csv)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 172  18</code></pre>
+</div>
+</div>
+</div></div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Manipulação de dados</h2>
-<h4>Integração de múltiplos datasets</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+
+</div></div>
 </section>
 <section class="slide level2">
-<h2>Visualização de dados</h2>
-<h4>Introdução ao ggplot2</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "open"   "closed"</code></pre>
+</div>
+</div>
+</div></div>
 </section>
 <section class="slide level2">
-<h2>Visualização de dados</h2>
-<h4>Tipos e customização de gráficos</h4>
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "open"   "closed"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Location)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CBO" "CAR" "ITA" "VGM"</code></pre>
+</div>
+</div>
+</div></div>
 </section>
 <section class="slide level2">
-<h2>Visualização de dados</h2>
-<h3>Exportação de gráficos</h3>
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "open"   "closed"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Location)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CBO" "CAR" "ITA" "VGM"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2019 2017</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "open"   "closed"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Location)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CBO" "CAR" "ITA" "VGM"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2019 2017</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Richness)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 11  9  6  5  8  2  7 12  4  3 10 14 15 13</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Manipulação de dados - R Básico</h2>
+<h4><strong>Valores Únicos e Duplicados</strong></h4>
+<div class="columns">
+<p><code>unique()</code> - buscar por valores únicos</p><div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "open"   "closed"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Location)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CBO" "CAR" "ITA" "VGM"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Date)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2019 2017</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href=""></a><span class="fu">unique</span>(dados.csv<span class="sc">$</span>Richness)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 11  9  6  5  8  2  7 12  4  3 10 14 15 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href=""></a><span class="fu">sort</span>(<span class="fu">unique</span>(dados.csv<span class="sc">$</span>Richness), <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 15 14 13 12 11 10  9  8  7  6  5  4  3  2</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Tipos de dados - Exercícios</h2>
+<div class="columns">
+<p><br></p><div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cat.gif" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+
+</div><p><strong>Organize</strong> os resultados acima em <strong>ordem <code>crescente</code></strong> e <strong><code>decrescente</code></strong>. <strong>Slide (27)</strong></p><div class="column" style="font-size: 100%">
+
+</div><p>Chequem os dados usando o <strong><code>sumário estatístico</code></strong>: <strong>Slide (13)</strong></p><div class="column" style="font-size: 100%">
+
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
+<span id="cb187-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5.000000 2.555556 4.222222 4.333333 9.600000 6.250000 3.555556 4.166667
+ [9] 7.500000 6.375000</code></pre>
+</div>
+</div>
+</div><p><strong>Organize</strong> os resultados acima em <strong>ordem <code>crescente</code></strong> e <strong><code>decrescente</code></strong>. <strong>Slide (27)</strong></p><div class="column" style="font-size: 100%">
+
+</div><p>Chequem os dados usando o <strong><code>sumário estatístico</code></strong>: <strong>Slide (13)</strong></p><div class="column" style="font-size: 100%">
+
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
+<span id="cb189-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5.000000 2.555556 4.222222 4.333333 9.600000 6.250000 3.555556 4.166667
+ [9] 7.500000 6.375000</code></pre>
+</div>
+</div>
+</div><p><strong>Organize</strong> os resultados acima em <strong>ordem <code>crescente</code></strong> e <strong><code>decrescente</code></strong>. <strong>Slide (27)</strong></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href=""></a><span class="fu">sort</span>(<span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.555556 3.555556 4.166667 4.222222 4.333333 5.000000 6.250000 6.375000
+ [9] 7.500000 9.600000</code></pre>
+</div>
+</div>
+</div><p>Chequem os dados usando o <strong><code>sumário estatístico</code></strong>: <strong>Slide (13)</strong></p><div class="column" style="font-size: 100%">
+
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
+<span id="cb193-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5.000000 2.555556 4.222222 4.333333 9.600000 6.250000 3.555556 4.166667
+ [9] 7.500000 6.375000</code></pre>
+</div>
+</div>
+</div><p><strong>Organize</strong> os resultados acima em <strong>ordem <code>crescente</code></strong> e <strong><code>decrescente</code></strong>. <strong>Slide (27)</strong></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href=""></a><span class="fu">sort</span>(<span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2.555556 3.555556 4.166667 4.222222 4.333333 5.000000 6.250000 6.375000
+ [9] 7.500000 9.600000</code></pre>
+</div>
+</div>
+</div><p>Chequem os dados usando o <strong><code>sumário estatístico</code></strong>: <strong>Slide (13)</strong></p><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href=""></a><span class="fu">summary</span>(dados.ric.abn)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.000   3.875   5.250   6.174   8.188  31.000 </code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href=""></a>filtrado <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados.csv, Date <span class="sc">==</span> <span class="dv">2019</span>)</span>
+<span id="cb199-2"><a href=""></a><span class="fu">head</span>(filtrado, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude  Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578       11
+2 CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435        9
+4 CBO_p04c      CBO     4    closed 2019 -47.99039 -24.06630  823.6266        6
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+2        23  1.917216 0.8150000        69.88              20                 0
+4        26  1.676988 0.7901235        67.88              29                 0
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0
+2                   170                     4               220
+4                   119                     0                 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href=""></a><span class="fu">dim</span>(filtrado)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 86 18</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+
+</div><p>Cheque o número de elementos repetidos da coluna <code>Plots</code>. <strong>Slide (44)</strong></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
+<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href=""></a>filtrado.cbo <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados.csv, Date <span class="sc">==</span> <span class="dv">2019</span> <span class="sc">&amp;</span> Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span>
+<span id="cb203-2"><a href=""></a><span class="fu">head</span>(filtrado.cbo, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Id_plot Location Plots Treatment Date Longitude  Latitude Elevation Richness
+1 CBO_p06o      CBO     6      open 2019 -47.98784 -24.06410  807.0578       11
+2 CBO_p09o      CBO     9      open 2019 -47.98609 -24.07105  727.4435        9
+4 CBO_p04c      CBO     4    closed 2019 -47.99039 -24.06630  823.6266        6
+  Abundance D_Shannon D_Simpson Canopy_cover N_M_Trees_adult N_M_Eedulis_adult
+1        55  2.183187 0.8580247        70.09              23                 0
+2        23  1.917216 0.8150000        69.88              20                 0
+4        26  1.676988 0.7901235        67.88              29                 0
+  effort_cam_day_summed med_lar_mamm_spp_rich hbvr_body_size_kg
+1                    91                     0                 0
+2                   170                     4               220
+4                   119                     0                 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href=""></a><span class="fu">dim</span>(filtrado.cbo)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20 18</code></pre>
+</div>
+</div>
+</div><p>Cheque o número de elementos repetidos da coluna <code>Plots</code>. <strong>Slide (44)</strong></p><div class="cell">
+<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href=""></a><span class="fu">table</span>(filtrado<span class="sc">$</span>Plots)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 1  2  3  4  5  6  7  8  9 10 11 12 14 15 
+ 8  6  2  8  6  6  2  6  6  6  6  8  8  8 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns" style="font-size: 80%">
+<p>Exporte <code>filtrado.cbo</code> no formato <code>.csv</code> para a pasta <code>01_dados</code>. <strong>Slide (8)</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns" style="font-size: 80%">
+<p>Exporte <code>filtrado.cbo</code> no formato <code>.csv</code> para a pasta <code>01_dados</code>. <strong>Slide (8)</strong></p><div class="cell">
+<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href=""></a><span class="fu">write.csv</span>(filtrado.cbo, <span class="st">"../01_dados/filtrado_cbo.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2></h2>
 
 </section>
     </div>
