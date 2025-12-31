@@ -1093,12 +1093,17 @@ plot(modelo_lm)
 # Teste de normalidade dos resíduos
 shapiro.test(residuals(modelo_lm))
 
-# Teste de homocedasticidade
+# Teste de homocedasticidade (variância constante)
 ncvTest(modelo_lm)
-
-# Fator de inflação da variância (VIF) - para multicolinearidade
-# vif(modelo_lm)
 ```
+
+**Interpretação:**
+
+-   **Shapiro-Wilk** (p > 0.05): resíduos são normais ✓
+
+-   **NCV Test** (p > 0.05): homocedasticidade confirmada ✓
+
+**Nota:** VIF (multicolinearidade) só é relevante para modelos com múltiplos preditores
 :::
 
 ## Regressão Linear

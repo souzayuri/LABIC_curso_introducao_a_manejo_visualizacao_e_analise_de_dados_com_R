@@ -206,7 +206,7 @@
 </div>
 </div>
 
-  <p class="date">8 de janeiro de 2026</p>
+  <p class="date">9 de janeiro de 2026</p>
 </section>
 <section class="slide level2">
 <h2>Até agora nós vimos:</h2>
@@ -249,10 +249,102 @@
 </section>
 <section class="slide level2">
 <h2>Visualização de dados</h2>
+<h4>Importância dos gráficos</h4>
+<ul>
+<li><p>Melhor forma de <strong>apresentar</strong> e <strong>discutir</strong> seus <strong>dados</strong></p></li>
+<li><p>Faz uma <strong>síntese</strong> para melhor entendimento</p></li>
+<li><p>Necessário em quase todas as <strong>análises estatísticas</strong></p></li>
+<li><p>Necessário em quase todas as publicações, trabalhos de consultoria, TCC, dissertação, tese</p></li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Atualmente, há três principais pacotes para gerar gráficos no R</h4>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Atualmente, há três principais pacotes para gerar gráficos no R</h4>
+<div class="columns">
+<ol type="1">
+<li><code>base</code>: <strong>simples</strong>, porém útil para visualizações rápidas de quase todos os formatos de arquivos <strong>plot()</strong></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Atualmente, há três principais pacotes para gerar gráficos no R</h4>
+<div class="columns">
+<ol type="1">
+<li><p><code>base</code>: <strong>simples</strong>, porém útil para visualizações rápidas de quase todos os formatos de arquivos <strong>plot()</strong></p></li>
+<li><p><strong><code>ggplot2</code>: complexos, demandam certo tempo para realização, mas ficam exelentes para publicação ggplot() +</strong></p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Atualmente, há três principais pacotes para gerar gráficos no R</h4>
+<div class="columns">
+<ol type="1">
+<li><p><code>base</code>: <strong>simples</strong>, porém útil para visualizações rápidas de quase todos os formatos de arquivos <strong>plot()</strong></p></li>
+<li><p><strong><code>ggplot2</code>: complexos, demandam certo tempo para realização, mas ficam exelentes para publicação ggplot() +</strong></p></li>
+<li><p><code>plotly</code>: medianos, <strong>gráficos móveis</strong>, podem ser utilizados em apresentações para “arrastar” ou “zoom” <strong>plo_ly()</strong></p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<div class="columns" style="font-size: 80%">
+<p>Os elementos de um gráfico são representações das <strong>colunas (eixos)</strong> e <strong>linhas (elementos)</strong> das nossas matrizes de dados</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<div class="columns" style="font-size: 80%">
+<p>Os elementos de um gráfico são representações das <strong>colunas (eixos)</strong> e <strong>linhas (elementos)</strong> das nossas matrizes de dados</p><p>E dependendo do <strong>modo das variáveis</strong> (<code>quantitativas</code> - inteiras ou contínuas ou <code>qualitativas</code>), isso irá indicar o <strong>melhor</strong> tipo de gráfico para representar os dados</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<div class="columns" style="font-size: 80%">
+<p>Os elementos de um gráfico são representações das <strong>colunas (eixos)</strong> e <strong>linhas (elementos)</strong> das nossas matrizes de dados</p><p>E dependendo do <strong>modo das variáveis</strong> (<code>quantitativas</code> - inteiras ou contínuas ou <code>qualitativas</code>), isso irá indicar o <strong>melhor</strong> tipo de gráfico para representar os dados</p><div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/grafico_esquema.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Referências úteis</h4>
+<div>
+<div class="columns" style="font-size: 80%">
+<div class="column" style="width:50%;">
+<p><strong>Documentação e tutoriais</strong></p>
+<ul>
+<li><p><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">ggplot2 cheat sheet</a></p></li>
+<li><p><a href="https://r-graph-gallery.com/">R Graph Gallery</a></p></li>
+<li><p><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a></p></li>
+<li><p><a href="https://ggplot2-book.org/">ggplot2 book</a></p></li>
+<li><p><a href="https://100.datavizproject.com/" class="uri">https://100.datavizproject.com/</a></p></li>
+<li><p><a href="https://datavizcatalogue.com/" class="uri">https://datavizcatalogue.com/</a></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Extensões úteis</strong></p>
+<ul>
+<li><code>ggpubr</code>: gráficos prontos para publicação</li>
+<li><code>patchwork</code>: combinar múltiplos gráficos</li>
+<li><code>gganimate</code>: animações</li>
+<li><code>plotly</code>: gráficos interativos</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
 <h4><code>ggplot2</code></h4>
 <div style="font-size: 70%">
 <ul>
-<li><p>Pacote para <strong>criação de gráficos</strong> no R</p></li>
+<li><p>Pacote para <strong>criação de gráficos</strong></p></li>
 <li><p>Baseado na <strong>Gramática de Gráficos</strong> (<em>Grammar of Graphics</em>)</p></li>
 <li><p>Constrói gráficos em <strong>camadas</strong></p></li>
 <li><p>Parte do <strong>tidyverse</strong>, funciona perfeitamente com o <code>%&gt;%</code></p></li>
@@ -260,89 +352,258 @@
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/ggplot2_logo.png" class="quarto-figure quarto-figure-center" width="300"></p>
+<p><img data-src="img/ggplotlogo.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Visualização de dados</h2>
-<h4>Gramática de Gráficos</h4>
-<div style="font-size: 70%">
-<p><strong>Estrutura em camadas</strong></p>
-<ol type="1">
-<li><p><strong>Dados</strong> (<code>data</code>): o dataset a ser visualizado</p></li>
-<li><p><strong>Estética</strong> (<code>aes</code>): mapeamento de variáveis para elementos visuais (x, y, cor, forma)</p></li>
-<li><p><strong>Geometria</strong> (<code>geom</code>): tipo de gráfico (pontos, linhas, barras)</p></li>
-<li><p><strong>Facetas</strong> (<code>facet</code>): dividir em painéis</p></li>
-<li><p><strong>Temas</strong> (<code>theme</code>): aparência geral do gráfico</p></li>
-</ol>
-<ul>
-<li>Cada camada é <strong>adicionada</strong> com o operador <code>+</code></li>
-</ul>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Visualização de dados</h2>
-<h4>Estrutura básica</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> variavel_x, <span class="at">y =</span> variavel_y)) <span class="sc">+</span></span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
 <ul>
-<li><p><code>ggplot()</code>: cria a <strong>base</strong> do gráfico</p></li>
-<li><p><code>aes()</code>: define o <strong>mapeamento estético</strong> (quais variáveis usar)</p></li>
-<li><p><code>geom_*()</code>: define a <strong>geometria</strong> (tipo de gráfico)</p></li>
-<li><p>Camadas são unidas com <code>+</code> (não <code>%&gt;%</code>)</p></li>
+<li>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></li>
 </ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Visualização de dados</h2>
-<h4>Preparando os dados</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Carregar dados</span></span>
-<span id="cb2-2"><a href=""></a>dados <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
-<span id="cb2-3"><a href=""></a></span>
-<span id="cb2-4"><a href=""></a><span class="co"># Visualizar estrutura</span></span>
-<span id="cb2-5"><a href=""></a><span class="fu">glimpse</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 172
-Columns: 18
-$ Id_plot               &lt;chr&gt; "CBO_p06o", "CBO_p09o", "CBO_p09c", "CBO_p04c", …
-$ Location              &lt;chr&gt; "CBO", "CBO", "CBO", "CBO", "CBO", "CBO", "CAR",…
-$ Plots                 &lt;dbl&gt; 6, 9, 9, 4, 5, 11, 12, 6, 15, 7, 1, 11, 12, 14, …
-$ Treatment             &lt;chr&gt; "open", "open", "closed", "closed", "closed", "o…
-$ Date                  &lt;dbl&gt; 2019, 2019, 2017, 2019, 2019, 2019, 2019, 2019, …
-$ Longitude             &lt;dbl&gt; -47.98784, -47.98609, -47.98620, -47.99039, -47.…
-$ Latitude              &lt;dbl&gt; -24.06410, -24.07105, -24.07101, -24.06630, -24.…
-$ Elevation             &lt;dbl&gt; 807.0578, 727.4435, 727.9145, 823.6266, 771.0035…
-$ Richness              &lt;dbl&gt; 11, 9, 9, 6, 5, 8, 9, 6, 2, 8, 9, 9, 6, 6, 7, 8,…
-$ Abundance             &lt;dbl&gt; 55, 23, 38, 26, 48, 50, 32, 25, 15, 51, 64, 51, …
-$ D_Shannon             &lt;dbl&gt; 2.1831873, 1.9172155, 2.0097092, 1.6769878, 1.41…
-$ D_Simpson             &lt;dbl&gt; 0.8580247, 0.8150000, 0.8359375, 0.7901235, 0.72…
-$ Canopy_cover          &lt;dbl&gt; 70.09, 69.88, NA, 67.88, 72.43, 64.40, 66.59, 79…
-$ N_M_Trees_adult       &lt;dbl&gt; 23, 20, 22, 29, 17, 21, 21, 28, 18, 22, 20, 21, …
-$ N_M_Eedulis_adult     &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 2, 11, 3, 7, 0, 1, 0, 3, 0, 10…
-$ effort_cam_day_summed &lt;dbl&gt; 91, 170, 78, 119, 179, 174, 109, 204, 214, 151, …
-$ med_lar_mamm_spp_rich &lt;dbl&gt; 0, 4, 0, 0, 0, 5, 1, 1, 6, 0, 1, 1, 2, 3, 2, 2, …
-$ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.00000, 1…</code></pre>
-</div>
-</div>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Gráfico de dispersão</h2>
-<h4><code>geom_point()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Relação entre duas variáveis contínuas</strong></p>
+<h2>Visualização de dados</h2>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+<li><p><em>Mapeamento estético</em> (<strong><code>aes</code></strong>) : <strong>mapeamento</strong> de variáveis para <strong>elementos visuais (x, y, cor, forma)</strong></p>
+<ul>
+<li><code>aes(x = x, y = y, color = grupo)</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+<li><p><em>Mapeamento estético</em> (<strong><code>aes</code></strong>) : <strong>mapeamento</strong> de variáveis para <strong>elementos visuais (x, y, cor, forma)</strong></p>
+<ul>
+<li><code>aes(x = x, y = y, color = grupo)</code></li>
+</ul></li>
+<li><p><em>Geometrias</em> (<strong><code>geom_</code></strong>): Define o tipo de gráfico (pontos, linhas, barras).</p>
+<ul>
+<li><code>geom_point()</code></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+<li><p><em>Mapeamento estético</em> (<strong><code>aes</code></strong>) : <strong>mapeamento</strong> de variáveis para <strong>elementos visuais (x, y, cor, forma)</strong></p>
+<ul>
+<li><code>aes(x = x, y = y, color = grupo)</code></li>
+</ul></li>
+<li><p><em>Geometrias</em> (<strong><code>geom_</code></strong>): Define o tipo de gráfico (pontos, linhas, barras).</p>
+<ul>
+<li><code>geom_point()</code></li>
+</ul></li>
+<li><p><em>Facetas</em> (<strong><code>facet_</code></strong>): Cria <strong>vários gráficos separados</strong> a partir de uma variável.</p></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+<li><p><em>Mapeamento estético</em> (<strong><code>aes</code></strong>) : <strong>mapeamento</strong> de variáveis para <strong>elementos visuais (x, y, cor, forma)</strong></p>
+<ul>
+<li><code>aes(x = x, y = y, color = grupo)</code></li>
+</ul></li>
+<li><p><em>Geometrias</em> (<strong><code>geom_</code></strong>): Define o tipo de gráfico (pontos, linhas, barras).</p>
+<ul>
+<li><code>geom_point()</code></li>
+</ul></li>
+<li><p><em>Facetas</em> (<strong><code>facet_</code></strong>): Cria <strong>vários gráficos separados</strong> a partir de uma variável.</p></li>
+<li><p><em>Estatísticas</em> (<strong><code>stat_</code></strong>): Define <strong>como os dados são transformados</strong> antes de serem desenhados.</p>
+<ul>
+<li><p>Muitas geometrias já usam um <code>stat</code> padrão<br>
+</p>
+<p>(ex.: <code>geom_histogram()</code> usa <code>stat_bin()</code> automaticamente)</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>ggplot2</code></h4>
+<div style="font-size: 55%">
+<p>Funciona em camadas</p>
+<div class="columns" style="font-size: 85%">
+<div class="column" style="width:65%;">
+<ul>
+<li><p>Cada camada é <strong>adicionada</strong> com o operador <strong><code>+</code></strong></p></li>
+<li><p><em>Dados</em> (<strong><code>data</code></strong>): Define <strong>de onde vêm os dados</strong> usados no gráfico.</p>
+<ul>
+<li><code>ggplot(data = dados)</code></li>
+</ul></li>
+<li><p><em>Mapeamento estético</em> (<strong><code>aes</code></strong>) : <strong>mapeamento</strong> de variáveis para <strong>elementos visuais (x, y, cor, forma)</strong></p>
+<ul>
+<li><code>aes(x = x, y = y, color = grupo)</code></li>
+</ul></li>
+<li><p><em>Geometrias</em> (<strong><code>geom_</code></strong>): Define o tipo de gráfico (pontos, linhas, barras).</p>
+<ul>
+<li><code>geom_point()</code></li>
+</ul></li>
+<li><p><em>Facetas</em> (<strong><code>facet_</code></strong>): Cria <strong>vários gráficos separados</strong> a partir de uma variável.</p></li>
+<li><p><em>Estatísticas</em> (<strong><code>stat_</code></strong>): Define <strong>como os dados são transformados</strong> antes de serem desenhados.</p>
+<ul>
+<li><p>Muitas geometrias já usam um <code>stat</code> padrão<br>
+</p>
+<p>(ex.: <code>geom_histogram()</code> usa <code>stat_bin()</code> automaticamente)</p></li>
+</ul></li>
+<li><p><em>Temas</em> <strong>(<code>theme_</code>):</strong> Controlam a <strong>aparência geral</strong> (fontes, fundo, grades, legendas).</p>
+<ul>
+<li>theme(<code>legend.position = "bottom"</code>)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="img/gglayers.png" width="1000"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
-<span id="cb4-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb2-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb2-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb2-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb2-7"><a href=""></a>dados_csv_bar</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  Location Richness_mean
+  &lt;chr&gt;            &lt;dbl&gt;
+1 CAR               7.08
+2 CBO               7.78
+3 ITA               5.81
+4 VGM               8.04</code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb5-2"><a href=""></a></span>
+<span id="cb5-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb5-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb5-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb5-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb5-7"><a href=""></a>  </span>
+<span id="cb5-8"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv_bar, <span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
+<span id="cb5-9"><a href=""></a>                                 <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
+<span id="cb5-10"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -355,39 +616,31 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 </div>
 </section>
 <section class="slide level2">
-<h2>Gráfico de dispersão</h2>
-<h4><code>geom_point()</code> - cores</h4>
-<div style="font-size: 70%">
-<p><strong>Adicionar terceira variável com cores</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
-<span id="cb5-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb5-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb5-4"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
+<h2>Visualização de dados</h2>
+<p><code>theme_XX()</code> usar um tema predefinido para mudar backgroud do gráfico</p>
+
+<img data-src="img/all-themes-ggplot2-r.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section class="slide level2">
-<h2>Gráfico de dispersão</h2>
-<h4><code>geom_point()</code> - tamanho</h4>
-<div style="font-size: 70%">
-<p><strong>Variar tamanho dos pontos</strong></p>
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
-<span id="cb6-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb6-3"><a href=""></a>                  <span class="at">color =</span> Treatment,</span>
-<span id="cb6-4"><a href=""></a>                  <span class="at">size =</span> Abundance)) <span class="sc">+</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb7-2"><a href=""></a></span>
+<span id="cb7-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb7-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb7-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb7-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb7-7"><a href=""></a>  </span>
+<span id="cb7-8"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv_bar, <span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
+<span id="cb7-9"><a href=""></a>                                 <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
+<span id="cb7-10"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb7-11"><a href=""></a>  <span class="fu">theme_classic</span>() <span class="co"># muda o tema do gráfico</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -400,22 +653,1038 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 </div>
 </section>
 <section class="slide level2">
-<h2>Gráfico de dispersão</h2>
-<h4><code>geom_point()</code> - transparência</h4>
-<div style="font-size: 70%">
-<p><strong>Ajustar transparência para sobreposição</strong></p>
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
-<span id="cb7-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb7-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, </span>
-<span id="cb7-5"><a href=""></a>             <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb9-2"><a href=""></a></span>
+<span id="cb9-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb9-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb9-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb9-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb9-7"><a href=""></a>  </span>
+<span id="cb9-8"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv_bar, <span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
+<span id="cb9-9"><a href=""></a>                                 <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
+<span id="cb9-10"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb9-11"><a href=""></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># muda o tema do gráfico</span></span>
+<span id="cb9-12"><a href=""></a>  <span class="co"># muda o titulo dos eixos</span></span>
+<span id="cb9-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Locais"</span>, <span class="at">y =</span> <span class="st">"Ríqueza média de espécies"</span>) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-7-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb11-2"><a href=""></a></span>
+<span id="cb11-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb11-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb11-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb11-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb11-7"><a href=""></a>  </span>
+<span id="cb11-8"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv_bar, <span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
+<span id="cb11-9"><a href=""></a>                                 <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
+<span id="cb11-10"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb11-11"><a href=""></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># muda o tema do gráfico</span></span>
+<span id="cb11-12"><a href=""></a>  <span class="co"># muda o titulo dos eixos</span></span>
+<span id="cb11-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Locais"</span>, <span class="at">y =</span> <span class="st">"Ríqueza média de espécies"</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href=""></a>  <span class="co"># permite modificar cada componente do gráfico</span></span>
+<span id="cb11-15"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-16"><a href=""></a>    <span class="co"># aumentar tamanho da fonte</span></span>
+<span id="cb11-17"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>)</span>
+<span id="cb11-18"><a href=""></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_col()</code> - Gráficos de <strong>colunas</strong></h4>
+<div style="font-size: 65%">
+<p><strong>Comparar váriaveis categóricas atráves de um único valor (<code>inteiros</code> ou <code>continuos</code>) já calculado</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_diversidade.csv"</span>)</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>dados_csv_bar <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span>    </span>
+<span id="cb13-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span>    </span>
+<span id="cb13-5"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">Richness_mean =</span> </span>
+<span id="cb13-6"><a href=""></a>                     <span class="fu">mean</span>(Richness))</span>
+<span id="cb13-7"><a href=""></a>  </span>
+<span id="cb13-8"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv_bar, <span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
+<span id="cb13-9"><a href=""></a>                                 <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href=""></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb13-11"><a href=""></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># muda o tema do gráfico</span></span>
+<span id="cb13-12"><a href=""></a>  <span class="co"># muda o titulo dos eixos</span></span>
+<span id="cb13-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Locais"</span>, <span class="at">y =</span> <span class="st">"Ríqueza média de espécies"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href=""></a>  <span class="co"># permite modificar cada componente do gráfico</span></span>
+<span id="cb13-15"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb13-16"><a href=""></a>    <span class="co"># aumentar tamanho da fonte</span></span>
+<span id="cb13-17"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb13-18"><a href=""></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, </span>
+<span id="cb13-19"><a href=""></a>                               <span class="at">face =</span> <span class="st">"italic"</span>,</span>
+<span id="cb13-20"><a href=""></a>                               <span class="at">color =</span> <span class="st">"purple"</span>)</span>
+<span id="cb13-21"><a href=""></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+<p><strong>conta automaticamente quantas vezes um <code>elemento</code> (<code>character</code>, <code>numeric</code>, <code>logical</code>) apareceu</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+<p><strong>conta automaticamente quantas vezes um <code>elemento</code> (<code>character</code>, <code>numeric</code>, <code>logical</code>) apareceu</strong></p>
+<ul>
+<li>não tem <code>variável y</code> pois ele ira <strong>calcular</strong> ela atráves da <strong>frequência de registros</strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+<p><strong>conta automaticamente quantas vezes um <code>elemento</code> (<code>character</code>, <code>numeric</code>, <code>logical</code>) apareceu</strong></p>
+<ul>
+<li><p>não tem <code>variável y</code> pois ele ira <strong>calcular</strong> ela atráves da <strong>frequência de registros</strong></p></li>
+<li><p>se usar uma váriavel <strong>numérica</strong> como <code>x</code> então o resultado é um <code>histograma</code></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+<p><strong>conta automaticamente quantas vezes um <code>elemento</code> (<code>character</code>, <code>numeric</code>, <code>logical</code>) apareceu</strong></p>
+<ul>
+<li><p>não tem <code>variável y</code> pois ele ira <strong>calcular</strong> ela atráves da <strong>frequência de registros</strong></p></li>
+<li><p>se usar uma váriavel <strong>numérica</strong> como <code>x</code> então o resultado é um <code>histograma</code></p></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Location)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras</h4>
+<div style="font-size: 65%">
+<p><strong>conta automaticamente quantas vezes um <code>elemento</code> (<code>character</code>, <code>numeric</code>, <code>logical</code>) apareceu</strong></p>
+<ul>
+<li><p>não tem <code>variável y</code> pois ele ira <strong>calcular</strong> ela atráves da <strong>frequência de registros</strong></p></li>
+<li><p>se usar uma váriavel <strong>numérica</strong> como <code>x</code> então o resultado é um <code>histograma</code></p></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"gray"</span>) <span class="sc">+</span> </span>
+<span id="cb15-3"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Cores</h4>
+<div class="columns">
+<p><strong>Hex (hexadecimal)</strong>: cores são representadas como <strong>combinações numéricas</strong> que indicam a intensidade de <strong>vermelho</strong>:</p><ul>
+<li>Formato do nome: <strong><code>#RRGGBB</code></strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4>Cores</h4>
+<div class="columns">
+<p><strong>Hex (hexadecimal)</strong>: cores são representadas como <strong>combinações numéricas</strong> que indicam a intensidade de <strong>vermelho</strong>:</p><ul>
+<li><p>Formato do nome: <strong><code>#RRGGBB</code></strong></p></li>
+<li><p>No R podemo usar o <strong>código Hex</strong> da nossa <strong>cor de escolha</strong></p>
+<ul>
+<li><p><strong>R-Charts</strong> <a href="https://r-charts.com/color-palettes/"><code>https://r-charts.com/color-palettes/</code></a></p></li>
+<li><p><strong>Color Codes</strong> <a href="https://htmlcolorcodes.com/"><code>https://htmlcolorcodes.com/</code></a></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras empilhadas</h4>
+<div style="font-size: 57%">
+<p><strong>Adicionar preenchimento de cor por categoria, sobrepondo a barra de uma classe sobre a outra para cada grupo</strong></p>
+<ul>
+<li><p>adicionamos o parametro <code>fill =</code> na função <code>aes()</code></p>
+<ul>
+<li><p><strong><code>fill =</code></strong> controla a <strong>cor de preenchimento</strong> dos objetos gráficos — e, quando <strong>mapeado a uma variável</strong>, ele <strong>cria grupos automaticamente</strong></p></li>
+<li><p>para <strong>colorir</strong> cada barra manualmente usamos a função <code>scale_fill_manual()</code>, e informamos o <strong>nome</strong> de <strong>cada grupo</strong> e respectivas cores.</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras empilhadas</h4>
+<div style="font-size: 57%">
+<p><strong>Adicionar preenchimento de cor por categoria, sobrepondo a barra de uma classe sobre a outra para cada grupo</strong></p>
+<ul>
+<li><p>adicionamos o parametro <code>fill =</code> na função <code>aes()</code></p>
+<ul>
+<li><p><strong><code>fill =</code></strong> controla a <strong>cor de preenchimento</strong> dos objetos gráficos — e, quando <strong>mapeado a uma variável</strong>, ele <strong>cria grupos automaticamente</strong></p></li>
+<li><p>para <strong>colorir</strong> cada barra manualmente usamos a função <code>scale_fill_manual()</code>, e informamos o <strong>nome</strong> de <strong>cada grupo</strong> e respectivas cores.</p></li>
+</ul></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Location, <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb16-3"><a href=""></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb16-4"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Adicionar preenchimento de cor por categoria,e posiciona as barras uma ao lado da outra para cada grupo</strong></p>
+<ul>
+<li>argumento <code>position = "dodge"</code> dentro da função gráfica <strong><code>geom_bar()</code></strong></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Adicionar preenchimento de cor por categoria,e posiciona as barras uma ao lado da outra para cada grupo</strong></p>
+<ul>
+<li>argumento <code>position = "dodge"</code> dentro da função gráfica <strong><code>geom_bar()</code></strong></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Location, <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> </span>
+<span id="cb17-3"><a href=""></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb17-4"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span></span>
+<span id="cb17-5"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-22-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_bar()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Adicionar preenchimento de cor por categoria,e posiciona as barras uma ao lado da outra para cada grupo</strong></p>
+<ul>
+<li>argumento <code>position = "dodge"</code> dentro da função gráfica <strong><code>geom_bar()</code></strong></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Location, <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb18-3"><a href=""></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb18-4"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_histogram()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Distribuição de uma variável contínua - frequência dos números</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_histogram()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Distribuição de uma variável contínua - frequência dos números</strong></p>
+<ul>
+<li>Útil pare checar a distribuição dos dados</li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href=""></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_histogram()</code> - Gráfico de barras lado a lado</h4>
+<div style="font-size: 65%">
+<p><strong>Distribuição de uma variável contínua - frequência dos números</strong></p>
+<ul>
+<li>Útil pare checar a distribuição dos dados</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão <strong>empilhados</strong></p>
+<ul>
+<li>semelhante ao gráfico de <code>barras empilhadas</code></li>
+</ul></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb20-3"><a href=""></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb20-4"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 60%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb21-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 60%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb22-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb22-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb22-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-5"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-27-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 60%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li><p>se usa o parametro <code>type =</code> (<code>type = 21</code>)</p>
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/point_shape.png" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 50%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li><p>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></p></li>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li>se usa o parametro <code>type =</code> <code>type = 21</code>)
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 70%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb23-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb23-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-28-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 50%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li><p>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></p></li>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li>se usa o parametro <code>type =</code> <code>type = 21</code>)
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+<li>podemos <strong>modificar</strong> as propriedades dos pontos deixando maior (<code>size =</code>) e mais transparente (<code>alpha =</code>)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb24-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb24-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, </span>
+<span id="cb24-5"><a href=""></a>             <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb24-6"><a href=""></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb24-7"><a href=""></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;theme&gt; List of 144
+ $ line                            : &lt;ggplot2::element_line&gt;
+  ..@ colour       : chr "black"
+  ..@ linewidth    : num 0.5
+  ..@ linetype     : num 1
+  ..@ lineend      : chr "butt"
+  ..@ linejoin     : chr "round"
+  ..@ arrow        : logi FALSE
+  ..@ arrow.fill   : chr "black"
+  ..@ inherit.blank: logi TRUE
+ $ rect                            : &lt;ggplot2::element_rect&gt;
+  ..@ fill         : chr "white"
+  ..@ colour       : chr "black"
+  ..@ linewidth    : num 0.5
+  ..@ linetype     : num 1
+  ..@ linejoin     : chr "round"
+  ..@ inherit.blank: logi TRUE
+ $ text                            : &lt;ggplot2::element_text&gt;
+  ..@ family       : chr ""
+  ..@ face         : chr "plain"
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : chr "black"
+  ..@ size         : num 11
+  ..@ hjust        : num 0.5
+  ..@ vjust        : num 0.5
+  ..@ angle        : num 0
+  ..@ lineheight   : num 0.9
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 0 0 0
+  ..@ debug        : logi FALSE
+  ..@ inherit.blank: logi TRUE
+ $ title                           : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : NULL
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ point                           : &lt;ggplot2::element_point&gt;
+  ..@ colour       : chr "black"
+  ..@ shape        : num 19
+  ..@ size         : num 1.5
+  ..@ fill         : chr "white"
+  ..@ stroke       : num 0.5
+  ..@ inherit.blank: logi TRUE
+ $ polygon                         : &lt;ggplot2::element_polygon&gt;
+  ..@ fill         : chr "white"
+  ..@ colour       : chr "black"
+  ..@ linewidth    : num 0.5
+  ..@ linetype     : num 1
+  ..@ linejoin     : chr "round"
+  ..@ inherit.blank: logi TRUE
+ $ geom                            : &lt;ggplot2::element_geom&gt;
+  ..@ ink        : chr "black"
+  ..@ paper      : chr "white"
+  ..@ accent     : chr "#3366FF"
+  ..@ linewidth  : num 0.5
+  ..@ borderwidth: num 0.5
+  ..@ linetype   : int 1
+  ..@ bordertype : int 1
+  ..@ family     : chr ""
+  ..@ fontsize   : num 3.87
+  ..@ pointsize  : num 1.5
+  ..@ pointshape : num 19
+  ..@ colour     : NULL
+  ..@ fill       : NULL
+ $ spacing                         : 'simpleUnit' num 5.5points
+  ..- attr(*, "unit")= int 8
+ $ margins                         : &lt;ggplot2::margin&gt; num [1:4] 5.5 5.5 5.5 5.5
+ $ aspect.ratio                    : NULL
+ $ axis.title                      : NULL
+ $ axis.title.x                    : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 1
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 2.75 0 0 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.title.x.top                : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 0
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 0 2.75 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.title.x.bottom             : NULL
+ $ axis.title.y                    : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 1
+  ..@ angle        : num 90
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 2.75 0 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.title.y.left               : NULL
+ $ axis.title.y.right              : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 1
+  ..@ angle        : num -90
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 0 0 2.75
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text                       : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : chr "#4D4D4DFF"
+  ..@ size         : 'rel' num 0.8
+  ..@ hjust        : NULL
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : NULL
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text.x                     : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 1
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 2.2 0 0 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text.x.top                 : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : NULL
+  ..@ vjust        : num 0
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 0 2.2 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text.x.bottom              : NULL
+ $ axis.text.y                     : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : num 1
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 2.2 0 0
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text.y.left                : NULL
+ $ axis.text.y.right               : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : num 0
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 0 0 2.2
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.text.theta                 : NULL
+ $ axis.text.r                     : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : num 0.5
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : &lt;ggplot2::margin&gt; num [1:4] 0 2.2 0 2.2
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ axis.ticks                      : &lt;ggplot2::element_line&gt;
+  ..@ colour       : chr "#333333FF"
+  ..@ linewidth    : NULL
+  ..@ linetype     : NULL
+  ..@ lineend      : NULL
+  ..@ linejoin     : NULL
+  ..@ arrow        : logi FALSE
+  ..@ arrow.fill   : chr "#333333FF"
+  ..@ inherit.blank: logi TRUE
+ $ axis.ticks.x                    : NULL
+ $ axis.ticks.x.top                : NULL
+ $ axis.ticks.x.bottom             : NULL
+ $ axis.ticks.y                    : NULL
+ $ axis.ticks.y.left               : NULL
+ $ axis.ticks.y.right              : NULL
+ $ axis.ticks.theta                : NULL
+ $ axis.ticks.r                    : NULL
+ $ axis.minor.ticks.x.top          : NULL
+ $ axis.minor.ticks.x.bottom       : NULL
+ $ axis.minor.ticks.y.left         : NULL
+ $ axis.minor.ticks.y.right        : NULL
+ $ axis.minor.ticks.theta          : NULL
+ $ axis.minor.ticks.r              : NULL
+ $ axis.ticks.length               : 'rel' num 0.5
+ $ axis.ticks.length.x             : NULL
+ $ axis.ticks.length.x.top         : NULL
+ $ axis.ticks.length.x.bottom      : NULL
+ $ axis.ticks.length.y             : NULL
+ $ axis.ticks.length.y.left        : NULL
+ $ axis.ticks.length.y.right       : NULL
+ $ axis.ticks.length.theta         : NULL
+ $ axis.ticks.length.r             : NULL
+ $ axis.minor.ticks.length         : 'rel' num 0.75
+ $ axis.minor.ticks.length.x       : NULL
+ $ axis.minor.ticks.length.x.top   : NULL
+ $ axis.minor.ticks.length.x.bottom: NULL
+ $ axis.minor.ticks.length.y       : NULL
+ $ axis.minor.ticks.length.y.left  : NULL
+ $ axis.minor.ticks.length.y.right : NULL
+ $ axis.minor.ticks.length.theta   : NULL
+ $ axis.minor.ticks.length.r       : NULL
+ $ axis.line                       : &lt;ggplot2::element_blank&gt;
+ $ axis.line.x                     : NULL
+ $ axis.line.x.top                 : NULL
+ $ axis.line.x.bottom              : NULL
+ $ axis.line.y                     : NULL
+ $ axis.line.y.left                : NULL
+ $ axis.line.y.right               : NULL
+ $ axis.line.theta                 : NULL
+ $ axis.line.r                     : NULL
+ $ legend.background               : &lt;ggplot2::element_rect&gt;
+  ..@ fill         : NULL
+  ..@ colour       : logi NA
+  ..@ linewidth    : NULL
+  ..@ linetype     : NULL
+  ..@ linejoin     : NULL
+  ..@ inherit.blank: logi TRUE
+ $ legend.margin                   : NULL
+ $ legend.spacing                  : 'rel' num 2
+ $ legend.spacing.x                : NULL
+ $ legend.spacing.y                : NULL
+ $ legend.key                      : NULL
+ $ legend.key.size                 : 'simpleUnit' num 1.2lines
+  ..- attr(*, "unit")= int 3
+ $ legend.key.height               : NULL
+ $ legend.key.width                : NULL
+ $ legend.key.spacing              : NULL
+ $ legend.key.spacing.x            : NULL
+ $ legend.key.spacing.y            : NULL
+ $ legend.key.justification        : NULL
+ $ legend.frame                    : NULL
+ $ legend.ticks                    : NULL
+ $ legend.ticks.length             : 'rel' num 0.2
+ $ legend.axis.line                : NULL
+ $ legend.text                     : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : 'rel' num 0.8
+  ..@ hjust        : NULL
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : NULL
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ legend.text.position            : NULL
+ $ legend.title                    : &lt;ggplot2::element_text&gt;
+  ..@ family       : NULL
+  ..@ face         : NULL
+  ..@ italic       : chr NA
+  ..@ fontweight   : num NA
+  ..@ fontwidth    : num NA
+  ..@ colour       : NULL
+  ..@ size         : NULL
+  ..@ hjust        : num 0
+  ..@ vjust        : NULL
+  ..@ angle        : NULL
+  ..@ lineheight   : NULL
+  ..@ margin       : NULL
+  ..@ debug        : NULL
+  ..@ inherit.blank: logi TRUE
+ $ legend.title.position           : NULL
+ $ legend.position                 : chr "right"
+ $ legend.position.inside          : NULL
+ $ legend.direction                : NULL
+ $ legend.byrow                    : NULL
+ $ legend.justification            : chr "center"
+ $ legend.justification.top        : NULL
+ $ legend.justification.bottom     : NULL
+ $ legend.justification.left       : NULL
+ $ legend.justification.right      : NULL
+ $ legend.justification.inside     : NULL
+  [list output truncated]
+ @ complete: logi TRUE
+ @ validate: logi TRUE</code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 50%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li><p>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></p></li>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li>se usa o parametro <code>type =</code> <code>type = 21</code>)
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+<li>podemos <strong>modificar</strong> as propriedades dos pontos deixando maior (<code>size =</code>) e mais transparente (<code>alpha =</code>)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb27-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb27-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, </span>
+<span id="cb27-5"><a href=""></a>             <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb27-6"><a href=""></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb27-7"><a href=""></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb27-8"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb27-9"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span> </span>
+<span id="cb27-10"><a href=""></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-30-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 50%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li><p>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></p></li>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li>se usa o parametro <code>type =</code> <code>type = 21</code>)
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+<li>podemos <strong>modificar</strong> as propriedades dos pontos deixando maior (<code>size =</code>) e mais transparente (<code>alpha =</code>)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb28-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb28-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb28-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, </span>
+<span id="cb28-5"><a href=""></a>             <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb28-6"><a href=""></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb28-7"><a href=""></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb28-8"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb28-9"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>)) <span class="sc">+</span></span>
+<span id="cb28-10"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb28-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ríqueza de Espécies"</span>, <span class="at">y =</span> <span class="st">"Diversidade Shannon"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Visualização de dados</h2>
+<h4><code>geom_point()</code> Gráfico de dispersão</h4>
+<div style="font-size: 50%">
+<p><strong>Relação entre duas variáveis numéricas</strong></p>
+<ul>
+<li><p>Útil pare checar a potencial <strong>correlaçãos</strong> <strong>entre variáveis</strong></p></li>
+<li><p>Também pode ser feito usando <strong>agrupamentos</strong>, que serão representados pela cor dos pontos.</p></li>
+<li><p>Os <strong>pontos</strong> podem ser editados para <strong>outras formas</strong></p>
+<ul>
+<li>se usa o parametro <code>type =</code> <code>type = 21</code>)
+<ul>
+<li>o <strong>número</strong> representa o <strong>tipo da forma</strong></li>
+<li>podemos <strong>modificar</strong> as propriedades dos pontos deixando maior (<code>size =</code>) e mais transparente (<code>alpha =</code>)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness, </span>
+<span id="cb29-2"><a href=""></a>                  <span class="at">y =</span> D_Shannon,</span>
+<span id="cb29-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, </span>
+<span id="cb29-5"><a href=""></a>             <span class="at">color =</span> <span class="st">"black"</span>, </span>
+<span id="cb29-6"><a href=""></a>             <span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb29-7"><a href=""></a>             <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"closed"</span> <span class="ot">=</span> <span class="st">"#9A68A4"</span>,</span>
+<span id="cb29-9"><a href=""></a>                                 <span class="st">"open"</span> <span class="ot">=</span> <span class="st">"#ADC062"</span>),</span>
+<span id="cb29-10"><a href=""></a>                    <span class="at">name =</span> <span class="st">"Tratamento"</span>) <span class="sc">+</span> <span class="co">#muda o titulo da legenda</span></span>
+<span id="cb29-11"><a href=""></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb29-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ríqueza de Espécies"</span>, <span class="at">y =</span> <span class="st">"Diversidade Shannon"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-32-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -429,15 +1698,15 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Adicionar linha de tendência</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
-<span id="cb8-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, </span>
+<span id="cb30-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb30-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb30-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-33-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -448,230 +1717,20 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 </div>
 </section>
 <section class="slide level2">
-<h2>Gráfico de linhas</h2>
-<h4><code>geom_line()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Séries temporais ou sequenciais</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">group_by</span>(Date, Treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">Richness_mean =</span> <span class="fu">mean</span>(Richness)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, </span>
-<span id="cb9-5"><a href=""></a>             <span class="at">y =</span> Richness_mean,</span>
-<span id="cb9-6"><a href=""></a>             <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">geom_line</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-9-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Gráfico de linhas</h2>
-<h4>Combinando geometrias</h4>
-<div style="font-size: 70%">
-<p><strong>Linhas + pontos</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">group_by</span>(Date, Treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">Richness_mean =</span> <span class="fu">mean</span>(Richness)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, </span>
-<span id="cb10-5"><a href=""></a>             <span class="at">y =</span> Richness_mean,</span>
-<span id="cb10-6"><a href=""></a>             <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Gráfico de barras</h2>
-<h4><code>geom_col()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Valores já calculados</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">group_by</span>(Location) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">Richness_mean =</span> <span class="fu">mean</span>(Richness)) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
-<span id="cb11-5"><a href=""></a>             <span class="at">y =</span> Richness_mean)) <span class="sc">+</span></span>
-<span id="cb11-6"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Gráfico de barras</h2>
-<h4><code>geom_bar()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Contagem automática</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Location)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li><code>geom_bar()</code>: conta automaticamente o número de observações</li>
-<li><code>geom_col()</code>: usa valores fornecidos</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Gráfico de barras</h2>
-<h4>Barras empilhadas</h4>
-<div style="font-size: 70%">
-<p><strong>Adicionar preenchimento por categoria</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Location,</span>
-<span id="cb13-2"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Gráfico de barras</h2>
-<h4>Barras lado a lado</h4>
-<div style="font-size: 70%">
-<p><strong>Posição dodge</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Location,</span>
-<span id="cb14-2"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Histograma</h2>
-<h4><code>geom_histogram()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Distribuição de uma variável contínua</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href=""></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Histograma</h2>
-<h4>Ajustando número de bins</h4>
-<div style="font-size: 70%">
-<p><strong>Controlar largura das barras</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>,</span>
-<span id="cb16-3"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"steelblue"</span>,</span>
-<span id="cb16-4"><a href=""></a>                 <span class="at">color =</span> <span class="st">"black"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li><code>bins</code>: número de barras</li>
-<li><code>binwidth</code>: largura de cada barra</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Histograma</h2>
-<h4>Por categoria</h4>
-<div style="font-size: 70%">
-<p><strong>Comparar distribuições</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Richness,</span>
-<span id="cb17-2"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>,</span>
-<span id="cb17-4"><a href=""></a>                 <span class="at">alpha =</span> <span class="fl">0.6</span>,</span>
-<span id="cb17-5"><a href=""></a>                 <span class="at">position =</span> <span class="st">"identity"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
 <h2>Densidade</h2>
 <h4><code>geom_density()</code></h4>
 <div style="font-size: 70%">
 <p><strong>Distribuição suavizada</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Richness,</span>
-<span id="cb18-2"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Richness,</span>
+<span id="cb31-2"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-34-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -688,14 +1747,14 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Distribuição e valores atípicos</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb19-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb19-3"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
+<span id="cb32-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-19-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-35-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -709,17 +1768,17 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Combinar com dados brutos</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb20-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb20-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb20-4"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
-<span id="cb20-6"><a href=""></a>              <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
+<span id="cb33-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
+<span id="cb33-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb33-6"><a href=""></a>              <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-36-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -736,15 +1795,15 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Densidade + boxplot</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb21-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb21-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb21-4"><a href=""></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
+<span id="cb34-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
+<span id="cb34-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb34-4"><a href=""></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-37-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -760,17 +1819,17 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <div style="font-size: 70%">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb22-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb22-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb22-4"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb22-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>,</span>
-<span id="cb22-6"><a href=""></a>               <span class="at">fill =</span> <span class="st">"white"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
+<span id="cb35-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
+<span id="cb35-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb35-4"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb35-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb35-6"><a href=""></a>               <span class="at">fill =</span> <span class="st">"white"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-22-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-38-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -784,22 +1843,22 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Média e desvio padrão</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href=""></a>  <span class="fu">group_by</span>(Treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb23-4"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Richness),</span>
-<span id="cb23-5"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Richness)</span>
-<span id="cb23-6"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb23-8"><a href=""></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb23-9"><a href=""></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> sd,</span>
-<span id="cb23-10"><a href=""></a>                    <span class="at">ymax =</span> mean <span class="sc">+</span> sd),</span>
-<span id="cb23-11"><a href=""></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>dados_csv <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href=""></a>  <span class="fu">group_by</span>(Treatment) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb36-4"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Richness),</span>
+<span id="cb36-5"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Richness)</span>
+<span id="cb36-6"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb36-8"><a href=""></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb36-9"><a href=""></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> sd,</span>
+<span id="cb36-10"><a href=""></a>                    <span class="at">ymax =</span> mean <span class="sc">+</span> sd),</span>
+<span id="cb36-11"><a href=""></a>                <span class="at">width =</span> <span class="fl">0.2</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-39-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -813,21 +1872,21 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Alternativa com pontos</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href=""></a>  <span class="fu">group_by</span>(Treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb24-4"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Richness),</span>
-<span id="cb24-5"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Richness)</span>
-<span id="cb24-6"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb24-8"><a href=""></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> sd,</span>
-<span id="cb24-9"><a href=""></a>                      <span class="at">ymax =</span> mean <span class="sc">+</span> sd),</span>
-<span id="cb24-10"><a href=""></a>                  <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>dados_csv <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href=""></a>  <span class="fu">group_by</span>(Treatment) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href=""></a>  <span class="fu">summarise</span>(</span>
+<span id="cb37-4"><a href=""></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Richness),</span>
+<span id="cb37-5"><a href=""></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Richness)</span>
+<span id="cb37-6"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb37-8"><a href=""></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> sd,</span>
+<span id="cb37-9"><a href=""></a>                      <span class="at">ymax =</span> mean <span class="sc">+</span> sd),</span>
+<span id="cb37-10"><a href=""></a>                  <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-40-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -841,70 +1900,16 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Painéis por uma variável</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb25-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb25-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb25-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
+<span id="cb38-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-4"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-25-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Facetas</h2>
-<h4><code>facet_grid()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Painéis por duas variáveis</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb26-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb26-4"><a href=""></a>  <span class="fu">facet_grid</span>(Location <span class="sc">~</span> Treatment)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-26-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li>Formato: <code>linhas ~ colunas</code></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Labels</h2>
-<h4><code>labs()</code></h4>
-<div style="font-size: 70%">
-<p><strong>Títulos e rótulos dos eixos</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb27-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb27-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb27-4"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-5"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-6"><a href=""></a>    <span class="at">title =</span> <span class="st">"Riqueza de espécies por elevação"</span>,</span>
-<span id="cb27-7"><a href=""></a>    <span class="at">subtitle =</span> <span class="st">"Diferentes tratamentos"</span>,</span>
-<span id="cb27-8"><a href=""></a>    <span class="at">x =</span> <span class="st">"Elevação (m)"</span>,</span>
-<span id="cb27-9"><a href=""></a>    <span class="at">y =</span> <span class="st">"Riqueza de espécies"</span>,</span>
-<span id="cb27-10"><a href=""></a>    <span class="at">color =</span> <span class="st">"Tratamento"</span></span>
-<span id="cb27-11"><a href=""></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-27-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-41-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -918,202 +1923,22 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <p><strong>Limites e quebras</strong></p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb28-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb28-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href=""></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb28-5"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
-<span id="cb28-6"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="dv">200</span>)</span>
-<span id="cb28-7"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb28-8"><a href=""></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb28-9"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),</span>
-<span id="cb28-10"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">5</span>)</span>
-<span id="cb28-11"><a href=""></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
+<span id="cb39-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a href=""></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb39-5"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>),</span>
+<span id="cb39-6"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1000</span>, <span class="dv">200</span>)</span>
+<span id="cb39-7"><a href=""></a>  ) <span class="sc">+</span></span>
+<span id="cb39-8"><a href=""></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb39-9"><a href=""></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),</span>
+<span id="cb39-10"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">5</span>)</span>
+<span id="cb39-11"><a href=""></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-28-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Cores</h2>
-<h4>Cores manuais</h4>
-<div style="font-size: 70%">
-<p><strong>Definir paleta personalizada</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb29-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb29-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb29-5"><a href=""></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb29-6"><a href=""></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Control"</span> <span class="ot">=</span> <span class="st">"#440154FF"</span>,</span>
-<span id="cb29-7"><a href=""></a>               <span class="st">"Treatment1"</span> <span class="ot">=</span> <span class="st">"#31688EFF"</span>,</span>
-<span id="cb29-8"><a href=""></a>               <span class="st">"Treatment2"</span> <span class="ot">=</span> <span class="st">"#35B779FF"</span>)</span>
-<span id="cb29-9"><a href=""></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Cores</h2>
-<h4>Paletas prontas - viridis</h4>
-<div style="font-size: 70%">
-<p><strong>Paletas acessíveis e bonitas</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb30-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb30-3"><a href=""></a>                  <span class="at">color =</span> D_Shannon)) <span class="sc">+</span></span>
-<span id="cb30-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-30-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li><code>_c</code>: escala contínua</li>
-<li><code>_d</code>: escala discreta</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Cores</h2>
-<h4>Paletas prontas - ColorBrewer</h4>
-<div style="font-size: 70%">
-<p><strong>Paletas categóricas</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb31-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb31-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb31-4"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb31-5"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li>Paletas: <code>"Set1"</code>, <code>"Set2"</code>, <code>"Dark2"</code>, <code>"Paired"</code>, etc.</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Temas</h2>
-<h4>Temas prontos</h4>
-<div style="font-size: 70%">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb32-2"><a href=""></a>                  <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb32-4"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-32-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-<ul>
-<li><code>theme_gray()</code>: padrão (fundo cinza)</li>
-<li><code>theme_bw()</code>: fundo branco com grid</li>
-<li><code>theme_minimal()</code>: minimalista</li>
-<li><code>theme_classic()</code>: eixos clássicos</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Temas</h2>
-<h4><code>theme_minimal()</code></h4>
-<div style="font-size: 70%">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb33-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb33-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb33-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb33-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-33-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Temas</h2>
-<h4><code>theme_classic()</code></h4>
-<div style="font-size: 70%">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation,</span>
-<span id="cb34-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb34-3"><a href=""></a>                  <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb34-4"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb34-5"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-34-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Customização - Temas</h2>
-<h4>Personalização avançada</h4>
-<div style="font-size: 60%">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Treatment,</span>
-<span id="cb35-2"><a href=""></a>                  <span class="at">y =</span> Richness,</span>
-<span id="cb35-3"><a href=""></a>                  <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb35-4"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb35-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb35-6"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb35-7"><a href=""></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb35-8"><a href=""></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb35-9"><a href=""></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb35-10"><a href=""></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
-<span id="cb35-11"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb35-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Riqueza por tratamento"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-35-1.png" width="480"></p>
+<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-42-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1126,86 +1951,21 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <div style="font-size: 70%">
 <p><strong>Exportar gráficos</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># Criar gráfico</span></span>
-<span id="cb36-2"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
-<span id="cb36-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb36-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb36-5"><a href=""></a></span>
-<span id="cb36-6"><a href=""></a><span class="co"># Salvar</span></span>
-<span id="cb36-7"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"grafico_riqueza.png"</span>, </span>
-<span id="cb36-8"><a href=""></a>       <span class="at">plot =</span> p,</span>
-<span id="cb36-9"><a href=""></a>       <span class="at">width =</span> <span class="dv">8</span>, </span>
-<span id="cb36-10"><a href=""></a>       <span class="at">height =</span> <span class="dv">6</span>,</span>
-<span id="cb36-11"><a href=""></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="co"># Criar gráfico</span></span>
+<span id="cb40-2"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dados_csv, <span class="fu">aes</span>(<span class="at">x =</span> Elevation, <span class="at">y =</span> Richness)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb40-5"><a href=""></a></span>
+<span id="cb40-6"><a href=""></a><span class="co"># Salvar</span></span>
+<span id="cb40-7"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"grafico_riqueza.png"</span>, </span>
+<span id="cb40-8"><a href=""></a>       <span class="at">plot =</span> p,</span>
+<span id="cb40-9"><a href=""></a>       <span class="at">width =</span> <span class="dv">8</span>, </span>
+<span id="cb40-10"><a href=""></a>       <span class="at">height =</span> <span class="dv">6</span>,</span>
+<span id="cb40-11"><a href=""></a>       <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Formatos: <code>.png</code>, <code>.pdf</code>, <code>.jpg</code>, <code>.svg</code></li>
 <li>Especificar <strong>tamanho</strong> e <strong>resolução</strong></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Pipeline completo</h2>
-<h4>Exemplo integrado</h4>
-<div style="font-size: 55%">
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb37-2"><a href=""></a>  <span class="co"># Processar dados</span></span>
-<span id="cb37-3"><a href=""></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Richness)) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-4"><a href=""></a>  <span class="fu">group_by</span>(Treatment, Location) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-5"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb37-6"><a href=""></a>    <span class="at">Richness_mean =</span> <span class="fu">mean</span>(Richness),</span>
-<span id="cb37-7"><a href=""></a>    <span class="at">Richness_sd =</span> <span class="fu">sd</span>(Richness)</span>
-<span id="cb37-8"><a href=""></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-9"><a href=""></a>  <span class="co"># Criar gráfico</span></span>
-<span id="cb37-10"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Location, </span>
-<span id="cb37-11"><a href=""></a>             <span class="at">y =</span> Richness_mean,</span>
-<span id="cb37-12"><a href=""></a>             <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
-<span id="cb37-13"><a href=""></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb37-14"><a href=""></a>  <span class="fu">geom_errorbar</span>(</span>
-<span id="cb37-15"><a href=""></a>    <span class="fu">aes</span>(<span class="at">ymin =</span> Richness_mean <span class="sc">-</span> Richness_sd,</span>
-<span id="cb37-16"><a href=""></a>        <span class="at">ymax =</span> Richness_mean <span class="sc">+</span> Richness_sd),</span>
-<span id="cb37-17"><a href=""></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>),</span>
-<span id="cb37-18"><a href=""></a>    <span class="at">width =</span> <span class="fl">0.2</span></span>
-<span id="cb37-19"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb37-20"><a href=""></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
-<span id="cb37-21"><a href=""></a>  <span class="fu">labs</span>(</span>
-<span id="cb37-22"><a href=""></a>    <span class="at">title =</span> <span class="st">"Riqueza média por localidade"</span>,</span>
-<span id="cb37-23"><a href=""></a>    <span class="at">x =</span> <span class="st">"Localidade"</span>,</span>
-<span id="cb37-24"><a href=""></a>    <span class="at">y =</span> <span class="st">"Riqueza média"</span>,</span>
-<span id="cb37-25"><a href=""></a>    <span class="at">fill =</span> <span class="st">"Tratamento"</span></span>
-<span id="cb37-26"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb37-27"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb37-28"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="09---Visualização-de-Dados_files/figure-revealjs/unnamed-chunk-37-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Recursos adicionais</h2>
-<h4>Referências úteis</h4>
-<div style="font-size: 70%">
-<p><strong>Documentação e tutoriais</strong></p>
-<ul>
-<li><p><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">ggplot2 cheat sheet</a></p></li>
-<li><p><a href="https://r-graph-gallery.com/">R Graph Gallery</a></p></li>
-<li><p><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a></p></li>
-<li><p><a href="https://ggplot2-book.org/">ggplot2 book</a></p></li>
-</ul>
-<p><strong>Extensões úteis</strong></p>
-<ul>
-<li><code>ggpubr</code>: gráficos prontos para publicação</li>
-<li><code>patchwork</code>: combinar múltiplos gráficos</li>
-<li><code>gganimate</code>: animações</li>
-<li><code>plotly</code>: gráficos interativos</li>
 </ul>
 </div>
 </section>
