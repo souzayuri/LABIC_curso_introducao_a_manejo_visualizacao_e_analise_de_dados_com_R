@@ -22,6 +22,312 @@ editor: source
 lang: pt-br
 ---
 
+## Método Científico
+
+::: columns
+-   **Indutivo**: chegar a uma **lei geral** por meio da observação de certos **casos particulares**
+
+-   **Dedutivo**: parte de **teorias e leis consideradas gerais** buscando explicar a ocorrência de **fenômenos particulares**
+
+-   **Hipotético-dedutivo**:
+
+    1.  problema ou lacuna de conhecimento
+
+    2.  formulação de **hipóteses**
+
+    3.  inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**)
+
+    4.  corroboração
+
+-   **Dialético**: leva em conta o constante movimento dos **fenômenos históricos-sociais** para o entendimento da totalidade
+:::
+
+## Método Científico
+
+::: columns
+-   **Hipotético-dedutivo**:
+
+    1.  problema ou lacuna de conhecimento
+
+    2.  formulação de **hipóteses**
+
+    3.  inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**)
+
+    4.  corroboração
+:::
+
+## Método Científico
+
+![](img/filosofia_Da_ciencia.png){fig-align="center"}
+
+## Método Científico
+
+::: columns
+**1. Pergunta:** Como as **modificações da paisagem** (perda e fragmentação de habitat) **afetam** as comunidades de **mamíferos**?
+
+![](img/yoda-star-wars.gif){fig-align="center"}
+:::
+
+## Método Científico
+
+:::::: {.columns style="font-size: 60%"}
+::::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+:::
+
+::: {.column width="30%"}
+![](img/sergio.jpg){fig-align="center" width="300"}
+:::
+:::::
+::::::
+
+## Método Científico
+
+::::: {.columns style="font-size: 60%"}
+:::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+
+Voltar do campo, com cadernos, planilhas, câmeras...
+
+Planilhar dados, visualizar fotos, identificar os bichos, e café, muito, café...
+:::
+
+![](img/planilha.png){fig-align="center" width="400"}
+::::
+:::::
+
+## Método Científico
+
+::::: {.columns style="font-size: 60%"}
+:::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+
+Voltar do campo, com cadernos, planilhas, câmeras...
+
+Planilhar dados, visualizar fotos, identificar os bichos, e café, muito, café...
+:::
+
+![](img/Sweet-Coffee.gif){fig-align="center" width="400"}
+::::
+:::::
+
+## Método Científico
+
+:::::::: {.columns style="font-size: 60%"}
+::::::: columns
+::: {.column width="70%"}
+**3. Modelos estatísticos**
+:::
+
+::::: columns
+::: {.column width="50%"}
+![](img/modelo.png){width="400"}
+:::
+
+::: {.column width="50%"}
+![](img/nazare.gif){fig-align="center"}
+:::
+:::::
+:::::::
+::::::::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+
+Nunca!
+
+Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos** em campo (salvo algumas exceções)
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+
+Nunca!
+
+Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos** em campo (salvo algumas exceções)
+:::
+
+::: {.columns style="font-size: 100%"}
+**`Por isso estimamos`**
+:::
+
+::: {.columns style="font-size: 60%"}
+Usamos uma parcela da realidade para **tentar** definir a ralidade em si
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+::: {.columns style="font-size: 60%"}
+**População (estatística)**\
+É o **conjunto de todos os indivíduos ou elementos** sobre os quais queremos tirar conclusões em um estudo.
+
+**Amostra**\
+É uma **parte da população**, escolhida para ser estudada, que **representa bem a população**.
+
+**Variável (aleatória ou estatística)**\
+É uma **característica** que **observamos** ou **medimos** nos indivíduos do estudo e que pode assumir **diferentes valores**.
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+::: {.columns style="font-size: 60%"}
+**Variável preditora \[independente\] (X)**: varia independentemente e é coletada com o intuito de explicar a variável resposta
+
+**Variável resposta \[dependente\] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+:::: {.columns style="font-size: 60%"}
+**Variável preditora \[independente\] (X)**: varia independentemente e é coletada com o intuito de explicar a variável resposta
+
+**Variável resposta \[dependente\] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
+
+::: {.columns style="font-size: 130%"}
+***Modelo estatístico**: é a tentativa de explicar a variação de **variáveis respostas (Y)** em **função de variáveis preditoras (X)***
+:::
+
+![](img/download.gif){fig-align="center" width="400"}
+::::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+:::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+:::::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+
+::: {.columns style="font-size: 150%"}
+**`O delineamento amostral!!!`**
+:::
+
+-   Conjunto de **métodos e decisões** que garantam que a **amostra** seja **parte representativa** da **população estatística**
+
+:::: {.column width="50%"}
+::: {.column width="50%"}
+:::
+::::
+::::::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+::::::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+
+::: {.columns style="font-size: 150%"}
+**`O delineamento amostral!!!`**
+:::
+
+-   Conjunto de **métodos e decisões** que garantam que a **amostra** seja **parte representativa** da **população estatística**
+
+### Depende de:
+
+::::: columns
+::: {.column width="50%"}
+1.  Pergunta
+
+2.  Grupo de pesquisa
+
+3.  Métodos de amostragem (parcela, transecto, busca ativa, cameras, pitfall)
+
+4.  Área de amostragem
+:::
+
+::: {.column width="50%"}
+5.  Tamanho da amostra
+
+6.  Esforço de amostragem
+
+7.  Autocorrelação espacial e temporal
+
+8.  Pseudo-réplica
+:::
+:::::
+:::::::
+
+## Análises Estatísticas
+
+#### Univariada vs Multivariada
+
+::: {.columns style="font-size: 60%"}
+**Univariada**
+
+-   É a análise estatística de **uma** única **variável resposta** por vez.\
+    Foca em descrever seu comportamento isolado, como **distribuição**, **tendência central** (média, mediana), **dispersão** (variância, desvio-padrão) e **frequência**.
+
+**Multivariada**
+
+-   É a análise estatística de **duas ou mais variáveis repostas** simultaneamente. Busca entender **relações, associações, padrões ou estruturas** entre variáveis.
+
+![](img/analises.png){fig-align="center" width="600"}
+:::
+
+## Análises Estatísticas
+
+#### Nosso foco: Univariada
+
+::: {.columns style="font-size: 60%"}
+É a análise estatística de **uma** única **variável resposta** por vez.\
+Foca em descrever seu comportamento isolado, como **distribuição**, **tendência central** (média, mediana), **dispersão** (variância, desvio-padrão) e **frequência**.
+
+![](img/easy.gif){fig-align="center" width="400"}
+:::
+
 ## Análises Estatísticas
 
 #### Pacotes necessários
@@ -32,6 +338,7 @@ library(tidyverse)      # Manipulação e visualização
 library(car)            # Testes de pressupostos
 library(corrplot)       # Matriz de correlação
 library(ggcorrplot)     # Heatmap de correlação
+library(nortest)        # teste de normalidade shapiro-francia
 library(rstatix)        # Testes estatísticos
 library(effectsize)     # Tamanho de efeito
 library(emmeans)        # Médias marginais e post-hoc
@@ -51,7 +358,7 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Como são meus dados?"
 
--   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
 
 -   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
 :::
@@ -65,7 +372,7 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Como são meus dados?"
 
--   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
 
 -   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
 
@@ -89,7 +396,7 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Como são meus dados?"
 
--   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão`
 
 -   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
 
@@ -99,7 +406,7 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Existem diferenças entre grupos?"
 
--   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado`
+-   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado,` e `Correlação`
 
 -   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p\<0.001)"
 
@@ -123,7 +430,7 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Como são meus dados?"
 
--   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
 
     -   Medidas de **tendência central**: `minimo`, `máximo`, `média`, `mediana` e `moda`
 
@@ -262,7 +569,7 @@ var(iris$Sepal.Length)
 ![](img/variance.png){fig-align="center" width="800"}
 :::
 
-## Estatística Descritiva
+## Análises Estatísticas Descritivas
 
 #### Medidas de tendência central e dispersão
 
@@ -273,9 +580,10 @@ O **desvio padrão** é a raiz quadrada da variância, retornando às unidades o
 :::
 
 ::: {.columns style="font-size: 50%"}
-O **erro padrão** mede a **variabilidade da distribuição amostral da média**.
+O **erro padrão** mede a incerteza da média em um grupo ou entre grupos de amostragem
 
 -   Não existe uma formula no R
+-   À medida que **n aumenta**, o erro padrão **diminui**
 :::
 
 ::: {.columns style="font-size: 80%"}
@@ -299,9 +607,10 @@ sd(iris$Sepal.Length)
 :::
 
 ::: {.columns style="font-size: 55%"}
-O **erro padrão** mede a **variabilidade da distribuição amostral da média**.
+O **erro padrão** mede a incerteza da média em um grupo ou entre grupos de amostragem
 
 -   Não existe uma formula no R
+-   À medida que **n aumenta**, o erro padrão **diminui**
 :::
 
 ::: {.columns style="font-size: 80%"}
@@ -356,14 +665,31 @@ iris %>%
 ```
 :::
 
-## Estatística Descritiva e Distribuições
+## Análises Estatísticas Descritivas
 
 #### Visualização - Histograma
 
 ::: {style="font-size: 70%"}
+-   Quais classes de valores são mais infladas
+
+-   Quais são os valores extremos, e quão abundante eles são
+
+```         
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Visualização - Histograma
+
+::: {style="font-size: 70%"}
+-   Quais classes de valores são mais infladas
+
+-   Quais são os valores extremos, e quão abundante eles são
+
 ```{r}
-#| fig-width: 10
-#| fig-height: 4
+#| fig-width: 6
+#| fig-height: 3
 ggplot(iris, aes(x = Sepal.Length)) +
   geom_histogram(bins = 20, fill = "steelblue", alpha = 0.7) +
   facet_wrap(~Species) +
@@ -373,80 +699,210 @@ ggplot(iris, aes(x = Sepal.Length)) +
 ```
 :::
 
-## Estatística Descritiva
+## Análises Estatísticas Inferenciais
 
-#### Visualização - Boxplot
+#### `Correlação` entre variáveis
 
-::: {style="font-size: 70%"}
-```{r}
-#| fig-width: 10
-#| fig-height: 5
-ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
-  geom_boxplot(alpha = 0.7) +
-  geom_jitter(width = 0.1, alpha = 0.3) +
-  theme_minimal() +
-  labs(x = "Espécie", 
-       y = "Comprimento da Sépala (cm)",
-       title = "Comparação do comprimento da sépala entre espécies") +
-  theme(legend.position = "none")
+::: {style="font-size: 55%"}
+**Correlação** mede o **grau de associação** entre duas variáveis `numéricas`.
+
+-   Quando **X aumenta**, **Y tende a aumentar ou diminuir**?
+-   Essa relação é **forte**, **fraca** ou **inexistente**?
+
+Quando você tem **mais de duas variáveis**, calcular correlação par a par gera uma **`matriz de correlação`**.
+
+-   Usa a função **cor()** do pacote stats
+
+    -   Se informa o método usado,
+
+        -   `pearson`: relação linear e todas variáveis paramétricas (`normal`)
+
+        -   `spearman`: relação monotônica, lineares ou com curvas, não-paramétricas (`não normal`)
+:::
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis e `Heatmap`
+
+::: {style="font-size: 60%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Testamos a normalidade primeiro usando o teste de `Shapiro-Francia`
+
+Se forem todas normais vamos de `Pearson`, se não vamos de `Spearman`
+
+```{}
 ```
 :::
 
-## Correlação entre variáveis
+## Análises Estatísticas Inferenciais
 
-#### Matriz de correlação
+#### `Correlação` entre variáveis e `Heatmap`
 
-::: {style="font-size: 70%"}
+::: {style="font-size: 60%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Testamos a normalidade primeiro usando o teste de `Shapiro-Francia`
+
+Se forem todas normais vamos de `Pearson`, se não vamos de `Spearman`
+:::
+
+<div>
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%"}
 ```{r}
-# Calcular correlações
+nortest::sf.test(iris$Sepal.Length)
+nortest::sf.test(iris$Sepal.Width)
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+nortest::sf.test(iris$Petal.Length)
+nortest::sf.test(iris$Petal.Width)
+```
+:::
+:::::
+
+</div>
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis e `Heatmap`
+
+::: {style="font-size: 50%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Função `cor()` testa a correlação
+:::
+
+::: {style="font-size: 65%"}
+```{r}
+#| output-location: column
 cor_matrix <- iris %>% 
-  select(where(is.numeric)) %>% 
-  cor()
+  dplyr::select(where(is.numeric)) %>% 
+  stats::cor(method = "spearman",)
 
 cor_matrix
+
 ```
 :::
 
-## Correlação entre variáveis
-
-#### Heatmap de correlação
-
-::: {style="font-size: 70%"}
+::: {style="font-size: 65%"}
 ```{r}
-#| fig-width: 8
-#| fig-height: 6
+#| output-location: column
+#| fig-width: 4
+#| fig-height: 3
 ggcorrplot(cor_matrix, 
-           type = "lower",
            lab = TRUE,
            lab_size = 4,
-           colors = c("#6D9EC1", "white", "#E46726"),
-           title = "Matriz de Correlação - Variáveis Morfométricas")
+           colors = c("#6D9EC1", #valor -1 a 0.0
+                      "white", # valor 0
+                      "#E46726")) #valor 0 a 1.0
 ```
 :::
 
-## Correlação entre variáveis
+## Análises Estatísticas Inferenciais
 
-#### Teste de correlação
+#### `Teste` de correlação entre vaviáveis
 
 ::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
 ```{r}
-# Teste de correlação de Pearson
-cor.test(iris$Sepal.Length, iris$Petal.Length)
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "spearman")
 ```
+:::
 
+:::::: columns
+::::: {style="font-size: 50%"}
+:::: columns
+::: {.column width="50%"}
+:::
+::::
+:::::
+::::::
+
+## Análises Estatísticas Inferenciais
+
+#### `Teste` de correlação entre vaviáveis
+
+::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
+```{r}
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "pearson")
+```
+:::
+
+::::::: columns
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
 **Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
-
-**Coeficiente de correlação (r):**
-
--   r = 1: correlação positiva perfeita
--   r = 0: sem correlação linear
--   r = -1: correlação negativa perfeita
--   \|r\| \> 0.7: correlação forte
--   \|r\| 0.3-0.7: correlação moderada
--   \|r\| \< 0.3: correlação fraca
 
 **IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
 :::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+
+## Análises Estatísticas Inferenciais
+
+#### `Teste` de correlação entre vaviáveis
+
+::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
+```{r}
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "pearson")
+```
+:::
+
+::::::: columns
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
+**Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
+
+**IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
+:::
+
+::: {.column width="50%"}
+**Coeficiente de correlação (`r` ou `rho`): *`Golden rule`***
+
+-   `r/rho = 1`: correlação positiva perfeita
+-   `r/rho = 0`: sem correlação linear
+-   `r/rho = -1`: correlação negativa perfeita
+-   `|r/rho| > 0.7`: correlação forte
+-   `|r/rho| = 0.3-0.7`: correlação moderada
+-   `|r/rho| < 0.3`: correlação fraca
+:::
+:::::
+::::::
+:::::::
+
+## 
 
 ## Como Escolher o Teste Estatístico?
 
@@ -731,7 +1187,7 @@ ggplot(dados_poisson, aes(x = valor)) +
 
 ::: {style="font-size: 70%"}
 | Distribuição | Usar | Evitar | Solução se Violado |
-|------------------|------------------|------------------|-------------------|
+|------------------|------------------|------------------|------------------|
 | **Normal** | t-test, ANOVA, LM | \- | Transformação, testes não-paramétricos |
 | **Assimétrica** | \- | Testes paramétricos | Log-transformação, GLM |
 | **Bimodal** | \- | Qualquer teste simples | Analisar grupos separadamente |
