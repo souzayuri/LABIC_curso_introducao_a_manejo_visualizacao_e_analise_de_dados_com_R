@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content=" Yuri Souza">
-  <title>Análises Estatísticas no R </title>
+  <title>Análises Estatísticas   no R </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -195,7 +195,7 @@
     <div class="slides">
 
 <section class="quarto-title-block center">
-  <h1 class="title">Análises Estatísticas no R<br></h1>
+  <h1 class="title">Análises Estatísticas <br> no R<br></h1>
   <p class="subtitle">Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong></p>
 
 <div class="quarto-title-authors">
@@ -206,7 +206,7 @@
 </div>
 </div>
 
-  <p class="date">8 de janeiro de 2026</p>
+  <p class="date">9 de janeiro de 2026</p>
 </section>
 <section class="slide level2">
 <h2>Análises Estatísticas</h2>
@@ -229,134 +229,354 @@
 </section>
 <section class="slide level2">
 <h2>Três Tipos de Análise Estatística</h2>
-<div style="font-size: 70%">
+<div style="font-size: 55%">
 <p><strong>1. Estatística Descritiva</strong> 📊</p>
 <ul>
 <li><p><strong>Objetivo</strong>: Resumir e <strong>descrever</strong> os dados</p></li>
 <li><p><strong>Pergunta</strong>: “Como são meus dados?”</p></li>
-<li><p><strong>Ferramentas</strong>: Médias, desvios, gráficos, correlações</p></li>
+<li><p><strong>Ferramentas</strong>: <code>Medidas de tendência central</code> e <code>Medidas de dispersão</code></p></li>
+<li><p><strong>Exemplo</strong>: “A altura média das árvores é 15m com DP de 3m”</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Três Tipos de Análise Estatística</h2>
+<div style="font-size: 55%">
+<p><strong>1. Estatística Descritiva</strong> 📊</p>
+<ul>
+<li><p><strong>Objetivo</strong>: Resumir e <strong>descrever</strong> os dados</p></li>
+<li><p><strong>Pergunta</strong>: “Como são meus dados?”</p></li>
+<li><p><strong>Ferramentas</strong>: <code>Medidas de tendência central</code> e <code>Medidas de dispersão</code></p></li>
 <li><p><strong>Exemplo</strong>: “A altura média das árvores é 15m com DP de 3m”</p></li>
 </ul>
 <p><strong>2. Estatística Inferencial</strong> 🔍</p>
 <ul>
 <li><p><strong>Objetivo</strong>: <strong>Generalizar</strong> da amostra para a população</p></li>
 <li><p><strong>Pergunta</strong>: “Existem diferenças entre grupos?”</p></li>
-<li><p><strong>Ferramentas</strong>: t-test, ANOVA, Chi-quadrado</p></li>
+<li><p><strong>Ferramentas</strong>: <code>t-test</code>, <code>ANOVA</code>, <code>Chi-quadrado</code></p></li>
+<li><p><strong>Exemplo</strong>: “Área protegida tem mais espécies que área desmatada (p&lt;0.001)”</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Três Tipos de Análise Estatística</h2>
+<div style="font-size: 55%">
+<p><strong>1. Estatística Descritiva</strong> 📊</p>
+<ul>
+<li><p><strong>Objetivo</strong>: Resumir e <strong>descrever</strong> os dados</p></li>
+<li><p><strong>Pergunta</strong>: “Como são meus dados?”</p></li>
+<li><p><strong>Ferramentas</strong>: <code>Medidas de tendência central</code> e <code>Medidas de dispersão</code></p></li>
+<li><p><strong>Exemplo</strong>: “A altura média das árvores é 15m com DP de 3m”</p></li>
+</ul>
+<p><strong>2. Estatística Inferencial</strong> 🔍</p>
+<ul>
+<li><p><strong>Objetivo</strong>: <strong>Generalizar</strong> da amostra para a população</p></li>
+<li><p><strong>Pergunta</strong>: “Existem diferenças entre grupos?”</p></li>
+<li><p><strong>Ferramentas</strong>: <code>t-test</code>, <code>ANOVA</code>, <code>Chi-quadrado</code></p></li>
 <li><p><strong>Exemplo</strong>: “Área protegida tem mais espécies que área desmatada (p&lt;0.001)”</p></li>
 </ul>
 <p><strong>3. Estatística Preditiva</strong> 🎯</p>
 <ul>
 <li><p><strong>Objetivo</strong>: <strong>Modelar relações</strong> e fazer predições</p></li>
 <li><p><strong>Pergunta</strong>: “Como X influencia Y?” ou “Qual valor de Y esperamos para X=10?”</p></li>
-<li><p><strong>Ferramentas</strong>: Regressão linear, GLM</p></li>
-<li><p><strong>Exemplo</strong>: “Cada 1°C aumenta em 12% a abundância de mosquitos”</p></li>
+<li><p><strong>Ferramentas</strong>: <code>Regressão linear</code>, <code>GLM</code></p></li>
+<li><p><strong>Exemplo</strong>: “Cada 1°C aumenta em 12% a abundância de espécies”</p></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Análises Estatísticas</h2>
-<h4>Dados de exemplo</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Carregar dados - usaremos iris como exemplo</span></span>
-<span id="cb2-2"><a href=""></a>dados <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href=""></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Species =</span> <span class="fu">as.factor</span>(Species))</span>
-<span id="cb2-5"><a href=""></a></span>
-<span id="cb2-6"><a href=""></a><span class="fu">glimpse</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 150
-Columns: 5
-$ Sepal.Length &lt;dbl&gt; 5.1, 4.9, 4.7, 4.6, 5.0, 5.4, 4.6, 5.0, 4.4, 4.9, 5.4, 4.…
-$ Sepal.Width  &lt;dbl&gt; 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.…
-$ Petal.Length &lt;dbl&gt; 1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5, 1.5, 1.…
-$ Petal.Width  &lt;dbl&gt; 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.…
-$ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setosa, s…</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Estatística Descritiva</h2>
-<div style="font-size: 70%">
-<p><strong>O que é?</strong></p>
+<h2>Três Tipos de Análise Estatística</h2>
+<div style="font-size: 55%">
+<p><strong>1. Estatística Descritiva</strong> 📊</p>
 <ul>
-<li><p>Resumir e descrever as <strong>características principais</strong> de um conjunto de dados</p></li>
-<li><p>Medidas de <strong>tendência central</strong>: média, mediana, moda</p></li>
-<li><p>Medidas de <strong>dispersão</strong>: desvio padrão, variância, amplitude</p></li>
-<li><p><strong>Visualização</strong> da distribuição dos dados</p></li>
+<li><p><strong>Objetivo</strong>: Resumir e <strong>descrever</strong> os dados</p></li>
+<li><p><strong>Pergunta</strong>: “Como são meus dados?”</p></li>
+<li><p><strong>Ferramentas</strong>: <code>Medidas de tendência central</code> e <code>Medidas de dispersão</code></p>
+<ul>
+<li><p>Medidas de <strong>tendência central</strong>: <code>minimo</code>, <code>máximo</code>, <code>média</code>, <code>mediana</code> e <code>moda</code></p></li>
+<li><p>Medidas de <strong>dispersão</strong>: <code>variância</code>, <code>desvio padrão</code> e <code>erro padrão</code></p></li>
+</ul></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Estatística Descritiva</h2>
-<h4>Medidas de tendência central e dispersão</h4>
+<h2>Análises Estatísticas Descritivas</h2>
+<h4><code>Iris</code> dataset</h4>
+
+<img data-src="img/goo-goo-dolls-iris.gif" class="quarto-figure quarto-figure-center r-stretch" width="400"></section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4><code>Iris</code> dataset</h4>
+<div class="columns" style="font-size: 70%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/iris-machinelearning.png" class="quarto-figure quarto-figure-center" width="700"></p>
+</figure>
+</div><div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">head</span>(iris, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>Minimo, Máximo, Média, Mediana, Moda</h4>
+<div style="font-size: 60%">
+<p><strong>Menor</strong> e <strong>maior</strong> valor no conjunto de dados:</p>
+<ul>
+<li><code>min()</code> e <code>max()</code> - Valores Extremos</li>
+</ul>
+</div>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Resumo geral</span></span>
-<span id="cb4-2"><a href=""></a><span class="fu">summary</span>(dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">min</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
- Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
- 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
- Median :5.800   Median :3.000   Median :4.350   Median :1.300  
- Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
- 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
- Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
-       Species  
- setosa    :50  
- versicolor:50  
- virginica :50  
-                
-                
-                </code></pre>
+<pre><code>[1] 4.3</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">max</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.9</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>Minimo, Máximo, Média, Mediana, Moda</h4>
+<div style="font-size: 60%">
+<p>A <strong>média</strong> é a soma de todos os valores dividida pelo número de observações.</p>
+<ul>
+<li><code>mean()</code></li>
+</ul>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.843333</code></pre>
+</div>
+</div>
+</div>
+<div style="font-size: 60%">
+<p>A <strong>mediana</strong> é o valor central quando os dados estão ordenados.</p>
+<ul>
+<li><code>median()</code></li>
+</ul>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">median</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.8</code></pre>
+</div>
+</div>
+</div>
+<div style="font-size: 60%">
+<p>A <strong>moda</strong> é o valor mais frequente na amostra</p>
+<ul>
+<li><p><strong>Não existe</strong> uma função <strong>no R,</strong> por isso <strong>adaptamos</strong></p>
+<ul>
+<li><code>which.max(table())</code></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">names</span>(<span class="fu">which.max</span>(<span class="fu">table</span>(iris<span class="sc">$</span>Sepal.Length)))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "5"</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>Medidas de tendência central e dispersão</h4>
+<div class="columns" style="font-size: 60%">
+<p>A <strong>variância</strong> mede o quão espalhados os dados estão <strong>em relação à média</strong>, mas em <code>unidades ao quadrado</code>.</p><ul>
+<li><p>Quanto maior a variância, mais dispersos estão os dados.</p></li>
+<li><p>Útil para cálculos matemáticos e estatísticos avançados.</p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">var</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6856935</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>Medidas de tendência central e dispersão</h4>
+<div class="columns" style="font-size: 60%">
+<p>A <strong>variância</strong> mede o quão espalhados os dados estão <strong>em relação à média</strong>, mas em <code>unidades ao quadrado</code>.</p><ul>
+<li><p>Quanto maior a variância, mais dispersos estão os dados.</p></li>
+<li><p>Útil para cálculos matemáticos e estatísticos avançados.</p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/variance.png" class="quarto-figure quarto-figure-center" width="800"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>Medidas de tendência central e dispersão</h4>
+<div class="columns" style="font-size: 60%">
+<p>A <strong>variância</strong> mede o quão espalhados os dados estão <strong>em relação à média</strong>, mas em <code>unidades ao quadrado</code>.</p><ul>
+<li><p>Quanto maior a variância, mais dispersos estão os dados.</p></li>
+<li><p>Útil para cálculos matemáticos e estatísticos avançados.</p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">var</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6856935</code></pre>
+</div>
+</div><div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/variance.png" class="quarto-figure quarto-figure-center" width="800"></p>
+</figure>
 </div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Estatística Descritiva</h2>
 <h4>Medidas de tendência central e dispersão</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># Estatísticas descritivas por grupo</span></span>
-<span id="cb6-2"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb6-5"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb6-6"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb6-7"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length),</span>
-<span id="cb6-8"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length),</span>
-<span id="cb6-9"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length),</span>
-<span id="cb6-10"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length)</span>
-<span id="cb6-11"><a href=""></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 7
-  Species        n media_sepala dp_sepala mediana_sepala min_sepala max_sepala
-  &lt;fct&gt;      &lt;int&gt;        &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;
-1 setosa        50         5.01     0.352            5          4.3        5.8
-2 versicolor    50         5.94     0.516            5.9        4.9        7  
-3 virginica     50         6.59     0.636            6.5        4.9        7.9</code></pre>
+<div class="columns" style="font-size: 50%">
+<p>O <strong>desvio padrão</strong> é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão <strong>em relação à média</strong></p><ul>
+<li>Para descrever a variabilidade dentro da sua amostra.</li>
+</ul>
 </div>
+<div class="columns" style="font-size: 50%">
+<p>O <strong>erro padrão</strong> mede a <strong>variabilidade da distribuição amostral da média</strong>.</p><ul>
+<li>Não existe uma formula no R</li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/erro%20e%20desvio%20padrao.png" class="quarto-figure quarto-figure-center" width="850"></p>
+</figure>
 </div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Estatística Descritiva</h2>
+<h4>Medidas de tendência central e dispersão</h4>
+<div class="columns" style="font-size: 55%">
+<p>O <strong>desvio padrão</strong> é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão <strong>em relação à média</strong></p><ul>
+<li>Para descrever a variabilidade dentro da sua amostra.</li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8280661</code></pre>
+</div>
+</div>
+</div>
+<div class="columns" style="font-size: 55%">
+<p>O <strong>erro padrão</strong> mede a <strong>variabilidade da distribuição amostral da média</strong>.</p><ul>
+<li>Não existe uma formula no R</li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">sd</span>(iris<span class="sc">$</span>Sepal.Length) <span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(iris<span class="sc">$</span>Sepal.Length)) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.06761132</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>No <code>tidyverse</code>: Minimo, Máximo, Média, Mediana, Moda</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Estatísticas descritivas por grupo</span></span>
+<span id="cb22-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb22-4"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb22-5"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length),</span>
+<span id="cb22-6"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length),</span>
+<span id="cb22-7"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb22-8"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length),</span>
+<span id="cb22-9"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length),</span>
+<span id="cb22-10"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb22-11"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb22-12"><a href=""></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    n min_sepala max_sepala media_sepala mediana_sepala var_sepala dp_sepala
+1 150        4.3        7.9     5.843333            5.8  0.6856935 0.8280661
+   se_sepala
+1 0.06761132</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Descritivas</h2>
+<h4>No <code>tidyverse</code>: Minimo, Máximo, Média, Mediana, Moda</h4>
+<h4>agrupando por espécies</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Estatísticas descritivas por grupo</span></span>
+<span id="cb24-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb24-5"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb24-6"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length),</span>
+<span id="cb24-7"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length),</span>
+<span id="cb24-8"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb24-9"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length),</span>
+<span id="cb24-10"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length),</span>
+<span id="cb24-11"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length),</span>
+<span id="cb24-12"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb24-13"><a href=""></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-14"><a href=""></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 9
+  Species        n min_sepala max_sepala media_sepala mediana_sepala var_sepala
+  &lt;fct&gt;      &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;      &lt;dbl&gt;
+1 setosa        50        4.3        5.8         5.01            5        0.124
+2 versicolor    50        4.9        7           5.94            5.9      0.266
+3 virginica     50        4.9        7.9         6.59            6.5      0.404
+# ℹ 2 more variables: dp_sepala &lt;dbl&gt;, se_sepala &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Estatística Descritiva e Distribuições</h2>
 <h4>Visualização - Histograma</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb8-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, </span>
-<span id="cb8-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>,</span>
-<span id="cb8-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribuição do comprimento da sépala por espécie"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb26-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb26-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, </span>
+<span id="cb26-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -368,18 +588,18 @@ $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <h4>Visualização - Boxplot</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
-<span id="cb9-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb9-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Comparação do comprimento da sépala entre espécies"</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb27-3"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb27-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
+<span id="cb27-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb27-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Comparação do comprimento da sépala entre espécies"</span>) <span class="sc">+</span></span>
+<span id="cb27-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -391,12 +611,12 @@ $ Species      &lt;fct&gt; setosa, setosa, setosa, setosa, setosa, setosa, setos
 <h4>Matriz de correlação</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># Calcular correlações</span></span>
-<span id="cb10-2"><a href=""></a>cor_matrix <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">cor</span>()</span>
-<span id="cb10-5"><a href=""></a></span>
-<span id="cb10-6"><a href=""></a>cor_matrix</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Calcular correlações</span></span>
+<span id="cb28-2"><a href=""></a>cor_matrix <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href=""></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-4"><a href=""></a>  <span class="fu">cor</span>()</span>
+<span id="cb28-5"><a href=""></a></span>
+<span id="cb28-6"><a href=""></a>cor_matrix</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
 Sepal.Length    1.0000000  -0.1175698    0.8717538   0.8179411
@@ -412,16 +632,16 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
 <h4>Heatmap de correlação</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggcorrplot</span>(cor_matrix, </span>
-<span id="cb12-2"><a href=""></a>           <span class="at">type =</span> <span class="st">"lower"</span>,</span>
-<span id="cb12-3"><a href=""></a>           <span class="at">lab =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb12-4"><a href=""></a>           <span class="at">lab_size =</span> <span class="dv">4</span>,</span>
-<span id="cb12-5"><a href=""></a>           <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="st">"white"</span>, <span class="st">"#E46726"</span>),</span>
-<span id="cb12-6"><a href=""></a>           <span class="at">title =</span> <span class="st">"Matriz de Correlação - Variáveis Morfométricas"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggcorrplot</span>(cor_matrix, </span>
+<span id="cb30-2"><a href=""></a>           <span class="at">type =</span> <span class="st">"lower"</span>,</span>
+<span id="cb30-3"><a href=""></a>           <span class="at">lab =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb30-4"><a href=""></a>           <span class="at">lab_size =</span> <span class="dv">4</span>,</span>
+<span id="cb30-5"><a href=""></a>           <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="st">"white"</span>, <span class="st">"#E46726"</span>),</span>
+<span id="cb30-6"><a href=""></a>           <span class="at">title =</span> <span class="st">"Matriz de Correlação - Variáveis Morfométricas"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-8-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-16-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -433,13 +653,13 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000</code></pre>
 <h4>Teste de correlação</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Teste de correlação de Pearson</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">cor.test</span>(dados<span class="sc">$</span>Sepal.Length, dados<span class="sc">$</span>Petal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Teste de correlação de Pearson</span></span>
+<span id="cb31-2"><a href=""></a><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
 
-data:  dados$Sepal.Length and dados$Petal.Length
+data:  iris$Sepal.Length and iris$Petal.Length
 t = 21.646, df = 148, p-value &lt; 2.2e-16
 alternative hypothesis: true correlation is not equal to 0
 95 percent confidence interval:
@@ -619,23 +839,23 @@ sample estimates:
 <h2>Distribuição Normal (Gaussiana)</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb15-2"><a href=""></a>dados_normal <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>))</span>
-<span id="cb15-3"><a href=""></a></span>
-<span id="cb15-4"><a href=""></a><span class="fu">ggplot</span>(dados_normal, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb15-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb15-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb15-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb15-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb15-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Normal (Curva em Sino)"</span>,</span>
-<span id="cb15-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb15-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">100</span>, <span class="at">y =</span> <span class="fl">0.025</span>, </span>
-<span id="cb15-12"><a href=""></a>           <span class="at">label =</span> <span class="st">"Simétrica</span><span class="sc">\n</span><span class="st">Média = Mediana = Moda"</span>,</span>
-<span id="cb15-13"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb33-2"><a href=""></a>dados_normal <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>))</span>
+<span id="cb33-3"><a href=""></a></span>
+<span id="cb33-4"><a href=""></a><span class="fu">ggplot</span>(dados_normal, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb33-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
+<span id="cb33-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb33-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Normal (Curva em Sino)"</span>,</span>
+<span id="cb33-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb33-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">100</span>, <span class="at">y =</span> <span class="fl">0.025</span>, </span>
+<span id="cb33-12"><a href=""></a>           <span class="at">label =</span> <span class="st">"Simétrica</span><span class="sc">\n</span><span class="st">Média = Mediana = Moda"</span>,</span>
+<span id="cb33-13"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -647,24 +867,24 @@ sample estimates:
 <h2>Distribuição Assimétrica à Direita</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb16-2"><a href=""></a>dados_direita <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="fl">0.5</span>))</span>
-<span id="cb16-3"><a href=""></a></span>
-<span id="cb16-4"><a href=""></a><span class="fu">ggplot</span>(dados_direita, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb16-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb16-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"coral"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb16-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb16-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Assimétrica à Direita (Positive Skew)"</span>,</span>
-<span id="cb16-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Cauda longa para a direita"</span>,</span>
-<span id="cb16-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb16-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">6</span>, <span class="at">y =</span> <span class="fl">0.3</span>, </span>
-<span id="cb16-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Média &gt; Mediana</span><span class="sc">\n</span><span class="st">Dados concentrados à esquerda</span><span class="sc">\n</span><span class="st">Valores extremos à direita"</span>,</span>
-<span id="cb16-14"><a href=""></a>           <span class="at">size =</span> <span class="fl">4.5</span>, <span class="at">color =</span> <span class="st">"darkred"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb34-2"><a href=""></a>dados_direita <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="fl">0.5</span>))</span>
+<span id="cb34-3"><a href=""></a></span>
+<span id="cb34-4"><a href=""></a><span class="fu">ggplot</span>(dados_direita, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb34-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
+<span id="cb34-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"coral"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb34-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb34-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb34-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Assimétrica à Direita (Positive Skew)"</span>,</span>
+<span id="cb34-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Cauda longa para a direita"</span>,</span>
+<span id="cb34-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb34-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">6</span>, <span class="at">y =</span> <span class="fl">0.3</span>, </span>
+<span id="cb34-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Média &gt; Mediana</span><span class="sc">\n</span><span class="st">Dados concentrados à esquerda</span><span class="sc">\n</span><span class="st">Valores extremos à direita"</span>,</span>
+<span id="cb34-14"><a href=""></a>           <span class="at">size =</span> <span class="fl">4.5</span>, <span class="at">color =</span> <span class="st">"darkred"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -676,24 +896,24 @@ sample estimates:
 <h2>Distribuição Assimétrica à Esquerda</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb17-2"><a href=""></a>dados_esquerda <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="dv">10</span> <span class="sc">-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="fl">0.5</span>))</span>
-<span id="cb17-3"><a href=""></a></span>
-<span id="cb17-4"><a href=""></a><span class="fu">ggplot</span>(dados_esquerda, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb17-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb17-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"mediumpurple"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb17-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb17-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb17-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Assimétrica à Esquerda (Negative Skew)"</span>,</span>
-<span id="cb17-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Cauda longa para a esquerda"</span>,</span>
-<span id="cb17-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb17-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="fl">0.3</span>, </span>
-<span id="cb17-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Média &lt; Mediana</span><span class="sc">\n</span><span class="st">Dados concentrados à direita</span><span class="sc">\n</span><span class="st">Valores extremos à esquerda"</span>,</span>
-<span id="cb17-14"><a href=""></a>           <span class="at">size =</span> <span class="fl">4.5</span>, <span class="at">color =</span> <span class="st">"purple4"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb35-2"><a href=""></a>dados_esquerda <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="dv">10</span> <span class="sc">-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> <span class="fl">0.5</span>))</span>
+<span id="cb35-3"><a href=""></a></span>
+<span id="cb35-4"><a href=""></a><span class="fu">ggplot</span>(dados_esquerda, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb35-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
+<span id="cb35-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"mediumpurple"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb35-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb35-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb35-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Assimétrica à Esquerda (Negative Skew)"</span>,</span>
+<span id="cb35-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Cauda longa para a esquerda"</span>,</span>
+<span id="cb35-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb35-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">4</span>, <span class="at">y =</span> <span class="fl">0.3</span>, </span>
+<span id="cb35-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Média &lt; Mediana</span><span class="sc">\n</span><span class="st">Dados concentrados à direita</span><span class="sc">\n</span><span class="st">Valores extremos à esquerda"</span>,</span>
+<span id="cb35-14"><a href=""></a>           <span class="at">size =</span> <span class="fl">4.5</span>, <span class="at">color =</span> <span class="st">"purple4"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -705,27 +925,27 @@ sample estimates:
 <h2>Distribuição Bimodal</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb18-2"><a href=""></a>dados_bimodal <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb18-3"><a href=""></a>  <span class="at">valor =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">5</span>), </span>
-<span id="cb18-4"><a href=""></a>            <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
-<span id="cb18-5"><a href=""></a>)</span>
-<span id="cb18-6"><a href=""></a></span>
-<span id="cb18-7"><a href=""></a><span class="fu">ggplot</span>(dados_bimodal, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb18-8"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb18-9"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"forestgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb18-10"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb18-11"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb18-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Bimodal"</span>,</span>
-<span id="cb18-13"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Dois picos distintos"</span>,</span>
-<span id="cb18-14"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb18-15"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">65</span>, <span class="at">y =</span> <span class="fl">0.05</span>, </span>
-<span id="cb18-16"><a href=""></a>           <span class="at">label =</span> <span class="st">"Indica presença de</span><span class="sc">\n</span><span class="st">DOIS GRUPOS distintos"</span>,</span>
-<span id="cb18-17"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb36-2"><a href=""></a>dados_bimodal <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb36-3"><a href=""></a>  <span class="at">valor =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">50</span>, <span class="at">sd =</span> <span class="dv">5</span>), </span>
+<span id="cb36-4"><a href=""></a>            <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">5</span>))</span>
+<span id="cb36-5"><a href=""></a>)</span>
+<span id="cb36-6"><a href=""></a></span>
+<span id="cb36-7"><a href=""></a><span class="fu">ggplot</span>(dados_bimodal, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb36-8"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
+<span id="cb36-9"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"forestgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb36-10"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb36-11"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb36-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Bimodal"</span>,</span>
+<span id="cb36-13"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Dois picos distintos"</span>,</span>
+<span id="cb36-14"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb36-15"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">65</span>, <span class="at">y =</span> <span class="fl">0.05</span>, </span>
+<span id="cb36-16"><a href=""></a>           <span class="at">label =</span> <span class="st">"Indica presença de</span><span class="sc">\n</span><span class="st">DOIS GRUPOS distintos"</span>,</span>
+<span id="cb36-17"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -737,24 +957,24 @@ sample estimates:
 <h2>Distribuição Uniforme</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb19-2"><a href=""></a>dados_uniforme <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">100</span>))</span>
-<span id="cb19-3"><a href=""></a></span>
-<span id="cb19-4"><a href=""></a><span class="fu">ggplot</span>(dados_uniforme, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb19-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
-<span id="cb19-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"gold"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb19-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb19-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb19-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Uniforme"</span>,</span>
-<span id="cb19-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Todos os valores têm probabilidade igual"</span>,</span>
-<span id="cb19-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb19-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="fl">0.012</span>, </span>
-<span id="cb19-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Sem padrão aparente</span><span class="sc">\n</span><span class="st">Todos valores igualmente prováveis"</span>,</span>
-<span id="cb19-14"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkorange"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb37-2"><a href=""></a>dados_uniforme <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">100</span>))</span>
+<span id="cb37-3"><a href=""></a></span>
+<span id="cb37-4"><a href=""></a><span class="fu">ggplot</span>(dados_uniforme, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb37-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">30</span>, </span>
+<span id="cb37-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"gold"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb37-7"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb37-8"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb37-9"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição Uniforme"</span>,</span>
+<span id="cb37-10"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Todos os valores têm probabilidade igual"</span>,</span>
+<span id="cb37-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Valor"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb37-12"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="fl">0.012</span>, </span>
+<span id="cb37-13"><a href=""></a>           <span class="at">label =</span> <span class="st">"Sem padrão aparente</span><span class="sc">\n</span><span class="st">Todos valores igualmente prováveis"</span>,</span>
+<span id="cb37-14"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkorange"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -766,23 +986,23 @@ sample estimates:
 <h2>Distribuição de Poisson</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb20-2"><a href=""></a>dados_poisson <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="at">lambda =</span> <span class="dv">5</span>))</span>
-<span id="cb20-3"><a href=""></a></span>
-<span id="cb20-4"><a href=""></a><span class="fu">ggplot</span>(dados_poisson, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">15</span>, </span>
-<span id="cb20-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb20-7"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb20-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição de Poisson"</span>,</span>
-<span id="cb20-9"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Para dados de contagem"</span>,</span>
-<span id="cb20-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Contagem"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
-<span id="cb20-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="fl">0.15</span>, </span>
-<span id="cb20-12"><a href=""></a>           <span class="at">label =</span> <span class="st">"Valores discretos (inteiros)</span><span class="sc">\n</span><span class="st">Número de eventos</span><span class="sc">\n</span><span class="st">Média ≈ Variância"</span>,</span>
-<span id="cb20-13"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb38-2"><a href=""></a>dados_poisson <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">valor =</span> <span class="fu">rpois</span>(<span class="dv">1000</span>, <span class="at">lambda =</span> <span class="dv">5</span>))</span>
+<span id="cb38-3"><a href=""></a></span>
+<span id="cb38-4"><a href=""></a><span class="fu">ggplot</span>(dados_poisson, <span class="fu">aes</span>(<span class="at">x =</span> valor)) <span class="sc">+</span></span>
+<span id="cb38-5"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)), <span class="at">bins =</span> <span class="dv">15</span>, </span>
+<span id="cb38-6"><a href=""></a>                 <span class="at">fill =</span> <span class="st">"skyblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb38-7"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb38-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribuição de Poisson"</span>,</span>
+<span id="cb38-9"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"Para dados de contagem"</span>,</span>
+<span id="cb38-10"><a href=""></a>       <span class="at">x =</span> <span class="st">"Contagem"</span>, <span class="at">y =</span> <span class="st">"Densidade"</span>) <span class="sc">+</span></span>
+<span id="cb38-11"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">10</span>, <span class="at">y =</span> <span class="fl">0.15</span>, </span>
+<span id="cb38-12"><a href=""></a>           <span class="at">label =</span> <span class="st">"Valores discretos (inteiros)</span><span class="sc">\n</span><span class="st">Número de eventos</span><span class="sc">\n</span><span class="st">Média ≈ Variância"</span>,</span>
+<span id="cb38-13"><a href=""></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-23-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -795,10 +1015,10 @@ sample estimates:
 <div style="font-size: 70%">
 <table class="caption-top">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 40%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -843,10 +1063,10 @@ sample estimates:
 <h4>Shapiro-Wilk Test</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Teste de normalidade para cada espécie</span></span>
-<span id="cb21-2"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Teste de normalidade para cada espécie</span></span>
+<span id="cb39-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   Species    variable     statistic     p
@@ -869,16 +1089,16 @@ sample estimates:
 <h4>Q-Q Plot</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">sample =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href=""></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
-<span id="cb23-3"><a href=""></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb23-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb23-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb23-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q-Q Plot - Avaliação da Normalidade"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">sample =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb41-2"><a href=""></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
+<span id="cb41-3"><a href=""></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb41-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb41-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb41-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q-Q Plot - Avaliação da Normalidade"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -891,8 +1111,8 @@ sample estimates:
 <h4>Levene’s Test</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
-<span id="cb24-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
+<span id="cb42-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
        Df F value   Pr(&gt;F)   
@@ -932,17 +1152,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Exemplo: Teste de independência</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="co"># Criar dados categóricos - tamanho de sépala</span></span>
-<span id="cb26-2"><a href=""></a>dados_cat <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Tamanho =</span> <span class="fu">case_when</span>(</span>
-<span id="cb26-4"><a href=""></a>    Sepal.Length <span class="sc">&lt;</span> <span class="fl">5.5</span> <span class="sc">~</span> <span class="st">"Pequena"</span>,</span>
-<span id="cb26-5"><a href=""></a>    Sepal.Length <span class="sc">&lt;</span> <span class="fl">6.5</span> <span class="sc">~</span> <span class="st">"Média"</span>,</span>
-<span id="cb26-6"><a href=""></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Grande"</span></span>
-<span id="cb26-7"><a href=""></a>  ))</span>
-<span id="cb26-8"><a href=""></a></span>
-<span id="cb26-9"><a href=""></a><span class="co"># Tabela de contingência</span></span>
-<span id="cb26-10"><a href=""></a>tabela <span class="ot">&lt;-</span> <span class="fu">table</span>(dados_cat<span class="sc">$</span>Species, dados_cat<span class="sc">$</span>Tamanho)</span>
-<span id="cb26-11"><a href=""></a>tabela</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="co"># Criar dados categóricos - tamanho de sépala</span></span>
+<span id="cb44-2"><a href=""></a>dados_cat <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Tamanho =</span> <span class="fu">case_when</span>(</span>
+<span id="cb44-4"><a href=""></a>    Sepal.Length <span class="sc">&lt;</span> <span class="fl">5.5</span> <span class="sc">~</span> <span class="st">"Pequena"</span>,</span>
+<span id="cb44-5"><a href=""></a>    Sepal.Length <span class="sc">&lt;</span> <span class="fl">6.5</span> <span class="sc">~</span> <span class="st">"Média"</span>,</span>
+<span id="cb44-6"><a href=""></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Grande"</span></span>
+<span id="cb44-7"><a href=""></a>  ))</span>
+<span id="cb44-8"><a href=""></a></span>
+<span id="cb44-9"><a href=""></a><span class="co"># Tabela de contingência</span></span>
+<span id="cb44-10"><a href=""></a>tabela <span class="ot">&lt;-</span> <span class="fu">table</span>(dados_cat<span class="sc">$</span>Species, dados_cat<span class="sc">$</span>Tamanho)</span>
+<span id="cb44-11"><a href=""></a>tabela</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
              Grande Média Pequena
@@ -958,9 +1178,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Teste e interpretação</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="co"># Teste Chi-quadrado</span></span>
-<span id="cb28-2"><a href=""></a>teste_chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabela)</span>
-<span id="cb28-3"><a href=""></a>teste_chi</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="co"># Teste Chi-quadrado</span></span>
+<span id="cb46-2"><a href=""></a>teste_chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(tabela)</span>
+<span id="cb46-3"><a href=""></a>teste_chi</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -977,19 +1197,19 @@ X-squared = 118.56, df = 4, p-value &lt; 2.2e-16</code></pre>
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>dados_cat <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href=""></a>  <span class="fu">count</span>(Species, Tamanho) <span class="sc">%&gt;%</span> </span>
-<span id="cb30-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> n, <span class="at">fill =</span> Tamanho)) <span class="sc">+</span></span>
-<span id="cb30-4"><a href=""></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb30-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb30-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Frequência"</span>, </span>
-<span id="cb30-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb30-8"><a href=""></a>       <span class="at">fill =</span> <span class="st">"Tamanho da Sépala"</span>,</span>
-<span id="cb30-9"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribuição de tamanho de sépala por espécie"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>dados_cat <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href=""></a>  <span class="fu">count</span>(Species, Tamanho) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> n, <span class="at">fill =</span> Tamanho)) <span class="sc">+</span></span>
+<span id="cb48-4"><a href=""></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb48-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Frequência"</span>, </span>
+<span id="cb48-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
+<span id="cb48-8"><a href=""></a>       <span class="at">fill =</span> <span class="st">"Tamanho da Sépala"</span>,</span>
+<span id="cb48-9"><a href=""></a>       <span class="at">title =</span> <span class="st">"Distribuição de tamanho de sépala por espécie"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1019,14 +1239,14 @@ X-squared = 118.56, df = 4, p-value &lt; 2.2e-16</code></pre>
 <h4>Exemplo: Comparando duas espécies</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="co"># Filtrar apenas duas espécies</span></span>
-<span id="cb31-2"><a href=""></a>dados_2sp <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href=""></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"setosa"</span>, <span class="st">"versicolor"</span>))</span>
-<span id="cb31-4"><a href=""></a></span>
-<span id="cb31-5"><a href=""></a><span class="co"># Verificar normalidade</span></span>
-<span id="cb31-6"><a href=""></a>dados_2sp <span class="sc">%&gt;%</span> </span>
-<span id="cb31-7"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-8"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="co"># Filtrar apenas duas espécies</span></span>
+<span id="cb49-2"><a href=""></a>dados_2sp <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb49-3"><a href=""></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"setosa"</span>, <span class="st">"versicolor"</span>))</span>
+<span id="cb49-4"><a href=""></a></span>
+<span id="cb49-5"><a href=""></a><span class="co"># Verificar normalidade</span></span>
+<span id="cb49-6"><a href=""></a>dados_2sp <span class="sc">%&gt;%</span> </span>
+<span id="cb49-7"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-8"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   Species    variable     statistic     p
@@ -1042,8 +1262,8 @@ X-squared = 118.56, df = 4, p-value &lt; 2.2e-16</code></pre>
 <h4>Verificação de pressupostos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
-<span id="cb33-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
+<span id="cb51-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
       Df F value   Pr(&gt;F)   
@@ -1061,11 +1281,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Realizando o teste</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="co"># Teste t</span></span>
-<span id="cb35-2"><a href=""></a>teste_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
-<span id="cb35-3"><a href=""></a>                  <span class="at">data =</span> dados_2sp,</span>
-<span id="cb35-4"><a href=""></a>                  <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb35-5"><a href=""></a>teste_t</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="co"># Teste t</span></span>
+<span id="cb53-2"><a href=""></a>teste_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
+<span id="cb53-3"><a href=""></a>                  <span class="at">data =</span> dados_2sp,</span>
+<span id="cb53-4"><a href=""></a>                  <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-5"><a href=""></a>teste_t</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1088,8 +1308,8 @@ sample estimates:
 <h4>Tamanho de efeito (Cohen’s d)</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co"># Calcular tamanho de efeito</span></span>
-<span id="cb37-2"><a href=""></a><span class="fu">cohens_d</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="co"># Calcular tamanho de efeito</span></span>
+<span id="cb55-2"><a href=""></a><span class="fu">cohens_d</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -1112,19 +1332,19 @@ sample estimates:
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(dados_2sp, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb39-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb39-4"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb39-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb39-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
-<span id="cb39-7"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb39-8"><a href=""></a>       <span class="at">title =</span> <span class="st">"Comparação entre duas espécies"</span>) <span class="sc">+</span></span>
-<span id="cb39-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">ggplot</span>(dados_2sp, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb57-2"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb57-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb57-4"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb57-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb57-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
+<span id="cb57-7"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb57-8"><a href=""></a>       <span class="at">title =</span> <span class="st">"Comparação entre duas espécies"</span>) <span class="sc">+</span></span>
+<span id="cb57-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-26-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-34-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1158,10 +1378,10 @@ sample estimates:
 <h4>Verificação de pressupostos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="co"># Normalidade por grupo</span></span>
-<span id="cb40-2"><a href=""></a>dados <span class="sc">%&gt;%</span> </span>
-<span id="cb40-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="co"># Normalidade por grupo</span></span>
+<span id="cb58-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb58-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   Species    variable     statistic     p
@@ -1170,8 +1390,8 @@ sample estimates:
 2 versicolor Sepal.Length     0.978 0.465
 3 virginica  Sepal.Length     0.971 0.258</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="co"># Homogeneidade de variâncias</span></span>
-<span id="cb42-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="co"># Homogeneidade de variâncias</span></span>
+<span id="cb60-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
        Df F value   Pr(&gt;F)   
@@ -1189,11 +1409,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Realizando a ANOVA</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="co"># Modelo ANOVA</span></span>
-<span id="cb44-2"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados)</span>
-<span id="cb44-3"><a href=""></a></span>
-<span id="cb44-4"><a href=""></a><span class="co"># Resultados</span></span>
-<span id="cb44-5"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># Modelo ANOVA</span></span>
+<span id="cb62-2"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb62-3"><a href=""></a></span>
+<span id="cb62-4"><a href=""></a><span class="co"># Resultados</span></span>
+<span id="cb62-5"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
 Species       2  63.21  31.606   119.3 &lt;2e-16 ***
@@ -1210,12 +1430,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Diagnóstico dos resíduos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb46-2"><a href=""></a><span class="fu">plot</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb64-2"><a href=""></a><span class="fu">plot</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-37-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1243,14 +1463,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h2>ANOVA - Teste de Tukey</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="co"># Teste de Tukey HSD</span></span>
-<span id="cb47-2"><a href=""></a>tukey_result <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(modelo_anova)</span>
-<span id="cb47-3"><a href=""></a>tukey_result</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="co"># Teste de Tukey HSD</span></span>
+<span id="cb65-2"><a href=""></a>tukey_result <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(modelo_anova)</span>
+<span id="cb65-3"><a href=""></a>tukey_result</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
-Fit: aov(formula = Sepal.Length ~ Species, data = dados)
+Fit: aov(formula = Sepal.Length ~ Species, data = iris)
 
 $Species
                       diff       lwr       upr p adj
@@ -1266,11 +1486,11 @@ virginica-versicolor 0.652 0.4082273 0.8957727     0</code></pre>
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">plot</span>(tukey_result)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">plot</span>(tukey_result)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-31-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-39-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1283,23 +1503,23 @@ virginica-versicolor 0.652 0.4082273 0.8957727     0</code></pre>
 <h4>Visualização com letras</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="co"># Calcular médias e grupos</span></span>
-<span id="cb50-2"><a href=""></a>tukey_letras <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb50-3"><a href=""></a>  <span class="fu">tukey_hsd</span>(Sepal.Length <span class="sc">~</span> Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-4"><a href=""></a>  <span class="fu">add_significance</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb50-5"><a href=""></a>  <span class="fu">add_xy_position</span>()</span>
-<span id="cb50-6"><a href=""></a></span>
-<span id="cb50-7"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb50-8"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Species), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb50-9"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, </span>
-<span id="cb50-10"><a href=""></a>               <span class="at">size =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb50-11"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb50-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, <span class="at">x =</span> <span class="st">"Espécie"</span>) <span class="sc">+</span></span>
-<span id="cb50-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="co"># Calcular médias e grupos</span></span>
+<span id="cb68-2"><a href=""></a>tukey_letras <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href=""></a>  <span class="fu">tukey_hsd</span>(Sepal.Length <span class="sc">~</span> Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-4"><a href=""></a>  <span class="fu">add_significance</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb68-5"><a href=""></a>  <span class="fu">add_xy_position</span>()</span>
+<span id="cb68-6"><a href=""></a></span>
+<span id="cb68-7"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb68-8"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Species), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb68-9"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, </span>
+<span id="cb68-10"><a href=""></a>               <span class="at">size =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb68-11"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb68-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, <span class="at">x =</span> <span class="st">"Espécie"</span>) <span class="sc">+</span></span>
+<span id="cb68-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-32-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-40-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1311,14 +1531,14 @@ virginica-versicolor 0.652 0.4082273 0.8957727     0</code></pre>
 <h4>Com dois fatores</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="co"># Criar segundo fator (exemplo didático)</span></span>
-<span id="cb51-2"><a href=""></a>dados_2way <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb51-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Tratamento =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Controle"</span>, <span class="st">"Tratado"</span>), <span class="at">length.out =</span> <span class="fu">n</span>()))</span>
-<span id="cb51-4"><a href=""></a></span>
-<span id="cb51-5"><a href=""></a><span class="co"># ANOVA two-way</span></span>
-<span id="cb51-6"><a href=""></a>modelo_2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species <span class="sc">*</span> Tratamento, </span>
-<span id="cb51-7"><a href=""></a>                   <span class="at">data =</span> dados_2way)</span>
-<span id="cb51-8"><a href=""></a><span class="fu">summary</span>(modelo_2way)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># Criar segundo fator (exemplo didático)</span></span>
+<span id="cb69-2"><a href=""></a>dados_2way <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Tratamento =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Controle"</span>, <span class="st">"Tratado"</span>), <span class="at">length.out =</span> <span class="fu">n</span>()))</span>
+<span id="cb69-4"><a href=""></a></span>
+<span id="cb69-5"><a href=""></a><span class="co"># ANOVA two-way</span></span>
+<span id="cb69-6"><a href=""></a>modelo_2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species <span class="sc">*</span> Tratamento, </span>
+<span id="cb69-7"><a href=""></a>                   <span class="at">data =</span> dados_2way)</span>
+<span id="cb69-8"><a href=""></a><span class="fu">summary</span>(modelo_2way)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    Df Sum Sq Mean Sq F value Pr(&gt;F)    
 Species              2  63.21  31.606 118.429 &lt;2e-16 ***
@@ -1336,22 +1556,22 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Gráfico de interação</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>dados_2way <span class="sc">%&gt;%</span> </span>
-<span id="cb53-2"><a href=""></a>  <span class="fu">group_by</span>(Species, Tratamento) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb53-4"><a href=""></a>            <span class="at">se =</span> <span class="fu">sd</span>(Sepal.Length)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>())) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-5"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> media, <span class="at">color =</span> Tratamento, <span class="at">group =</span> Tratamento)) <span class="sc">+</span></span>
-<span id="cb53-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb53-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb53-8"><a href=""></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> media <span class="sc">-</span> se, <span class="at">ymax =</span> media <span class="sc">+</span> se), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb53-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb53-10"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, </span>
-<span id="cb53-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb53-12"><a href=""></a>       <span class="at">title =</span> <span class="st">"Interação entre Espécie e Tratamento"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>dados_2way <span class="sc">%&gt;%</span> </span>
+<span id="cb71-2"><a href=""></a>  <span class="fu">group_by</span>(Species, Tratamento) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Sepal.Length),</span>
+<span id="cb71-4"><a href=""></a>            <span class="at">se =</span> <span class="fu">sd</span>(Sepal.Length)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>())) <span class="sc">%&gt;%</span> </span>
+<span id="cb71-5"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> media, <span class="at">color =</span> Tratamento, <span class="at">group =</span> Tratamento)) <span class="sc">+</span></span>
+<span id="cb71-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb71-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb71-8"><a href=""></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> media <span class="sc">-</span> se, <span class="at">ymax =</span> media <span class="sc">+</span> se), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb71-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb71-10"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, </span>
+<span id="cb71-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
+<span id="cb71-12"><a href=""></a>       <span class="at">title =</span> <span class="st">"Interação entre Espécie e Tratamento"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1398,13 +1618,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h4>Modelo simples</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="co"># Regressão linear simples</span></span>
-<span id="cb54-2"><a href=""></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> dados)</span>
-<span id="cb54-3"><a href=""></a><span class="fu">summary</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="co"># Regressão linear simples</span></span>
+<span id="cb72-2"><a href=""></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb72-3"><a href=""></a><span class="fu">summary</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Petal.Length ~ Sepal.Length, data = dados)
+lm(formula = Petal.Length ~ Sepal.Length, data = iris)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
@@ -1475,12 +1695,12 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Diagnóstico do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb56-2"><a href=""></a><span class="fu">plot</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb74-2"><a href=""></a><span class="fu">plot</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1520,8 +1740,8 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Teste de pressupostos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="co"># Teste de normalidade dos resíduos</span></span>
-<span id="cb57-2"><a href=""></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modelo_lm))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="co"># Teste de normalidade dos resíduos</span></span>
+<span id="cb75-2"><a href=""></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modelo_lm))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1529,8 +1749,8 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 data:  residuals(modelo_lm)
 W = 0.99437, p-value = 0.831</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="co"># Teste de homocedasticidade (variância constante)</span></span>
-<span id="cb59-2"><a href=""></a><span class="fu">ncvTest</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="co"># Teste de homocedasticidade (variância constante)</span></span>
+<span id="cb77-2"><a href=""></a><span class="fu">ncvTest</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
@@ -1550,18 +1770,18 @@ Chisquare = 2.830956, Df = 1, p = 0.092463</code></pre>
 <h4>Visualização do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">ggplot</span>(dados, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb61-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb61-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb61-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb61-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb61-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Pétala (cm)"</span>,</span>
-<span id="cb61-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Linear: Pétala ~ Sépala"</span>,</span>
-<span id="cb61-8"><a href=""></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"R² = "</span>, <span class="fu">round</span>(<span class="fu">summary</span>(modelo_lm)<span class="sc">$</span>r.squared, <span class="dv">3</span>)))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb79-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb79-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb79-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb79-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb79-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Pétala (cm)"</span>,</span>
+<span id="cb79-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Linear: Pétala ~ Sépala"</span>,</span>
+<span id="cb79-8"><a href=""></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"R² = "</span>, <span class="fu">round</span>(<span class="fu">summary</span>(modelo_lm)<span class="sc">$</span>r.squared, <span class="dv">3</span>)))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-38-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-46-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1572,14 +1792,14 @@ Chisquare = 2.830956, Df = 1, p = 0.092463</code></pre>
 <h2>Regressão Linear Múltipla</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
-<span id="cb62-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
-<span id="cb62-3"><a href=""></a>                     <span class="at">data =</span> dados)</span>
-<span id="cb62-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
+<span id="cb80-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
+<span id="cb80-3"><a href=""></a>                     <span class="at">data =</span> iris)</span>
+<span id="cb80-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Petal.Length ~ Sepal.Length + Sepal.Width, data = dados)
+lm(formula = Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
@@ -1605,8 +1825,8 @@ F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Verificar multicolinearidade</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
-<span id="cb64-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
+<span id="cb82-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sepal.Length  Sepal.Width 
     1.014016     1.014016 </code></pre>
@@ -1621,8 +1841,8 @@ F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Comparação de modelos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
-<span id="cb66-2"><a href=""></a><span class="fu">anova</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
+<span id="cb84-2"><a href=""></a><span class="fu">anova</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -1634,8 +1854,8 @@ Model 2: Petal.Length ~ Sepal.Length + Sepal.Width
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb68-2"><a href=""></a><span class="fu">AIC</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb86-2"><a href=""></a><span class="fu">AIC</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               df      AIC
 modelo_lm       3 387.1350
@@ -1715,7 +1935,13 @@ modelo_lm_mult  4 299.7875</code></pre>
 <section class="slide level2">
 <h2>GLM - Distribuições comuns</h2>
 <div style="font-size: 70%">
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Distribuição</th>
@@ -1764,15 +1990,15 @@ modelo_lm_mult  4 299.7875</code></pre>
 <h4>Dados de contagem</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
-<span id="cb70-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb70-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb70-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
-<span id="cb70-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
-<span id="cb70-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
-<span id="cb70-7"><a href=""></a>)</span>
-<span id="cb70-8"><a href=""></a></span>
-<span id="cb70-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
+<span id="cb88-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb88-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb88-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
+<span id="cb88-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
+<span id="cb88-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
+<span id="cb88-7"><a href=""></a>)</span>
+<span id="cb88-8"><a href=""></a></span>
+<span id="cb88-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   temperatura umidade contagem
@@ -1792,12 +2018,12 @@ modelo_lm_mult  4 299.7875</code></pre>
 <h4>Ajustar o modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
-<span id="cb72-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb72-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
-<span id="cb72-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb72-5"><a href=""></a></span>
-<span id="cb72-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
+<span id="cb90-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb90-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
+<span id="cb90-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb90-5"><a href=""></a></span>
+<span id="cb90-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1828,8 +2054,8 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
-<span id="cb74-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
+<span id="cb92-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) temperatura     umidade 
   0.2219182   1.0958910   1.0160846 </code></pre>
@@ -1847,12 +2073,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Verificação de pressupostos - DHARMa</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
-<span id="cb76-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
+<span id="cb94-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-53-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1864,12 +2090,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Testes de adequação do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
-<span id="cb77-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
+<span id="cb95-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1882,12 +2108,12 @@ data:  simulationOutput
 dispersion = 1.0816, p-value = 0.552
 alternative hypothesis: two.sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
-<span id="cb79-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
+<span id="cb97-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-46-2.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-54-2.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1904,12 +2130,12 @@ sample estimates:
 outlier frequency (expected: 0.0058 ) 
                                     0 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
-<span id="cb81-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
+<span id="cb99-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-46-3.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-54-3.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1975,13 +2201,13 @@ alternative hypothesis: two.sided</code></pre>
 <h2>GLM - Binomial Negativa</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
-<span id="cb83-2"><a href=""></a></span>
-<span id="cb83-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
-<span id="cb83-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb83-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
-<span id="cb83-6"><a href=""></a></span>
-<span id="cb83-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
+<span id="cb101-2"><a href=""></a></span>
+<span id="cb101-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
+<span id="cb101-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb101-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
+<span id="cb101-6"><a href=""></a></span>
+<span id="cb101-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2016,16 +2242,16 @@ Number of Fisher Scoring iterations: 1
 <h2>GLM - Comparação de modelos</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb85-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb103-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               df      AIC
 modelo_poisson  3 476.1200
 modelo_nb       4 477.9613</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
-<span id="cb87-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
-<span id="cb87-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
+<span id="cb105-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb105-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
@@ -2044,18 +2270,18 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
-<span id="cb89-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
-<span id="cb89-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
-<span id="cb89-4"><a href=""></a></span>
-<span id="cb89-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
-<span id="cb89-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
-<span id="cb89-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
-<span id="cb89-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
+<span id="cb107-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
+<span id="cb107-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
+<span id="cb107-4"><a href=""></a></span>
+<span id="cb107-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
+<span id="cb107-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
+<span id="cb107-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
+<span id="cb107-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-49-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-57-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2067,14 +2293,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo - Umidade</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
-<span id="cb90-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
-<span id="cb90-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
+<span id="cb108-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
+<span id="cb108-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
+<span id="cb108-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-58-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2085,13 +2311,13 @@ Model 2: contagem ~ temperatura + umidade
 <h2>GLM - Visualização com sjPlot</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
-<span id="cb91-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb91-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
+<span id="cb109-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb109-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-59-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2103,14 +2329,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos marginais</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
-<span id="cb92-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
-<span id="cb92-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
-<span id="cb92-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
+<span id="cb110-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb110-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
+<span id="cb110-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-52-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-60-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2122,16 +2348,16 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Dados binários</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
-<span id="cb93-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> dados <span class="sc">%&gt;%</span> </span>
-<span id="cb93-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb93-4"><a href=""></a></span>
-<span id="cb93-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
-<span id="cb93-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
-<span id="cb93-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
-<span id="cb93-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb93-9"><a href=""></a></span>
-<span id="cb93-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
+<span id="cb111-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb111-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb111-4"><a href=""></a></span>
+<span id="cb111-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
+<span id="cb111-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
+<span id="cb111-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
+<span id="cb111-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb111-9"><a href=""></a></span>
+<span id="cb111-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2162,13 +2388,13 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <h4>Odds Ratio</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
-<span id="cb95-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
+<span id="cb113-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept) Sepal.Length  Sepal.Width 
 1.585347e-11 1.162813e+02 3.937108e-01 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    2.5 %       97.5 %
 (Intercept)  1.413519e-16 1.305991e-07
@@ -2213,25 +2439,25 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="co"># Predições</span></span>
-<span id="cb99-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
-<span id="cb99-3"><a href=""></a></span>
-<span id="cb99-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
-<span id="cb99-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb99-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb99-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
-<span id="cb99-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb99-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb99-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
-<span id="cb99-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb99-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb99-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb99-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
-<span id="cb99-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="co"># Predições</span></span>
+<span id="cb117-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
+<span id="cb117-3"><a href=""></a></span>
+<span id="cb117-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
+<span id="cb117-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb117-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb117-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
+<span id="cb117-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb117-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb117-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
+<span id="cb117-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb117-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb117-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb117-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
+<span id="cb117-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-55-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas_files/figure-revealjs/unnamed-chunk-63-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2243,11 +2469,11 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <div style="font-size: 60%">
 <table class="caption-top">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 10%">
-<col style="width: 29%">
-<col style="width: 12%">
-<col style="width: 29%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2535,7 +2761,7 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
         previewLinks: true,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',

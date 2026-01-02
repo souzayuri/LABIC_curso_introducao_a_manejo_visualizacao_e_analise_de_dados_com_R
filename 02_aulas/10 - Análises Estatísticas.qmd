@@ -1,8 +1,8 @@
 ---
-title: "Análises Estatísticas no R<br>"
+title: "Análises Estatísticas <br> no R<br>"
 subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
 author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
-date: "01/08/2026"
+date: "01/09/2026"
 date-format: long
 format: 
   revealjs:
@@ -12,6 +12,7 @@ format:
     hash-type: number
     preview-links: true
     chalkboard: true
+    transition: slide
     execute:
       echo: true
       eval: true
@@ -43,14 +44,28 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 ## Três Tipos de Análise Estatística
 
-::: {style="font-size: 70%"}
+::: {style="font-size: 55%"}
 **1. Estatística Descritiva** 📊
 
 -   **Objetivo**: Resumir e **descrever** os dados
 
 -   **Pergunta**: "Como são meus dados?"
 
--   **Ferramentas**: Médias, desvios, gráficos, correlações
+-   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+
+-   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
 
 -   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
 
@@ -60,9 +75,33 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Existem diferenças entre grupos?"
 
--   **Ferramentas**: t-test, ANOVA, Chi-quadrado
+-   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado`
 
--   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p<0.001)"
+-   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p\<0.001)"
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+
+-   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
+
+**2. Estatística Inferencial** 🔍
+
+-   **Objetivo**: **Generalizar** da amostra para a população
+
+-   **Pergunta**: "Existem diferenças entre grupos?"
+
+-   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado`
+
+-   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p\<0.001)"
 
 **3. Estatística Preditiva** 🎯
 
@@ -70,86 +109,267 @@ library(DHARMa)         # Diagnóstico de GLMs
 
 -   **Pergunta**: "Como X influencia Y?" ou "Qual valor de Y esperamos para X=10?"
 
--   **Ferramentas**: Regressão linear, GLM
+-   **Ferramentas**: `Regressão linear`, `GLM`
 
--   **Exemplo**: "Cada 1°C aumenta em 12% a abundância de mosquitos"
+-   **Exemplo**: "Cada 1°C aumenta em 12% a abundância de espécies"
 :::
 
-## Análises Estatísticas
+## Três Tipos de Análise Estatística
 
-#### Dados de exemplo
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
 
-::: {style="font-size: 70%"}
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central` e `Medidas de dispersão`
+
+    -   Medidas de **tendência central**: `minimo`, `máximo`, `média`, `mediana` e `moda`
+
+    -   Medidas de **dispersão**: `variância`, `desvio padrão` e `erro padrão`
+:::
+
+## Análises Estatísticas Descritivas
+
+#### `Iris` dataset
+
+![](img/goo-goo-dolls-iris.gif){fig-align="center" width="400"}
+
+## Análises Estatísticas Descritivas
+
+#### `Iris` dataset
+
+::: {.columns style="font-size: 70%"}
+![](img/iris-machinelearning.png){fig-align="center" width="700"}
+
 ```{r}
-# Carregar dados - usaremos iris como exemplo
-dados <- iris %>% 
-  as_tibble() %>% 
-  mutate(Species = as.factor(Species))
+head(iris, n = 5)
 
-glimpse(dados)
 ```
 :::
 
-## Estatística Descritiva
+## Análises Estatísticas Descritivas
+
+#### Minimo, Máximo, Média, Mediana, Moda
+
+::: {style="font-size: 60%"}
+**Menor** e **maior** valor no conjunto de dados:
+
+-   `min()` e `max()` - Valores Extremos
+:::
 
 ::: {style="font-size: 70%"}
-**O que é?**
+```{r}
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+```
+:::
 
--   Resumir e descrever as **características principais** de um conjunto de dados
+## Análises Estatísticas Descritivas
 
--   Medidas de **tendência central**: média, mediana, moda
+#### Minimo, Máximo, Média, Mediana, Moda
 
--   Medidas de **dispersão**: desvio padrão, variância, amplitude
+::: {style="font-size: 60%"}
+A **média** é a soma de todos os valores dividida pelo número de observações.
 
--   **Visualização** da distribuição dos dados
+-   `mean()`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+mean(iris$Sepal.Length)
+```
+:::
+
+::: {style="font-size: 60%"}
+A **mediana** é o valor central quando os dados estão ordenados.
+
+-   `median()`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+median(iris$Sepal.Length)
+```
+:::
+
+::: {style="font-size: 60%"}
+A **moda** é o valor mais frequente na amostra
+
+-   **Não existe** uma função **no R,** por isso **adaptamos**
+
+    -   `which.max(table())`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+names(which.max(table(iris$Sepal.Length)))
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+var(iris$Sepal.Length)
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+![](img/variance.png){fig-align="center" width="800"}
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+var(iris$Sepal.Length)
+```
+
+![](img/variance.png){fig-align="center" width="800"}
 :::
 
 ## Estatística Descritiva
 
 #### Medidas de tendência central e dispersão
 
-::: {style="font-size: 70%"}
-```{r}
-# Resumo geral
-summary(dados)
-```
+::: {.columns style="font-size: 50%"}
+O **desvio padrão** é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão **em relação à média**
+
+-   Para descrever a variabilidade dentro da sua amostra.
+:::
+
+::: {.columns style="font-size: 50%"}
+O **erro padrão** mede a **variabilidade da distribuição amostral da média**.
+
+-   Não existe uma formula no R
+:::
+
+::: {.columns style="font-size: 80%"}
+![](img/erro%20e%20desvio%20padrao.png){fig-align="center" width="850"}
 :::
 
 ## Estatística Descritiva
 
 #### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 55%"}
+O **desvio padrão** é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão **em relação à média**
+
+-   Para descrever a variabilidade dentro da sua amostra.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+sd(iris$Sepal.Length)
+```
+:::
+
+::: {.columns style="font-size: 55%"}
+O **erro padrão** mede a **variabilidade da distribuição amostral da média**.
+
+-   Não existe uma formula no R
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+sd(iris$Sepal.Length) /sqrt(length(iris$Sepal.Length)) 
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
 
 ::: {style="font-size: 70%"}
 ```{r}
 # Estatísticas descritivas por grupo
-dados %>% 
-  group_by(Species) %>% 
-  summarise(
+iris %>% 
+  dplyr::summarise(
     n = n(),
-    media_sepala = mean(Sepal.Length),
-    dp_sepala = sd(Sepal.Length),
-    mediana_sepala = median(Sepal.Length),
     min_sepala = min(Sepal.Length),
-    max_sepala = max(Sepal.Length)
-  )
+    max_sepala = max(Sepal.Length),
+    media_sepala = mean(Sepal.Length),
+    mediana_sepala = median(Sepal.Length),
+    var_sepala = var(Sepal.Length),
+    dp_sepala = sd(Sepal.Length),
+    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    )
 ```
 :::
 
-## Estatística Descritiva
+## Análises Estatísticas Descritivas
+
+#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
+
+#### agrupando por espécies
+
+::: {style="font-size: 70%"}
+```{r}
+# Estatísticas descritivas por grupo
+iris %>% 
+  dplyr::group_by(Species) %>% 
+  dplyr::summarise(
+    n = n(),
+    min_sepala = min(Sepal.Length),
+    max_sepala = max(Sepal.Length),
+    media_sepala = mean(Sepal.Length),
+    mediana_sepala = median(Sepal.Length),
+    var_sepala = var(Sepal.Length),
+    dp_sepala = sd(Sepal.Length),
+    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    ) %>% 
+    dplyr::ungroup()
+```
+:::
+
+## Estatística Descritiva e Distribuições
 
 #### Visualização - Histograma
 
 ::: {style="font-size: 70%"}
 ```{r}
 #| fig-width: 10
-#| fig-height: 5
-ggplot(dados, aes(x = Sepal.Length)) +
+#| fig-height: 4
+ggplot(iris, aes(x = Sepal.Length)) +
   geom_histogram(bins = 20, fill = "steelblue", alpha = 0.7) +
   facet_wrap(~Species) +
   theme_minimal() +
   labs(x = "Comprimento da Sépala (cm)", 
-       y = "Frequência",
-       title = "Distribuição do comprimento da sépala por espécie")
+       y = "Frequência")
 ```
 :::
 
@@ -161,7 +381,7 @@ ggplot(dados, aes(x = Sepal.Length)) +
 ```{r}
 #| fig-width: 10
 #| fig-height: 5
-ggplot(dados, aes(x = Species, y = Sepal.Length, fill = Species)) +
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
   geom_boxplot(alpha = 0.7) +
   geom_jitter(width = 0.1, alpha = 0.3) +
   theme_minimal() +
@@ -179,7 +399,7 @@ ggplot(dados, aes(x = Species, y = Sepal.Length, fill = Species)) +
 ::: {style="font-size: 70%"}
 ```{r}
 # Calcular correlações
-cor_matrix <- dados %>% 
+cor_matrix <- iris %>% 
   select(where(is.numeric)) %>% 
   cor()
 
@@ -211,19 +431,19 @@ ggcorrplot(cor_matrix,
 ::: {style="font-size: 70%"}
 ```{r}
 # Teste de correlação de Pearson
-cor.test(dados$Sepal.Length, dados$Petal.Length)
+cor.test(iris$Sepal.Length, iris$Petal.Length)
 ```
 
-**Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p < 0.001)
+**Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
 
 **Coeficiente de correlação (r):**
 
 -   r = 1: correlação positiva perfeita
 -   r = 0: sem correlação linear
 -   r = -1: correlação negativa perfeita
--   |r| > 0.7: correlação forte
--   |r| 0.3-0.7: correlação moderada
--   |r| < 0.3: correlação fraca
+-   \|r\| \> 0.7: correlação forte
+-   \|r\| 0.3-0.7: correlação moderada
+-   \|r\| \< 0.3: correlação fraca
 
 **IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
 :::
@@ -237,17 +457,14 @@ cor.test(dados$Sepal.Length, dados$Petal.Length)
     -   1 variável → Teste de uma amostra
     -   2 variáveis → Teste de associação/comparação
     -   3+ variáveis → Modelos multivariados
-
 2.  **Tipo de variáveis?**
     -   Categórica vs Categórica → **Chi-quadrado**
     -   Contínua vs Categórica (2 grupos) → **t-test**
     -   Contínua vs Categórica (3+ grupos) → **ANOVA**
     -   Contínua vs Contínua → **Correlação / Regressão**
-
 3.  **Pressupostos atendidos?**
     -   Sim → Teste **paramétrico**
     -   Não → Teste **não-paramétrico** ou transformação
-
 4.  **Objetivo?**
     -   Comparar grupos → ANOVA, t-test
     -   Predizer valores → Regressão, GLM
@@ -256,18 +473,18 @@ cor.test(dados$Sepal.Length, dados$Petal.Length)
 ## Testes Paramétricos vs Não-Paramétricos
 
 ::: {style="font-size: 70%"}
-| Situação | Paramétrico | Não-Paramétrico |
-|----------|-------------|-----------------|
-| Comparar 2 grupos | t-test | Mann-Whitney U (Wilcoxon) |
-| Comparar 3+ grupos | ANOVA | Kruskal-Wallis |
-| Dados pareados | t-test pareado | Wilcoxon signed-rank |
-| Correlação | Pearson | Spearman / Kendall |
+| Situação           | Paramétrico    | Não-Paramétrico           |
+|--------------------|----------------|---------------------------|
+| Comparar 2 grupos  | t-test         | Mann-Whitney U (Wilcoxon) |
+| Comparar 3+ grupos | ANOVA          | Kruskal-Wallis            |
+| Dados pareados     | t-test pareado | Wilcoxon signed-rank      |
+| Correlação         | Pearson        | Spearman / Kendall        |
 
 **Quando usar não-paramétricos?**
 
 -   Dados **não-normais** (mesmo após transformação)
 -   **Outliers** extremos
--   **Amostras pequenas** (n < 30)
+-   **Amostras pequenas** (n \< 30)
 -   Dados **ordinais** (ex: escala Likert)
 
 **Vantagens paramétricos:** Mais **poder estatístico** quando pressupostos são atendidos
@@ -514,10 +731,10 @@ ggplot(dados_poisson, aes(x = valor)) +
 
 ::: {style="font-size: 70%"}
 | Distribuição | Usar | Evitar | Solução se Violado |
-|--------------|------|--------|-------------------|
-| **Normal** | t-test, ANOVA, LM | - | Transformação, testes não-paramétricos |
-| **Assimétrica** | - | Testes paramétricos | Log-transformação, GLM |
-| **Bimodal** | - | Qualquer teste simples | Analisar grupos separadamente |
+|------------------|------------------|------------------|-------------------|
+| **Normal** | t-test, ANOVA, LM | \- | Transformação, testes não-paramétricos |
+| **Assimétrica** | \- | Testes paramétricos | Log-transformação, GLM |
+| **Bimodal** | \- | Qualquer teste simples | Analisar grupos separadamente |
 | **Poisson** | GLM Poisson | LM, t-test | Binomial Negativa se overdispersion |
 
 **Dica:** Sempre visualize seus dados ANTES de escolher o teste!
@@ -530,7 +747,7 @@ ggplot(dados_poisson, aes(x = valor)) +
 ::: {style="font-size: 70%"}
 ```{r}
 # Teste de normalidade para cada espécie
-dados %>% 
+iris %>% 
   group_by(Species) %>% 
   shapiro_test(Sepal.Length)
 ```
@@ -550,7 +767,7 @@ dados %>%
 ```{r}
 #| fig-width: 10
 #| fig-height: 5
-ggplot(dados, aes(sample = Sepal.Length)) +
+ggplot(iris, aes(sample = Sepal.Length)) +
   stat_qq() +
   stat_qq_line(color = "red") +
   facet_wrap(~Species) +
@@ -568,7 +785,7 @@ ggplot(dados, aes(sample = Sepal.Length)) +
 ::: {style="font-size: 70%"}
 ```{r}
 # Teste de Levene
-leveneTest(Sepal.Length ~ Species, data = dados)
+leveneTest(Sepal.Length ~ Species, data = iris)
 ```
 
 **Interpretação:**
@@ -605,7 +822,7 @@ leveneTest(Sepal.Length ~ Species, data = dados)
 ::: {style="font-size: 70%"}
 ```{r}
 # Criar dados categóricos - tamanho de sépala
-dados_cat <- dados %>% 
+dados_cat <- iris %>% 
   mutate(Tamanho = case_when(
     Sepal.Length < 5.5 ~ "Pequena",
     Sepal.Length < 6.5 ~ "Média",
@@ -629,7 +846,7 @@ teste_chi <- chisq.test(tabela)
 teste_chi
 ```
 
-**Interpretação:** Existe associação significativa entre espécie e tamanho de sépala (χ² = `r round(teste_chi$statistic, 2)`, p < 0.001)
+**Interpretação:** Existe associação significativa entre espécie e tamanho de sépala (χ² = `r round(teste_chi$statistic, 2)`, p \< 0.001)
 :::
 
 ## Chi-Quadrado (χ²)
@@ -681,7 +898,7 @@ dados_cat %>%
 ::: {style="font-size: 70%"}
 ```{r}
 # Filtrar apenas duas espécies
-dados_2sp <- dados %>% 
+dados_2sp <- iris %>% 
   filter(Species %in% c("setosa", "versicolor"))
 
 # Verificar normalidade
@@ -717,7 +934,7 @@ teste_t <- t.test(Sepal.Length ~ Species,
 teste_t
 ```
 
-**Interpretação:** Diferença significativa no comprimento de sépala entre setosa e versicolor (t = `r round(teste_t$statistic, 2)`, p < 0.001)
+**Interpretação:** Diferença significativa no comprimento de sépala entre setosa e versicolor (t = `r round(teste_t$statistic, 2)`, p \< 0.001)
 :::
 
 ## Teste t
@@ -792,12 +1009,12 @@ ggplot(dados_2sp, aes(x = Species, y = Sepal.Length, fill = Species)) +
 ::: {style="font-size: 70%"}
 ```{r}
 # Normalidade por grupo
-dados %>% 
+iris %>% 
   group_by(Species) %>% 
   shapiro_test(Sepal.Length)
 
 # Homogeneidade de variâncias
-leveneTest(Sepal.Length ~ Species, data = dados)
+leveneTest(Sepal.Length ~ Species, data = iris)
 ```
 
 **Pressupostos atendidos!** Podemos prosseguir com ANOVA
@@ -810,13 +1027,13 @@ leveneTest(Sepal.Length ~ Species, data = dados)
 ::: {style="font-size: 70%"}
 ```{r}
 # Modelo ANOVA
-modelo_anova <- aov(Sepal.Length ~ Species, data = dados)
+modelo_anova <- aov(Sepal.Length ~ Species, data = iris)
 
 # Resultados
 summary(modelo_anova)
 ```
 
-**Interpretação:** Existe diferença significativa no comprimento de sépala entre as espécies (F = 119.3, p < 0.001)
+**Interpretação:** Existe diferença significativa no comprimento de sépala entre as espécies (F = 119.3, p \< 0.001)
 :::
 
 ## ANOVA
@@ -885,12 +1102,12 @@ plot(tukey_result)
 #| fig-width: 8
 #| fig-height: 5
 # Calcular médias e grupos
-tukey_letras <- dados %>% 
+tukey_letras <- iris %>% 
   tukey_hsd(Sepal.Length ~ Species) %>% 
   add_significance() %>% 
   add_xy_position()
 
-ggplot(dados, aes(x = Species, y = Sepal.Length)) +
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
   geom_boxplot(aes(fill = Species), alpha = 0.5) +
   stat_summary(fun = mean, geom = "point", shape = 23, 
                size = 3, fill = "red") +
@@ -907,7 +1124,7 @@ ggplot(dados, aes(x = Species, y = Sepal.Length)) +
 ::: {style="font-size: 70%"}
 ```{r}
 # Criar segundo fator (exemplo didático)
-dados_2way <- dados %>% 
+dados_2way <- iris %>% 
   mutate(Tratamento = rep(c("Controle", "Tratado"), length.out = n()))
 
 # ANOVA two-way
@@ -989,7 +1206,7 @@ dados_2way %>%
 ::: {style="font-size: 70%"}
 ```{r}
 # Regressão linear simples
-modelo_lm <- lm(Petal.Length ~ Sepal.Length, data = dados)
+modelo_lm <- lm(Petal.Length ~ Sepal.Length, data = iris)
 summary(modelo_lm)
 ```
 :::
@@ -1010,13 +1227,15 @@ Petal.Length = -7.10 + 1.86 × Sepal.Length
 -   **Coeficiente** (1.86): para cada 1 cm de aumento na sépala, a pétala aumenta 1.86 cm
 
 -   **R²** (0.76): o modelo explica 76% da variação nos dados
+
     -   R² = 1: modelo perfeito (explicação total)
     -   R² = 0: modelo não explica nada (predição = média)
-    -   R² > 0.7: considerado bom em ecologia
+    -   R² \> 0.7: considerado bom em ecologia
 
 -   **p-value** (\< 0.001): o modelo é significativo
+
     -   Probabilidade de observar esses dados se não houvesse relação
-    -   p < 0.05: evidência contra a hipótese nula (sem efeito)
+    -   p \< 0.05: evidência contra a hipótese nula (sem efeito)
 :::
 
 ## Entendendo o p-value
@@ -1030,9 +1249,9 @@ Petal.Length = -7.10 + 1.86 × Sepal.Length
 
 **Interpretação:**
 
--   **p < 0.05**: Evidência **contra** H0 → resultado "estatisticamente significativo"
+-   **p \< 0.05**: Evidência **contra** H0 → resultado "estatisticamente significativo"
 
--   **p > 0.05**: **Não rejeitamos** H0 → sem evidência de efeito
+-   **p \> 0.05**: **Não rejeitamos** H0 → sem evidência de efeito
 
 **Cuidados:**
 
@@ -1099,9 +1318,9 @@ ncvTest(modelo_lm)
 
 **Interpretação:**
 
--   **Shapiro-Wilk** (p > 0.05): resíduos são normais ✓
+-   **Shapiro-Wilk** (p \> 0.05): resíduos são normais ✓
 
--   **NCV Test** (p > 0.05): homocedasticidade confirmada ✓
+-   **NCV Test** (p \> 0.05): homocedasticidade confirmada ✓
 
 **Nota:** VIF (multicolinearidade) só é relevante para modelos com múltiplos preditores
 :::
@@ -1114,7 +1333,7 @@ ncvTest(modelo_lm)
 ```{r}
 #| fig-width: 8
 #| fig-height: 6
-ggplot(dados, aes(x = Sepal.Length, y = Petal.Length)) +
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) +
   geom_point(aes(color = Species), size = 3, alpha = 0.6) +
   geom_smooth(method = "lm", se = TRUE, color = "black") +
   theme_minimal() +
@@ -1131,7 +1350,7 @@ ggplot(dados, aes(x = Sepal.Length, y = Petal.Length)) +
 ```{r}
 # Modelo com múltiplos preditores
 modelo_lm_mult <- lm(Petal.Length ~ Sepal.Length + Sepal.Width, 
-                     data = dados)
+                     data = iris)
 summary(modelo_lm_mult)
 ```
 :::
@@ -1146,9 +1365,9 @@ summary(modelo_lm_mult)
 vif(modelo_lm_mult)
 ```
 
-**VIF < 5**: Não há problema de multicolinearidade
+**VIF \< 5**: Não há problema de multicolinearidade
 
-**VIF > 10**: Multicolinearidade alta - considerar remover variáveis
+**VIF \> 10**: Multicolinearidade alta - considerar remover variáveis
 :::
 
 ## Regressão Linear
@@ -1176,7 +1395,7 @@ AIC(modelo_lm, modelo_lm_mult)
 
 -   **Menor AIC = melhor modelo**
 
--   Regra prática: ΔAIC > 2 indica diferença relevante
+-   Regra prática: ΔAIC \> 2 indica diferença relevante
 
 **ANOVA de modelos aninhados**
 
@@ -1184,7 +1403,7 @@ AIC(modelo_lm, modelo_lm_mult)
 
 -   Testa se adicionar variáveis melhora significativamente o modelo
 
--   Se p < 0.05: modelo mais complexo é **significativamente melhor**
+-   Se p \< 0.05: modelo mais complexo é **significativamente melhor**
 
 **R² ajustado**
 
@@ -1230,10 +1449,8 @@ AIC(modelo_lm, modelo_lm_mult)
 
 -   **Log link** (Poisson): garante contagens **positivas**
     -   log(μ) = β₀ + β₁X → μ = exp(β₀ + β₁X)
-
 -   **Logit link** (Binomial): garante probabilidades entre **0 e 1**
     -   logit(p) = β₀ + β₁X → p = 1/(1 + exp(-(β₀ + β₁X)))
-
 -   **Identity link** (Normal): relação **direta e linear**
     -   μ = β₀ + β₁X (regressão linear tradicional)
 
@@ -1243,13 +1460,13 @@ AIC(modelo_lm, modelo_lm_mult)
 ## GLM - Distribuições comuns
 
 ::: {style="font-size: 70%"}
-| Distribuição | Tipo de Dados | Função de Ligação | Exemplo |
-|--------------|---------------|-------------------|---------|
-| Gaussian | Contínua | Identity | Altura |
-| Poisson | Contagem | Log | N° de espécies |
-| Binomial | Binária | Logit | Presença/Ausência |
-| Binomial | Proporção | Logit | Taxa de sucesso |
-| Gamma | Contínua positiva | Log | Biomassa |
+| Distribuição | Tipo de Dados     | Função de Ligação | Exemplo           |
+|--------------|-------------------|-------------------|-------------------|
+| Gaussian     | Contínua          | Identity          | Altura            |
+| Poisson      | Contagem          | Log               | N° de espécies    |
+| Binomial     | Binária           | Logit             | Presença/Ausência |
+| Binomial     | Proporção         | Logit             | Taxa de sucesso   |
+| Gamma        | Contínua positiva | Log               | Biomassa          |
 :::
 
 ## GLM - Poisson
@@ -1339,9 +1556,9 @@ testZeroInflation(simulacao)
 
 -   Verifica se a **variância** é maior que o esperado pela distribuição
 
--   **p < 0.05**: modelo está **subdispersando** (variância menor)
+-   **p \< 0.05**: modelo está **subdispersando** (variância menor)
 
--   **p > 0.05 E ratio > 1**: modelo está **superdispersando** (variância maior)
+-   **p \> 0.05 E ratio \> 1**: modelo está **superdispersando** (variância maior)
 
 -   **Solução**: usar Binomial Negativa ou modelo misto
 
@@ -1349,7 +1566,7 @@ testZeroInflation(simulacao)
 
 -   Detecta observações com **resíduos extremos**
 
--   **p < 0.05**: presença de outliers significativos
+-   **p \< 0.05**: presença de outliers significativos
 
 -   **Ação**: investigar se são erros de medição ou observações legítimas
 
@@ -1357,11 +1574,11 @@ testZeroInflation(simulacao)
 
 -   Verifica se há **mais zeros** do que esperado pela distribuição
 
--   **p < 0.05**: modelo não captura bem os zeros
+-   **p \< 0.05**: modelo não captura bem os zeros
 
 -   **Solução**: usar modelos Zero-Inflated (ZIP, ZINB)
 
-**Regra geral:** Valores de p > 0.05 nos testes indicam que o modelo está adequado!
+**Regra geral:** Valores de p \> 0.05 nos testes indicam que o modelo está adequado!
 :::
 
 ## GLM - Overdispersion
@@ -1485,7 +1702,7 @@ plot_model(modelo_nb, type = "pred",
 ::: {style="font-size: 70%"}
 ```{r}
 # Criar dados binários
-dados_bin <- dados %>% 
+dados_bin <- iris %>% 
   mutate(grande = ifelse(Petal.Length > median(Petal.Length), 1, 0))
 
 # Modelo logístico
@@ -1524,9 +1741,9 @@ exp(confint(modelo_logit))
 
 -   **OR = 1**: sem efeito (chances iguais)
 
--   **OR > 1**: aumento das chances (efeito positivo)
+-   **OR \> 1**: aumento das chances (efeito positivo)
 
--   **OR < 1**: diminuição das chances (efeito negativo)
+-   **OR \< 1**: diminuição das chances (efeito negativo)
 
 **Exemplo prático:**
 
@@ -1542,7 +1759,7 @@ exp(confint(modelo_logit))
 
 -   OR = 1.5 → aumento de 50% nas chances
 
--   OR = 0.7 → diminuição de 30% nas chances [(1-0.7)×100]
+-   OR = 0.7 → diminuição de 30% nas chances \[(1-0.7)×100\]
 
 **Importante:** OR ≠ Risco Relativo! OR tende a exagerar o efeito quando eventos são comuns.
 :::
@@ -1577,12 +1794,12 @@ ggplot(dados_bin, aes(x = Sepal.Length, y = grande)) +
 
 ::: {style="font-size: 60%"}
 | Modelo | Uso | Distribuição | Link | Pressupostos |
-|--------|-----|--------------|------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | **lm** | Resposta contínua | Normal | Identity | Linearidade, normalidade resíduos, homocedasticidade |
 | **glm Poisson** | Contagem | Poisson | Log | Média = Variância |
 | **glm Neg. Binomial** | Contagem c/ superdispersão | Neg. Binomial | Log | Overdispersion permitida |
 | **glm Logística** | Binária | Binomial | Logit | Independência |
-| **glm Gamma** | Contínua positiva | Gamma | Log | Valores > 0 |
+| **glm Gamma** | Contínua positiva | Gamma | Log | Valores \> 0 |
 :::
 
 ## Fluxo de Análise
@@ -1669,7 +1886,7 @@ ggplot(dados_bin, aes(x = Sepal.Length, y = grande)) +
 ::: {style="font-size: 80%"}
 **Dúvidas?**
 
-Email: [seu.email@email.com](mailto:seu.email@email.com)
+Email: [seu.email\@email.com](mailto:seu.email@email.com)
 
 Website: [souzayuri.github.io](https://souzayuri.github.io/)
 
