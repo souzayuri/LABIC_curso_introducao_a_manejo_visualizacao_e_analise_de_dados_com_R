@@ -1637,7 +1637,7 @@ ggsave("../04_figuras/grafico_riqueza.png",
 
 1.  **Remova** os dados do ano `2019` da coluna `Date`
 
-    -   Faça um `boxplot()` com `facet_wrap()` contendo **4 paineis** onde cada painel será: `leaf_thickness`, `seed_mass`, `leaf_area`, `sla`, `seed_lenght` . Os valores dessas variáveis serão suas variáveis resposta, e o tratamento será sua variável **preditora** (`eixo x`). Coloquem a `variável y` em `log()`
+    -   Faça um `boxplot()` com `facet_wrap()` contendo **4 paineis** onde cada painel será: `leaf_thickness`, `seed_mass`, `leaf_area`, `sla`, `seed_lenght` . Os valores dessas variáveis serão suas variáveis resposta, e o tratamento será sua variável **preditora** (`eixo x`). Coloquem a `variável y` em `log()`para reduzir a assimetria e padronizar os dados
 
         -   Vocês precisarão usar manipulação de dados para preparar a tabela.
 
@@ -1645,7 +1645,7 @@ ggsave("../04_figuras/grafico_riqueza.png",
 
 2.  Crie um gráfico de **regressão linear** usando `geom_point()` e `geom_smooth()` usando **duas variáveis**.
 
-    -   `x = leaf_area` e `y = sla`
+    -   `x = leaf_area` e `y = sla` usa a função log()
 
         -   Compare entre **tratamentos**.
 :::
@@ -1692,8 +1692,8 @@ library(tidyverse)
 
 dados_traits <- readr::read_csv("../01_dados/biota_plant_traits.csv")
 
-ggplot(dados_traits, aes(x = leaf_area, 
-                         y = sla, 
+ggplot(dados_traits, aes(x = log(leaf_area), 
+                         y = log(sla), 
                          fill = Treatment)) +
   geom_point(na.rm = TRUE) +
   geom_smooth(method = "lm") +

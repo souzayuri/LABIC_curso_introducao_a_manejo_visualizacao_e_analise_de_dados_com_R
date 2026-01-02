@@ -2204,7 +2204,7 @@
 <ol type="1">
 <li><p><strong>Remova</strong> os dados do ano <code>2019</code> da coluna <code>Date</code></p>
 <ul>
-<li><p>Faça um <code>boxplot()</code> com <code>facet_wrap()</code> contendo <strong>4 paineis</strong> onde cada painel será: <code>leaf_thickness</code>, <code>seed_mass</code>, <code>leaf_area</code>, <code>sla</code>, <code>seed_lenght</code> . Os valores dessas variáveis serão suas variáveis resposta, e o tratamento será sua variável <strong>preditora</strong> (<code>eixo x</code>). Coloquem a <code>variável y</code> em <code>log()</code></p>
+<li><p>Faça um <code>boxplot()</code> com <code>facet_wrap()</code> contendo <strong>4 paineis</strong> onde cada painel será: <code>leaf_thickness</code>, <code>seed_mass</code>, <code>leaf_area</code>, <code>sla</code>, <code>seed_lenght</code> . Os valores dessas variáveis serão suas variáveis resposta, e o tratamento será sua variável <strong>preditora</strong> (<code>eixo x</code>). Coloquem a <code>variável y</code> em <code>log()</code>para reduzir a assimetria e padronizar os dados</p>
 <ul>
 <li><p>Vocês precisarão usar manipulação de dados para preparar a tabela.</p></li>
 <li><p>Façam duas modificações visuais (ex: tamanho de fonte, cor, etc).</p></li>
@@ -2212,7 +2212,7 @@
 </ul></li>
 <li><p>Crie um gráfico de <strong>regressão linear</strong> usando <code>geom_point()</code> e <code>geom_smooth()</code> usando <strong>duas variáveis</strong>.</p>
 <ul>
-<li><p><code>x = leaf_area</code> e <code>y = sla</code></p>
+<li><p><code>x = leaf_area</code> e <code>y = sla</code> usa a função log()</p>
 <ul>
 <li>Compare entre <strong>tratamentos</strong>.</li>
 </ul></li>
@@ -2263,8 +2263,8 @@
 <span id="cb42-2"><a href=""></a></span>
 <span id="cb42-3"><a href=""></a>dados_traits <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)</span>
 <span id="cb42-4"><a href=""></a></span>
-<span id="cb42-5"><a href=""></a><span class="fu">ggplot</span>(dados_traits, <span class="fu">aes</span>(<span class="at">x =</span> leaf_area, </span>
-<span id="cb42-6"><a href=""></a>                         <span class="at">y =</span> sla, </span>
+<span id="cb42-5"><a href=""></a><span class="fu">ggplot</span>(dados_traits, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(leaf_area), </span>
+<span id="cb42-6"><a href=""></a>                         <span class="at">y =</span> <span class="fu">log</span>(sla), </span>
 <span id="cb42-7"><a href=""></a>                         <span class="at">fill =</span> Treatment)) <span class="sc">+</span></span>
 <span id="cb42-8"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
 <span id="cb42-9"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
