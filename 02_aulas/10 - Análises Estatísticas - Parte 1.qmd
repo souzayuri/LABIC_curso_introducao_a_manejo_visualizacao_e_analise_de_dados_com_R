@@ -1,0 +1,694 @@
+---
+title: "Análises Estatísticas <br> no R <br> Estatística Descritiva<br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/09/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    transition: slide
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## Método Científico
+
+::: columns
+-   **Indutivo**: chegar a uma **lei geral** por meio da observação de certos **casos particulares**
+
+-   **Dedutivo**: parte de **teorias e leis consideradas gerais** buscando explicar a ocorrência de **fenômenos particulares**
+
+-   **Hipotético-dedutivo**:
+
+    1.  problema ou lacuna de conhecimento
+
+    2.  formulação de **hipóteses**
+
+    3.  inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**)
+
+    4.  corroboração
+
+-   **Dialético**: leva em conta o constante movimento dos **fenômenos históricos-sociais** para o entendimento da totalidade
+:::
+
+## Método Científico
+
+::: columns
+-   **Hipotético-dedutivo**:
+
+    1.  problema ou lacuna de conhecimento
+
+    2.  formulação de **hipóteses**
+
+    3.  inferência dedutiva (**teste das hipóteses** para os casos particulares - tentativa de **falseamento ou refutação**)
+
+    4.  corroboração
+:::
+
+## Método Científico
+
+![](img/filosofia_Da_ciencia.png){fig-align="center"}
+
+## Método Científico
+
+::: columns
+**1. Pergunta:** Como as **modificações da paisagem** (perda e fragmentação de habitat) **afetam** as comunidades de **mamíferos**?
+
+![](img/yoda-star-wars.gif){fig-align="center"}
+:::
+
+## Método Científico
+
+:::::: {.columns style="font-size: 60%"}
+::::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+:::
+
+::: {.column width="30%"}
+![](img/sergio.jpg){fig-align="center" width="300"}
+:::
+:::::
+::::::
+
+## Método Científico
+
+::::: {.columns style="font-size: 60%"}
+:::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+
+Voltar do campo, com cadernos, planilhas, câmeras...
+
+Planilhar dados, visualizar fotos, identificar os bichos, e café, muito, café...
+:::
+
+![](img/planilha.png){fig-align="center" width="400"}
+::::
+:::::
+
+## Método Científico
+
+::::: {.columns style="font-size: 60%"}
+:::: columns
+::: {.column width="70%"}
+**2. Coleta dos dados**
+
+Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+
+Voltar do campo, com cadernos, planilhas, câmeras...
+
+Planilhar dados, visualizar fotos, identificar os bichos, e café, muito, café...
+:::
+
+![](img/Sweet-Coffee.gif){fig-align="center" width="400"}
+::::
+:::::
+
+## Método Científico
+
+:::::::: {.columns style="font-size: 60%"}
+::::::: columns
+::: {.column width="70%"}
+**3. Modelos estatísticos**
+:::
+
+::::: columns
+::: {.column width="50%"}
+![](img/modelo.png){width="400"}
+:::
+
+::: {.column width="50%"}
+![](img/nazare.gif){fig-align="center"}
+:::
+:::::
+:::::::
+::::::::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+
+Nunca!
+
+Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos** em campo (salvo algumas exceções)
+:::
+
+## Método Científico
+
+::: {.columns style="font-size: 60%"}
+**3. Modelos estatísticos**
+
+E por que eu preciso fazer um **modelo estatístico**?
+
+É possível **coletar todos os dados** em campo?
+
+Nunca!
+
+Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos** em campo (salvo algumas exceções)
+:::
+
+::: {.columns style="font-size: 100%"}
+**`Por isso estimamos`**
+:::
+
+::: {.columns style="font-size: 60%"}
+Usamos uma parcela da realidade para **tentar** definir a ralidade em si
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+::: {.columns style="font-size: 60%"}
+**População (estatística)**\
+É o **conjunto de todos os indivíduos ou elementos** sobre os quais queremos tirar conclusões em um estudo.
+
+**Amostra**\
+É uma **parte da população**, escolhida para ser estudada, que **representa bem a população**.
+
+**Variável (aleatória ou estatística)**\
+É uma **característica** que **observamos** ou **medimos** nos indivíduos do estudo e que pode assumir **diferentes valores**.
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+::: {.columns style="font-size: 60%"}
+**Variável preditora \[independente\] (X)**: varia independentemente e é coletada com o intuito de explicar a variável resposta
+
+**Variável resposta \[dependente\] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
+:::
+
+## Análises Estatísticas
+
+#### População, amostra e variável
+
+:::: {.columns style="font-size: 60%"}
+**Variável preditora \[independente\] (X)**: varia independentemente e é coletada com o intuito de explicar a variável resposta
+
+**Variável resposta \[dependente\] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
+
+::: {.columns style="font-size: 130%"}
+***Modelo estatístico**: é a tentativa de explicar a variação de **variáveis respostas (Y)** em **função de variáveis preditoras (X)***
+:::
+
+![](img/download.gif){fig-align="center" width="400"}
+::::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+:::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+:::::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+
+::: {.columns style="font-size: 150%"}
+**`O delineamento amostral!!!`**
+:::
+
+-   Conjunto de **métodos e decisões** que garantam que a **amostra** seja **parte representativa** da **população estatística**
+
+:::: {.column width="50%"}
+::: {.column width="50%"}
+:::
+::::
+::::::
+
+## Análises Estatísticas
+
+#### Modelo estatístico
+
+::::::: {.columns style="font-size: 60%"}
+E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+
+::: {.columns style="font-size: 150%"}
+**`O delineamento amostral!!!`**
+:::
+
+-   Conjunto de **métodos e decisões** que garantam que a **amostra** seja **parte representativa** da **população estatística**
+
+### Depende de:
+
+::::: columns
+::: {.column width="50%"}
+1.  Pergunta
+
+2.  Grupo de pesquisa
+
+3.  Métodos de amostragem (parcela, transecto, busca ativa, cameras, pitfall)
+
+4.  Área de amostragem
+:::
+
+::: {.column width="50%"}
+5.  Tamanho da amostra
+
+6.  Esforço de amostragem
+
+7.  Autocorrelação espacial e temporal
+
+8.  Pseudo-réplica
+:::
+:::::
+:::::::
+
+## Análises Estatísticas
+
+#### Univariada vs Multivariada
+
+::: {.columns style="font-size: 60%"}
+**Univariada**
+
+-   É a análise estatística de **uma** única **variável resposta** por vez.\
+    Foca em descrever seu comportamento isolado, como **distribuição**, **tendência central** (média, mediana), **dispersão** (variância, desvio-padrão) e **frequência**.
+
+**Multivariada**
+
+-   É a análise estatística de **duas ou mais variáveis repostas** simultaneamente. Busca entender **relações, associações, padrões ou estruturas** entre variáveis.
+
+![](img/analises.png){fig-align="center" width="600"}
+:::
+
+## Análises Estatísticas
+
+#### Nosso foco: Univariada
+
+::: {.columns style="font-size: 60%"}
+É a análise estatística de **uma** única **variável resposta** por vez.\
+Foca em descrever seu comportamento isolado, como **distribuição**, **tendência central** (média, mediana), **dispersão** (variância, desvio-padrão) e **frequência**.
+
+![](img/easy.gif){fig-align="center" width="400"}
+:::
+
+## Análises Estatísticas
+
+#### Pacotes necessários
+
+::: {style="font-size: 70%"}
+```{r}
+library(tidyverse)      # Manipulação e visualização
+library(car)            # Testes de pressupostos
+library(corrplot)       # Matriz de correlação
+library(ggcorrplot)     # Heatmap de correlação
+library(nortest)        # teste de normalidade shapiro-francia
+```
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
+
+-   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
+
+-   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
+
+**2. Estatística Inferencial** 🔍
+
+-   **Objetivo**: **Generalizar** da amostra para a população
+
+-   **Pergunta**: "Existem diferenças entre grupos?"
+
+-   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado`
+
+-   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p\<0.001)"
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão`
+
+-   **Exemplo**: "A altura média das árvores é 15m com DP de 3m"
+
+**2. Estatística Inferencial** 🔍
+
+-   **Objetivo**: **Generalizar** da amostra para a população
+
+-   **Pergunta**: "Existem diferenças entre grupos?"
+
+-   **Ferramentas**: `t-test`, `ANOVA`, `Chi-quadrado,` e `Correlação`
+
+-   **Exemplo**: "Área protegida tem mais espécies que área desmatada (p\<0.001)"
+
+**3. Estatística Preditiva** 🎯
+
+-   **Objetivo**: **Modelar relações** e fazer predições
+
+-   **Pergunta**: "Como X influencia Y?" ou "Qual valor de Y esperamos para X=10?"
+
+-   **Ferramentas**: `Regressão linear`, `GLM`
+
+-   **Exemplo**: "Cada 1°C aumenta em 12% a abundância de espécies"
+:::
+
+## Três Tipos de Análise Estatística
+
+::: {style="font-size: 55%"}
+**1. Estatística Descritiva** 📊
+
+-   **Objetivo**: Resumir e **descrever** os dados
+
+-   **Pergunta**: "Como são meus dados?"
+
+-   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
+
+    -   Medidas de **tendência central**: `minimo`, `máximo`, `média`, `mediana` e `moda`
+
+    -   Medidas de **dispersão**: `variância`, `desvio padrão` e `erro padrão`
+:::
+
+## Análises Estatísticas Descritivas
+
+#### `Iris` dataset
+
+![](img/goo-goo-dolls-iris.gif){fig-align="center" width="400"}
+
+## Análises Estatísticas Descritivas
+
+#### `Iris` dataset
+
+::: {.columns style="font-size: 70%"}
+![](img/iris-machinelearning.png){fig-align="center" width="700"}
+
+```{r}
+head(iris, n = 5)
+
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Minimo, Máximo, Média, Mediana, Moda
+
+::: {style="font-size: 60%"}
+**Menor** e **maior** valor no conjunto de dados:
+
+-   `min()` e `max()` - Valores Extremos
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+min(iris$Sepal.Length)
+max(iris$Sepal.Length)
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Minimo, Máximo, Média, Mediana, Moda
+
+::: {style="font-size: 60%"}
+A **média** é a soma de todos os valores dividida pelo número de observações.
+
+-   `mean()`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+mean(iris$Sepal.Length)
+```
+:::
+
+::: {style="font-size: 60%"}
+A **mediana** é o valor central quando os dados estão ordenados.
+
+-   `median()`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+median(iris$Sepal.Length)
+```
+:::
+
+::: {style="font-size: 60%"}
+A **moda** é o valor mais frequente na amostra
+
+-   **Não existe** uma função **no R,** por isso **adaptamos**
+
+    -   `which.max(table())`
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+names(which.max(table(iris$Sepal.Length)))
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+var(iris$Sepal.Length)
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+![](img/variance.png){fig-align="center" width="800"}
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 60%"}
+A **variância** mede o quão espalhados os dados estão **em relação à média**, mas em `unidades ao quadrado`.
+
+-   Quanto maior a variância, mais dispersos estão os dados.
+
+-   Útil para cálculos matemáticos e estatísticos avançados.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+var(iris$Sepal.Length)
+```
+
+![](img/variance.png){fig-align="center" width="800"}
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 50%"}
+O **desvio padrão** é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão **em relação à média**
+
+-   Para descrever a variabilidade dentro da sua amostra.
+:::
+
+::: {.columns style="font-size: 50%"}
+O **erro padrão** mede a incerteza da média em um grupo ou entre grupos de amostragem
+
+-   Não existe uma formula no R
+-   À medida que **n aumenta**, o erro padrão **diminui**
+:::
+
+::: {.columns style="font-size: 80%"}
+![](img/erro%20e%20desvio%20padrao.png){fig-align="center" width="850"}
+:::
+
+## Estatística Descritiva
+
+#### Medidas de tendência central e dispersão
+
+::: {.columns style="font-size: 55%"}
+O **desvio padrão** é a raiz quadrada da variância, retornando às unidades originais dos dados. Mede o quão espalhados os dados estão **em relação à média**
+
+-   Para descrever a variabilidade dentro da sua amostra.
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+sd(iris$Sepal.Length)
+```
+:::
+
+::: {.columns style="font-size: 55%"}
+O **erro padrão** mede a incerteza da média em um grupo ou entre grupos de amostragem
+
+-   Não existe uma formula no R
+-   À medida que **n aumenta**, o erro padrão **diminui**
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+sd(iris$Sepal.Length) /sqrt(length(iris$Sepal.Length)) 
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
+
+::: {style="font-size: 70%"}
+```{r}
+# Estatísticas descritivas por grupo
+iris %>% 
+  dplyr::summarise(
+    n = n(),
+    min_sepala = min(Sepal.Length),
+    max_sepala = max(Sepal.Length),
+    media_sepala = mean(Sepal.Length),
+    mediana_sepala = median(Sepal.Length),
+    var_sepala = var(Sepal.Length),
+    dp_sepala = sd(Sepal.Length),
+    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    )
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
+
+#### agrupando por espécies
+
+::: {style="font-size: 70%"}
+```{r}
+# Estatísticas descritivas por grupo
+iris %>% 
+  dplyr::group_by(Species) %>% 
+  dplyr::summarise(
+    n = n(),
+    min_sepala = min(Sepal.Length),
+    max_sepala = max(Sepal.Length),
+    media_sepala = mean(Sepal.Length),
+    mediana_sepala = median(Sepal.Length),
+    var_sepala = var(Sepal.Length),
+    dp_sepala = sd(Sepal.Length),
+    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    ) %>% 
+    dplyr::ungroup()
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Visualização - Histograma
+
+::: {style="font-size: 70%"}
+-   Quais classes de valores são mais infladas
+
+-   Quais são os valores extremos, e quão abundante eles são
+
+```         
+```
+:::
+
+## Análises Estatísticas Descritivas
+
+#### Visualização - Histograma
+
+::: {style="font-size: 70%"}
+-   Quais classes de valores são mais infladas
+
+-   Quais são os valores extremos, e quão abundante eles são
+
+```{r}
+#| fig-width: 6
+#| fig-height: 3
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(bins = 20, fill = "steelblue", alpha = 0.7) +
+  facet_wrap(~Species) +
+  theme_minimal() +
+  labs(x = "Comprimento da Sépala (cm)", 
+       y = "Frequência")
+```
+:::
+
