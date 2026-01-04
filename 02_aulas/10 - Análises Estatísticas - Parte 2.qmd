@@ -564,6 +564,7 @@ library(tidyverse)      # Manipulação e visualização
 library(car)            # Testes de pressupostos
 library(corrplot)       # Matriz de correlação
 library(ggcorrplot)     # Heatmap de correlação
+library(qqplotr)        # Plota intervalo de confiança do qqplot
 library(nortest)        # teste de normalidade shapiro-francia
 library(report)         # cria sumário dos resultados dos modelos
 library(rstatix)        # Testes estatísticos
@@ -680,8 +681,7 @@ dim(dados_iris)
 :::
 
 ::: {.column width="40%" style="font-size: 100%"}
-
-```{}
+```         
 ```
 :::
 :::::
@@ -757,7 +757,7 @@ teste_chi
 
 -   `χ² = 118.56`, tamanho da **discrepância** entre observado e esperado, **positivo** e **alto**
 
--   `df = (3−1) × (3−1) = 2 × 2 = 4​`, quantidade de células podem variar livremente
+-   `df = (3−1) × (3−1) = 2 × 2 = 4`, quantidade de células podem variar livremente
 
 -   `P-value = 0.001`, hipótese nula rejeitada (usamos 0,001 quando p-value \< 2.2e-16)
 :::
@@ -782,178 +782,422 @@ dados_iris %>%
 ```
 :::
 
-## Teste de Normalidade
-
-#### Shapiro-Wilk Test
-
-::: {style="font-size: 70%"}
-```{r}
-# Teste de normalidade para cada espécie
-iris %>% 
-  group_by(Species) %>% 
-  shapiro_test(Sepal.Length)
-```
-
-**Interpretação:**
-
--   H0: os dados seguem distribuição normal
--   Se p \> 0.05: **não rejeitamos H0** (dados são normais)
--   Se p \< 0.05: **rejeitamos H0** (dados não são normais)
-:::
-
-## Teste de Normalidade
-
-#### Q-Q Plot
-
-::: {style="font-size: 70%"}
-```{r}
-#| fig-width: 10
-#| fig-height: 5
-ggplot(iris, aes(sample = Sepal.Length)) +
-  stat_qq() +
-  stat_qq_line(color = "red") +
-  facet_wrap(~Species) +
-  theme_minimal() +
-  labs(title = "Q-Q Plot - Avaliação da Normalidade")
-```
-
-**Pontos próximos à linha vermelha** indicam distribuição normal
-:::
-
-## Teste de Homogeneidade de Variâncias
-
-#### Levene's Test
-
-::: {style="font-size: 70%"}
-```{r}
-# Teste de Levene
-leveneTest(Sepal.Length ~ Species, data = iris)
-```
-
-**Interpretação:**
-
--   H0: as variâncias são homogêneas entre grupos
--   Se p \> 0.05: **não rejeitamos H0** (variâncias homogêneas)
--   Se p \< 0.05: **rejeitamos H0** (variâncias heterogêneas - heterocedasticidade)
-
-**Se houver heterocedasticidade:** usar correção de Welch ou transformação de dados
-:::
-
 ## Teste t (t-test)
 
+#### `Student's t-test` vs Welch's t-test
+
 ::: {style="font-size: 70%"}
-**Quando usar?**
+**Quando usar?** - `Student's t-test` (variâncias homogêneas)
 
--   Comparar **médias** de **dois grupos**
-
--   Teste t de Student (variâncias homogêneas)
-
--   Teste t de Welch (variâncias heterogêneas)
+-   Comparar **médias** de **dois grupos (Two Sample t-test)**
 
 **Pressupostos:**
 
 -   Variável resposta **contínua**
 
--   Distribuição **normal** dos dados
+-   Distribuição **normal** dos dados (**paramétrico**)
 
--   **Homogeneidade de variâncias** (teste de Student)
+-   **Homogeneidade de variâncias**
 
 -   Observações **independentes**
 :::
 
-## Teste t
+## Teste t (t-test)
 
-#### Exemplo: Comparando duas espécies
+#### Student's t-test vs `Welch's t-test`
 
 ::: {style="font-size: 70%"}
+**Quando usar?** - `Welch's t-test` (variâncias heterogêneas)
+
+-   Comparar **médias** de **dois grupos (Two Sample t-test)**
+
+**Pressupostos:**
+
+-   Variável resposta **contínua**
+
+-   Distribuição não **normal** dos dados (**não paramétrico**)
+
+-   **Heterogeneidade de variâncias**
+
+-   Observações **independentes**
+:::
+
+## Teste t (t-test)
+
+::: {.columns style="font-size: 70%"}
+O que seria “o mais correto” para um **t-test ideal**:
+
+-   Verificações **a priori** dos pressupostos do modelo
+
+    -   **Normalidade por grupo**: `Shapiro` + `QQ-plot`
+
+    -   **Homogeneidade de variâncias**: `levene_test()`
+
+    -   **Independência das observações**: O valor de uma observação **não influencia** nem é influenciado por outra.
+
+-   Verificações **a posteriori** dos resultados do modelo
+
+    -   `Cohen’s test()`
+
+    -   Visualização dos dados por **Boxplot**
+:::
+
+## Teste de Normalidade
+
+#### Shapiro-Francia Test
+
+:::::::: {style="font-size: 60%"}
+**Interpretação (não intuitiva** 💀**):**
+
+-   `H0`: os dados seguem distribuição normal
+-   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
+-   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
+-   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
+
+::::::: columns
+:::: {.column width="50%"}
+::: {.columns style="font-size: 110%"}
+```{r}
+
+
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: {.columns style="font-size: 110%"}
+```{r}
+
+```
+:::
+::::
+:::::::
+::::::::
+
+## Teste de Normalidade
+
+#### Shapiro-Francia Test
+
+:::::::: {style="font-size: 60%"}
+**Interpretação (não intuitiva** 💀**):**
+
+-   `H0`: os dados seguem distribuição normal
+-   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
+-   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
+-   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
+
+::::::: columns
+:::: {.column width="50%"}
+Vamos trabalhar com a variável `Sepal.Length`
+
+Usamos a função `sf.test()`
+
+::: {.columns style="font-size: 110%"}
+```{r}
+nortest::sf.test(iris$Sepal.Length)
+
+```
+:::
+::::
+
+:::: {.column width="50%"}
+::: {.columns style="font-size: 110%"}
+```{r}
+
+```
+:::
+::::
+:::::::
+::::::::
+
+## Teste de Normalidade
+
+#### Shapiro-Francia Test
+
+:::::::: {style="font-size: 60%"}
+**Interpretação (não intuitiva** 💀**):**
+
+-   `H0`: os dados seguem distribuição normal
+-   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
+-   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
+-   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
+
+::::::: columns
+:::: {.column width="50%"}
+Vamos trabalhar com a variável `Sepal.Length`
+
+Usamos a função `sf.test()`
+
+::: {.columns style="font-size: 110%"}
+```{r}
+nortest::sf.test(iris$Sepal.Length)
+
+```
+:::
+::::
+
+:::: {.column width="50%"}
+Teste de normalidade para cada espécie
+
+::: {.columns style="font-size: 110%"}
+```{r}
+iris %>% 
+  dplyr::group_by(Species) %>% 
+  dplyr::summarise(
+    p_value = nortest::sf.test(Sepal.Length)$p.value,
+    w_value = nortest::sf.test(Sepal.Length)$statistic
+    )
+```
+:::
+::::
+:::::::
+::::::::
+
+## Teste de Normalidade
+
+#### Q–Q plot (Quantile–Quantile plot)
+
+::: {style="font-size: 60%"}
+Compara os quantis dos seus dados com os quantis de uma **distribuição teórica** para avaliar visualmente se os dados seguem uma **distribuição normal** e em que medida se **desviam** dela.
+
+**Pontos próximos à linha vermelha** indicam distribuição normal
+
+```{r}
+
+```
+:::
+
+## Teste de Normalidade
+
+#### Q–Q plot (Quantile–Quantile plot)
+
+::: {style="font-size: 60%"}
+Compara os quantis dos seus dados com os quantis de uma **distribuição teórica** para avaliar visualmente se os dados seguem uma **distribuição normal** e em que medida se **desviam** dela.
+
+**Pontos próximos à linha vermelha** indicam distribuição normal
+
+```{r}
+#| fig-width: 8
+#| fig-height: 3
+ggplot(iris, aes(sample = Sepal.Length)) +
+  qqplotr::stat_qq_band(conf = 0.95, alpha = 0.4) + # intervalo de confiança
+  stat_qq_line(color = "darkred") + # linha
+  stat_qq_point() + # pontos
+  facet_wrap(~Species) +
+  theme_minimal() +
+  labs(title = "Q-Q Plot - Avaliação da Normalidade")
+```
+:::
+
+## Teste de Homogeneidade
+
+::: {style="font-size: 60%"}
+**Homogeneidade de Variâncias**
+
+Selecionamos os **2 grupos** que queremos comparar as médias
+
+**Interpretação:**
+
+-   Usamos a função `leveneTest()`
+-   H0: as variâncias são homogêneas entre grupos
+
+**Se houver heterocedasticidade:** usar correção de `Welch's t-test` ou transformação de dados
+:::
+
+## Teste de Homogeneidade
+
+::: {style="font-size: 60%"}
+**Homogeneidade de Variâncias**
+
+Selecionamos os **2 grupos** que queremos comparar as médias
+
+**Interpretação:**
+
+-   Usamos a função `leveneTest()`
+-   H0: as variâncias são homogêneas entre grupos
+
+**Se houver heterocedasticidade:** usar correção de `Welch's t-test` ou transformação de dados
+:::
+
+::: {style="font-size: 90%"}
 ```{r}
 # Filtrar apenas duas espécies
 dados_2sp <- iris %>% 
-  filter(Species %in% c("setosa", "versicolor"))
+  dplyr::filter(Species %in% c("setosa", "versicolor"))
 
-# Verificar normalidade
-dados_2sp %>% 
-  group_by(Species) %>% 
-  shapiro_test(Sepal.Length)
+car::leveneTest(Sepal.Length ~ Species, data = dados_2sp)
 ```
 :::
 
 ## Teste t
 
-#### Verificação de pressupostos
+#### Comparando duas espécies
 
-::: {style="font-size: 70%"}
-```{r}
-# Teste de Levene
-leveneTest(Sepal.Length ~ Species, data = dados_2sp)
-```
+::: {style="font-size: 60%"}
+-   Todos os **pressupsotos foram atendidos**, seguimos com `Student's t-test`
 
-**Pressupostos atendidos!** Podemos usar o teste t de Student
+    -   se qualque pressuposto fosse violado, teriamos de usar `Welch's t-test`
+
+-   Usamos a função `t.test()`
+
+    -   se `Student's t-test` usar parâmetro `var.equal = TRUE`
+
+    -   se `Welch's t-test` usar parâmetro `var.equal = FALSE`
 :::
 
 ## Teste t
 
-#### Realizando o teste
+#### Comparando duas espécies
 
-::: {style="font-size: 70%"}
+::: {style="font-size: 60%"}
+-   Todos os **pressupsotos foram atendidos**, seguimos com `Student's t-test`
+
+    -   se qualque pressuposto fosse violado, teriamos de usar `Welch's t-test`
+
+-   Usamos a função `t.test()`
+
+    -   se `Student's t-test` usar parâmetro `var.equal = TRUE`
+
+    -   se `Welch's t-test` usar parâmetro `var.equal = FALSE`
+:::
+
+:::::: {style="font-size: 70%"}
+::::: columns
+::: {.column width="50%" style="font-size: 90%"}
+**Interpretação:** Diferença significativa no comprimento de sépala entre setosa e versicolor (**`t = -10,521, p < 0.001`**)
+:::
+
+::: {.column width="50%"}
 ```{r}
-# Teste t
 teste_t <- t.test(Sepal.Length ~ Species, 
                   data = dados_2sp,
                   var.equal = TRUE)
 teste_t
-```
 
-**Interpretação:** Diferença significativa no comprimento de sépala entre setosa e versicolor (t = `r round(teste_t$statistic, 2)`, p \< 0.001)
+```
+:::
+:::::
+::::::
+
+## Teste t
+
+#### Tamanho de efeito (Cohen's d)
+
+::: {style="font-size: 60%"}
+Quão grande é essa difença?
+
+**Interpretação do Cohen's d:**
+
+-   `0.2` = efeito **pequeno**
+-   `0.5` = efeito **médio**
+-   `0.8` = efeito **grande**
+
+```         
+```
 :::
 
 ## Teste t
 
 #### Tamanho de efeito (Cohen's d)
 
-::: {style="font-size: 70%"}
-```{r}
-# Calcular tamanho de efeito
-cohens_d(Sepal.Length ~ Species, data = dados_2sp)
-```
+::: {style="font-size: 60%"}
+Quão grande é essa difença?
 
 **Interpretação do Cohen's d:**
 
--   0.2 = efeito pequeno
--   0.5 = efeito médio
--   0.8 = efeito grande
+-   `0.2` = efeito **pequeno**
+-   `0.5` = efeito **médio**
+-   `0.8` = efeito **grande**
+:::
 
-Efeito **grande** (d = 2.10) - diferença biologicamente relevante!
+::: {style="font-size: 80%"}
+Efeito **grande** (`d = -2.10`) - diferença biologicamente relevante, com valores menores no **grupo de referência**!
+
+```{r}
+effectsize::cohens_d(Sepal.Length ~ Species, data = dados_2sp)
+```
 :::
 
 ## Teste t
 
-#### Visualização
+#### Visualização dos dados
 
 ::: {style="font-size: 70%"}
 ```{r}
-#| fig-width: 8
-#| fig-height: 5
-ggplot(dados_2sp, aes(x = Species, y = Sepal.Length, fill = Species)) +
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 3
+
+ggplot(dados_2sp, aes(x = Species, 
+                      y = Sepal.Length, 
+                      fill = Species)) +
   geom_violin(alpha = 0.5) +
   geom_boxplot(width = 0.2, alpha = 0.7) +
   geom_jitter(width = 0.1, alpha = 0.3) +
   theme_minimal() +
   labs(x = "Espécie", 
-       y = "Comprimento da Sépala (cm)",
-       title = "Comparação entre duas espécies") +
+       y = "Comprimento da Sépala (cm)") +
   theme(legend.position = "none")
 ```
 :::
 
 ## ANOVA (Análise de Variância)
 
-::: {style="font-size: 70%"}
+::: columns
+Existem dois testes\
+\
+**one-way ANOVA:** Possui **um único fator** (variável independente/preditora)
+
+**two-way ANOVA:** Possui **dois fatores** (variáveis independentes/preditoras) e permite testar também a interação entre eles
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Só usaremos:
+
+::: columns
+\
+**one-way ANOVA:** Possui **um único fator** (variável independente/preditora)
+:::
+
+## ANOVA (Análise de Variância)
+
+::: {style="font-size: 60%"}
 **Quando usar?**
 
 -   Comparar **médias** de **três ou mais grupos**
 
--   Extensão do teste t para múltiplos grupos
+-   Extensão do teste t para **múltiplos grupos**
+:::
+
+## ANOVA (Análise de Variância)
+
+::: {style="font-size: 60%"}
+**Quando usar?**
+
+-   Comparar **médias** de **três ou mais grupos**
+
+-   Extensão do teste t para **múltiplos grupos**
+
+**Pressupostos:**
+
+-   Variável resposta **contínua**
+
+-   Distribuição **normal** dos resíduos
+
+-   **Homogeneidade de variâncias**
+
+-   Observações **independentes**
+:::
+
+## ANOVA (Análise de Variância)
+
+::: {style="font-size: 60%"}
+**Quando usar?**
+
+-   Comparar **médias** de **três ou mais grupos**
+
+-   Extensão do teste t para **múltiplos grupos**
 
 **Pressupostos:**
 
@@ -969,57 +1213,347 @@ ggplot(dados_2sp, aes(x = Species, y = Sepal.Length, fill = Species)) +
 
 -   **One-way ANOVA**: um fator
 
--   **Two-way ANOVA**: dois fatores (+ interação)
+    -   se o fator for categórico com 2 níveis, então um **test-t** é realizado no lugar.
+
+-   **Two-way ANOVA**: dois fatores
 :::
 
-## ANOVA
+## ANOVA (Análise de Variância)
 
-#### Verificação de pressupostos
+::: {.columns style="font-size: 70%"}
+O que seria "o mais correto" para uma **ANOVA ideal de um fator**:
 
-::: {style="font-size: 70%"}
-```{r}
-# Normalidade por grupo
-iris %>% 
-  group_by(Species) %>% 
-  shapiro_test(Sepal.Length)
+-   Verificações **a priori** dos pressupostos do modelo
 
-# Homogeneidade de variâncias
-leveneTest(Sepal.Length ~ Species, data = iris)
-```
+    -   **Homogeneidade de variâncias:** `levene_test()`
 
-**Pressupostos atendidos!** Podemos prosseguir com ANOVA
+    -   **Normalidade dos resíduos**: `Shapiro nos resíduos` do modelo + `QQ-plot`
+
+    -   **Independência das observações:** O valor de uma observação **não influencia** nem é influenciado por outra.
+
+-   Verificações a posteriori dos resultados do modelo
+
+    -   **Tamanho de efeito:** `eta_squared()`
+
+    -   **Testes post-hoc** (se significativo): `TukeyHSD()`
+
+    -   Visualização dos dados por **Boxplot**
 :::
 
-## ANOVA
+## ANOVA (Análise de Variância)
+
+::: {.columns style="font-size: 70%"}
+Introdução da **estatística F,** o ❤️ da ANOVA**:**
+:::
+
+## ANOVA (Análise de Variância)
+
+::: {.columns style="font-size: 70%"}
+Introdução da **estatística F,** o ❤️ da ANOVA**:**
+
+**A diferença entre as médias dos grupos é grande em relação à variabilidade dentro dos grupos?**
+
+![](img/f-stats.png){fig-align="center" width="700"}
+:::
+
+## ANOVA (Análise de Variância)
 
 #### Realizando a ANOVA
 
 ::: {style="font-size: 70%"}
-```{r}
-# Modelo ANOVA
-modelo_anova <- aov(Sepal.Length ~ Species, data = iris)
+Vamos usar um dataset fake com medidas de anfíbios
 
-# Resultados
+-   variável respotas: `tam_medio_femur`
+
+-   variável preditora: `matriz` (**cana, eucalipto e pasto**)
+
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+glimpse(dados.anf)
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 70%"}
+Testando a **homogeneidade** devariâncias **das matrizes**
+
+-   H0: as variâncias são homogêneas entre grupos
+
+```{r}
+car::leveneTest(tam_medio_femur ~ matriz,
+                data = dados.anf)
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 70%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 60%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+::: {.columns style="font-size: 60%"}
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 60%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+::: {.columns style="font-size: 60%"}
+Resultado é **significativo**, mas nada disso **importa** se a distribuição dos **resíduos** não forem normais
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {.columns style="font-size: 60%"}
+Resultado é **significativo**, mas nada disso **importa** se a distribuição dos **resíduos** não forem normais
+
+-   H0: os dados seguem uma distribuição normal
+
+-   Vamos observar essa distribuição usando `boxplot()`
+:::
+
+:::::: {.columns style="font-size: 70%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+nortest::sf.test(modelo_anova$residuals)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+
+```
+:::
+:::::
+::::::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {.columns style="font-size: 60%"}
+Resultado é **significativo**, mas nada disso **importa** se a distribuição dos **resíduos** não forem normais
+
+-   H0: os dados seguem uma distribuição normal
+
+-   Vamos observar essa distribuição usando `boxplot()`
+:::
+
+:::::: {.columns style="font-size: 70%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+nortest::sf.test(modelo_anova$residuals)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+boxplot(modelo_anova$residuals ~ dados.anf$matriz)
+```
+:::
+:::::
+::::::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {.columns style="font-size: 60%"}
+Resultado é **significativo**, mas nada disso **importa** se a distribuição dos **resíduos** não forem normais
+
+-   H0: os dados seguem uma distribuição normal
+
+-   Vamos observar essa distribuição usando `boxplot()`
+:::
+
+:::::: {.columns style="font-size: 70%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+nortest::sf.test(modelo_anova$residuals)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+boxplot(modelo_anova$residuals ~ dados.anf$matriz)
+```
+:::
+:::::
+
+Os dados **são normais** e **variabilidade** semelhante entre grupos, podemos seguir!
+::::::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 55%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+::: {style="font-size: 50%"}
+-   **Resultado F**: A **variância** entre as médias das matrizes
+
+    -   é **13.67 vezes maior** do que a variância esperada apenas pelo erro aleatório dentro dos grupos.
+:::
+
+::: {.columns style="font-size: 65%"}
+```{r}
+#| output-location: column
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
+summary(modelo_anova)
+
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 55%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+::: {style="font-size: 45%"}
+-   **Resultado F**: A **variância** entre as médias das matrizes
+
+    -   é **13.67 vezes maior** do que a variância esperada apenas pelo erro aleatório dentro dos grupos.
+
+-   Use a função `eta_squared()` para acessar a **proporção da variância** total da resposta **explicada pelo fator**.
+
+    -   60% da variância da variável resposta é explicada pelo fator `matriz`.
+:::
+
+::: {.columns style="font-size: 65%"}
+```{r}
+#| output-location: column
+modelo_anova <- aov(tam_medio_femur ~ matriz,
+    data = dados.anf)
 summary(modelo_anova)
 ```
 
-**Interpretação:** Existe diferença significativa no comprimento de sépala entre as espécies (F = 119.3, p \< 0.001)
-:::
-
-## ANOVA
-
-#### Diagnóstico dos resíduos
-
-::: {style="font-size: 70%"}
 ```{r}
-#| fig-width: 10
-#| fig-height: 6
-par(mfrow = c(2, 2))
-plot(modelo_anova)
+#| output-location: column
+effectsize::eta_squared(modelo_anova)
 ```
 :::
 
-## ANOVA - Testes Post-hoc
+## ANOVA (Análise de Variância)
+
+#### Realizando a ANOVA
+
+::: {style="font-size: 55%"}
+Usamos a função `aov()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `aov(respostas~preditora, dados)`
+
+    -   usamos a função `summary()` para acessar os resultados
+:::
+
+::: {style="font-size: 50%"}
+-   **Resultado F**: A **variância** entre as médias das matrizes
+
+    -   é **13.67 vezes maior** do que a variância esperada apenas pelo erro aleatório dentro dos grupos.
+
+-   Use a função `eta_squared()` para acessar a **proporção da variância** total da resposta **explicada pelo fator**.
+
+    -   60% da variância da variável resposta é explicada pelo fator `matriz`.
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+report::report(modelo_anova)
+```
+:::
+
+## ANOVA (Análise de Variância)
+
+#### Testes Post-hoc
 
 ::: {style="font-size: 70%"}
 **Por quê?**
@@ -1032,99 +1566,193 @@ plot(modelo_anova)
 
 **Testes comuns:**
 
--   **Tukey HSD**: comparações entre todos os pares
+-   Proporções explicadas pelas variáveis `eta_squared()`
 
--   **Bonferroni**: mais conservador
+-   **Tukey HSD**: ***Honestly Significant Difference*** usado para identificar quais pares de **médias diferem entre si**, controlando o erro do Tipo I.
 
--   **Dunnett**: comparar grupos vs. controle
+-   Visualização **Boxplot**
 :::
 
-## ANOVA - Teste de Tukey
+## ANOVA (Análise de Variância)
 
-::: {style="font-size: 70%"}
+#### Teste de Tukey
+
+::: {style="font-size: 55%"}
+-   Entre **quais grupos** exatamente estão as **diferenças** detectadas pela **ANOVA**?
+
+    -   calcula a **diferença entre as médias**
+
+    -   estima o **erro padrão compartilhado** (usando o erro residual da ANOVA)
+
+    -   compara essa diferença com um **valor crítico da distribuição do intervalo**
+
+-   Usamos a função `TunkeyHSD()`
+
+-   Visualizamos usando **boxplot**
+:::
+
+::::: {style="font-size: 60%"}
+:::: columns
+::: {.column width="50%"}
 ```{r}
-# Teste de Tukey HSD
-tukey_result <- TukeyHSD(modelo_anova)
+tukey_result <- stats::TukeyHSD(modelo_anova)
 tukey_result
+
+```
+:::
+::::
+:::::
+
+## ANOVA (Análise de Variância)
+
+#### Teste de Tukey
+
+::: {style="font-size: 55%"}
+-   Entre **quais grupos** exatamente estão as **diferenças** detectadas pela **ANOVA**?
+
+    -   calcula a **diferença entre as médias**
+
+    -   estima o **erro padrão compartilhado** (usando o erro residual da ANOVA)
+
+    -   compara essa diferença com um **valor crítico da distribuição do intervalo**
+
+-   Usamos a função `TunkeyHSD()`
+
+-   Visualizamos usando **boxplot**
+:::
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+tukey_result <- stats::TukeyHSD(modelo_anova)
+tukey_result
+
 ```
 :::
 
-## ANOVA - Teste de Tukey
-
-#### Visualização
-
-::: {style="font-size: 70%"}
+::: {.column width="50%"}
 ```{r}
-#| fig-width: 8
-#| fig-height: 5
-plot(tukey_result)
-```
-
-**Todas as comparações são significativas** (intervalos não cruzam zero)
-:::
-
-## ANOVA - Teste de Tukey
-
-#### Visualização com letras
-
-::: {style="font-size: 70%"}
-```{r}
-#| fig-width: 8
-#| fig-height: 5
-# Calcular médias e grupos
-tukey_letras <- iris %>% 
-  tukey_hsd(Sepal.Length ~ Species) %>% 
-  add_significance() %>% 
-  add_xy_position()
-
-ggplot(iris, aes(x = Species, y = Sepal.Length)) +
-  geom_boxplot(aes(fill = Species), alpha = 0.5) +
-  stat_summary(fun = mean, geom = "point", shape = 23, 
-               size = 3, fill = "red") +
+#| fig-width: 5
+#| fig-height: 3
+ggplot(dados.anf, aes(x = matriz, y = tam_medio_femur)) +
+  geom_boxplot(aes(fill = matriz), alpha = 0.5) +
   theme_minimal() +
-  labs(y = "Comprimento da Sépala (cm)", x = "Espécie") +
+  labs(y = "Tamanho médio do fêmur (cm)", x = "Espécie") +
   theme(legend.position = "none")
 ```
 :::
+:::::
+::::::
 
-## ANOVA - Two-way
+## Kruskal–Wallis test
 
-#### Com dois fatores
+::: {.columns style="font-size: 70%"}
+**Alternativa** não paramétrica à one-way ANOVA
+
+O que seria "o mais correto" para uma **Kruskal–Wallis test** **ideal de um fator**:
+
+-   Verificações **a priori** dos pressupostos do modelo
+
+    -   **Homogeneidade de variâncias:** `levene_test()`
+
+    -   **Independência das observações:** O valor de uma observação **não influencia** nem é influenciado por outra.
+
+-   Verificações a posteriori dos resultados do modelo (se modelo for significativo)
+
+    -   **Tamanho de efeito:** `kruskal_effsize()`
+
+    -   **Testes post-hoc** (se significativo): `dunn_test()`
+
+    -   Visualização dos dados por **Boxplot**
+:::
+
+## Kruskal–Wallis test
+
+#### Realizando o Kruskal–Wallis
 
 ::: {style="font-size: 70%"}
-```{r}
-# Criar segundo fator (exemplo didático)
-dados_2way <- iris %>% 
-  mutate(Tratamento = rep(c("Controle", "Tratado"), length.out = n()))
+Vamos usar um dataset fake com medidas de anfíbios
 
-# ANOVA two-way
-modelo_2way <- aov(Sepal.Length ~ Species * Tratamento, 
-                   data = dados_2way)
-summary(modelo_2way)
+-   variável respotas: `tam_torax_medio`
+
+-   variável preditora: `matriz` (**cana, eucalipto e pasto**)
+
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+glimpse(dados.anf)
+
 ```
 :::
 
-## ANOVA - Two-way
+## Kruskal–Wallis test
 
-#### Gráfico de interação
+#### Realizando o Kruskal–Wallis
 
 ::: {style="font-size: 70%"}
+Testando a **homogeneidade** devariâncias **das matrizes**
+
+-   H0: as variâncias são homogêneas entre grupos
+
 ```{r}
-#| fig-width: 10
-#| fig-height: 5
-dados_2way %>% 
-  group_by(Species, Tratamento) %>% 
-  summarise(media = mean(Sepal.Length),
-            se = sd(Sepal.Length)/sqrt(n())) %>% 
-  ggplot(aes(x = Species, y = media, color = Tratamento, group = Tratamento)) +
-  geom_point(size = 3) +
-  geom_line() +
-  geom_errorbar(aes(ymin = media - se, ymax = media + se), width = 0.2) +
-  theme_minimal() +
-  labs(y = "Comprimento da Sépala (cm)", 
-       x = "Espécie",
-       title = "Interação entre Espécie e Tratamento")
+car::leveneTest(tam_torax_medio ~ matriz,
+                data = dados.anf)
 ```
+:::
+
+## Kruskal–Wallis test
+
+#### Realizando o Kruskal–Wallis
+
+::: {style="font-size: 70%"}
+Usamos a função `kruskal.test()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `kruskal.test(respostas~preditora, dados)`
+:::
+
+## Kruskal–Wallis test
+
+#### Realizando o Kruskal–Wallis
+
+::: {style="font-size: 60%"}
+Usamos a função `kruskal.test()`
+
+-   informamos variável `resposta` em função (`~`) da `preditoria` e a origem dos `dados`
+
+    -   `kruskal.test(respostas~preditora, dados)`
+:::
+
+::: {.columns style="font-size: 80%"}
+```{r}
+modelo_kruskal <- kruskal.test(tam_torax_medio ~ matriz,
+    data = dados.anf)
+modelo_kruskal
+
+```
+:::
+
+## Kruskal–Wallis test
+
+::: {.columns style="font-size: 70%"}
+**Alternativa** não paramétrica à one-way ANOVA
+
+O que seria "o mais correto" para uma **Kruskal–Wallis test** **ideal de um fator**:
+
+-   Verificações **a priori** dos pressupostos do modelo
+
+    -   **Homogeneidade de variâncias:** `levene_test()`
+
+    -   **Independência das observações:** O valor de uma observação **não influencia** nem é influenciado por outra.
+
+-   Verificações a posteriori dos resultados do modelo (se modelo for significativo)
+
+    -   **Tamanho de efeito:** `kruskal_effsize()`
+
+    -   **Testes post-hoc** (se significativo): `dunn_test()`
+
+    -   Visualização dos dados por **Boxplot**
 :::
 
 ## Análises Estatísticas Inferenciais
@@ -1272,7 +1900,7 @@ Usamos a função `cor.test()` para testar a hipótese de correlação
 #| output-location: column
 stats::cor.test(iris$Sepal.Length, 
                 iris$Petal.Length, 
-                method = "pearson")
+                method = "spearman")
 ```
 :::
 
@@ -1280,7 +1908,7 @@ stats::cor.test(iris$Sepal.Length,
 :::::: {style="font-size: 50%"}
 ::::: columns
 ::: {.column width="50%"}
-**Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
+**Interpretação:** Correlação **forte e positiva** (rho = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
 
 **IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
 :::
@@ -1302,7 +1930,7 @@ Usamos a função `cor.test()` para testar a hipótese de correlação
 #| output-location: column
 stats::cor.test(iris$Sepal.Length, 
                 iris$Petal.Length, 
-                method = "pearson")
+                method = "spearman")
 ```
 :::
 
@@ -1310,7 +1938,7 @@ stats::cor.test(iris$Sepal.Length,
 :::::: {style="font-size: 50%"}
 ::::: columns
 ::: {.column width="50%"}
-**Interpretação:** Correlação **forte e positiva** (r = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
+**Interpretação:** Correlação **forte e positiva** (rho = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
 
 **IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
 :::
@@ -1329,28 +1957,27 @@ stats::cor.test(iris$Sepal.Length,
 ::::::
 :::::::
 
-## Resumo Estatística Inferencial
+## Resumo Estatística Inferencial 
 
 #### Testes Paramétricos vs Não-Paramétricos
 
-::: {style="font-size: 70%"}
-| Situação           | Paramétrico    | Não-Paramétrico           |
-|--------------------|----------------|---------------------------|
-| Comparar 2 grupos  | t-test         | Mann-Whitney U (Wilcoxon) |
-| Comparar 3+ grupos | ANOVA          | Kruskal-Wallis            |
-| Dados pareados     | t-test pareado | Wilcoxon signed-rank      |
-| Correlação         | Pearson        | Spearman / Kendall        |
+::: {style="font-size: 60%"}
+| Situação           | Paramétrico | Não-Paramétrico           |
+|--------------------|-------------|---------------------------|
+| Comparar 2 grupos  | t-test      | Mann-Whitney U (Wilcoxon) |
+| Comparar 3+ grupos | ANOVA       | Kruskal-Wallis            |
+| Correlação         | Pearson     | Spearman / Kendall        |
 
 **Quando usar não-paramétricos?**
 
 -   Dados **não-normais** (mesmo após transformação)
 -   **Outliers** extremos
 -   **Amostras pequenas** (n \< 30)
--   Dados **ordinais** (ex: escala Likert)
 
 **Vantagens paramétricos:** Mais **poder estatístico** quando pressupostos são atendidos
 
 **Vantagens não-paramétricos:** Mais **robustos** a violações
+
 :::
 
 ## Estatística Preditiva

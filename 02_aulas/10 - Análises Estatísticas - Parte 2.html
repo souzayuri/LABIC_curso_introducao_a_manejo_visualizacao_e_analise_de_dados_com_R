@@ -652,15 +652,16 @@
 <span id="cb1-2"><a href=""></a><span class="fu">library</span>(car)            <span class="co"># Testes de pressupostos</span></span>
 <span id="cb1-3"><a href=""></a><span class="fu">library</span>(corrplot)       <span class="co"># Matriz de correlação</span></span>
 <span id="cb1-4"><a href=""></a><span class="fu">library</span>(ggcorrplot)     <span class="co"># Heatmap de correlação</span></span>
-<span id="cb1-5"><a href=""></a><span class="fu">library</span>(nortest)        <span class="co"># teste de normalidade shapiro-francia</span></span>
-<span id="cb1-6"><a href=""></a><span class="fu">library</span>(report)         <span class="co"># cria sumário dos resultados dos modelos</span></span>
-<span id="cb1-7"><a href=""></a><span class="fu">library</span>(rstatix)        <span class="co"># Testes estatísticos</span></span>
-<span id="cb1-8"><a href=""></a><span class="fu">library</span>(effectsize)     <span class="co"># Tamanho de efeito</span></span>
-<span id="cb1-9"><a href=""></a><span class="fu">library</span>(emmeans)        <span class="co"># Médias marginais e post-hoc</span></span>
-<span id="cb1-10"><a href=""></a><span class="fu">library</span>(sjPlot)         <span class="co"># Visualização de modelos</span></span>
-<span id="cb1-11"><a href=""></a><span class="fu">library</span>(ggeffects)      <span class="co"># Efeitos de modelos</span></span>
-<span id="cb1-12"><a href=""></a><span class="fu">library</span>(performance)    <span class="co"># Diagnóstico de modelos</span></span>
-<span id="cb1-13"><a href=""></a><span class="fu">library</span>(DHARMa)         <span class="co"># Diagnóstico de GLMs</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href=""></a><span class="fu">library</span>(qqplotr)        <span class="co"># Plota intervalo de confiança do qqplot</span></span>
+<span id="cb1-6"><a href=""></a><span class="fu">library</span>(nortest)        <span class="co"># teste de normalidade shapiro-francia</span></span>
+<span id="cb1-7"><a href=""></a><span class="fu">library</span>(report)         <span class="co"># cria sumário dos resultados dos modelos</span></span>
+<span id="cb1-8"><a href=""></a><span class="fu">library</span>(rstatix)        <span class="co"># Testes estatísticos</span></span>
+<span id="cb1-9"><a href=""></a><span class="fu">library</span>(effectsize)     <span class="co"># Tamanho de efeito</span></span>
+<span id="cb1-10"><a href=""></a><span class="fu">library</span>(emmeans)        <span class="co"># Médias marginais e post-hoc</span></span>
+<span id="cb1-11"><a href=""></a><span class="fu">library</span>(sjPlot)         <span class="co"># Visualização de modelos</span></span>
+<span id="cb1-12"><a href=""></a><span class="fu">library</span>(ggeffects)      <span class="co"># Efeitos de modelos</span></span>
+<span id="cb1-13"><a href=""></a><span class="fu">library</span>(performance)    <span class="co"># Diagnóstico de modelos</span></span>
+<span id="cb1-14"><a href=""></a><span class="fu">library</span>(DHARMa)         <span class="co"># Diagnóstico de GLMs</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -861,7 +862,7 @@ X-squared = 118.56, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p><strong>Interpretação:</strong> Existe associação significativa entre espécie e tamanho de sépala:</p>
 <ul>
 <li><p><code>χ² = 118.56</code>, tamanho da <strong>discrepância</strong> entre observado e esperado, <strong>positivo</strong> e <strong>alto</strong></p></li>
-<li><p><code>df = (3−1) × (3−1) = 2 × 2 = 4​</code>, quantidade de células podem variar livremente</p></li>
+<li><p><code>df = (3−1) × (3−1) = 2 × 2 = 4</code>, quantidade de células podem variar livremente</p></li>
 <li><p><code>P-value = 0.001</code>, hipótese nula rejeitada (usamos 0,001 quando p-value &lt; 2.2e-16)</p></li>
 </ul>
 </div>
@@ -892,126 +893,228 @@ X-squared = 118.56, df = 4, p-value &lt; 2.2e-16</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Teste de Normalidade</h2>
-<h4>Shapiro-Wilk Test</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># Teste de normalidade para cada espécie</span></span>
-<span id="cb18-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 4
-  Species    variable     statistic     p
-  &lt;fct&gt;      &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;
-1 setosa     Sepal.Length     0.978 0.460
-2 versicolor Sepal.Length     0.978 0.465
-3 virginica  Sepal.Length     0.971 0.258</code></pre>
-</div>
-</div>
-<p><strong>Interpretação:</strong></p>
-<ul>
-<li>H0: os dados seguem distribuição normal</li>
-<li>Se p &gt; 0.05: <strong>não rejeitamos H0</strong> (dados são normais)</li>
-<li>Se p &lt; 0.05: <strong>rejeitamos H0</strong> (dados não são normais)</li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>Teste de Normalidade</h2>
-<h4>Q-Q Plot</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">sample =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href=""></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
-<span id="cb20-3"><a href=""></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb20-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
-<span id="cb20-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb20-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q-Q Plot - Avaliação da Normalidade"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>Pontos próximos à linha vermelha</strong> indicam distribuição normal</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Teste de Homogeneidade de Variâncias</h2>
-<h4>Levene’s Test</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
-<span id="cb21-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Levene's Test for Homogeneity of Variance (center = median)
-       Df F value   Pr(&gt;F)   
-group   2  6.3527 0.002259 **
-      147                    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p><strong>Interpretação:</strong></p>
-<ul>
-<li>H0: as variâncias são homogêneas entre grupos</li>
-<li>Se p &gt; 0.05: <strong>não rejeitamos H0</strong> (variâncias homogêneas)</li>
-<li>Se p &lt; 0.05: <strong>rejeitamos H0</strong> (variâncias heterogêneas - heterocedasticidade)</li>
-</ul>
-<p><strong>Se houver heterocedasticidade:</strong> usar correção de Welch ou transformação de dados</p>
-</div>
-</section>
-<section class="slide level2">
 <h2>Teste t (t-test)</h2>
+<h4><code>Student's t-test</code> vs Welch’s t-test</h4>
 <div style="font-size: 70%">
-<p><strong>Quando usar?</strong></p>
+<p><strong>Quando usar?</strong> - <code>Student's t-test</code> (variâncias homogêneas)</p>
 <ul>
-<li><p>Comparar <strong>médias</strong> de <strong>dois grupos</strong></p></li>
-<li><p>Teste t de Student (variâncias homogêneas)</p></li>
-<li><p>Teste t de Welch (variâncias heterogêneas)</p></li>
+<li>Comparar <strong>médias</strong> de <strong>dois grupos (Two Sample t-test)</strong></li>
 </ul>
 <p><strong>Pressupostos:</strong></p>
 <ul>
 <li><p>Variável resposta <strong>contínua</strong></p></li>
-<li><p>Distribuição <strong>normal</strong> dos dados</p></li>
-<li><p><strong>Homogeneidade de variâncias</strong> (teste de Student)</p></li>
+<li><p>Distribuição <strong>normal</strong> dos dados (<strong>paramétrico</strong>)</p></li>
+<li><p><strong>Homogeneidade de variâncias</strong></p></li>
 <li><p>Observações <strong>independentes</strong></p></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Teste t</h2>
-<h4>Exemplo: Comparando duas espécies</h4>
+<h2>Teste t (t-test)</h2>
+<h4>Student’s t-test vs <code>Welch's t-test</code></h4>
 <div style="font-size: 70%">
+<p><strong>Quando usar?</strong> - <code>Welch's t-test</code> (variâncias heterogêneas)</p>
+<ul>
+<li>Comparar <strong>médias</strong> de <strong>dois grupos (Two Sample t-test)</strong></li>
+</ul>
+<p><strong>Pressupostos:</strong></p>
+<ul>
+<li><p>Variável resposta <strong>contínua</strong></p></li>
+<li><p>Distribuição não <strong>normal</strong> dos dados (<strong>não paramétrico</strong>)</p></li>
+<li><p><strong>Heterogeneidade de variâncias</strong></p></li>
+<li><p>Observações <strong>independentes</strong></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste t (t-test)</h2>
+<div class="columns" style="font-size: 70%">
+<p>O que seria “o mais correto” para um <strong>t-test ideal</strong>:</p><ul>
+<li><p>Verificações <strong>a priori</strong> dos pressupostos do modelo</p>
+<ul>
+<li><p><strong>Normalidade por grupo</strong>: <code>Shapiro</code> + <code>QQ-plot</code></p></li>
+<li><p><strong>Homogeneidade de variâncias</strong>: <code>levene_test()</code></p></li>
+<li><p><strong>Independência das observações</strong>: O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+</ul></li>
+<li><p>Verificações <strong>a posteriori</strong> dos resultados do modelo</p>
+<ul>
+<li><p><code>Cohen’s test()</code></p></li>
+<li><p>Visualização dos dados por <strong>Boxplot</strong></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Normalidade</h2>
+<h4>Shapiro-Francia Test</h4>
+<div style="font-size: 60%">
+<p><strong>Interpretação (não intuitiva</strong> 💀<strong>):</strong></p>
+<ul>
+<li><code>H0</code>: os dados seguem distribuição normal</li>
+<li><code>Se p &gt; 0.05</code>: <strong>não rejeitamos H0</strong> (dados são normais)</li>
+<li><code>Se p &lt; 0.05</code>: <strong>rejeitamos H0</strong> (dados não são normais)</li>
+<li><strong><code>W ≈ 1</code></strong> → dados <strong>muito próximos</strong> de uma <strong>normal</strong></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="columns" style="font-size: 110%">
+
+</div>
+</div><div class="column" style="width:50%;">
+<div class="columns" style="font-size: 110%">
+
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Normalidade</h2>
+<h4>Shapiro-Francia Test</h4>
+<div style="font-size: 60%">
+<p><strong>Interpretação (não intuitiva</strong> 💀<strong>):</strong></p>
+<ul>
+<li><code>H0</code>: os dados seguem distribuição normal</li>
+<li><code>Se p &gt; 0.05</code>: <strong>não rejeitamos H0</strong> (dados são normais)</li>
+<li><code>Se p &lt; 0.05</code>: <strong>rejeitamos H0</strong> (dados não são normais)</li>
+<li><strong><code>W ≈ 1</code></strong> → dados <strong>muito próximos</strong> de uma <strong>normal</strong></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vamos trabalhar com a variável <code>Sepal.Length</code></p>
+<p>Usamos a função <code>sf.test()</code></p>
+<div class="columns" style="font-size: 110%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># Filtrar apenas duas espécies</span></span>
-<span id="cb23-2"><a href=""></a>dados_2sp <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb23-3"><a href=""></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"setosa"</span>, <span class="st">"versicolor"</span>))</span>
-<span id="cb23-4"><a href=""></a></span>
-<span id="cb23-5"><a href=""></a><span class="co"># Verificar normalidade</span></span>
-<span id="cb23-6"><a href=""></a>dados_2sp <span class="sc">%&gt;%</span> </span>
-<span id="cb23-7"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-8"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  Species    variable     statistic     p
-  &lt;fct&gt;      &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;
-1 setosa     Sepal.Length     0.978 0.460
-2 versicolor Sepal.Length     0.978 0.465</code></pre>
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Sepal.Length
+W = 0.97961, p-value = 0.02621</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="columns" style="font-size: 110%">
+
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Normalidade</h2>
+<h4>Shapiro-Francia Test</h4>
+<div style="font-size: 60%">
+<p><strong>Interpretação (não intuitiva</strong> 💀<strong>):</strong></p>
+<ul>
+<li><code>H0</code>: os dados seguem distribuição normal</li>
+<li><code>Se p &gt; 0.05</code>: <strong>não rejeitamos H0</strong> (dados são normais)</li>
+<li><code>Se p &lt; 0.05</code>: <strong>rejeitamos H0</strong> (dados não são normais)</li>
+<li><strong><code>W ≈ 1</code></strong> → dados <strong>muito próximos</strong> de uma <strong>normal</strong></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vamos trabalhar com a variável <code>Sepal.Length</code></p>
+<p>Usamos a função <code>sf.test()</code></p>
+<div class="columns" style="font-size: 110%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Sepal.Length
+W = 0.97961, p-value = 0.02621</code></pre>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Teste de normalidade para cada espécie</p>
+<div class="columns" style="font-size: 110%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb22-4"><a href=""></a>    <span class="at">p_value =</span> nortest<span class="sc">::</span><span class="fu">sf.test</span>(Sepal.Length)<span class="sc">$</span>p.value,</span>
+<span id="cb22-5"><a href=""></a>    <span class="at">w_value =</span> nortest<span class="sc">::</span><span class="fu">sf.test</span>(Sepal.Length)<span class="sc">$</span>statistic</span>
+<span id="cb22-6"><a href=""></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  Species    p_value w_value
+  &lt;fct&gt;        &lt;dbl&gt;   &lt;dbl&gt;
+1 setosa       0.536   0.982
+2 versicolor   0.615   0.984
+3 virginica    0.221   0.971</code></pre>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Normalidade</h2>
+<h4>Q–Q plot (Quantile–Quantile plot)</h4>
+<div style="font-size: 60%">
+<p>Compara os quantis dos seus dados com os quantis de uma <strong>distribuição teórica</strong> para avaliar visualmente se os dados seguem uma <strong>distribuição normal</strong> e em que medida se <strong>desviam</strong> dela.</p>
+<p><strong>Pontos próximos à linha vermelha</strong> indicam distribuição normal</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Normalidade</h2>
+<h4>Q–Q plot (Quantile–Quantile plot)</h4>
+<div style="font-size: 60%">
+<p>Compara os quantis dos seus dados com os quantis de uma <strong>distribuição teórica</strong> para avaliar visualmente se os dados seguem uma <strong>distribuição normal</strong> e em que medida se <strong>desviam</strong> dela.</p>
+<p><strong>Pontos próximos à linha vermelha</strong> indicam distribuição normal</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">sample =</span> Sepal.Length)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href=""></a>  qqplotr<span class="sc">::</span><span class="fu">stat_qq_band</span>(<span class="at">conf =</span> <span class="fl">0.95</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># intervalo de confiança</span></span>
+<span id="cb24-3"><a href=""></a>  <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"darkred"</span>) <span class="sc">+</span> <span class="co"># linha</span></span>
+<span id="cb24-4"><a href=""></a>  <span class="fu">stat_qq_point</span>() <span class="sc">+</span> <span class="co"># pontos</span></span>
+<span id="cb24-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species) <span class="sc">+</span></span>
+<span id="cb24-6"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Q-Q Plot - Avaliação da Normalidade"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-18-1.png" width="768"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Teste t</h2>
-<h4>Verificação de pressupostos</h4>
-<div style="font-size: 70%">
+<h2>Teste de Homogeneidade</h2>
+<div style="font-size: 60%">
+<p><strong>Homogeneidade de Variâncias</strong></p>
+<p>Selecionamos os <strong>2 grupos</strong> que queremos comparar as médias</p>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li>Usamos a função <code>leveneTest()</code></li>
+<li>H0: as variâncias são homogêneas entre grupos</li>
+</ul>
+<p><strong>Se houver heterocedasticidade:</strong> usar correção de <code>Welch's t-test</code> ou transformação de dados</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste de Homogeneidade</h2>
+<div style="font-size: 60%">
+<p><strong>Homogeneidade de Variâncias</strong></p>
+<p>Selecionamos os <strong>2 grupos</strong> que queremos comparar as médias</p>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li>Usamos a função <code>leveneTest()</code></li>
+<li>H0: as variâncias são homogêneas entre grupos</li>
+</ul>
+<p><strong>Se houver heterocedasticidade:</strong> usar correção de <code>Welch's t-test</code> ou transformação de dados</p>
+</div>
+<div style="font-size: 90%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># Teste de Levene</span></span>
-<span id="cb25-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="co"># Filtrar apenas duas espécies</span></span>
+<span id="cb25-2"><a href=""></a>dados_2sp <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"setosa"</span>, <span class="st">"versicolor"</span>))</span>
+<span id="cb25-4"><a href=""></a></span>
+<span id="cb25-5"><a href=""></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Levene's Test for Homogeneity of Variance (center = median)
       Df F value   Pr(&gt;F)   
@@ -1021,19 +1124,51 @@ group  1  8.1727 0.005196 **
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p><strong>Pressupostos atendidos!</strong> Podemos usar o teste t de Student</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Teste t</h2>
-<h4>Realizando o teste</h4>
+<h4>Comparando duas espécies</h4>
+<div style="font-size: 60%">
+<ul>
+<li><p>Todos os <strong>pressupsotos foram atendidos</strong>, seguimos com <code>Student's t-test</code></p>
+<ul>
+<li>se qualque pressuposto fosse violado, teriamos de usar <code>Welch's t-test</code></li>
+</ul></li>
+<li><p>Usamos a função <code>t.test()</code></p>
+<ul>
+<li><p>se <code>Student's t-test</code> usar parâmetro <code>var.equal = TRUE</code></p></li>
+<li><p>se <code>Welch's t-test</code> usar parâmetro <code>var.equal = FALSE</code></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste t</h2>
+<h4>Comparando duas espécies</h4>
+<div style="font-size: 60%">
+<ul>
+<li><p>Todos os <strong>pressupsotos foram atendidos</strong>, seguimos com <code>Student's t-test</code></p>
+<ul>
+<li>se qualque pressuposto fosse violado, teriamos de usar <code>Welch's t-test</code></li>
+</ul></li>
+<li><p>Usamos a função <code>t.test()</code></p>
+<ul>
+<li><p>se <code>Student's t-test</code> usar parâmetro <code>var.equal = TRUE</code></p></li>
+<li><p>se <code>Welch's t-test</code> usar parâmetro <code>var.equal = FALSE</code></p></li>
+</ul></li>
+</ul>
+</div>
 <div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="font-size: 90%">
+<p><strong>Interpretação:</strong> Diferença significativa no comprimento de sépala entre setosa e versicolor (<strong><code>t = -10,521, p &lt; 0.001</code></strong>)</p>
+</div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="co"># Teste t</span></span>
-<span id="cb27-2"><a href=""></a>teste_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
-<span id="cb27-3"><a href=""></a>                  <span class="at">data =</span> dados_2sp,</span>
-<span id="cb27-4"><a href=""></a>                  <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb27-5"><a href=""></a>teste_t</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>teste_t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(Sepal.Length <span class="sc">~</span> Species, </span>
+<span id="cb27-2"><a href=""></a>                  <span class="at">data =</span> dados_2sp,</span>
+<span id="cb27-3"><a href=""></a>                  <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb27-4"><a href=""></a>teste_t</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Two Sample t-test
@@ -1048,16 +1183,39 @@ sample estimates:
                    5.006                    5.936 </code></pre>
 </div>
 </div>
-<p><strong>Interpretação:</strong> Diferença significativa no comprimento de sépala entre setosa e versicolor (t = -10.52, p &lt; 0.001)</p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Teste t</h2>
 <h4>Tamanho de efeito (Cohen’s d)</h4>
-<div style="font-size: 70%">
+<div style="font-size: 60%">
+<p>Quão grande é essa difença?</p>
+<p><strong>Interpretação do Cohen’s d:</strong></p>
+<ul>
+<li><code>0.2</code> = efeito <strong>pequeno</strong></li>
+<li><code>0.5</code> = efeito <strong>médio</strong></li>
+<li><code>0.8</code> = efeito <strong>grande</strong></li>
+</ul>
+<pre><code></code></pre>
+</div>
+</section>
+<section class="slide level2">
+<h2>Teste t</h2>
+<h4>Tamanho de efeito (Cohen’s d)</h4>
+<div style="font-size: 60%">
+<p>Quão grande é essa difença?</p>
+<p><strong>Interpretação do Cohen’s d:</strong></p>
+<ul>
+<li><code>0.2</code> = efeito <strong>pequeno</strong></li>
+<li><code>0.5</code> = efeito <strong>médio</strong></li>
+<li><code>0.8</code> = efeito <strong>grande</strong></li>
+</ul>
+</div>
+<div style="font-size: 80%">
+<p>Efeito <strong>grande</strong> (<code>d = -2.10</code>) - diferença biologicamente relevante, com valores menores no <strong>grupo de referência</strong>!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="co"># Calcular tamanho de efeito</span></span>
-<span id="cb29-2"><a href=""></a><span class="fu">cohens_d</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> dados_2sp)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -1066,46 +1224,85 @@ sample estimates:
 - Estimated using pooled SD.</code></pre>
 </div>
 </div>
-<p><strong>Interpretação do Cohen’s d:</strong></p>
-<ul>
-<li>0.2 = efeito pequeno</li>
-<li>0.5 = efeito médio</li>
-<li>0.8 = efeito grande</li>
-</ul>
-<p>Efeito <strong>grande</strong> (d = 2.10) - diferença biologicamente relevante!</p>
 </div>
 </section>
 <section class="slide level2">
 <h2>Teste t</h2>
-<h4>Visualização</h4>
+<h4>Visualização dos dados</h4>
 <div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(dados_2sp, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb31-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb31-5"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb31-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
-<span id="cb31-7"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb31-8"><a href=""></a>       <span class="at">title =</span> <span class="st">"Comparação entre duas espécies"</span>) <span class="sc">+</span></span>
-<span id="cb31-9"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(dados_2sp, <span class="fu">aes</span>(<span class="at">x =</span> Species, </span>
+<span id="cb32-2"><a href=""></a>                      <span class="at">y =</span> Sepal.Length, </span>
+<span id="cb32-3"><a href=""></a>                      <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb32-4"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb32-6"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb32-8"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>, </span>
+<span id="cb32-9"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>) <span class="sc">+</span></span>
+<span id="cb32-10"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-18-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-22-1.png" width="480"></p>
 </figure>
 </div>
 </div>
-</div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>ANOVA (Análise de Variância)</h2>
-<div style="font-size: 70%">
+<div class="columns">
+<p>Existem dois testes<br>
+<br>
+<strong>one-way ANOVA:</strong> Possui <strong>um único fator</strong> (variável independente/preditora)</p><p><strong>two-way ANOVA:</strong> Possui <strong>dois fatores</strong> (variáveis independentes/preditoras) e permite testar também a interação entre eles</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Só usaremos:</h4>
+<div class="columns">
+<p><br>
+<strong>one-way ANOVA:</strong> Possui <strong>um único fator</strong> (variável independente/preditora)</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<div style="font-size: 60%">
 <p><strong>Quando usar?</strong></p>
 <ul>
 <li><p>Comparar <strong>médias</strong> de <strong>três ou mais grupos</strong></p></li>
-<li><p>Extensão do teste t para múltiplos grupos</p></li>
+<li><p>Extensão do teste t para <strong>múltiplos grupos</strong></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<div style="font-size: 60%">
+<p><strong>Quando usar?</strong></p>
+<ul>
+<li><p>Comparar <strong>médias</strong> de <strong>três ou mais grupos</strong></p></li>
+<li><p>Extensão do teste t para <strong>múltiplos grupos</strong></p></li>
+</ul>
+<p><strong>Pressupostos:</strong></p>
+<ul>
+<li><p>Variável resposta <strong>contínua</strong></p></li>
+<li><p>Distribuição <strong>normal</strong> dos resíduos</p></li>
+<li><p><strong>Homogeneidade de variâncias</strong></p></li>
+<li><p>Observações <strong>independentes</strong></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<div style="font-size: 60%">
+<p><strong>Quando usar?</strong></p>
+<ul>
+<li><p>Comparar <strong>médias</strong> de <strong>três ou mais grupos</strong></p></li>
+<li><p>Extensão do teste t para <strong>múltiplos grupos</strong></p></li>
 </ul>
 <p><strong>Pressupostos:</strong></p>
 <ul>
@@ -1116,82 +1313,440 @@ sample estimates:
 </ul>
 <p><strong>Tipos:</strong></p>
 <ul>
-<li><p><strong>One-way ANOVA</strong>: um fator</p></li>
-<li><p><strong>Two-way ANOVA</strong>: dois fatores (+ interação)</p></li>
+<li><p><strong>One-way ANOVA</strong>: um fator</p>
+<ul>
+<li>se o fator for categórico com 2 níveis, então um <strong>test-t</strong> é realizado no lugar.</li>
+</ul></li>
+<li><p><strong>Two-way ANOVA</strong>: dois fatores</p></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA</h2>
-<h4>Verificação de pressupostos</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="co"># Normalidade por grupo</span></span>
-<span id="cb32-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-4"><a href=""></a>  <span class="fu">shapiro_test</span>(Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 4
-  Species    variable     statistic     p
-  &lt;fct&gt;      &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;
-1 setosa     Sepal.Length     0.978 0.460
-2 versicolor Sepal.Length     0.978 0.465
-3 virginica  Sepal.Length     0.971 0.258</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a><span class="co"># Homogeneidade de variâncias</span></span>
-<span id="cb34-2"><a href=""></a><span class="fu">leveneTest</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Levene's Test for Homogeneity of Variance (center = median)
-       Df F value   Pr(&gt;F)   
-group   2  6.3527 0.002259 **
-      147                    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p><strong>Pressupostos atendidos!</strong> Podemos prosseguir com ANOVA</p>
+<h2>ANOVA (Análise de Variância)</h2>
+<div class="columns" style="font-size: 70%">
+<p>O que seria “o mais correto” para uma <strong>ANOVA ideal de um fator</strong>:</p><ul>
+<li><p>Verificações <strong>a priori</strong> dos pressupostos do modelo</p>
+<ul>
+<li><p><strong>Homogeneidade de variâncias:</strong> <code>levene_test()</code></p></li>
+<li><p><strong>Normalidade dos resíduos</strong>: <code>Shapiro nos resíduos</code> do modelo + <code>QQ-plot</code></p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+</ul></li>
+<li><p>Verificações a posteriori dos resultados do modelo</p>
+<ul>
+<li><p><strong>Tamanho de efeito:</strong> <code>eta_squared()</code></p></li>
+<li><p><strong>Testes post-hoc</strong> (se significativo): <code>TukeyHSD()</code></p></li>
+<li><p>Visualização dos dados por <strong>Boxplot</strong></p></li>
+</ul></li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA</h2>
+<h2>ANOVA (Análise de Variância)</h2>
+<div class="columns" style="font-size: 70%">
+<p>Introdução da <strong>estatística F,</strong> o ❤️ da ANOVA<strong>:</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<div class="columns" style="font-size: 70%">
+<p>Introdução da <strong>estatística F,</strong> o ❤️ da ANOVA<strong>:</strong></p><p><strong>A diferença entre as médias dos grupos é grande em relação à variabilidade dentro dos grupos?</strong></p><div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/f-stats.png" class="quarto-figure quarto-figure-center" width="700"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
 <h4>Realizando a ANOVA</h4>
 <div style="font-size: 70%">
+<p>Vamos usar um dataset fake com medidas de anfíbios</p>
+<ul>
+<li><p>variável respotas: <code>tam_medio_femur</code></p></li>
+<li><p>variável preditora: <code>matriz</code> (<strong>cana, eucalipto e pasto</strong>)</p></li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="co"># Modelo ANOVA</span></span>
-<span id="cb36-2"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
-<span id="cb36-3"><a href=""></a></span>
-<span id="cb36-4"><a href=""></a><span class="co"># Resultados</span></span>
-<span id="cb36-5"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb33-2"><a href=""></a><span class="fu">glimpse</span>(dados.anf)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
-Species       2  63.21  31.606   119.3 &lt;2e-16 ***
-Residuals   147  38.96   0.265                   
+<pre><code>Rows: 21
+Columns: 12
+$ buffer          &lt;chr&gt; "b01", "b02", "b03", "b04", "b05", "b06", "b07", "b08"…
+$ lat             &lt;dbl&gt; -23.646, -23.539, -23.539, -23.501, -23.490, -23.481, …
+$ long            &lt;dbl&gt; -47.471, -47.460, -47.458, -47.396, -46.364, -47.111, …
+$ n_sp            &lt;dbl&gt; 7, 6, 11, 8, 7, 3, 9, 9, 8, 6, 5, 4, 11, 8, 12, 9, 5, …
+$ sp_flo          &lt;dbl&gt; 3, 5, 8, 6, 5, 1, 6, 6, 5, 2, 1, 1, 9, 7, 10, 5, 2, 6,…
+$ sp_sav          &lt;dbl&gt; 4, 1, 3, 2, 2, 2, 3, 3, 3, 4, 4, 3, 2, 1, 2, 4, 3, 3, …
+$ pres_inv        &lt;chr&gt; "ausente", "ausente", "presente", "presente", "present…
+$ tam_medio_femur &lt;dbl&gt; 1.172, 1.171, 1.154, 1.075, 1.157, 1.259, 1.006, 1.090…
+$ pct_flo         &lt;dbl&gt; 46, 57, 78, 71, 59, 12, 68, 53, 49, 29, 18, 19, 84, 65…
+$ conect          &lt;dbl&gt; 39.5, 42.4, 69.9, 58.8, 44.0, 22.3, 57.8, 41.2, 39.9, …
+$ matriz          &lt;chr&gt; "cana", "pasto", "pasto", "eucalipto", "cana", "pasto"…
+$ tam_torax_medio &lt;dbl&gt; 2.403771, 2.235445, 2.961840, 2.430704, 2.150974, 1.99…</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 70%">
+<p>Testando a <strong>homogeneidade</strong> devariâncias <strong>das matrizes</strong></p>
+<ul>
+<li>H0: as variâncias são homogêneas entre grupos</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb35-2"><a href=""></a>                <span class="at">data =</span> dados.anf)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  2  1.5679 0.2357
+      18               </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 70%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 60%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 60%">
+
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb37-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb37-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p><strong>Interpretação:</strong> Existe diferença significativa no comprimento de sépala entre as espécies (F = 119.3, p &lt; 0.001)</p>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA</h2>
-<h4>Diagnóstico dos resíduos</h4>
-<div style="font-size: 70%">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 60%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 60%">
+<p>Resultado é <strong>significativo</strong>, mas nada disso <strong>importa</strong> se a distribuição dos <strong>resíduos</strong> não forem normais</p>
+</div>
+<div class="columns" style="font-size: 80%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb38-2"><a href=""></a><span class="fu">plot</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb39-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb39-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div class="columns" style="font-size: 60%">
+<p>Resultado é <strong>significativo</strong>, mas nada disso <strong>importa</strong> se a distribuição dos <strong>resíduos</strong> não forem normais</p><ul>
+<li><p>H0: os dados seguem uma distribuição normal</p></li>
+<li><p>Vamos observar essa distribuição usando <code>boxplot()</code></p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb41-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb41-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(modelo_anova<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  modelo_anova$residuals
+W = 0.97164, p-value = 0.6787</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div class="columns" style="font-size: 60%">
+<p>Resultado é <strong>significativo</strong>, mas nada disso <strong>importa</strong> se a distribuição dos <strong>resíduos</strong> não forem normais</p><ul>
+<li><p>H0: os dados seguem uma distribuição normal</p></li>
+<li><p>Vamos observar essa distribuição usando <code>boxplot()</code></p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb45-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb45-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(modelo_anova<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  modelo_anova$residuals
+W = 0.97164, p-value = 0.6787</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">boxplot</span>(modelo_anova<span class="sc">$</span>residuals <span class="sc">~</span> dados.anf<span class="sc">$</span>matriz)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA - Testes Post-hoc</h2>
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div class="columns" style="font-size: 60%">
+<p>Resultado é <strong>significativo</strong>, mas nada disso <strong>importa</strong> se a distribuição dos <strong>resíduos</strong> não forem normais</p><ul>
+<li><p>H0: os dados seguem uma distribuição normal</p></li>
+<li><p>Vamos observar essa distribuição usando <code>boxplot()</code></p></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb50-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb50-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(modelo_anova<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  modelo_anova$residuals
+W = 0.97164, p-value = 0.6787</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a><span class="fu">boxplot</span>(modelo_anova<span class="sc">$</span>residuals <span class="sc">~</span> dados.anf<span class="sc">$</span>matriz)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div><p>Os dados <strong>são normais</strong> e <strong>variabilidade</strong> semelhante entre grupos, podemos seguir!</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 55%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 50%">
+<ul>
+<li><p><strong>Resultado F</strong>: A <strong>variância</strong> entre as médias das matrizes</p>
+<ul>
+<li>é <strong>13.67 vezes maior</strong> do que a variância esperada apenas pelo erro aleatório dentro dos grupos.</li>
+</ul></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb55-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb55-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 55%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 45%">
+<ul>
+<li><p><strong>Resultado F</strong>: A <strong>variância</strong> entre as médias das matrizes</p>
+<ul>
+<li>é <strong>13.67 vezes maior</strong> do que a variância esperada apenas pelo erro aleatório dentro dos grupos.</li>
+</ul></li>
+<li><p>Use a função <code>eta_squared()</code> para acessar a <strong>proporção da variância</strong> total da resposta <strong>explicada pelo fator</strong>.</p>
+<ul>
+<li>60% da variância da variável resposta é explicada pelo fator <code>matriz</code>.</li>
+</ul></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>modelo_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(tam_medio_femur <span class="sc">~</span> matriz,</span>
+<span id="cb57-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb57-3"><a href=""></a><span class="fu">summary</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df  Sum Sq  Mean Sq F value   Pr(&gt;F)    
+matriz       2 0.04982 0.024912   13.67 0.000245 ***
+Residuals   18 0.03281 0.001823                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div></div><div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>effectsize<span class="sc">::</span><span class="fu">eta_squared</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># Effect Size for ANOVA
+
+Parameter | Eta2 |       95% CI
+-------------------------------
+matriz    | 0.60 | [0.31, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].</code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Realizando a ANOVA</h4>
+<div style="font-size: 55%">
+<p>Usamos a função <code>aov()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><p><code>aov(respostas~preditora, dados)</code></p></li>
+<li><p>usamos a função <code>summary()</code> para acessar os resultados</p></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 50%">
+<ul>
+<li><p><strong>Resultado F</strong>: A <strong>variância</strong> entre as médias das matrizes</p>
+<ul>
+<li>é <strong>13.67 vezes maior</strong> do que a variância esperada apenas pelo erro aleatório dentro dos grupos.</li>
+</ul></li>
+<li><p>Use a função <code>eta_squared()</code> para acessar a <strong>proporção da variância</strong> total da resposta <strong>explicada pelo fator</strong>.</p>
+<ul>
+<li>60% da variância da variável resposta é explicada pelo fator <code>matriz</code>.</li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a>report<span class="sc">::</span><span class="fu">report</span>(modelo_anova)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The ANOVA (formula: tam_medio_femur ~ matriz) suggests that:
+
+  - The main effect of matriz is statistically significant and large (F(2, 18) =
+13.67, p &lt; .001; Eta2 = 0.60, 95% CI [0.31, 1.00])
+
+Effect sizes were labelled following Field's (2013) recommendations.</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Testes Post-hoc</h4>
 <div style="font-size: 70%">
 <p><strong>Por quê?</strong></p>
 <ul>
@@ -1201,129 +1756,226 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </ul>
 <p><strong>Testes comuns:</strong></p>
 <ul>
-<li><p><strong>Tukey HSD</strong>: comparações entre todos os pares</p></li>
-<li><p><strong>Bonferroni</strong>: mais conservador</p></li>
-<li><p><strong>Dunnett</strong>: comparar grupos vs.&nbsp;controle</p></li>
+<li><p>Proporções explicadas pelas variáveis <code>eta_squared()</code></p></li>
+<li><p><strong>Tukey HSD</strong>: <strong><em>Honestly Significant Difference</em></strong> usado para identificar quais pares de <strong>médias diferem entre si</strong>, controlando o erro do Tipo I.</p></li>
+<li><p>Visualização <strong>Boxplot</strong></p></li>
 </ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA - Teste de Tukey</h2>
-<div style="font-size: 70%">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Teste de Tukey</h4>
+<div style="font-size: 55%">
+<ul>
+<li><p>Entre <strong>quais grupos</strong> exatamente estão as <strong>diferenças</strong> detectadas pela <strong>ANOVA</strong>?</p>
+<ul>
+<li><p>calcula a <strong>diferença entre as médias</strong></p></li>
+<li><p>estima o <strong>erro padrão compartilhado</strong> (usando o erro residual da ANOVA)</p></li>
+<li><p>compara essa diferença com um <strong>valor crítico da distribuição do intervalo</strong></p></li>
+</ul></li>
+<li><p>Usamos a função <code>TunkeyHSD()</code></p></li>
+<li><p>Visualizamos usando <strong>boxplot</strong></p></li>
+</ul>
+</div>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="co"># Teste de Tukey HSD</span></span>
-<span id="cb39-2"><a href=""></a>tukey_result <span class="ot">&lt;-</span> <span class="fu">TukeyHSD</span>(modelo_anova)</span>
-<span id="cb39-3"><a href=""></a>tukey_result</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>tukey_result <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">TukeyHSD</span>(modelo_anova)</span>
+<span id="cb63-2"><a href=""></a>tukey_result</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
-Fit: aov(formula = Sepal.Length ~ Species, data = iris)
+Fit: aov(formula = tam_medio_femur ~ matriz, data = dados.anf)
 
-$Species
-                      diff       lwr       upr p adj
-versicolor-setosa    0.930 0.6862273 1.1737727     0
-virginica-setosa     1.582 1.3382273 1.8257727     0
-virginica-versicolor 0.652 0.4082273 0.8957727     0</code></pre>
+$matriz
+                        diff         lwr         upr     p adj
+eucalipto-cana  -0.099571429 -0.15780979 -0.04133307 0.0010387
+pasto-cana       0.007142857 -0.05109550  0.06538122 0.9475779
+pasto-eucalipto  0.106714286  0.04847593  0.16495264 0.0005251</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section class="slide level2">
-<h2>ANOVA - Teste de Tukey</h2>
-<h4>Visualização</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">plot</span>(tukey_result)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-23-1.png" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>Todas as comparações são significativas</strong> (intervalos não cruzam zero)</p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA - Teste de Tukey</h2>
-<h4>Visualização com letras</h4>
-<div style="font-size: 70%">
+<h2>ANOVA (Análise de Variância)</h2>
+<h4>Teste de Tukey</h4>
+<div style="font-size: 55%">
+<ul>
+<li><p>Entre <strong>quais grupos</strong> exatamente estão as <strong>diferenças</strong> detectadas pela <strong>ANOVA</strong>?</p>
+<ul>
+<li><p>calcula a <strong>diferença entre as médias</strong></p></li>
+<li><p>estima o <strong>erro padrão compartilhado</strong> (usando o erro residual da ANOVA)</p></li>
+<li><p>compara essa diferença com um <strong>valor crítico da distribuição do intervalo</strong></p></li>
+</ul></li>
+<li><p>Usamos a função <code>TunkeyHSD()</code></p></li>
+<li><p>Visualizamos usando <strong>boxplot</strong></p></li>
+</ul>
+</div>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="co"># Calcular médias e grupos</span></span>
-<span id="cb42-2"><a href=""></a>tukey_letras <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href=""></a>  <span class="fu">tukey_hsd</span>(Sepal.Length <span class="sc">~</span> Species) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-4"><a href=""></a>  <span class="fu">add_significance</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb42-5"><a href=""></a>  <span class="fu">add_xy_position</span>()</span>
-<span id="cb42-6"><a href=""></a></span>
-<span id="cb42-7"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span></span>
-<span id="cb42-8"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Species), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb42-9"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, </span>
-<span id="cb42-10"><a href=""></a>               <span class="at">size =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb42-11"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb42-12"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, <span class="at">x =</span> <span class="st">"Espécie"</span>) <span class="sc">+</span></span>
-<span id="cb42-13"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-24-1.png" width="768"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>ANOVA - Two-way</h2>
-<h4>Com dois fatores</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># Criar segundo fator (exemplo didático)</span></span>
-<span id="cb43-2"><a href=""></a>dados_2way <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb43-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">Tratamento =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Controle"</span>, <span class="st">"Tratado"</span>), <span class="at">length.out =</span> <span class="fu">n</span>()))</span>
-<span id="cb43-4"><a href=""></a></span>
-<span id="cb43-5"><a href=""></a><span class="co"># ANOVA two-way</span></span>
-<span id="cb43-6"><a href=""></a>modelo_2way <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Length <span class="sc">~</span> Species <span class="sc">*</span> Tratamento, </span>
-<span id="cb43-7"><a href=""></a>                   <span class="at">data =</span> dados_2way)</span>
-<span id="cb43-8"><a href=""></a><span class="fu">summary</span>(modelo_2way)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>tukey_result <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">TukeyHSD</span>(modelo_anova)</span>
+<span id="cb65-2"><a href=""></a>tukey_result</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                    Df Sum Sq Mean Sq F value Pr(&gt;F)    
-Species              2  63.21  31.606 118.429 &lt;2e-16 ***
-Tratamento           1   0.00   0.002   0.006  0.937    
-Species:Tratamento   2   0.52   0.262   0.982  0.377    
-Residuals          144  38.43   0.267                   
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = tam_medio_femur ~ matriz, data = dados.anf)
+
+$matriz
+                        diff         lwr         upr     p adj
+eucalipto-cana  -0.099571429 -0.15780979 -0.04133307 0.0010387
+pasto-cana       0.007142857 -0.05109550  0.06538122 0.9475779
+pasto-eucalipto  0.106714286  0.04847593  0.16495264 0.0005251</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="fu">ggplot</span>(dados.anf, <span class="fu">aes</span>(<span class="at">x =</span> matriz, <span class="at">y =</span> tam_medio_femur)) <span class="sc">+</span></span>
+<span id="cb67-2"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> matriz), <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb67-3"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb67-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Tamanho médio do fêmur (cm)"</span>, <span class="at">x =</span> <span class="st">"Espécie"</span>) <span class="sc">+</span></span>
+<span id="cb67-5"><a href=""></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-39-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Kruskal–Wallis test</h2>
+<div class="columns" style="font-size: 70%">
+<p><strong>Alternativa</strong> não paramétrica à one-way ANOVA</p><p>O que seria “o mais correto” para uma <strong>Kruskal–Wallis test</strong> <strong>ideal de um fator</strong>:</p><ul>
+<li><p>Verificações <strong>a priori</strong> dos pressupostos do modelo</p>
+<ul>
+<li><p><strong>Homogeneidade de variâncias:</strong> <code>levene_test()</code></p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+</ul></li>
+<li><p>Verificações a posteriori dos resultados do modelo (se modelo for significativo)</p>
+<ul>
+<li><p><strong>Tamanho de efeito:</strong> <code>kruskal_effsize()</code></p></li>
+<li><p><strong>Testes post-hoc</strong> (se significativo): <code>dunn_test()</code></p></li>
+<li><p>Visualização dos dados por <strong>Boxplot</strong></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Kruskal–Wallis test</h2>
+<h4>Realizando o Kruskal–Wallis</h4>
+<div style="font-size: 70%">
+<p>Vamos usar um dataset fake com medidas de anfíbios</p>
+<ul>
+<li><p>variável respotas: <code>tam_torax_medio</code></p></li>
+<li><p>variável preditora: <code>matriz</code> (<strong>cana, eucalipto e pasto</strong>)</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb68-2"><a href=""></a><span class="fu">glimpse</span>(dados.anf)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 21
+Columns: 12
+$ buffer          &lt;chr&gt; "b01", "b02", "b03", "b04", "b05", "b06", "b07", "b08"…
+$ lat             &lt;dbl&gt; -23.646, -23.539, -23.539, -23.501, -23.490, -23.481, …
+$ long            &lt;dbl&gt; -47.471, -47.460, -47.458, -47.396, -46.364, -47.111, …
+$ n_sp            &lt;dbl&gt; 7, 6, 11, 8, 7, 3, 9, 9, 8, 6, 5, 4, 11, 8, 12, 9, 5, …
+$ sp_flo          &lt;dbl&gt; 3, 5, 8, 6, 5, 1, 6, 6, 5, 2, 1, 1, 9, 7, 10, 5, 2, 6,…
+$ sp_sav          &lt;dbl&gt; 4, 1, 3, 2, 2, 2, 3, 3, 3, 4, 4, 3, 2, 1, 2, 4, 3, 3, …
+$ pres_inv        &lt;chr&gt; "ausente", "ausente", "presente", "presente", "present…
+$ tam_medio_femur &lt;dbl&gt; 1.172, 1.171, 1.154, 1.075, 1.157, 1.259, 1.006, 1.090…
+$ pct_flo         &lt;dbl&gt; 46, 57, 78, 71, 59, 12, 68, 53, 49, 29, 18, 19, 84, 65…
+$ conect          &lt;dbl&gt; 39.5, 42.4, 69.9, 58.8, 44.0, 22.3, 57.8, 41.2, 39.9, …
+$ matriz          &lt;chr&gt; "cana", "pasto", "pasto", "eucalipto", "cana", "pasto"…
+$ tam_torax_medio &lt;dbl&gt; 2.403771, 2.235445, 2.961840, 2.430704, 2.150974, 1.99…</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>ANOVA - Two-way</h2>
-<h4>Gráfico de interação</h4>
+<h2>Kruskal–Wallis test</h2>
+<h4>Realizando o Kruskal–Wallis</h4>
 <div style="font-size: 70%">
+<p>Testando a <strong>homogeneidade</strong> devariâncias <strong>das matrizes</strong></p>
+<ul>
+<li>H0: as variâncias são homogêneas entre grupos</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>dados_2way <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a href=""></a>  <span class="fu">group_by</span>(Species, Tratamento) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb45-4"><a href=""></a>            <span class="at">se =</span> <span class="fu">sd</span>(Sepal.Length)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>())) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-5"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> media, <span class="at">color =</span> Tratamento, <span class="at">group =</span> Tratamento)) <span class="sc">+</span></span>
-<span id="cb45-6"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb45-7"><a href=""></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb45-8"><a href=""></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> media <span class="sc">-</span> se, <span class="at">ymax =</span> media <span class="sc">+</span> se), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb45-9"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb45-10"><a href=""></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Comprimento da Sépala (cm)"</span>, </span>
-<span id="cb45-11"><a href=""></a>       <span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb45-12"><a href=""></a>       <span class="at">title =</span> <span class="st">"Interação entre Espécie e Tratamento"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(tam_torax_medio <span class="sc">~</span> matriz,</span>
+<span id="cb70-2"><a href=""></a>                <span class="at">data =</span> dados.anf)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  2  0.4647 0.6356
+      18               </code></pre>
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+<h2>Kruskal–Wallis test</h2>
+<h4>Realizando o Kruskal–Wallis</h4>
+<div style="font-size: 70%">
+<p>Usamos a função <code>kruskal.test()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><code>kruskal.test(respostas~preditora, dados)</code></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Kruskal–Wallis test</h2>
+<h4>Realizando o Kruskal–Wallis</h4>
+<div style="font-size: 60%">
+<p>Usamos a função <code>kruskal.test()</code></p>
+<ul>
+<li><p>informamos variável <code>resposta</code> em função (<code>~</code>) da <code>preditoria</code> e a origem dos <code>dados</code></p>
+<ul>
+<li><code>kruskal.test(respostas~preditora, dados)</code></li>
+</ul></li>
+</ul>
+</div>
+<div class="columns" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>modelo_kruskal <span class="ot">&lt;-</span> <span class="fu">kruskal.test</span>(tam_torax_medio <span class="sc">~</span> matriz,</span>
+<span id="cb72-2"><a href=""></a>    <span class="at">data =</span> dados.anf)</span>
+<span id="cb72-3"><a href=""></a>modelo_kruskal</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  tam_torax_medio by matriz
+Kruskal-Wallis chi-squared = 0.3859, df = 2, p-value = 0.8245</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Kruskal–Wallis test</h2>
+<div class="columns" style="font-size: 70%">
+<p><strong>Alternativa</strong> não paramétrica à one-way ANOVA</p><p>O que seria “o mais correto” para uma <strong>Kruskal–Wallis test</strong> <strong>ideal de um fator</strong>:</p><ul>
+<li><p>Verificações <strong>a priori</strong> dos pressupostos do modelo</p>
+<ul>
+<li><p><strong>Homogeneidade de variâncias:</strong> <code>levene_test()</code></p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+</ul></li>
+<li><p>Verificações a posteriori dos resultados do modelo (se modelo for significativo)</p>
+<ul>
+<li><p><strong>Tamanho de efeito:</strong> <code>kruskal_effsize()</code></p></li>
+<li><p><strong>Testes post-hoc</strong> (se significativo): <code>dunn_test()</code></p></li>
+<li><p>Visualização dos dados por <strong>Boxplot</strong></p></li>
+</ul></li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
@@ -1374,7 +2026,7 @@ Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</
 <div class="columns" style="font-size: 80%">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Francia normality test
@@ -1382,7 +2034,7 @@ Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</
 data:  iris$Sepal.Length
 W = 0.97961, p-value = 0.02621</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Francia normality test
@@ -1393,7 +2045,7 @@ W = 0.98483, p-value = 0.0902</code></pre>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Francia normality test
@@ -1401,7 +2053,7 @@ W = 0.98483, p-value = 0.0902</code></pre>
 data:  iris$Petal.Length
 W = 0.88186, p-value = 1.844e-08</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Francia normality test
@@ -1425,11 +2077,11 @@ Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</
 <div style="font-size: 65%">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a>cor_matrix <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb55-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-3"><a href=""></a>  stats<span class="sc">::</span><span class="fu">cor</span>(<span class="at">method =</span> <span class="st">"spearman"</span>,)</span>
-<span id="cb55-4"><a href=""></a></span>
-<span id="cb55-5"><a href=""></a>cor_matrix</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a>cor_matrix <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb83-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb83-3"><a href=""></a>  stats<span class="sc">::</span><span class="fu">cor</span>(<span class="at">method =</span> <span class="st">"spearman"</span>,)</span>
+<span id="cb83-4"><a href=""></a></span>
+<span id="cb83-5"><a href=""></a>cor_matrix</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
@@ -1443,17 +2095,17 @@ Petal.Width     0.8342888  -0.2890317    0.9376668   1.0000000</code></pre>
 <div style="font-size: 65%">
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">ggcorrplot</span>(cor_matrix, </span>
-<span id="cb57-2"><a href=""></a>           <span class="at">lab =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb57-3"><a href=""></a>           <span class="at">lab_size =</span> <span class="dv">4</span>,</span>
-<span id="cb57-4"><a href=""></a>           <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="co">#valor -1 a 0.0</span></span>
-<span id="cb57-5"><a href=""></a>                      <span class="st">"white"</span>, <span class="co"># valor 0</span></span>
-<span id="cb57-6"><a href=""></a>                      <span class="st">"#E46726"</span>)) <span class="co">#valor 0 a 1.0</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">ggcorrplot</span>(cor_matrix, </span>
+<span id="cb85-2"><a href=""></a>           <span class="at">lab =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb85-3"><a href=""></a>           <span class="at">lab_size =</span> <span class="dv">4</span>,</span>
+<span id="cb85-4"><a href=""></a>           <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="co">#valor -1 a 0.0</span></span>
+<span id="cb85-5"><a href=""></a>                      <span class="st">"white"</span>, <span class="co"># valor 0</span></span>
+<span id="cb85-6"><a href=""></a>                      <span class="st">"#E46726"</span>)) <span class="co">#valor 0 a 1.0</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-30-1.png" width="384"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-46-1.png" width="384"></p>
 </figure>
 </div>
 </div>
@@ -1467,9 +2119,9 @@ Petal.Width     0.8342888  -0.2890317    0.9376668   1.0000000</code></pre>
 <p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
-<span id="cb58-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
-<span id="cb58-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb86-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb86-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1500,22 +2152,20 @@ sample estimates:
 <p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
-<span id="cb60-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
-<span id="cb60-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb88-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb88-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Pearson's product-moment correlation
+    Spearman's rank correlation rho
 
 data:  iris$Sepal.Length and iris$Petal.Length
-t = 21.646, df = 148, p-value &lt; 2.2e-16
-alternative hypothesis: true correlation is not equal to 0
-95 percent confidence interval:
- 0.8270363 0.9055080
+S = 66429, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
 sample estimates:
-      cor 
-0.8717538 </code></pre>
+      rho 
+0.8818981 </code></pre>
 </div>
 </div></div>
 </div>
@@ -1523,7 +2173,7 @@ sample estimates:
 <div style="font-size: 50%">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (r = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
+<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (rho = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
 <p><strong>IMPORTANTE:</strong> Correlação ≠ Causação! Pode haver variáveis confundidoras.</p>
 </div><div class="column" style="width:50%;">
 
@@ -1538,22 +2188,20 @@ sample estimates:
 <p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
-<span id="cb62-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
-<span id="cb62-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb90-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb90-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    Pearson's product-moment correlation
+    Spearman's rank correlation rho
 
 data:  iris$Sepal.Length and iris$Petal.Length
-t = 21.646, df = 148, p-value &lt; 2.2e-16
-alternative hypothesis: true correlation is not equal to 0
-95 percent confidence interval:
- 0.8270363 0.9055080
+S = 66429, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
 sample estimates:
-      cor 
-0.8717538 </code></pre>
+      rho 
+0.8818981 </code></pre>
 </div>
 </div></div>
 </div>
@@ -1561,7 +2209,7 @@ sample estimates:
 <div style="font-size: 50%">
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (r = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
+<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (rho = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
 <p><strong>IMPORTANTE:</strong> Correlação ≠ Causação! Pode haver variáveis confundidoras.</p>
 </div><div class="column" style="width:50%;">
 <p><strong>Coeficiente de correlação (<code>r</code> ou <code>rho</code>): <em><code>Golden rule</code></em></strong></p>
@@ -1580,7 +2228,7 @@ sample estimates:
 <section class="slide level2">
 <h2>Resumo Estatística Inferencial</h2>
 <h4>Testes Paramétricos vs Não-Paramétricos</h4>
-<div style="font-size: 70%">
+<div style="font-size: 60%">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1601,11 +2249,6 @@ sample estimates:
 <td>Kruskal-Wallis</td>
 </tr>
 <tr class="odd">
-<td>Dados pareados</td>
-<td>t-test pareado</td>
-<td>Wilcoxon signed-rank</td>
-</tr>
-<tr class="even">
 <td>Correlação</td>
 <td>Pearson</td>
 <td>Spearman / Kendall</td>
@@ -1617,7 +2260,6 @@ sample estimates:
 <li>Dados <strong>não-normais</strong> (mesmo após transformação)</li>
 <li><strong>Outliers</strong> extremos</li>
 <li><strong>Amostras pequenas</strong> (n &lt; 30)</li>
-<li>Dados <strong>ordinais</strong> (ex: escala Likert)</li>
 </ul>
 <p><strong>Vantagens paramétricos:</strong> Mais <strong>poder estatístico</strong> quando pressupostos são atendidos</p>
 <p><strong>Vantagens não-paramétricos:</strong> Mais <strong>robustos</strong> a violações</p>
@@ -1663,9 +2305,9 @@ sample estimates:
 <h4>Modelo simples</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="co"># Regressão linear simples</span></span>
-<span id="cb64-2"><a href=""></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span>
-<span id="cb64-3"><a href=""></a><span class="fu">summary</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="co"># Regressão linear simples</span></span>
+<span id="cb92-2"><a href=""></a>modelo_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span>
+<span id="cb92-3"><a href=""></a><span class="fu">summary</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1740,12 +2382,12 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Diagnóstico do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb66-2"><a href=""></a><span class="fu">plot</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb94-2"><a href=""></a><span class="fu">plot</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1785,8 +2427,8 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Teste de pressupostos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="co"># Teste de normalidade dos resíduos</span></span>
-<span id="cb67-2"><a href=""></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modelo_lm))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="co"># Teste de normalidade dos resíduos</span></span>
+<span id="cb95-2"><a href=""></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modelo_lm))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -1794,8 +2436,8 @@ F-statistic: 468.6 on 1 and 148 DF,  p-value: &lt; 2.2e-16</code></pre>
 data:  residuals(modelo_lm)
 W = 0.99437, p-value = 0.831</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># Teste de homocedasticidade (variância constante)</span></span>
-<span id="cb69-2"><a href=""></a><span class="fu">ncvTest</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a><span class="co"># Teste de homocedasticidade (variância constante)</span></span>
+<span id="cb97-2"><a href=""></a><span class="fu">ncvTest</span>(modelo_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Non-constant Variance Score Test 
 Variance formula: ~ fitted.values 
@@ -1815,18 +2457,18 @@ Chisquare = 2.830956, Df = 1, p = 0.092463</code></pre>
 <h4>Visualização do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb71-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb71-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb71-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb71-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb71-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Pétala (cm)"</span>,</span>
-<span id="cb71-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Linear: Pétala ~ Sépala"</span>,</span>
-<span id="cb71-8"><a href=""></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"R² = "</span>, <span class="fu">round</span>(<span class="fu">summary</span>(modelo_lm)<span class="sc">$</span>r.squared, <span class="dv">3</span>)))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb99-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb99-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb99-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb99-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Comprimento da Pétala (cm)"</span>,</span>
+<span id="cb99-7"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Linear: Pétala ~ Sépala"</span>,</span>
+<span id="cb99-8"><a href=""></a>       <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"R² = "</span>, <span class="fu">round</span>(<span class="fu">summary</span>(modelo_lm)<span class="sc">$</span>r.squared, <span class="dv">3</span>)))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-37-1.png" width="768"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-53-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -1837,10 +2479,10 @@ Chisquare = 2.830956, Df = 1, p = 0.092463</code></pre>
 <h2>Regressão Linear Múltipla</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
-<span id="cb72-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
-<span id="cb72-3"><a href=""></a>                     <span class="at">data =</span> iris)</span>
-<span id="cb72-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
+<span id="cb100-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
+<span id="cb100-3"><a href=""></a>                     <span class="at">data =</span> iris)</span>
+<span id="cb100-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1870,8 +2512,8 @@ F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Verificar multicolinearidade</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
-<span id="cb74-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
+<span id="cb102-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sepal.Length  Sepal.Width 
     1.014016     1.014016 </code></pre>
@@ -1886,8 +2528,8 @@ F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h4>Comparação de modelos</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
-<span id="cb76-2"><a href=""></a><span class="fu">anova</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
+<span id="cb104-2"><a href=""></a><span class="fu">anova</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -1899,8 +2541,8 @@ Model 2: Petal.Length ~ Sepal.Length + Sepal.Width
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb78-2"><a href=""></a><span class="fu">AIC</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb106-2"><a href=""></a><span class="fu">AIC</span>(modelo_lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               df      AIC
 modelo_lm       3 387.1350
@@ -2035,15 +2677,15 @@ modelo_lm_mult  4 299.7875</code></pre>
 <h4>Dados de contagem</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
-<span id="cb80-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb80-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb80-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
-<span id="cb80-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
-<span id="cb80-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
-<span id="cb80-7"><a href=""></a>)</span>
-<span id="cb80-8"><a href=""></a></span>
-<span id="cb80-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
+<span id="cb108-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb108-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb108-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
+<span id="cb108-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
+<span id="cb108-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
+<span id="cb108-7"><a href=""></a>)</span>
+<span id="cb108-8"><a href=""></a></span>
+<span id="cb108-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   temperatura umidade contagem
@@ -2063,12 +2705,12 @@ modelo_lm_mult  4 299.7875</code></pre>
 <h4>Ajustar o modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
-<span id="cb82-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb82-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
-<span id="cb82-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb82-5"><a href=""></a></span>
-<span id="cb82-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
+<span id="cb110-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb110-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
+<span id="cb110-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb110-5"><a href=""></a></span>
+<span id="cb110-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2099,8 +2741,8 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
-<span id="cb84-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
+<span id="cb112-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) temperatura     umidade 
   0.2219182   1.0958910   1.0160846 </code></pre>
@@ -2118,12 +2760,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Verificação de pressupostos - DHARMa</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
-<span id="cb86-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
+<span id="cb114-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-60-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2135,12 +2777,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Testes de adequação do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
-<span id="cb87-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
+<span id="cb115-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-61-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2153,12 +2795,12 @@ data:  simulationOutput
 dispersion = 1.0816, p-value = 0.552
 alternative hypothesis: two.sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
-<span id="cb89-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
+<span id="cb117-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-45-2.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-61-2.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2175,12 +2817,12 @@ sample estimates:
 outlier frequency (expected: 0.0058 ) 
                                     0 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
-<span id="cb91-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
+<span id="cb119-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-45-3.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-61-3.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2246,13 +2888,13 @@ alternative hypothesis: two.sided</code></pre>
 <h2>GLM - Binomial Negativa</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
-<span id="cb93-2"><a href=""></a></span>
-<span id="cb93-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
-<span id="cb93-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb93-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
-<span id="cb93-6"><a href=""></a></span>
-<span id="cb93-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
+<span id="cb121-2"><a href=""></a></span>
+<span id="cb121-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
+<span id="cb121-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb121-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
+<span id="cb121-6"><a href=""></a></span>
+<span id="cb121-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2287,16 +2929,16 @@ Number of Fisher Scoring iterations: 1
 <h2>GLM - Comparação de modelos</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb95-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb123-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               df      AIC
 modelo_poisson  3 476.1200
 modelo_nb       4 477.9613</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
-<span id="cb97-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
-<span id="cb97-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
+<span id="cb125-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb125-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
@@ -2315,18 +2957,18 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
-<span id="cb99-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
-<span id="cb99-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
-<span id="cb99-4"><a href=""></a></span>
-<span id="cb99-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
-<span id="cb99-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
-<span id="cb99-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
-<span id="cb99-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
+<span id="cb127-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
+<span id="cb127-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
+<span id="cb127-4"><a href=""></a></span>
+<span id="cb127-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
+<span id="cb127-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
+<span id="cb127-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
+<span id="cb127-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-64-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2338,14 +2980,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo - Umidade</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
-<span id="cb100-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
-<span id="cb100-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
-<span id="cb100-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
+<span id="cb128-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
+<span id="cb128-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
+<span id="cb128-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-49-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-65-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2356,13 +2998,13 @@ Model 2: contagem ~ temperatura + umidade
 <h2>GLM - Visualização com sjPlot</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
-<span id="cb101-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb101-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
+<span id="cb129-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb129-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-66-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2374,14 +3016,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos marginais</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
-<span id="cb102-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
-<span id="cb102-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
-<span id="cb102-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
+<span id="cb130-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb130-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
+<span id="cb130-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2393,16 +3035,16 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Dados binários</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
-<span id="cb103-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb103-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb103-4"><a href=""></a></span>
-<span id="cb103-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
-<span id="cb103-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
-<span id="cb103-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
-<span id="cb103-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb103-9"><a href=""></a></span>
-<span id="cb103-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
+<span id="cb131-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb131-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb131-4"><a href=""></a></span>
+<span id="cb131-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
+<span id="cb131-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
+<span id="cb131-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
+<span id="cb131-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb131-9"><a href=""></a></span>
+<span id="cb131-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -2433,13 +3075,13 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <h4>Odds Ratio</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
-<span id="cb105-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
+<span id="cb133-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept) Sepal.Length  Sepal.Width 
 1.585347e-11 1.162813e+02 3.937108e-01 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    2.5 %       97.5 %
 (Intercept)  1.413519e-16 1.305991e-07
@@ -2484,25 +3126,25 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="co"># Predições</span></span>
-<span id="cb109-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
-<span id="cb109-3"><a href=""></a></span>
-<span id="cb109-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
-<span id="cb109-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb109-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb109-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
-<span id="cb109-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb109-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb109-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
-<span id="cb109-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb109-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb109-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb109-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
-<span id="cb109-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href=""></a><span class="co"># Predições</span></span>
+<span id="cb137-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
+<span id="cb137-3"><a href=""></a></span>
+<span id="cb137-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
+<span id="cb137-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb137-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb137-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
+<span id="cb137-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb137-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb137-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
+<span id="cb137-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb137-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb137-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb137-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
+<span id="cb137-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-2_files/figure-revealjs/unnamed-chunk-70-1.png" width="960"></p>
 </figure>
 </div>
 </div>
