@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+<script src="10 - Análises Estatísticas - Parte 3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/tabby.min.js"></script>
+<script src="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/popper.min.js"></script>
+<script src="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="10 - Análises Estatísticas - Parte 3_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content=" Yuri Souza">
+  <title>Análises Estatísticas   no R   Estatística Preditiva </title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/dist/theme/quarto-db681e8cf5ce75a02abf7d79a08d6d97.css">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section class="quarto-title-block center">
+  <h1 class="title">Análises Estatísticas <br> no R <br> Estatística Preditiva<br></h1>
+  <p class="subtitle">Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<br><a href="https://souzayuri.github.io/">Yuri Souza</a> 
+</div>
+</div>
+</div>
+
+  <p class="date">10 de janeiro de 2026</p>
+</section>
+<section class="slide level2">
+<h2>RECAPITULANDO</h2>
+<h4>Até agora…</h4>
+<div class="columns" style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li><p><strong>Pressupostos de testes</strong> <code>paramétricos</code></p>
+<ul>
+<li><p>Normalidade</p></li>
+<li><p>Homocedasticidade</p></li>
+<li><p>Independência</p></li>
+<li><p>Ausência de outliers extremos</p></li>
+</ul></li>
+<li><p><strong>Pressupostos de testes</strong></p>
+<p><code>não paramétricos</code></p>
+<ul>
+<li><p>Oposto ao paramétrico</p></li>
+<li><p>Também exige Independência</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<ul>
+<li><p><strong>Tipos de</strong> <code>familias</code></p>
+<ul>
+<li><p><strong>Gaussian</strong></p></li>
+<li><p><strong>Poisson</strong></p></li>
+<li><p><strong>Binomial</strong></p></li>
+</ul></li>
+<li><p>Teste de <code>hipótese</code></p>
+<ul>
+<li><strong>Valor de P</strong></li>
+</ul></li>
+</ul>
+</div><div class="columns" width="30%">
+<ul>
+<li><p><strong>Testes Estatísticos</strong></p>
+<ul>
+<li><code>X²</code></li>
+<li><strong>t-test</strong>
+<ul>
+<li><code>Student's t-test</code></li>
+<li><code>Welch's t-test</code></li>
+</ul></li>
+<li><strong>ANOVA</strong>
+<ul>
+<li><code>One Way Anova</code></li>
+<li><code>Kruskal–Wallis</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas</h2>
+<h4>Pacotes necessários</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)      <span class="co"># Manipulação e visualização</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">library</span>(car)            <span class="co"># Testes de pressupostos</span></span>
+<span id="cb1-3"><a href=""></a><span class="fu">library</span>(corrplot)       <span class="co"># Matriz de correlação</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">library</span>(ggcorrplot)     <span class="co"># Heatmap de correlação</span></span>
+<span id="cb1-5"><a href=""></a><span class="fu">library</span>(qqplotr)        <span class="co"># Plota intervalo de confiança do qqplot</span></span>
+<span id="cb1-6"><a href=""></a><span class="fu">library</span>(nortest)        <span class="co"># teste de normalidade shapiro-francia</span></span>
+<span id="cb1-7"><a href=""></a><span class="fu">library</span>(report)         <span class="co"># cria sumário dos resultados dos modelos</span></span>
+<span id="cb1-8"><a href=""></a><span class="fu">library</span>(rstatix)        <span class="co"># Testes estatísticos</span></span>
+<span id="cb1-9"><a href=""></a><span class="fu">library</span>(effectsize)     <span class="co"># Tamanho de efeito</span></span>
+<span id="cb1-10"><a href=""></a><span class="fu">library</span>(emmeans)        <span class="co"># Médias marginais e post-hoc</span></span>
+<span id="cb1-11"><a href=""></a><span class="fu">library</span>(sjPlot)         <span class="co"># Visualização de modelos</span></span>
+<span id="cb1-12"><a href=""></a><span class="fu">library</span>(ggeffects)      <span class="co"># Efeitos de modelos</span></span>
+<span id="cb1-13"><a href=""></a><span class="fu">library</span>(see)            <span class="co"># Necessário para Performance</span></span>
+<span id="cb1-14"><a href=""></a><span class="fu">library</span>(performance)    <span class="co"># Diagnóstico de modelos</span></span>
+<span id="cb1-15"><a href=""></a><span class="fu">library</span>(DHARMa)         <span class="co"># Diagnóstico de GLMs</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Correlação</code> entre variáveis</h4>
+<div style="font-size: 55%">
+<p><strong>Correlação</strong> mede o <strong>grau de associação</strong> entre duas variáveis <code>numéricas</code>.</p>
+<ul>
+<li>Quando <strong>X aumenta</strong>, <strong>Y tende a aumentar ou diminuir</strong>?</li>
+<li>Essa relação é <strong>forte</strong>, <strong>fraca</strong> ou <strong>inexistente</strong>?</li>
+</ul>
+<p>Quando você tem <strong>mais de duas variáveis</strong>, calcular correlação par a par gera uma <strong><code>matriz de correlação</code></strong>.</p>
+<ul>
+<li><p>Usa a função <strong>cor()</strong> do pacote stats</p>
+<ul>
+<li><p>Se informa o método usado,</p>
+<ul>
+<li><p><code>pearson</code>: relação linear e todas variáveis paramétricas (<code>normal</code>)</p></li>
+<li><p><code>spearman</code>: relação monotônica, lineares ou com curvas, não-paramétricas (<code>não normal</code>)</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Correlação</code> entre variáveis</h4>
+<div style="font-size: 60%">
+<p><strong>Todas</strong> as variáveis <strong>estão correlacionadas</strong> em certo ponto, mas <strong>quanto é isso</strong>?<br>
+<br>
+Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</code></p>
+<p>Testamos a normalidade primeiro usando o teste de <code>Shapiro-Francia</code></p>
+<p>Se forem todas normais vamos de <code>Pearson</code>, se não vamos de <code>Spearman</code></p>
+<pre><code></code></pre>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Correlação</code> entre variáveis</h4>
+<div style="font-size: 60%">
+<p><strong>Todas</strong> as variáveis <strong>estão correlacionadas</strong> em certo ponto, mas <strong>quanto é isso</strong>?<br>
+<br>
+Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</code></p>
+<p>Testamos a normalidade primeiro usando o teste de <code>Shapiro-Francia</code></p>
+<p>Se forem todas normais vamos de <code>Pearson</code>, se não vamos de <code>Spearman</code></p>
+</div>
+<div>
+<div class="columns" style="font-size: 80%">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Sepal.Length
+W = 0.97961, p-value = 0.02621</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Sepal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Sepal.Width
+W = 0.98483, p-value = 0.0902</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Petal.Length
+W = 0.88186, p-value = 1.844e-08</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>nortest<span class="sc">::</span><span class="fu">sf.test</span>(iris<span class="sc">$</span>Petal.Width)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Francia normality test
+
+data:  iris$Petal.Width
+W = 0.90831, p-value = 3.006e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Correlação</code> entre variáveis e <code>Heatmap</code></h4>
+<div style="font-size: 50%">
+<p><strong>Todas</strong> as variáveis <strong>estão correlacionadas</strong> em certo ponto, mas <strong>quanto é isso</strong>?<br>
+<br>
+Vamos testar para <strong>aspectos das pétalas</strong> do dataset <code>iris</code></p>
+<p>Função <code>cor()</code> testa a correlação</p>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>cor_matrix <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href=""></a>  stats<span class="sc">::</span><span class="fu">cor</span>(<span class="at">method =</span> <span class="st">"spearman"</span>,)</span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a>cor_matrix</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>             Sepal.Length Sepal.Width Petal.Length Petal.Width
+Sepal.Length    1.0000000  -0.1667777    0.8818981   0.8342888
+Sepal.Width    -0.1667777   1.0000000   -0.3096351  -0.2890317
+Petal.Length    0.8818981  -0.3096351    1.0000000   0.9376668
+Petal.Width     0.8342888  -0.2890317    0.9376668   1.0000000</code></pre>
+</div>
+</div></div>
+</div>
+<div style="font-size: 65%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">ggcorrplot</span>(cor_matrix, </span>
+<span id="cb13-2"><a href=""></a>           <span class="at">lab =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb13-3"><a href=""></a>           <span class="at">lab_size =</span> <span class="dv">4</span>,</span>
+<span id="cb13-4"><a href=""></a>           <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"#6D9EC1"</span>, <span class="co">#valor -1 a 0.0</span></span>
+<span id="cb13-5"><a href=""></a>                      <span class="st">"white"</span>, <span class="co"># valor 0</span></span>
+<span id="cb13-6"><a href=""></a>                      <span class="st">"#E46726"</span>)) <span class="co">#valor 0 a 1.0</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-5-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Teste</code> de correlação entre vaviáveis</h4>
+<div style="font-size: 70%">
+<p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb14-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb14-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Spearman's rank correlation rho
+
+data:  iris$Sepal.Length and iris$Petal.Length
+S = 66429, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.8818981 </code></pre>
+</div>
+</div></div>
+</div>
+<div class="columns">
+<div style="font-size: 50%">
+<div class="columns">
+<div class="column" style="width:50%;">
+
+</div></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Teste</code> de correlação entre vaviáveis</h4>
+<div style="font-size: 70%">
+<p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb16-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb16-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Spearman's rank correlation rho
+
+data:  iris$Sepal.Length and iris$Petal.Length
+S = 66429, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.8818981 </code></pre>
+</div>
+</div></div>
+</div>
+<div class="columns">
+<div style="font-size: 50%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (rho = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
+<p><strong>IMPORTANTE:</strong> Correlação ≠ Causação! Pode haver variáveis confundidoras.</p>
+</div><div class="column" style="width:50%;">
+
+</div></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Análises Estatísticas Inferenciais</h2>
+<h4><code>Teste</code> de correlação entre vaviáveis</h4>
+<div style="font-size: 70%">
+<p>Usamos a função <code>cor.test()</code> para testar a hipótese de correlação</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>stats<span class="sc">::</span><span class="fu">cor.test</span>(iris<span class="sc">$</span>Sepal.Length, </span>
+<span id="cb18-2"><a href=""></a>                iris<span class="sc">$</span>Petal.Length, </span>
+<span id="cb18-3"><a href=""></a>                <span class="at">method =</span> <span class="st">"spearman"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Spearman's rank correlation rho
+
+data:  iris$Sepal.Length and iris$Petal.Length
+S = 66429, p-value &lt; 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.8818981 </code></pre>
+</div>
+</div></div>
+</div>
+<div class="columns">
+<div style="font-size: 50%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Interpretação:</strong> Correlação <strong>forte e positiva</strong> (rho = 0.87) entre comprimento de sépala e pétala (p &lt; 0.001)</p>
+<p><strong>IMPORTANTE:</strong> Correlação ≠ Causação! Pode haver variáveis confundidoras.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Coeficiente de correlação (<code>r</code> ou <code>rho</code>): <em><code>Golden rule</code></em></strong></p>
+<ul>
+<li><code>r/rho = 1</code>: correlação positiva perfeita</li>
+<li><code>r/rho = 0</code>: sem correlação linear</li>
+<li><code>r/rho = -1</code>: correlação negativa perfeita</li>
+<li><code>|r/rho| &gt; 0.7</code>: correlação forte</li>
+<li><code>|r/rho| = 0.3-0.7</code>: correlação moderada</li>
+<li><code>|r/rho| &lt; 0.3</code>: correlação fraca</li>
+</ul>
+</div></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Resumo Estatística Inferencial</h2>
+<h4>Testes Paramétricos vs Não-Paramétricos</h4>
+<div style="font-size: 60%">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>Paramétrico</th>
+<th>Não-Paramétrico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Comparar 2 grupos</td>
+<td>t-test</td>
+<td>Mann-Whitney U (Wilcoxon)</td>
+</tr>
+<tr class="even">
+<td>Comparar 3+ grupos</td>
+<td>ANOVA</td>
+<td>Kruskal-Wallis</td>
+</tr>
+<tr class="odd">
+<td>Correlação</td>
+<td>Pearson</td>
+<td>Spearman / Kendall</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quando usar não-paramétricos?</strong></p>
+<ul>
+<li>Dados <strong>não-normais</strong> (mesmo após transformação)</li>
+<li><strong>Outliers</strong> extremos</li>
+<li><strong>Amostras pequenas</strong> (n &lt; 30)</li>
+</ul>
+<p><strong>Vantagens paramétricos:</strong> Mais <strong>poder estatístico</strong> quando pressupostos são atendidos</p>
+<p><strong>Vantagens não-paramétricos:</strong> Mais <strong>robustos</strong> a violações</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Estatística Preditiva</h2>
+<div style="font-size: 70%">
+<p><strong>O que é?</strong></p>
+<ul>
+<li><p><strong>Modelar relações</strong> lineares entre variáveis</p></li>
+<li><p><strong>Predizer</strong> valores de uma variável resposta a partir de preditoras</p></li>
+<li><p>Entender <strong>quanto</strong> cada preditor influencia a resposta</p></li>
+</ul>
+<p><strong>Modelos:</strong></p>
+<ul>
+<li><p><strong>Regressão Linear (lm)</strong>: resposta contínua, relação linear</p></li>
+<li><p><strong>Modelos Lineares Generalizados (glm)</strong>: diferentes distribuições da resposta</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear</h2>
+<div style="font-size: 70%">
+<p>Baseado na equacao geral da reta:</p>
+<p><code>y = β0 + β1 * x</code></p>
+</div>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><code>y</code> → variável resposta (dependente)</p></li>
+<li><p><code>x</code> → variável explicativa (independente)</p></li>
+<li><p><code>β0</code> → intercepto (valor esperado de y quando x=0)</p></li>
+<li><p><code>β1</code> → inclinação da reta (quanto y muda, em média, para cada 1 unidade de x)</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/regressao_linear_parametros_corrigido.jpg" width="700"></p>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear (lm)</h2>
+<h4>Parâmetros estimados através do <strong>Método dos Mínimos Quadrados (MMQ)</strong></h4>
+<div class="columns">
+<div style="font-size: 70%">
+<p>Encontra o <strong>melhor ajuste</strong> para um conjunto de dados <strong>tentando minimizar</strong> a soma dos quadrados das diferenças entre o <strong>valor estimado</strong> e os <strong>dados observados</strong></p>
+</div><div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/mmq.png" class="quarto-figure quarto-figure-center" width="600" height="420"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear (lm)</h2>
+<div style="font-size: 65%">
+<p><strong>Quando usar?</strong></p>
+<ul>
+<li><p>Variável resposta <strong>contínua</strong></p></li>
+<li><p>Relação <strong>linear</strong> entre preditoras e resposta</p>
+<ul>
+<li><p><code>uma preditora</code> = <strong>regressão linear simples</strong></p></li>
+<li><p><code>duas ou mais</code> = <strong>regressão linear multipla</strong></p></li>
+</ul></li>
+<li><p>Resíduos com distribuição <strong>normal</strong></p></li>
+</ul>
+<p><strong>Pressupostos:</strong></p>
+<ol type="1">
+<li><p><strong>Linearidade</strong>: relação linear entre X e Y</p></li>
+<li><p><strong>Normalidade dos resíduos</strong></p></li>
+<li><p><strong>Homocedasticidade</strong>: variância constante dos resíduos</p></li>
+<li><p><strong>Independência</strong> dos resíduos</p></li>
+<li><p><strong>Ausência de multicolinearidade</strong> (entre preditoras)</p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear - Simples</h2>
+<div class="columns" style="font-size: 60%">
+<p>Na regressão linear, você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos</p><p>O que seria “o mais correto” para uma regressão <code>linear simples</code>:</p><ol type="1">
+<li><p><strong>Ajustar o modelo:</strong> <code>lm(y ~ x1, data = dados)</code></p></li>
+<li><p><strong>Normalidade dos resíduos</strong>: <code>Shapiro nos resíduos</code> do modelo + <code>QQ-plot</code></p></li>
+<li><p><strong>Homocedasticidade</strong>: <strong>Breusch–Pagan</strong>, testa se variância dos resíduos é constante</p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+<li><p><strong>Tamanho de efeito</strong>: <code>R²</code> simples, mostra em % quanto do fenômeno é explicado pelo modelo</p></li>
+<li><p><strong>Visualização Gráfica da relação linear</strong></p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>1. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>1. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb21-2"><a href=""></a></span>
+<span id="cb21-3"><a href=""></a>anf.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo,</span>
+<span id="cb21-4"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb21-5"><a href=""></a>anf.lm</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo  
+    3.19568      0.08866  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>1. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb23-2"><a href=""></a></span>
+<span id="cb23-3"><a href=""></a>anf.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo,</span>
+<span id="cb23-4"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb23-5"><a href=""></a>anf.lm</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo  
+    3.19568      0.08866  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">summary</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb27-2"><a href=""></a></span>
+<span id="cb27-3"><a href=""></a>anf.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo,</span>
+<span id="cb27-4"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb27-5"><a href=""></a>anf.lm</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo  
+    3.19568      0.08866  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">summary</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">shapiro.test</span>(anf.lm<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anf.lm$residuals
+W = 0.96533, p-value = 0.6291</code></pre>
+</div>
+</div>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb33-2"><a href=""></a></span>
+<span id="cb33-3"><a href=""></a>anf.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo,</span>
+<span id="cb33-4"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb33-5"><a href=""></a>anf.lm</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo  
+    3.19568      0.08866  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<p>Modelo <strong>significativo</strong> e com distribuição dos <strong>resíduos normais</strong>.</p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">summary</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">shapiro.test</span>(anf.lm<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anf.lm$residuals
+W = 0.96533, p-value = 0.6291</code></pre>
+</div>
+</div>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Simples</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>dados.anf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_anfibios.csv"</span>)</span>
+<span id="cb39-2"><a href=""></a></span>
+<span id="cb39-3"><a href=""></a>anf.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo,</span>
+<span id="cb39-4"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb39-5"><a href=""></a>anf.lm</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo  
+    3.19568      0.08866  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<p>Modelo <strong>significativo</strong> e com distribuição dos <strong>resíduos normais</strong>.</p>
+<p><strong>E a homocedasticidade????</strong></p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">summary</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">shapiro.test</span>(anf.lm<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anf.lm$residuals
+W = 0.96533, p-value = 0.6291</code></pre>
+</div>
+</div>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Simples</h2>
+<div style="font-size: 55%">
+<p>Função <code>check_model()</code> faz checagem do <strong>QQ-Plot</strong> e muito <strong>mais</strong></p>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>performance<span class="sc">::</span><span class="fu">check_model</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-27-1.png" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>3. Regressão Linear Simples</h2>
+<h4>Teste da homocedasticidade</h4>
+<div style="font-size: 60%">
+<ul>
+<li><p><strong>H₀ (hipótese nula)</strong>: a variância dos resíduos é constante<br>
+→ <strong>homocedasticidade</strong></p></li>
+<li><p><strong>H₁</strong>: a variância dos resíduos não é constante<br>
+→ <strong>heterocedasticidade</strong></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>3. Regressão Linear Simples</h2>
+<h4>Teste da homocedasticidade</h4>
+<div style="font-size: 60%">
+<p>Função <code>bptest()</code>, <strong>Breusch–Pagan:</strong></p>
+<ul>
+<li><p><strong>H₀ (hipótese nula)</strong>: a variância dos resíduos é constante<br>
+→ <strong>homocedasticidade</strong></p></li>
+<li><p><strong>H₁</strong>: a variância dos resíduos não é constante<br>
+→ <strong>heterocedasticidade</strong></p>
+<ul>
+<li>O BP mede o quanto a <strong>variância</strong> dos resíduos depende das variáveis <strong>explicativas</strong>.
+<ul>
+<li><strong>Muito pequeno</strong> (<code>≈ 0</code>): Forte evidência a favor da <strong>homocedasticidade</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>3. Regressão Linear Simples</h2>
+<h4>Teste da homocedasticidade</h4>
+<div style="font-size: 60%">
+<p>Função <code>bptest()</code>, <strong>Breusch–Pagan:</strong></p>
+<ul>
+<li><p><strong>H₀ (hipótese nula)</strong>: a variância dos resíduos é constante<br>
+→ <strong>homocedasticidade</strong></p></li>
+<li><p><strong>H₁</strong>: a variância dos resíduos não é constante<br>
+→ <strong>heterocedasticidade</strong></p>
+<ul>
+<li>O BP mede o quanto a <strong>variância</strong> dos resíduos depende das variáveis <strong>explicativas</strong>.
+<ul>
+<li><strong>Muito pequeno</strong> (<code>≈ 0</code>): Forte evidência a favor da <strong>homocedasticidade</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 90%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>lmtest<span class="sc">::</span><span class="fu">bptest</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  anf.lm
+BP = 0.017318, df = 1, p-value = 0.8953</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>5. Regressão Linear Simples</h2>
+<h4>Tamanho de efeito <code>R²</code></h4>
+<div style="font-size: 70%">
+<p><strong>R²</strong> mede <strong>quanto da variação da variável resposta (Y)</strong> é explicada pelo modelo de regressão</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>0</strong> → o modelo não explica nada</p></li>
+<li><p><strong>1</strong> → o modelo explica toda a variação de Y</p></li>
+<li><p>Quanto menores os resíduos, <strong>maior o R²</strong></p></li>
+</ul>
+</div><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">summary</span>(anf.lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>5. Regressão Linear Simples</h2>
+<h4>Tamanho de efeito <code>R²</code></h4>
+<div style="font-size: 70%">
+<p><strong>R²</strong> mede <strong>quanto da variação da variável resposta (Y)</strong> é explicada pelo modelo de regressão</p>
+<div class="columns" style="font-size: 100%">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>0</strong> → o modelo não explica nada</p></li>
+<li><p><strong>1</strong> → o modelo explica toda a variação de Y</p></li>
+<li><p>Quanto menores os resíduos, <strong>maior o R²</strong></p></li>
+</ul>
+<p>Apenas <strong>~24,4%</strong> da variação ficou nos <strong>resíduos</strong> (erro) <strong>e 75,6% é explicado</strong> por cobertura florestal</p>
+</div><div class="column" style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>6. Regressão Linear Simples</h2>
+<h4>Visualização do modelo</h4>
+<div style="font-size: 70%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a><span class="fu">ggplot</span>(dados.anf, <span class="fu">aes</span>(<span class="at">x =</span> pct_flo, <span class="at">y =</span> tam_medio_femur)) <span class="sc">+</span></span>
+<span id="cb52-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb52-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb52-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb52-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Cobertura Florestal (%)"</span>,</span>
+<span id="cb52-6"><a href=""></a>       <span class="at">y =</span> <span class="st">"Tamanho médio do fêmur"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-32-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Intercept (3.20):</strong> Quando <strong>pct_flo = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 3.2</strong>.</li>
+</ul>
+</div><div class="column" style="font-size: 110%">
+<p><code>y = β0 + β1 * x</code></p>
+<p><code>n_sp = 3.20 + 0.089 × pct_flo</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Intercept (3.20):</strong> Quando <strong>pct_flo = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 3.2</strong>.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong>pct_flo (0.089):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.089</strong>, em média.</p></li>
+</ul>
+</div><div class="column" style="font-size: 110%">
+<p><code>y = β0 + β1 * x</code></p>
+<p><code>n_sp = 3.20 + 0.089 × pct_flo</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Intercept (3.20):</strong> Quando <strong>pct_flo = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 3.2</strong>.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong>pct_flo (0.089):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.089</strong>, em média.</p></li>
+<li><p><code>R²</code> : O modelo explica <strong>75.6%</strong> da variação observada no número de espécies (n_sp).</p></li>
+</ul>
+</div><div class="column" style="font-size: 110%">
+<p><code>y = β0 + β1 * x</code></p>
+<p><code>n_sp = 3.20 + 0.089 × pct_flo</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Intercept (3.20):</strong> Quando <strong>pct_flo = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 3.2</strong>.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong>pct_flo (0.089):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.089</strong>, em média.</p></li>
+<li><p><code>R²</code> : O modelo explica <strong>75.6%</strong> da variação observada no número de espécies (n_sp).</p></li>
+<li><p>p-value (&lt; 0.001): indicando que o efeito de <code>pct_flo</code> sobre <code>n_sp</code> é <strong>estatisticamente significativo</strong>.</p></li>
+</ul>
+</div><div class="column" style="font-size: 110%">
+<p><code>y = β0 + β1 * x</code></p>
+<p><code>n_sp = 3.20 + 0.089 × pct_flo</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Simples</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Intercept (3.20):</strong> Quando <strong>pct_flo = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 3.2</strong>.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong>pct_flo (0.089):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.089</strong>, em média.</p></li>
+<li><p><code>R²</code> : O modelo explica <strong>75.6%</strong> da variação observada no número de espécies (n_sp).</p></li>
+<li><p>p-value (&lt; 0.001): indicando que o efeito de <code>pct_flo</code> sobre <code>n_sp</code> é <strong>estatisticamente significativo</strong>.</p></li>
+<li><p><code>Estatística F</code> (F = 58.84): modelo linear é significativamente <strong>melhor do que</strong> um modelo <strong>sem preditore</strong></p></li>
+</ul>
+</div><div class="column" style="font-size: 110%">
+<p><code>y = β0 + β1 * x</code></p>
+<p><code>n_sp = 3.20 + 0.089 × pct_flo</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">summary</span>(anf.lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo, data = dados.anf)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2493 -0.9091  0.2084  0.4600  3.2332 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.19568    0.64688   4.940 9.09e-05 ***
+pct_flo      0.08866    0.01156   7.671 3.11e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.286 on 19 degrees of freedom
+Multiple R-squared:  0.7559,    Adjusted R-squared:  0.7431 
+F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear - Multipla</h2>
+<div class="columns" style="font-size: 55%">
+<p>Na regressão linear, você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos</p><p>O que seria “o mais correto” para uma regressão <code>linear múltipla</code>:</p><ol type="1">
+<li><p><strong>Ajustar o modelo:</strong> <code>lm(y ~ x1, data = dados)</code></p></li>
+<li><p><strong>Normalidade dos resíduos</strong>: <code>Shapiro nos resíduos</code> do modelo + <code>QQ-plot</code></p></li>
+<li><p><strong>Homocedasticidade</strong>: <strong>Breusch–Pagan</strong>, testa se variância dos resíduos é constante</p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+<li><p><strong>Multicolinearidade</strong>: duas ou mais variáveis preditoras estão fortemente correlacionadas entre si.</p>
+<ul>
+<li><p>não é um pressuposto do modelo linear, mas afeta interpretação dos coeficientes</p></li>
+<li><p><strong><code>vif()</code></strong> mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras</p></li>
+</ul></li>
+<li><p><strong>Significância dos coeficientes:</strong> “Para cada aumento de 1 unidade em X, Y muda em β unidades, mantendo as outras variáveis constantes.”</p></li>
+<li><p><strong>Tamanho de efeito</strong>: <strong><code>R² adjusted</code></strong>, mostra em % quanto do fenômeno é explicado pelo modelo</p></li>
+<li><p><strong>Visualização Gráfica da relação linear</strong></p></li>
+<li><p><strong>Comparar com um modelo mais simples</strong></p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2></h2>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Múltipla</h2>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
+<span id="cb63-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
+<span id="cb63-3"><a href=""></a>                     <span class="at">data =</span> iris)</span>
+<span id="cb63-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.25582 -0.46922 -0.05741  0.45530  1.75599 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -2.52476    0.56344  -4.481 1.48e-05 ***
+Sepal.Length  1.77559    0.06441  27.569  &lt; 2e-16 ***
+Sepal.Width  -1.33862    0.12236 -10.940  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.6465 on 147 degrees of freedom
+Multiple R-squared:  0.8677,    Adjusted R-squared:  0.8659 
+F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear Múltipla</h2>
+<h4>Verificar multicolinearidade</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
+<span id="cb65-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sepal.Length  Sepal.Width 
+    1.014016     1.014016 </code></pre>
+</div>
+</div>
+<p><strong>VIF &lt; 5</strong>: Não há problema de multicolinearidade</p>
+<p><strong>VIF &gt; 10</strong>: Multicolinearidade alta - considerar remover variáveis</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Regressão Linear</h2>
+<h4>Comparação de modelos</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
+<span id="cb67-2"><a href=""></a><span class="fu">anova</span>(anf.lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: n_sp
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+pct_flo    1 97.260  97.260  58.839 3.111e-07 ***
+Residuals 19 31.407   1.653                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb69-2"><a href=""></a><span class="fu">AIC</span>(anf.lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               df       AIC
+anf.lm          3  74.04803
+modelo_lm_mult  4 299.78749</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Critérios de Seleção de Modelos</h2>
+<div style="font-size: 70%">
+<p><strong>AIC (Akaike Information Criterion)</strong></p>
+<ul>
+<li><p>Mede o <strong>balanço</strong> entre ajuste do modelo e complexidade</p></li>
+<li><p><strong>Penaliza</strong> modelos com muitos parâmetros (evita overfitting)</p></li>
+<li><p><strong>Menor AIC = melhor modelo</strong></p></li>
+<li><p>Regra prática: ΔAIC &gt; 2 indica diferença relevante</p></li>
+</ul>
+<p><strong>ANOVA de modelos aninhados</strong></p>
+<ul>
+<li><p>Compara modelos onde um é <strong>subconjunto</strong> do outro</p></li>
+<li><p>Testa se adicionar variáveis melhora significativamente o modelo</p></li>
+<li><p>Se p &lt; 0.05: modelo mais complexo é <strong>significativamente melhor</strong></p></li>
+</ul>
+<p><strong>R² ajustado</strong></p>
+<ul>
+<li><p>Penaliza adição de variáveis que não melhoram muito o ajuste</p></li>
+<li><p>Use para comparar modelos com diferentes números de preditores</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Modelos Lineares Generalizados (GLM)</h2>
+<div style="font-size: 70%">
+<p><strong>Quando usar?</strong></p>
+<ul>
+<li><p>Quando a <strong>variável resposta</strong> não segue distribuição normal</p></li>
+<li><p><strong>Dados de contagem</strong>: Poisson, Binomial Negativa</p></li>
+<li><p><strong>Dados binários</strong>: Logística</p></li>
+<li><p><strong>Dados de proporção</strong>: Binomial</p></li>
+</ul>
+<p><strong>Componentes do GLM:</strong></p>
+<ol type="1">
+<li><p><strong>Distribuição</strong> da família exponencial (Normal, Poisson, Binomial, etc.)</p></li>
+<li><p><strong>Função de ligação</strong> (link function)</p></li>
+<li><p><strong>Preditor linear</strong> (combinação linear das variáveis explicativas)</p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Função de Ligação (Link Function)</h2>
+<div style="font-size: 70%">
+<p><strong>O que é?</strong></p>
+<ul>
+<li><p><strong>Conecta</strong> a média da variável resposta com o preditor linear</p></li>
+<li><p>Garante que as <strong>predições</strong> estejam no intervalo válido</p></li>
+<li><p>Permite modelar <strong>relações não-lineares</strong> entre X e Y</p></li>
+</ul>
+<p><strong>Exemplos práticos:</strong></p>
+<ul>
+<li><strong>Log link</strong> (Poisson): garante contagens <strong>positivas</strong>
+<ul>
+<li>log(μ) = β₀ + β₁X → μ = exp(β₀ + β₁X)</li>
+</ul></li>
+<li><strong>Logit link</strong> (Binomial): garante probabilidades entre <strong>0 e 1</strong>
+<ul>
+<li>logit(p) = β₀ + β₁X → p = 1/(1 + exp(-(β₀ + β₁X)))</li>
+</ul></li>
+<li><strong>Identity link</strong> (Normal): relação <strong>direta e linear</strong>
+<ul>
+<li>μ = β₀ + β₁X (regressão linear tradicional)</li>
+</ul></li>
+</ul>
+<p><strong>Por que importa?</strong> A escolha errada pode gerar predições impossíveis (ex: contagens negativas)!</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Distribuições comuns</h2>
+<div style="font-size: 70%">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distribuição</th>
+<th>Tipo de Dados</th>
+<th>Função de Ligação</th>
+<th>Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gaussian</td>
+<td>Contínua</td>
+<td>Identity</td>
+<td>Altura</td>
+</tr>
+<tr class="even">
+<td>Poisson</td>
+<td>Contagem</td>
+<td>Log</td>
+<td>N° de espécies</td>
+</tr>
+<tr class="odd">
+<td>Binomial</td>
+<td>Binária</td>
+<td>Logit</td>
+<td>Presença/Ausência</td>
+</tr>
+<tr class="even">
+<td>Binomial</td>
+<td>Proporção</td>
+<td>Logit</td>
+<td>Taxa de sucesso</td>
+</tr>
+<tr class="odd">
+<td>Gamma</td>
+<td>Contínua positiva</td>
+<td>Log</td>
+<td>Biomassa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Poisson</h2>
+<h4>Dados de contagem</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
+<span id="cb71-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb71-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb71-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
+<span id="cb71-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
+<span id="cb71-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
+<span id="cb71-7"><a href=""></a>)</span>
+<span id="cb71-8"><a href=""></a></span>
+<span id="cb71-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  temperatura umidade contagem
+        &lt;dbl&gt;   &lt;dbl&gt;    &lt;int&gt;
+1        20.8    70.0        3
+2        30.8    56.6       15
+3        23.2    64.4        5
+4        32.7    87.7       20
+5        33.8    64.1       18
+6        15.9    84.5        2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Poisson</h2>
+<h4>Ajustar o modelo</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
+<span id="cb73-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb73-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
+<span id="cb73-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb73-5"><a href=""></a></span>
+<span id="cb73-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = contagem ~ temperatura + umidade, family = poisson(link = "log"), 
+    data = dados_count)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -1.505446   0.273903  -5.496 3.88e-08 ***
+temperatura  0.091568   0.006922  13.228  &lt; 2e-16 ***
+umidade      0.015957   0.002814   5.670 1.42e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 326.50  on 99  degrees of freedom
+Residual deviance: 111.26  on 97  degrees of freedom
+AIC: 476.12
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Poisson</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
+<span id="cb75-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept) temperatura     umidade 
+  0.2219182   1.0958910   1.0160846 </code></pre>
+</div>
+</div>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p>Para cada 1°C de aumento na temperatura, a contagem <strong>aumenta</strong> em 11% (exp(0.10) = 1.11)</p></li>
+<li><p>Para cada 1% de aumento na umidade, a contagem <strong>aumenta</strong> em 2% (exp(0.02) = 1.02)</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM</h2>
+<h4>Verificação de pressupostos - DHARMa</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
+<span id="cb77-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM</h2>
+<h4>Testes de adequação do modelo</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
+<span id="cb78-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa nonparametric dispersion test via sd of residuals fitted vs.
+    simulated
+
+data:  simulationOutput
+dispersion = 1.0816, p-value = 0.552
+alternative hypothesis: two.sided</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
+<span id="cb80-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa bootstrapped outlier test
+
+data:  simulacao
+outliers at both margin(s) = 0, observations = 100, p-value = 1
+alternative hypothesis: two.sided
+ percent confidence interval:
+ 0.00000 0.02525
+sample estimates:
+outlier frequency (expected: 0.0058 ) 
+                                    0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
+<span id="cb82-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-3.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa zero-inflation test via comparison to expected zeros with
+    simulation under H0 = fitted model
+
+data:  simulationOutput
+ratioObsSim = 0.72886, p-value = 1
+alternative hypothesis: two.sided</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Interpretando os Testes de Diagnóstico</h2>
+<div style="font-size: 70%">
+<p><strong>Teste de Superdispersão (Overdispersion)</strong></p>
+<ul>
+<li><p>Verifica se a <strong>variância</strong> é maior que o esperado pela distribuição</p></li>
+<li><p><strong>p &lt; 0.05</strong>: modelo está <strong>subdispersando</strong> (variância menor)</p></li>
+<li><p><strong>p &gt; 0.05 E ratio &gt; 1</strong>: modelo está <strong>superdispersando</strong> (variância maior)</p></li>
+<li><p><strong>Solução</strong>: usar Binomial Negativa ou modelo misto</p></li>
+</ul>
+<p><strong>Teste de Outliers</strong></p>
+<ul>
+<li><p>Detecta observações com <strong>resíduos extremos</strong></p></li>
+<li><p><strong>p &lt; 0.05</strong>: presença de outliers significativos</p></li>
+<li><p><strong>Ação</strong>: investigar se são erros de medição ou observações legítimas</p></li>
+</ul>
+<p><strong>Teste de Excesso de Zeros</strong></p>
+<ul>
+<li><p>Verifica se há <strong>mais zeros</strong> do que esperado pela distribuição</p></li>
+<li><p><strong>p &lt; 0.05</strong>: modelo não captura bem os zeros</p></li>
+<li><p><strong>Solução</strong>: usar modelos Zero-Inflated (ZIP, ZINB)</p></li>
+</ul>
+<p><strong>Regra geral:</strong> Valores de p &gt; 0.05 nos testes indicam que o modelo está adequado!</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Overdispersion</h2>
+<div style="font-size: 70%">
+<p><strong>O que é superdispersão (overdispersion)?</strong></p>
+<ul>
+<li><p>Quando a <strong>variância</strong> dos dados é <strong>maior</strong> que a esperada pelo modelo</p></li>
+<li><p>Comum em dados de contagem</p></li>
+</ul>
+<p><strong>Como detectar?</strong></p>
+<ul>
+<li><p>Razão deviance/df &gt; 1.5</p></li>
+<li><p>Teste de DHARMa</p></li>
+</ul>
+<p><strong>Soluções:</strong></p>
+<ul>
+<li><p><strong>Binomial Negativa</strong>: permite maior variância</p></li>
+<li><p><strong>Modelo misto</strong>: adiciona efeitos aleatórios</p></li>
+<li><p><strong>Quasi-Poisson</strong>: ajusta erros padrão</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Binomial Negativa</h2>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
+<span id="cb84-2"><a href=""></a></span>
+<span id="cb84-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
+<span id="cb84-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb84-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
+<span id="cb84-6"><a href=""></a></span>
+<span id="cb84-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm.nb(formula = contagem ~ temperatura + umidade, data = dados_count, 
+    init.theta = 131.8817654, link = log)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -1.497868   0.282807  -5.296 1.18e-07 ***
+temperatura  0.091531   0.007128  12.841  &lt; 2e-16 ***
+umidade      0.015858   0.002914   5.442 5.27e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for Negative Binomial(131.8818) family taken to be 1)
+
+    Null deviance: 308.71  on 99  degrees of freedom
+Residual deviance: 105.81  on 97  degrees of freedom
+AIC: 477.96
+
+Number of Fisher Scoring iterations: 1
+
+              Theta:  132 
+          Std. Err.:  347 
+
+ 2 x log-likelihood:  -469.961 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Comparação de modelos</h2>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb86-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               df      AIC
+modelo_poisson  3 476.1200
+modelo_nb       4 477.9613</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
+<span id="cb88-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb88-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model 1: contagem ~ temperatura + umidade
+Model 2: contagem ~ temperatura + umidade
+  Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+1        97     111.26                     
+2        97     105.81  0   5.4463         </code></pre>
+</div>
+</div>
+<p><strong>Modelo Binomial Negativa é melhor</strong> (AIC menor)</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Visualização</h2>
+<h4>Efeitos do modelo</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
+<span id="cb90-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
+<span id="cb90-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
+<span id="cb90-4"><a href=""></a></span>
+<span id="cb90-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
+<span id="cb90-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
+<span id="cb90-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
+<span id="cb90-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Visualização</h2>
+<h4>Efeitos do modelo - Umidade</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
+<span id="cb91-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
+<span id="cb91-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
+<span id="cb91-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-49-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Visualização com sjPlot</h2>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
+<span id="cb92-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb92-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Visualização com sjPlot</h2>
+<h4>Efeitos marginais</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
+<span id="cb93-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb93-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
+<span id="cb93-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Regressão Logística</h2>
+<h4>Dados binários</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
+<span id="cb94-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb94-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb94-4"><a href=""></a></span>
+<span id="cb94-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
+<span id="cb94-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
+<span id="cb94-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
+<span id="cb94-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb94-9"><a href=""></a></span>
+<span id="cb94-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = grande ~ Sepal.Length + Sepal.Width, family = binomial(link = "logit"), 
+    data = dados_bin)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  -24.8676     5.2044  -4.778 1.77e-06 ***
+Sepal.Length   4.7560     0.8228   5.781 7.44e-09 ***
+Sepal.Width   -0.9321     0.6933  -1.345    0.179    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 207.944  on 149  degrees of freedom
+Residual deviance:  75.819  on 147  degrees of freedom
+AIC: 81.819
+
+Number of Fisher Scoring iterations: 6</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Regressão Logística</h2>
+<h4>Odds Ratio</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
+<span id="cb96-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> (Intercept) Sepal.Length  Sepal.Width 
+1.585347e-11 1.162813e+02 3.937108e-01 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                    2.5 %       97.5 %
+(Intercept)  1.413519e-16 1.305991e-07
+Sepal.Length 2.880461e+01 7.586175e+02
+Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
+</div>
+</div>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p>Para cada 1 cm de aumento na sépala, as chances de ter pétala grande <strong>aumentam</strong> 8.4 vezes</p></li>
+<li><p>Para cada 1 cm de aumento na largura da sépala, as chances <strong>diminuem</strong> 0.07 vezes</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Entendendo Odds Ratio (OR)</h2>
+<div style="font-size: 70%">
+<p><strong>O que é Odds Ratio?</strong></p>
+<ul>
+<li><p>Mede a <strong>razão das chances</strong> entre dois grupos ou níveis de uma variável</p></li>
+<li><p><strong>OR = 1</strong>: sem efeito (chances iguais)</p></li>
+<li><p><strong>OR &gt; 1</strong>: aumento das chances (efeito positivo)</p></li>
+<li><p><strong>OR &lt; 1</strong>: diminuição das chances (efeito negativo)</p></li>
+</ul>
+<p><strong>Exemplo prático:</strong></p>
+<ul>
+<li><p>OR = 2: as chances <strong>dobram</strong></p></li>
+<li><p>OR = 0.5: as chances são <strong>reduzidas pela metade</strong></p></li>
+<li><p>OR = 8.4: as chances são <strong>8.4 vezes maiores</strong></p></li>
+</ul>
+<p><strong>Conversão para porcentagem:</strong></p>
+<ul>
+<li><p>OR = 2 → aumento de 100% nas chances</p></li>
+<li><p>OR = 1.5 → aumento de 50% nas chances</p></li>
+<li><p>OR = 0.7 → diminuição de 30% nas chances [(1-0.7)×100]</p></li>
+</ul>
+<p><strong>Importante:</strong> OR ≠ Risco Relativo! OR tende a exagerar o efeito quando eventos são comuns.</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Regressão Logística</h2>
+<h4>Visualização</h4>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="co"># Predições</span></span>
+<span id="cb100-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
+<span id="cb100-3"><a href=""></a></span>
+<span id="cb100-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
+<span id="cb100-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb100-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb100-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
+<span id="cb100-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb100-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb100-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
+<span id="cb100-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb100-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb100-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb100-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
+<span id="cb100-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Resumo dos Modelos</h2>
+<div style="font-size: 60%">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Modelo</th>
+<th>Uso</th>
+<th>Distribuição</th>
+<th>Link</th>
+<th>Pressupostos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>lm</strong></td>
+<td>Resposta contínua</td>
+<td>Normal</td>
+<td>Identity</td>
+<td>Linearidade, normalidade resíduos, homocedasticidade</td>
+</tr>
+<tr class="even">
+<td><strong>glm Poisson</strong></td>
+<td>Contagem</td>
+<td>Poisson</td>
+<td>Log</td>
+<td>Média = Variância</td>
+</tr>
+<tr class="odd">
+<td><strong>glm Neg. Binomial</strong></td>
+<td>Contagem c/ superdispersão</td>
+<td>Neg. Binomial</td>
+<td>Log</td>
+<td>Overdispersion permitida</td>
+</tr>
+<tr class="even">
+<td><strong>glm Logística</strong></td>
+<td>Binária</td>
+<td>Binomial</td>
+<td>Logit</td>
+<td>Independência</td>
+</tr>
+<tr class="odd">
+<td><strong>glm Gamma</strong></td>
+<td>Contínua positiva</td>
+<td>Gamma</td>
+<td>Log</td>
+<td>Valores &gt; 0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="slide level2">
+<h2>Como Escolher o Teste Estatístico?</h2>
+<div style="font-size: 70%">
+<p><strong>Fluxograma de decisão:</strong></p>
+<ol type="1">
+<li><strong>Tipo de variáveis?</strong>
+<ul>
+<li>Categórica vs Categórica → <strong>Chi-quadrado</strong></li>
+<li>Contínua vs Categórica (2 grupos) → <strong>t-test</strong></li>
+<li>Contínua vs Categórica (3+ grupos) → <strong>ANOVA</strong></li>
+<li>Contínua vs Contínua → <strong>Correlação / Regressão</strong></li>
+</ul></li>
+<li><strong>Objetivo?</strong>
+<ul>
+<li>Comparar com o esperado → <strong>Chi-quadrado</strong></li>
+<li>Comparar grupos → ANOVA, t-test</li>
+<li>Predizer valores → Regressão, GLM</li>
+</ul></li>
+<li><strong>Pressupostos atendidos?</strong>
+<ul>
+<li>Sim → Teste <strong>paramétrico</strong></li>
+<li>Não → Teste <strong>não-paramétrico</strong> ou transformação</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Fluxo de Análise</h2>
+<div style="font-size: 70%">
+<p><strong>1. Exploração dos dados</strong></p>
+<ul>
+<li>Estatística descritiva</li>
+<li>Visualizações</li>
+<li>Correlações</li>
+</ul>
+<p><strong>2. Escolha do teste/modelo</strong></p>
+<ul>
+<li>Tipo de variável resposta</li>
+<li>Tipo de preditoras</li>
+<li>Objetivo da análise</li>
+</ul>
+<p><strong>3. Verificação de pressupostos</strong></p>
+<ul>
+<li>Normalidade, homocedasticidade, etc.</li>
+<li>Transformação se necessário</li>
+</ul>
+<p><strong>4. Ajuste do modelo</strong></p>
+<p><strong>5. Diagnóstico</strong></p>
+<p><strong>6. Interpretação e visualização</strong></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Boas Práticas</h2>
+<div style="font-size: 70%">
+<p><strong>Sempre:</strong></p>
+<p>✓ Visualize seus dados <strong>antes</strong> de modelar</p>
+<p>✓ Verifique <strong>pressupostos</strong> dos testes</p>
+<p>✓ Reporte <strong>tamanho de efeito</strong>, não apenas p-value</p>
+<p>✓ Use <strong>gráficos</strong> para comunicar resultados</p>
+<p>✓ Interprete resultados no <strong>contexto biológico</strong></p>
+<p><strong>Evite:</strong></p>
+<p>✗ Confiar cegamente em p-values</p>
+<p>✗ Ignorar pressupostos violados</p>
+<p>✗ “P-hacking” (testar múltiplos modelos até achar significância)</p>
+<p>✗ Extrapolar além dos dados</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Recursos Adicionais</h2>
+<div style="font-size: 70%">
+<p><strong>Livros:</strong></p>
+<ul>
+<li><p><em>Statistical Rethinking</em> - Richard McElreath</p></li>
+<li><p><em>Regression and Other Stories</em> - Gelman, Hill &amp; Vehtari</p></li>
+<li><p><em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em> - Gelman &amp; Hill</p></li>
+</ul>
+<p><strong>Pacotes úteis:</strong></p>
+<ul>
+<li><p><code>performance</code>: diagnóstico de modelos</p></li>
+<li><p><code>easystats</code>: conjunto de pacotes para estatística</p></li>
+<li><p><code>ggeffects</code>: visualização de efeitos</p></li>
+<li><p><code>emmeans</code>: comparações post-hoc</p></li>
+</ul>
+<p><strong>Online:</strong></p>
+<ul>
+<li><a href="https://statsandr.com/blog/what-statistical-test-should-i-do/">Statistical tests cheat sheet</a></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Obrigado!</h2>
+<div style="font-size: 80%">
+<p><strong>Dúvidas?</strong></p>
+<p>Email: <a href="mailto:seu.email@email.com">seu.email@email.com</a></p>
+<p>Website: <a href="https://souzayuri.github.io/">souzayuri.github.io</a></p>
+<p><strong>Materiais do curso:</strong></p>
+<p>GitHub: <a href="https://github.com/seu-usuario/seu-repo">seu-repositorio</a></p>
+</div>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="10 - Análises Estatísticas - Parte 3_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiada");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiada");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

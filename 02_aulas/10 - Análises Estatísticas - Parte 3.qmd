@@ -1,0 +1,1522 @@
+---
+title: "Análises Estatísticas <br> no R <br> Estatística Preditiva<br>"
+subtitle: "Curso:<br><strong>Introdução à manejo, visualização e análise de dados com R</strong>"
+author: "<br>[Yuri Souza](https://souzayuri.github.io/)"
+date: "01/10/2026"
+date-format: long
+format: 
+  revealjs:
+    theme: [custom.scss]
+    slide-number: c/t
+    show-slide-number: all
+    hash-type: number
+    preview-links: true
+    chalkboard: true
+    transition: slide
+    execute:
+      echo: true
+      eval: true
+      warning: false
+      message: false
+editor: source
+lang: pt-br
+---
+
+## RECAPITULANDO
+
+#### Até agora...
+
+::::::: {.columns style="font-size: 60%"}
+:::::: columns
+::: {.column width="35%"}
+-   **Pressupostos de testes** `paramétricos`
+
+    -   Normalidade
+
+    -   Homocedasticidade
+
+    -   Independência
+
+    -   Ausência de outliers extremos
+
+-   **Pressupostos de testes**
+
+    `não paramétricos`
+
+    -   Oposto ao paramétrico
+
+    -   Também exige Independência
+:::
+
+::: {.column width="35%"}
+-   **Tipos de** `familias`
+
+    -   **Gaussian**
+
+    -   **Poisson**
+
+    -   **Binomial**
+
+-   Teste de `hipótese`
+
+    -   **Valor de P**
+:::
+
+::: {.columns width="30%"}
+-   **Testes Estatísticos**
+
+    -   `X²`
+    -   **t-test**
+        -   `Student's t-test`
+        -   `Welch's t-test`
+    -   **ANOVA**
+        -   `One Way Anova`
+        -   `Kruskal–Wallis`
+:::
+::::::
+:::::::
+
+## Análises Estatísticas
+
+#### Pacotes necessários
+
+::: {style="font-size: 70%"}
+```{r}
+library(tidyverse)      # Manipulação e visualização
+library(car)            # Testes de pressupostos
+library(corrplot)       # Matriz de correlação
+library(ggcorrplot)     # Heatmap de correlação
+library(qqplotr)        # Plota intervalo de confiança do qqplot
+library(nortest)        # teste de normalidade shapiro-francia
+library(report)         # cria sumário dos resultados dos modelos
+library(rstatix)        # Testes estatísticos
+library(effectsize)     # Tamanho de efeito
+library(emmeans)        # Médias marginais e post-hoc
+library(sjPlot)         # Visualização de modelos
+library(ggeffects)      # Efeitos de modelos
+library(see)            # Necessário para Performance
+library(performance)    # Diagnóstico de modelos
+library(DHARMa)         # Diagnóstico de GLMs
+```
+:::
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis
+
+::: {style="font-size: 55%"}
+**Correlação** mede o **grau de associação** entre duas variáveis `numéricas`.
+
+-   Quando **X aumenta**, **Y tende a aumentar ou diminuir**?
+-   Essa relação é **forte**, **fraca** ou **inexistente**?
+
+Quando você tem **mais de duas variáveis**, calcular correlação par a par gera uma **`matriz de correlação`**.
+
+-   Usa a função **cor()** do pacote stats
+
+    -   Se informa o método usado,
+
+        -   `pearson`: relação linear e todas variáveis paramétricas (`normal`)
+
+        -   `spearman`: relação monotônica, lineares ou com curvas, não-paramétricas (`não normal`)
+:::
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis
+
+::: {style="font-size: 60%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Testamos a normalidade primeiro usando o teste de `Shapiro-Francia`
+
+Se forem todas normais vamos de `Pearson`, se não vamos de `Spearman`
+
+```         
+```
+:::
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis
+
+::: {style="font-size: 60%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Testamos a normalidade primeiro usando o teste de `Shapiro-Francia`
+
+Se forem todas normais vamos de `Pearson`, se não vamos de `Spearman`
+:::
+
+<div>
+
+::::: {.columns style="font-size: 80%"}
+::: {.column width="50%"}
+```{r}
+nortest::sf.test(iris$Sepal.Length)
+nortest::sf.test(iris$Sepal.Width)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+nortest::sf.test(iris$Petal.Length)
+nortest::sf.test(iris$Petal.Width)
+```
+:::
+:::::
+
+</div>
+
+## Análises Estatísticas Inferenciais
+
+#### `Correlação` entre variáveis e `Heatmap`
+
+::: {style="font-size: 50%"}
+**Todas** as variáveis **estão correlacionadas** em certo ponto, mas **quanto é isso**?\
+\
+Vamos testar para **aspectos das pétalas** do dataset `iris`
+
+Função `cor()` testa a correlação
+:::
+
+::: {style="font-size: 65%"}
+```{r}
+#| output-location: column
+cor_matrix <- iris %>% 
+  dplyr::select(where(is.numeric)) %>% 
+  stats::cor(method = "spearman",)
+
+cor_matrix
+
+```
+:::
+
+::: {style="font-size: 65%"}
+```{r}
+#| output-location: column
+#| fig-width: 4
+#| fig-height: 3
+ggcorrplot(cor_matrix, 
+           lab = TRUE,
+           lab_size = 4,
+           colors = c("#6D9EC1", #valor -1 a 0.0
+                      "white", # valor 0
+                      "#E46726")) #valor 0 a 1.0
+```
+:::
+
+## Análises Estatísticas Inferenciais
+
+#### `Teste` de correlação entre vaviáveis
+
+::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
+```{r}
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "spearman")
+```
+:::
+
+:::::: columns
+::::: {style="font-size: 50%"}
+:::: columns
+::: {.column width="50%"}
+:::
+::::
+:::::
+::::::
+
+## Análises Estatísticas Inferenciais
+
+#### `Teste` de correlação entre vaviáveis
+
+::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
+```{r}
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "spearman")
+```
+:::
+
+::::::: columns
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
+**Interpretação:** Correlação **forte e positiva** (rho = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
+
+**IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+:::::::
+
+## Análises Estatísticas Inferenciais
+
+#### `Teste` de correlação entre vaviáveis
+
+::: {style="font-size: 70%"}
+Usamos a função `cor.test()` para testar a hipótese de correlação
+
+```{r}
+#| output-location: column
+stats::cor.test(iris$Sepal.Length, 
+                iris$Petal.Length, 
+                method = "spearman")
+```
+:::
+
+::::::: columns
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
+**Interpretação:** Correlação **forte e positiva** (rho = 0.87) entre comprimento de sépala e pétala (p \< 0.001)
+
+**IMPORTANTE:** Correlação ≠ Causação! Pode haver variáveis confundidoras.
+:::
+
+::: {.column width="50%"}
+**Coeficiente de correlação (`r` ou `rho`): *`Golden rule`***
+
+-   `r/rho = 1`: correlação positiva perfeita
+-   `r/rho = 0`: sem correlação linear
+-   `r/rho = -1`: correlação negativa perfeita
+-   `|r/rho| > 0.7`: correlação forte
+-   `|r/rho| = 0.3-0.7`: correlação moderada
+-   `|r/rho| < 0.3`: correlação fraca
+:::
+:::::
+::::::
+:::::::
+
+## Resumo Estatística Inferencial
+
+#### Testes Paramétricos vs Não-Paramétricos
+
+::: {style="font-size: 60%"}
+| Situação           | Paramétrico | Não-Paramétrico           |
+|--------------------|-------------|---------------------------|
+| Comparar 2 grupos  | t-test      | Mann-Whitney U (Wilcoxon) |
+| Comparar 3+ grupos | ANOVA       | Kruskal-Wallis            |
+| Correlação         | Pearson     | Spearman / Kendall        |
+
+**Quando usar não-paramétricos?**
+
+-   Dados **não-normais** (mesmo após transformação)
+-   **Outliers** extremos
+-   **Amostras pequenas** (n \< 30)
+
+**Vantagens paramétricos:** Mais **poder estatístico** quando pressupostos são atendidos
+
+**Vantagens não-paramétricos:** Mais **robustos** a violações
+:::
+
+## Estatística Preditiva
+
+::: {style="font-size: 70%"}
+**O que é?**
+
+-   **Modelar relações** lineares entre variáveis
+
+-   **Predizer** valores de uma variável resposta a partir de preditoras
+
+-   Entender **quanto** cada preditor influencia a resposta
+
+**Modelos:**
+
+-   **Regressão Linear (lm)**: resposta contínua, relação linear
+
+-   **Modelos Lineares Generalizados (glm)**: diferentes distribuições da resposta
+:::
+
+## Regressão Linear
+
+::: {style="font-size: 70%"}
+Baseado na equacao geral da reta:
+
+`y = β0 + β1 * x`
+:::
+
+:::::: {style="font-size: 70%"}
+::::: columns
+::: {.column width="50%"}
+-   `y` → variável resposta (dependente)
+
+-   `x` → variável explicativa (independente)
+
+-   `β0` → intercepto (valor esperado de y quando x=0)
+
+-   `β1` → inclinação da reta (quanto y muda, em média, para cada 1 unidade de x)
+:::
+
+::: {.column width="50%"}
+![](img/regressao_linear_parametros_corrigido.jpg){width="700"}
+:::
+:::::
+::::::
+
+## Regressão Linear (lm)
+
+#### Parâmetros estimados através do **Método dos Mínimos Quadrados (MMQ)**
+
+:::: columns
+::: {style="font-size: 70%"}
+Encontra o **melhor ajuste** para um conjunto de dados **tentando minimizar** a soma dos quadrados das diferenças entre o **valor estimado** e os **dados observados**
+:::
+
+![](img/mmq.png){fig-align="center" width="600" height="420"}
+::::
+
+## Regressão Linear (lm)
+
+::: {style="font-size: 65%"}
+**Quando usar?**
+
+-   Variável resposta **contínua**
+
+-   Relação **linear** entre preditoras e resposta
+
+    -   `uma preditora` = **regressão linear simples**
+
+    -   `duas ou mais` = **regressão linear multipla**
+
+-   Resíduos com distribuição **normal**
+
+**Pressupostos:**
+
+1.  **Linearidade**: relação linear entre X e Y
+
+2.  **Normalidade dos resíduos**
+
+3.  **Homocedasticidade**: variância constante dos resíduos
+
+4.  **Independência** dos resíduos
+
+5.  **Ausência de multicolinearidade** (entre preditoras)
+:::
+
+## Regressão Linear - Simples
+
+::: {.columns style="font-size: 60%"}
+Na regressão linear, você precisa **ajustar o modelo primeiro** para então verificar a maioria dos pressupostos
+
+O que seria "o mais correto" para uma regressão `linear simples`:
+
+1.  **Ajustar o modelo:** `lm(y ~ x1, data = dados)`
+
+2.  **Normalidade dos resíduos**: `Shapiro nos resíduos` do modelo + `QQ-plot`
+
+3.  **Homocedasticidade**: **Breusch–Pagan**, testa se variância dos resíduos é constante
+
+4.  **Independência das observações:** O valor de uma observação **não influencia** nem é influenciado por outra.
+
+5.  **Tamanho de efeito**: `R²` simples, mostra em % quanto do fenômeno é explicado pelo modelo
+
+6.  **Visualização Gráfica da relação linear**
+:::
+
+## 1. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+
+```
+
+:::: columns
+::: {.column width="100%"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 1. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+anf.lm <- lm(n_sp ~ pct_flo,
+             data = dados.anf)
+anf.lm
+```
+
+:::: columns
+::: {.column width="100%"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 1. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+anf.lm <- lm(n_sp ~ pct_flo,
+             data = dados.anf)
+anf.lm
+```
+
+:::: columns
+::: {.column width="100%"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+anf.lm <- lm(n_sp ~ pct_flo,
+             data = dados.anf)
+anf.lm
+```
+
+:::: columns
+::: {.column width="100%"}
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+shapiro.test(anf.lm$residuals)
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+anf.lm <- lm(n_sp ~ pct_flo,
+             data = dados.anf)
+anf.lm
+```
+
+:::: columns
+::: {.column width="100%"}
+Modelo **significativo** e com distribuição dos **resíduos normais**.
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+shapiro.test(anf.lm$residuals)
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Simples
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+dados.anf <- read_csv("../01_dados/dados_anfibios.csv")
+
+anf.lm <- lm(n_sp ~ pct_flo,
+             data = dados.anf)
+anf.lm
+```
+
+:::: columns
+::: {.column width="100%"}
+Modelo **significativo** e com distribuição dos **resíduos normais**.
+
+**E a homocedasticidade????**
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+shapiro.test(anf.lm$residuals)
+
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Simples
+
+::: {style="font-size: 55%"}
+Função `check_model()` faz checagem do **QQ-Plot** e muito **mais**
+:::
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 12
+#| fig-height: 6.7
+performance::check_model(anf.lm)
+```
+:::
+
+## 3. Regressão Linear Simples
+
+#### Teste da homocedasticidade
+
+::: {style="font-size: 60%"}
+-   **H₀ (hipótese nula)**: a variância dos resíduos é constante\
+    → **homocedasticidade**
+
+-   **H₁**: a variância dos resíduos não é constante\
+    → **heterocedasticidade**
+
+```{r}
+
+```
+:::
+
+## 3. Regressão Linear Simples
+
+#### Teste da homocedasticidade
+
+::: {style="font-size: 60%"}
+Função `bptest()`, **Breusch–Pagan:**
+
+-   **H₀ (hipótese nula)**: a variância dos resíduos é constante\
+    → **homocedasticidade**
+
+-   **H₁**: a variância dos resíduos não é constante\
+    → **heterocedasticidade**
+
+    -   O BP mede o quanto a **variância** dos resíduos depende das variáveis **explicativas**.
+        -   **Muito pequeno** (`≈ 0`): Forte evidência a favor da **homocedasticidade**
+:::
+
+## 3. Regressão Linear Simples
+
+#### Teste da homocedasticidade
+
+::: {style="font-size: 60%"}
+Função `bptest()`, **Breusch–Pagan:**
+
+-   **H₀ (hipótese nula)**: a variância dos resíduos é constante\
+    → **homocedasticidade**
+
+-   **H₁**: a variância dos resíduos não é constante\
+    → **heterocedasticidade**
+
+    -   O BP mede o quanto a **variância** dos resíduos depende das variáveis **explicativas**.
+        -   **Muito pequeno** (`≈ 0`): Forte evidência a favor da **homocedasticidade**
+:::
+
+::: {style="font-size: 90%"}
+```{r}
+
+lmtest::bptest(anf.lm)
+```
+:::
+
+## 5. Regressão Linear Simples
+
+#### Tamanho de efeito `R²`
+
+:::::: {style="font-size: 70%"}
+**R²** mede **quanto da variação da variável resposta (Y)** é explicada pelo modelo de regressão
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%"}
+-   **0** → o modelo não explica nada
+
+-   **1** → o modelo explica toda a variação de Y
+
+-   Quanto menores os resíduos, **maior o R²**
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+summary(anf.lm)
+
+```
+:::
+:::::
+::::::
+
+## 5. Regressão Linear Simples
+
+#### Tamanho de efeito `R²`
+
+:::::: {style="font-size: 70%"}
+**R²** mede **quanto da variação da variável resposta (Y)** é explicada pelo modelo de regressão
+
+::::: {.columns style="font-size: 100%"}
+::: {.column width="50%"}
+-   **0** → o modelo não explica nada
+
+-   **1** → o modelo explica toda a variação de Y
+
+-   Quanto menores os resíduos, **maior o R²**
+
+Apenas **\~24,4%** da variação ficou nos **resíduos** (erro) **e 75,6% é explicado** por cobertura florestal
+:::
+
+::: {.column width="50%" style="font-size: 100%"}
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## 6. Regressão Linear Simples
+
+#### Visualização do modelo
+
+::: {style="font-size: 70%"}
+
+```{r}
+#| output-location: column
+#| fig-width: 4
+#| fig-height: 4
+ggplot(dados.anf, aes(x = pct_flo, y = tam_medio_femur)) +
+  geom_point(size = 3, alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE, color = "black") +
+  theme_minimal() +
+  labs(x = "Cobertura Florestal (%)",
+       y = "Tamanho médio do fêmur")
+```
+:::
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+
+-   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+
+-   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
+
+-   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+
+-   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
+
+-   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
+
+-   p-value (\< 0.001): indicando que o efeito de `pct_flo` sobre `n_sp` é **estatisticamente significativo**.
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+
+-   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
+
+-   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
+
+-   p-value (\< 0.001): indicando que o efeito de `pct_flo` sobre `n_sp` é **estatisticamente significativo**.
+
+-    `Estatística F` (F = 58.84): modelo linear é significativamente **melhor do que** um modelo **sem preditore**
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear - Multipla
+
+::: {.columns style="font-size: 55%"}
+Na regressão linear, você precisa **ajustar o modelo primeiro** para então verificar a maioria dos pressupostos
+
+O que seria "o mais correto" para uma regressão `linear múltipla`:
+
+1.  **Ajustar o modelo:** `lm(y ~ x1, data = dados)`
+
+2.  **Normalidade dos resíduos**: `Shapiro nos resíduos` do modelo + `QQ-plot`
+
+3.  **Homocedasticidade**: **Breusch–Pagan**, testa se variância dos resíduos é constante
+
+4.  **Independência das observações:** O valor de uma observação **não influencia** nem é influenciado por outra.
+
+5.  **Multicolinearidade**: duas ou mais variáveis preditoras estão fortemente correlacionadas entre si.
+
+    -   não é um pressuposto do modelo linear, mas afeta interpretação dos coeficientes
+
+    -   **`vif()`** mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras
+
+6.  **Significância dos coeficientes:** “Para cada aumento de 1 unidade em X, Y muda em β unidades, mantendo as outras variáveis constantes.”
+
+7.  **Tamanho de efeito**: **`R² adjusted`**, mostra em % quanto do fenômeno é explicado pelo modelo
+
+8.  **Visualização Gráfica da relação linear**
+
+9.  **Comparar com um modelo mais simples**
+:::
+
+## Regressão Linear Múltipla
+
+::: {style="font-size: 70%"}
+```{r}
+# Modelo com múltiplos preditores
+modelo_lm_mult <- lm(Petal.Length ~ Sepal.Length + Sepal.Width, 
+                     data = iris)
+summary(modelo_lm_mult)
+```
+:::
+
+## Regressão Linear Múltipla
+
+#### Verificar multicolinearidade
+
+::: {style="font-size: 70%"}
+```{r}
+# VIF - valores > 10 indicam multicolinearidade
+vif(modelo_lm_mult)
+```
+
+**VIF \< 5**: Não há problema de multicolinearidade
+
+**VIF \> 10**: Multicolinearidade alta - considerar remover variáveis
+:::
+
+## Regressão Linear
+
+#### Comparação de modelos
+
+::: {style="font-size: 70%"}
+```{r}
+# Comparar modelos
+anova(anf.lm, modelo_lm_mult)
+
+# AIC - menor é melhor
+AIC(anf.lm, modelo_lm_mult)
+```
+:::
+
+## Critérios de Seleção de Modelos
+
+::: {style="font-size: 70%"}
+**AIC (Akaike Information Criterion)**
+
+-   Mede o **balanço** entre ajuste do modelo e complexidade
+
+-   **Penaliza** modelos com muitos parâmetros (evita overfitting)
+
+-   **Menor AIC = melhor modelo**
+
+-   Regra prática: ΔAIC \> 2 indica diferença relevante
+
+**ANOVA de modelos aninhados**
+
+-   Compara modelos onde um é **subconjunto** do outro
+
+-   Testa se adicionar variáveis melhora significativamente o modelo
+
+-   Se p \< 0.05: modelo mais complexo é **significativamente melhor**
+
+**R² ajustado**
+
+-   Penaliza adição de variáveis que não melhoram muito o ajuste
+
+-   Use para comparar modelos com diferentes números de preditores
+:::
+
+## Modelos Lineares Generalizados (GLM)
+
+::: {style="font-size: 70%"}
+**Quando usar?**
+
+-   Quando a **variável resposta** não segue distribuição normal
+
+-   **Dados de contagem**: Poisson, Binomial Negativa
+
+-   **Dados binários**: Logística
+
+-   **Dados de proporção**: Binomial
+
+**Componentes do GLM:**
+
+1.  **Distribuição** da família exponencial (Normal, Poisson, Binomial, etc.)
+
+2.  **Função de ligação** (link function)
+
+3.  **Preditor linear** (combinação linear das variáveis explicativas)
+:::
+
+## Função de Ligação (Link Function)
+
+::: {style="font-size: 70%"}
+**O que é?**
+
+-   **Conecta** a média da variável resposta com o preditor linear
+
+-   Garante que as **predições** estejam no intervalo válido
+
+-   Permite modelar **relações não-lineares** entre X e Y
+
+**Exemplos práticos:**
+
+-   **Log link** (Poisson): garante contagens **positivas**
+    -   log(μ) = β₀ + β₁X → μ = exp(β₀ + β₁X)
+-   **Logit link** (Binomial): garante probabilidades entre **0 e 1**
+    -   logit(p) = β₀ + β₁X → p = 1/(1 + exp(-(β₀ + β₁X)))
+-   **Identity link** (Normal): relação **direta e linear**
+    -   μ = β₀ + β₁X (regressão linear tradicional)
+
+**Por que importa?** A escolha errada pode gerar predições impossíveis (ex: contagens negativas)!
+:::
+
+## GLM - Distribuições comuns
+
+::: {style="font-size: 70%"}
+| Distribuição | Tipo de Dados     | Função de Ligação | Exemplo           |
+|--------------|-------------------|-------------------|-------------------|
+| Gaussian     | Contínua          | Identity          | Altura            |
+| Poisson      | Contagem          | Log               | N° de espécies    |
+| Binomial     | Binária           | Logit             | Presença/Ausência |
+| Binomial     | Proporção         | Logit             | Taxa de sucesso   |
+| Gamma        | Contínua positiva | Log               | Biomassa          |
+:::
+
+## GLM - Poisson
+
+#### Dados de contagem
+
+::: {style="font-size: 70%"}
+```{r}
+# Criar dados de contagem (exemplo)
+set.seed(123)
+dados_count <- tibble(
+  temperatura = runif(100, 15, 35),
+  umidade = runif(100, 40, 90),
+  contagem = rpois(100, lambda = exp(-2 + 0.1 * temperatura + 0.02 * umidade))
+)
+
+head(dados_count)
+```
+:::
+
+## GLM - Poisson
+
+#### Ajustar o modelo
+
+::: {style="font-size: 70%"}
+```{r}
+# Modelo Poisson
+modelo_poisson <- glm(contagem ~ temperatura + umidade,
+                      data = dados_count,
+                      family = poisson(link = "log"))
+
+summary(modelo_poisson)
+```
+:::
+
+## GLM - Poisson
+
+#### Interpretação dos coeficientes
+
+::: {style="font-size: 70%"}
+```{r}
+# Exponencial dos coeficientes = razão de taxa (rate ratio)
+exp(coef(modelo_poisson))
+```
+
+**Interpretação:**
+
+-   Para cada 1°C de aumento na temperatura, a contagem **aumenta** em 11% (exp(0.10) = 1.11)
+
+-   Para cada 1% de aumento na umidade, a contagem **aumenta** em 2% (exp(0.02) = 1.02)
+:::
+
+## GLM
+
+#### Verificação de pressupostos - DHARMa
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+# Diagnóstico com DHARMa
+simulacao <- simulateResiduals(modelo_poisson, plot = TRUE)
+```
+:::
+
+## GLM
+
+#### Testes de adequação do modelo
+
+::: {style="font-size: 70%"}
+```{r}
+# Teste de superdispersão
+testDispersion(simulacao)
+
+# Teste de outliers
+testOutliers(simulacao)
+
+# Teste de zeros
+testZeroInflation(simulacao)
+```
+:::
+
+## Interpretando os Testes de Diagnóstico
+
+::: {style="font-size: 70%"}
+**Teste de Superdispersão (Overdispersion)**
+
+-   Verifica se a **variância** é maior que o esperado pela distribuição
+
+-   **p \< 0.05**: modelo está **subdispersando** (variância menor)
+
+-   **p \> 0.05 E ratio \> 1**: modelo está **superdispersando** (variância maior)
+
+-   **Solução**: usar Binomial Negativa ou modelo misto
+
+**Teste de Outliers**
+
+-   Detecta observações com **resíduos extremos**
+
+-   **p \< 0.05**: presença de outliers significativos
+
+-   **Ação**: investigar se são erros de medição ou observações legítimas
+
+**Teste de Excesso de Zeros**
+
+-   Verifica se há **mais zeros** do que esperado pela distribuição
+
+-   **p \< 0.05**: modelo não captura bem os zeros
+
+-   **Solução**: usar modelos Zero-Inflated (ZIP, ZINB)
+
+**Regra geral:** Valores de p \> 0.05 nos testes indicam que o modelo está adequado!
+:::
+
+## GLM - Overdispersion
+
+::: {style="font-size: 70%"}
+**O que é superdispersão (overdispersion)?**
+
+-   Quando a **variância** dos dados é **maior** que a esperada pelo modelo
+
+-   Comum em dados de contagem
+
+**Como detectar?**
+
+-   Razão deviance/df \> 1.5
+
+-   Teste de DHARMa
+
+**Soluções:**
+
+-   **Binomial Negativa**: permite maior variância
+
+-   **Modelo misto**: adiciona efeitos aleatórios
+
+-   **Quasi-Poisson**: ajusta erros padrão
+:::
+
+## GLM - Binomial Negativa
+
+::: {style="font-size: 70%"}
+```{r}
+library(MASS)
+
+# Modelo Binomial Negativa
+modelo_nb <- glm.nb(contagem ~ temperatura + umidade,
+                    data = dados_count)
+
+summary(modelo_nb)
+```
+:::
+
+## GLM - Comparação de modelos
+
+::: {style="font-size: 70%"}
+```{r}
+# AIC - menor é melhor
+AIC(modelo_poisson, modelo_nb)
+
+# Teste de razão de verossimilhança
+lrtest <- anova(modelo_poisson, modelo_nb, test = "Chisq")
+lrtest
+```
+
+**Modelo Binomial Negativa é melhor** (AIC menor)
+:::
+
+## GLM - Visualização
+
+#### Efeitos do modelo
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+# Predições do modelo
+pred_temp <- ggpredict(modelo_nb, terms = "temperatura [all]")
+pred_umid <- ggpredict(modelo_nb, terms = "umidade [all]")
+
+plot(pred_temp) + 
+  labs(title = "Efeito da Temperatura",
+       x = "Temperatura (°C)",
+       y = "Contagem predita")
+```
+:::
+
+## GLM - Visualização
+
+#### Efeitos do modelo - Umidade
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+plot(pred_umid) + 
+  labs(title = "Efeito da Umidade",
+       x = "Umidade (%)",
+       y = "Contagem predita")
+```
+:::
+
+## GLM - Visualização com sjPlot
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+# Gráfico de coeficientes
+plot_model(modelo_nb, show.values = TRUE, 
+           title = "Coeficientes do Modelo Binomial Negativa")
+```
+:::
+
+## GLM - Visualização com sjPlot
+
+#### Efeitos marginais
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+# Efeitos marginais
+plot_model(modelo_nb, type = "pred", 
+           terms = c("temperatura", "umidade [50, 70, 90]"),
+           title = "Efeitos Marginais")
+```
+:::
+
+## GLM - Regressão Logística
+
+#### Dados binários
+
+::: {style="font-size: 70%"}
+```{r}
+# Criar dados binários
+dados_bin <- iris %>% 
+  mutate(grande = ifelse(Petal.Length > median(Petal.Length), 1, 0))
+
+# Modelo logístico
+modelo_logit <- glm(grande ~ Sepal.Length + Sepal.Width,
+                    data = dados_bin,
+                    family = binomial(link = "logit"))
+
+summary(modelo_logit)
+```
+:::
+
+## GLM - Regressão Logística
+
+#### Odds Ratio
+
+::: {style="font-size: 70%"}
+```{r}
+# Exponencial dos coeficientes = odds ratio
+exp(coef(modelo_logit))
+exp(confint(modelo_logit))
+```
+
+**Interpretação:**
+
+-   Para cada 1 cm de aumento na sépala, as chances de ter pétala grande **aumentam** 8.4 vezes
+
+-   Para cada 1 cm de aumento na largura da sépala, as chances **diminuem** 0.07 vezes
+:::
+
+## Entendendo Odds Ratio (OR)
+
+::: {style="font-size: 70%"}
+**O que é Odds Ratio?**
+
+-   Mede a **razão das chances** entre dois grupos ou níveis de uma variável
+
+-   **OR = 1**: sem efeito (chances iguais)
+
+-   **OR \> 1**: aumento das chances (efeito positivo)
+
+-   **OR \< 1**: diminuição das chances (efeito negativo)
+
+**Exemplo prático:**
+
+-   OR = 2: as chances **dobram**
+
+-   OR = 0.5: as chances são **reduzidas pela metade**
+
+-   OR = 8.4: as chances são **8.4 vezes maiores**
+
+**Conversão para porcentagem:**
+
+-   OR = 2 → aumento de 100% nas chances
+
+-   OR = 1.5 → aumento de 50% nas chances
+
+-   OR = 0.7 → diminuição de 30% nas chances \[(1-0.7)×100\]
+
+**Importante:** OR ≠ Risco Relativo! OR tende a exagerar o efeito quando eventos são comuns.
+:::
+
+## GLM - Regressão Logística
+
+#### Visualização
+
+::: {style="font-size: 70%"}
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+# Predições
+pred_logit <- ggpredict(modelo_logit, terms = "Sepal.Length [all]")
+
+ggplot(dados_bin, aes(x = Sepal.Length, y = grande)) +
+  geom_point(alpha = 0.3) +
+  geom_ribbon(data = pred_logit, 
+              aes(x = x, y = predicted, ymin = conf.low, ymax = conf.high),
+              alpha = 0.2, fill = "blue") +
+  geom_line(data = pred_logit, 
+            aes(x = x, y = predicted),
+            color = "blue", size = 1) +
+  theme_minimal() +
+  labs(x = "Comprimento da Sépala (cm)",
+       y = "Probabilidade de pétala grande",
+       title = "Regressão Logística")
+```
+:::
+
+## Resumo dos Modelos
+
+::: {style="font-size: 60%"}
+| Modelo | Uso | Distribuição | Link | Pressupostos |
+|---------------|---------------|---------------|---------------|---------------|
+| **lm** | Resposta contínua | Normal | Identity | Linearidade, normalidade resíduos, homocedasticidade |
+| **glm Poisson** | Contagem | Poisson | Log | Média = Variância |
+| **glm Neg. Binomial** | Contagem c/ superdispersão | Neg. Binomial | Log | Overdispersion permitida |
+| **glm Logística** | Binária | Binomial | Logit | Independência |
+| **glm Gamma** | Contínua positiva | Gamma | Log | Valores \> 0 |
+:::
+
+## Como Escolher o Teste Estatístico?
+
+::: {style="font-size: 70%"}
+**Fluxograma de decisão:**
+
+1.  **Tipo de variáveis?**
+    -   Categórica vs Categórica → **Chi-quadrado**
+    -   Contínua vs Categórica (2 grupos) → **t-test**
+    -   Contínua vs Categórica (3+ grupos) → **ANOVA**
+    -   Contínua vs Contínua → **Correlação / Regressão**
+2.  **Objetivo?**
+    -   Comparar com o esperado → **Chi-quadrado**
+    -   Comparar grupos → ANOVA, t-test
+    -   Predizer valores → Regressão, GLM
+3.  **Pressupostos atendidos?**
+    -   Sim → Teste **paramétrico**
+    -   Não → Teste **não-paramétrico** ou transformação
+:::
+
+## Fluxo de Análise
+
+::: {style="font-size: 70%"}
+**1. Exploração dos dados**
+
+-   Estatística descritiva
+-   Visualizações
+-   Correlações
+
+**2. Escolha do teste/modelo**
+
+-   Tipo de variável resposta
+-   Tipo de preditoras
+-   Objetivo da análise
+
+**3. Verificação de pressupostos**
+
+-   Normalidade, homocedasticidade, etc.
+-   Transformação se necessário
+
+**4. Ajuste do modelo**
+
+**5. Diagnóstico**
+
+**6. Interpretação e visualização**
+:::
+
+## Boas Práticas
+
+::: {style="font-size: 70%"}
+**Sempre:**
+
+✓ Visualize seus dados **antes** de modelar
+
+✓ Verifique **pressupostos** dos testes
+
+✓ Reporte **tamanho de efeito**, não apenas p-value
+
+✓ Use **gráficos** para comunicar resultados
+
+✓ Interprete resultados no **contexto biológico**
+
+**Evite:**
+
+✗ Confiar cegamente em p-values
+
+✗ Ignorar pressupostos violados
+
+✗ "P-hacking" (testar múltiplos modelos até achar significância)
+
+✗ Extrapolar além dos dados
+:::
+
+## Recursos Adicionais
+
+::: {style="font-size: 70%"}
+**Livros:**
+
+-   *Statistical Rethinking* - Richard McElreath
+
+-   *Regression and Other Stories* - Gelman, Hill & Vehtari
+
+-   *Data Analysis Using Regression and Multilevel/Hierarchical Models* - Gelman & Hill
+
+**Pacotes úteis:**
+
+-   `performance`: diagnóstico de modelos
+
+-   `easystats`: conjunto de pacotes para estatística
+
+-   `ggeffects`: visualização de efeitos
+
+-   `emmeans`: comparações post-hoc
+
+**Online:**
+
+-   [Statistical tests cheat sheet](https://statsandr.com/blog/what-statistical-test-should-i-do/)
+:::
+
+## Obrigado!
+
+::: {style="font-size: 80%"}
+**Dúvidas?**
+
+Email: [seu.email\@email.com](mailto:seu.email@email.com)
+
+Website: [souzayuri.github.io](https://souzayuri.github.io/)
+
+**Materiais do curso:**
+
+GitHub: [seu-repositorio](https://github.com/seu-usuario/seu-repo)
+:::
