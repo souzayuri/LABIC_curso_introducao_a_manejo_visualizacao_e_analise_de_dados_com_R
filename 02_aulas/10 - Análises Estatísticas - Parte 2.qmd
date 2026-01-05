@@ -358,18 +358,22 @@ Em uma distribuição normal perfeita, os três coincidem no mesmo ponto central
 #| echo: false
 #| fig-width: 6
 #| fig-height: 4
-library(tidyverse)      # Manipulação e visualização
-library(car)            # Testes de pressupostos
-library(corrplot)       # Matriz de correlação
-library(ggcorrplot)     # Heatmap de correlação
-library(nortest)        # teste de normalidade shapiro-francia
-library(rstatix)        # Testes estatísticos
-library(effectsize)     # Tamanho de efeito
-library(emmeans)        # Médias marginais e post-hoc
-library(sjPlot)         # Visualização de modelos
-library(ggeffects)      # Efeitos de modelos
-library(performance)    # Diagnóstico de modelos
-library(DHARMa)         # Diagnóstico de GLMs
+if(!require(tidyverse)) install.packages("tidyverse")     # Manipulação e visualização
+if(!require(car)) install.packages("car")                 # Testes de pressupostos
+if(!require(corrplot)) install.packages("corrplot")       # Matriz de correlação
+if(!require(ggcorrplot)) install.packages("ggcorrplot")   # Heatmap de correlação
+if(!require(qqplotr)) install.packages("qqplotr")         # Plota intervalo de confiança do qqplot
+if(!require(nortest)) install.packages("nortest")         # teste de normalidade shapiro-francia
+if(!require(report)) install.packages("report")           # cria sumário dos resultados dos modelos
+if(!require(rstatix)) install.packages("rstatix")         # Testes estatísticos
+if(!require(effectsize)) install.packages("effectsize")   # Tamanho de efeito
+if(!require(emmeans)) install.packages("emmeans")         # Médias marginais e post-hoc
+if(!require(sjPlot)) install.packages("sjPlot")           # Visualização de modelos
+if(!require(ggeffects)) install.packages("ggeffects")     # Efeitos de modelos
+if(!require(see)) install.packages("see")                 # Necessário para Performance
+if(!require(performance)) install.packages("performance") # Diagnóstico de modelos
+if(!require(DHARMa)) install.packages("DHARMa")           # Diagnóstico de GLMs
+if(!require(fmsb)) install.packages("fmsb")               # Calcula pseudo r2
 
 set.seed(123)
 dados_normal <- tibble(valor = rnorm(1000, mean = 100, sd = 15))
@@ -558,22 +562,25 @@ No entanto, se podemos rejeitar a **H~0~** com um **erro muito pequeno** (digamo
 
 #### Pacotes necessários
 
-::: {style="font-size: 70%"}
+::: {style="font-size: 65%"}
 ```{r}
-library(tidyverse)      # Manipulação e visualização
-library(car)            # Testes de pressupostos
-library(corrplot)       # Matriz de correlação
-library(ggcorrplot)     # Heatmap de correlação
-library(qqplotr)        # Plota intervalo de confiança do qqplot
-library(nortest)        # teste de normalidade shapiro-francia
-library(report)         # cria sumário dos resultados dos modelos
-library(rstatix)        # Testes estatísticos
-library(effectsize)     # Tamanho de efeito
-library(emmeans)        # Médias marginais e post-hoc
-library(sjPlot)         # Visualização de modelos
-library(ggeffects)      # Efeitos de modelos
-library(performance)    # Diagnóstico de modelos
-library(DHARMa)         # Diagnóstico de GLMs
+if(!require(tidyverse)) install.packages("tidyverse")     # Manipulação e visualização
+if(!require(car)) install.packages("car")                 # Testes de pressupostos
+if(!require(corrplot)) install.packages("corrplot")       # Matriz de correlação
+if(!require(ggcorrplot)) install.packages("ggcorrplot")   # Heatmap de correlação
+if(!require(qqplotr)) install.packages("qqplotr")         # Plota intervalo de confiança do qqplot
+if(!require(nortest)) install.packages("nortest")         # teste de normalidade shapiro-francia
+if(!require(report)) install.packages("report")           # cria sumário dos resultados dos modelos
+if(!require(rstatix)) install.packages("rstatix")         # Testes estatísticos
+if(!require(effectsize)) install.packages("effectsize")   # Tamanho de efeito
+if(!require(emmeans)) install.packages("emmeans")         # Médias marginais e post-hoc
+if(!require(sjPlot)) install.packages("sjPlot")           # Visualização de modelos
+if(!require(ggeffects)) install.packages("ggeffects")     # Efeitos de modelos
+if(!require(see)) install.packages("see")                 # Necessário para Performance
+if(!require(performance)) install.packages("performance") # Diagnóstico de modelos
+if(!require(DHARMa)) install.packages("DHARMa")           # Diagnóstico de GLMs
+if(!require(fmsb)) install.packages("fmsb")               # Calcula pseudo r2
+
 ```
 :::
 
@@ -615,7 +622,7 @@ Existem dois testes\
 
 **Pressupostos:**
 
--   Variáveis ​​`categóricas` podem ser `nominais` ou `ordinais`
+-   Variáveis `categóricas` podem ser `nominais` ou `ordinais`
 
 -   Observações **independentes**
 :::
@@ -1755,4 +1762,14 @@ O que seria "o mais correto" para uma **Kruskal–Wallis test** **ideal de um fa
     -   Visualização dos dados por **Boxplot**
 :::
 
-## 
+
+## Exercícios
+
+::: columns
+![](img/cat.gif){fig-align="center" width="400"}
+:::
+
+## Exercícios
+
+##
+ 

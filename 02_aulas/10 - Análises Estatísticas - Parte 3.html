@@ -266,23 +266,24 @@
 <section class="slide level2">
 <h2>Análises Estatísticas</h2>
 <h4>Pacotes necessários</h4>
-<div style="font-size: 70%">
+<div style="font-size: 65%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)      <span class="co"># Manipulação e visualização</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(car)            <span class="co"># Testes de pressupostos</span></span>
-<span id="cb1-3"><a href=""></a><span class="fu">library</span>(corrplot)       <span class="co"># Matriz de correlação</span></span>
-<span id="cb1-4"><a href=""></a><span class="fu">library</span>(ggcorrplot)     <span class="co"># Heatmap de correlação</span></span>
-<span id="cb1-5"><a href=""></a><span class="fu">library</span>(qqplotr)        <span class="co"># Plota intervalo de confiança do qqplot</span></span>
-<span id="cb1-6"><a href=""></a><span class="fu">library</span>(nortest)        <span class="co"># teste de normalidade shapiro-francia</span></span>
-<span id="cb1-7"><a href=""></a><span class="fu">library</span>(report)         <span class="co"># cria sumário dos resultados dos modelos</span></span>
-<span id="cb1-8"><a href=""></a><span class="fu">library</span>(rstatix)        <span class="co"># Testes estatísticos</span></span>
-<span id="cb1-9"><a href=""></a><span class="fu">library</span>(effectsize)     <span class="co"># Tamanho de efeito</span></span>
-<span id="cb1-10"><a href=""></a><span class="fu">library</span>(emmeans)        <span class="co"># Médias marginais e post-hoc</span></span>
-<span id="cb1-11"><a href=""></a><span class="fu">library</span>(sjPlot)         <span class="co"># Visualização de modelos</span></span>
-<span id="cb1-12"><a href=""></a><span class="fu">library</span>(ggeffects)      <span class="co"># Efeitos de modelos</span></span>
-<span id="cb1-13"><a href=""></a><span class="fu">library</span>(see)            <span class="co"># Necessário para Performance</span></span>
-<span id="cb1-14"><a href=""></a><span class="fu">library</span>(performance)    <span class="co"># Diagnóstico de modelos</span></span>
-<span id="cb1-15"><a href=""></a><span class="fu">library</span>(DHARMa)         <span class="co"># Diagnóstico de GLMs</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)     <span class="co"># Manipulação e visualização</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(car)) <span class="fu">install.packages</span>(<span class="st">"car"</span>)                 <span class="co"># Testes de pressupostos</span></span>
+<span id="cb1-3"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(corrplot)) <span class="fu">install.packages</span>(<span class="st">"corrplot"</span>)       <span class="co"># Matriz de correlação</span></span>
+<span id="cb1-4"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggcorrplot)) <span class="fu">install.packages</span>(<span class="st">"ggcorrplot"</span>)   <span class="co"># Heatmap de correlação</span></span>
+<span id="cb1-5"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(qqplotr)) <span class="fu">install.packages</span>(<span class="st">"qqplotr"</span>)         <span class="co"># Plota intervalo de confiança do qqplot</span></span>
+<span id="cb1-6"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(nortest)) <span class="fu">install.packages</span>(<span class="st">"nortest"</span>)         <span class="co"># teste de normalidade shapiro-francia</span></span>
+<span id="cb1-7"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(report)) <span class="fu">install.packages</span>(<span class="st">"report"</span>)           <span class="co"># cria sumário dos resultados dos modelos</span></span>
+<span id="cb1-8"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rstatix)) <span class="fu">install.packages</span>(<span class="st">"rstatix"</span>)         <span class="co"># Testes estatísticos</span></span>
+<span id="cb1-9"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(effectsize)) <span class="fu">install.packages</span>(<span class="st">"effectsize"</span>)   <span class="co"># Tamanho de efeito</span></span>
+<span id="cb1-10"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(emmeans)) <span class="fu">install.packages</span>(<span class="st">"emmeans"</span>)         <span class="co"># Médias marginais e post-hoc</span></span>
+<span id="cb1-11"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sjPlot)) <span class="fu">install.packages</span>(<span class="st">"sjPlot"</span>)           <span class="co"># Visualização de modelos</span></span>
+<span id="cb1-12"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggeffects)) <span class="fu">install.packages</span>(<span class="st">"ggeffects"</span>)     <span class="co"># Efeitos de modelos</span></span>
+<span id="cb1-13"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(see)) <span class="fu">install.packages</span>(<span class="st">"see"</span>)                 <span class="co"># Necessário para Performance</span></span>
+<span id="cb1-14"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(performance)) <span class="fu">install.packages</span>(<span class="st">"performance"</span>) <span class="co"># Diagnóstico de modelos</span></span>
+<span id="cb1-15"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(DHARMa)) <span class="fu">install.packages</span>(<span class="st">"DHARMa"</span>)           <span class="co"># Diagnóstico de GLMs</span></span>
+<span id="cb1-16"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(fmsb)) <span class="fu">install.packages</span>(<span class="st">"fmsb"</span>)               <span class="co"># Calcula pseudo r2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1852,28 +1853,124 @@ anf.lm2  4 74.53257</code></pre>
 <section class="slide level2">
 <h2>9. Regressão Linear Múltipla</h2>
 <h4>Interpretação dos coeficientes</h4>
+<div>
+<div class="columns">
+<div class="columns" style="font-size: 55%">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><strong>Intercept (2.4):</strong> Quando <strong><code>pct_flo</code> = 0</strong>, o número esperado de espécies (<strong>n_sp</strong>) é <strong>≈ 2.4</strong>.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong><code>pct_flo</code> (0.05):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.05</strong>, em média.</p></li>
+<li><p><strong>Coeficiente angular</strong> de <strong><code>conect</code> (0.04):</strong> Para <strong>cada aumento de 1 unidade em</strong> <code>conect</code>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.04</strong>, em média.</p></li>
+<li><p><code>R²</code> : O modelo explica <strong>74.8%</strong> da variação observada no número de espécies (n_sp).</p></li>
+<li><p>p-value (&lt; 0.001): indicando que o efeito de <strong>ambas</strong> sobre <code>n_sp</code> é <strong>estatisticamente significativo</strong>.</p></li>
+<li><p><code>Estatística F</code> (F = 30.63): modelo linear é significativamente <strong>melhor do que</strong> um modelo <strong>sem preditore;</strong> F muito grande (ex.: 10, 50, 100…)</p></li>
+</ul>
+</div><div class="column" style="font-size: 125%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="fu">summary</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</div>
 </section>
 <section class="slide level2">
-<h2>Modelos Lineares Generalizados (GLM)</h2>
+<h2>Modelos Lineares Generalizados</h2>
+<div class="columns" style="font-size: 50%">
+<div class="column" style="width:50%;">
+<p><strong>Modelos lineares</strong></p>
+<div class="columns">
+<p><code>Y</code> → resposta contínua</p><p><code>β0</code>→ intercepto</p><p><code>βi</code>→ coeficiente da variável <code>Xi</code></p><p><code>ε</code> → erro normalmente distribuído</p><div class="column" style="width:50%;">
+<p><strong><code>Y=β0+β1*X1+β2*X2+⋯+ε</code></strong></p>
+</div></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong><code>g(E[Y])=β0+β1*X1+β2*X2+…</code></strong></p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/glm.png" class="quarto-figure quarto-figure-center" width="916"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Modelos Lineares Generalizados</h2>
+<div class="columns" style="font-size: 50%">
+<div class="column" style="width:50%;">
+<p><strong>Modelos lineares</strong></p>
+<div class="columns">
+<p><code>Y</code> → resposta contínua</p><p><code>β0</code>→ intercepto</p><p><code>βi</code>→ coeficiente da variável <code>Xi</code></p><p><code>ε</code> → erro normalmente distribuído</p><div class="column" style="width:50%;">
+<p><strong><code>Y=β0+β1*X1+β2*X2+⋯+ε</code></strong></p>
+</div></div>
+<p><strong>Modelo Linear Generalizado</strong></p>
+<div class="columns">
+<p><code>Y</code> → resposta que pode ser <strong>contínua, binomial, Poisson etc</strong>.</p><p><code>g()</code>→ função de ligação (<strong>link function</strong>), ex.: logit, log, identity</p><p><code>β0,βi</code> → mesmos conceitos, mas interpretados no espaço da <strong>função de ligação</strong></p><p>Não há <code>ε</code> explícito, a distribuição de <code>Y</code> é definida (familia: <code>binomial</code>, <code>poisson</code>…)</p><div class="column" style="width:50%;">
+<p><strong><code>g(E[Y])=β0+β1*X1+β2*X2+…</code></strong></p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/glm.png" class="quarto-figure quarto-figure-center" width="916"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>Modelos Lineares Generalizados</h2>
 <div style="font-size: 70%">
 <p><strong>Quando usar?</strong></p>
 <ul>
 <li><p>Quando a <strong>variável resposta</strong> não segue distribuição normal</p></li>
-<li><p><strong>Dados de contagem</strong>: Poisson, Binomial Negativa</p></li>
-<li><p><strong>Dados binários</strong>: Logística</p></li>
-<li><p><strong>Dados de proporção</strong>: Binomial</p></li>
+<li><p><strong>Dados de contagem</strong>: <code>Poisson</code>, <code>Binomial Negativa</code></p></li>
+<li><p><strong>Dados binários</strong>: <code>Logística</code></p></li>
+<li><p><strong>Dados de proporção</strong>: <code>Binomial</code></p></li>
 </ul>
 <p><strong>Componentes do GLM:</strong></p>
 <ol type="1">
 <li><p><strong>Distribuição</strong> da família exponencial (Normal, Poisson, Binomial, etc.)</p></li>
-<li><p><strong>Função de ligação</strong> (link function)</p></li>
+<li><p><strong>Função de ligação</strong> (<code>link function</code>)</p></li>
 <li><p><strong>Preditor linear</strong> (combinação linear das variáveis explicativas)</p></li>
 </ol>
 </div>
 </section>
 <section class="slide level2">
-<h2>Função de Ligação (Link Function)</h2>
-<div style="font-size: 70%">
+<h2>Modelos Lineares Generalizados</h2>
+<h4>Função de Ligação (Link Function)</h4>
+<div style="font-size: 60%">
+<p><strong>O que é?</strong></p>
+<ul>
+<li><p><strong>Conecta</strong> a média da variável resposta com o preditor linear</p></li>
+<li><p>Garante que as <strong>predições</strong> estejam no intervalo válido</p></li>
+<li><p>Permite modelar <strong>relações não-lineares</strong> entre X e Y</p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>Modelos Lineares Generalizados</h2>
+<h4>Função de Ligação (Link Function)</h4>
+<div style="font-size: 60%">
 <p><strong>O que é?</strong></p>
 <ul>
 <li><p><strong>Conecta</strong> a média da variável resposta com o preditor linear</p></li>
@@ -1884,15 +1981,15 @@ anf.lm2  4 74.53257</code></pre>
 <ul>
 <li><strong>Log link</strong> (Poisson): garante contagens <strong>positivas</strong>
 <ul>
-<li>log(μ) = β₀ + β₁X → μ = exp(β₀ + β₁X)</li>
+<li><code>log(μ) = β₀ + β₁X → μ = exp(β₀ + β₁X)</code></li>
 </ul></li>
 <li><strong>Logit link</strong> (Binomial): garante probabilidades entre <strong>0 e 1</strong>
 <ul>
-<li>logit(p) = β₀ + β₁X → p = 1/(1 + exp(-(β₀ + β₁X)))</li>
+<li><code>logit(p) = β₀ + β₁X → p = 1/(1 + exp(-(β₀ + β₁X)))</code></li>
 </ul></li>
 <li><strong>Identity link</strong> (Normal): relação <strong>direta e linear</strong>
 <ul>
-<li>μ = β₀ + β₁X (regressão linear tradicional)</li>
+<li><code>μ = β₀ + β₁X (regressão linear tradicional)</code></li>
 </ul></li>
 </ul>
 <p><strong>Por que importa?</strong> A escolha errada pode gerar predições impossíveis (ex: contagens negativas)!</p>
@@ -1954,93 +2051,138 @@ anf.lm2  4 74.53257</code></pre>
 <section class="slide level2">
 <h2>GLM - Poisson</h2>
 <h4>Dados de contagem</h4>
+<div class="columns" style="font-size: 55%">
+<p>Na GLM você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos</p><p>O que seria “o mais correto” para uma regressão <code>GLM Poisson</code>:</p><ol type="1">
+<li><p><strong>Ajustar o modelo:</strong> <code>glm(y ~ x1 + x2, data = dados, family = poisson(link = "log"))</code></p></li>
+<li><p><strong>Dispersão dos resíduos e homodecasticidade: DHARMa testes</strong></p></li>
+<li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
+<li><p><strong>Testes de adequação do modelo</strong> - <strong>DHARMa testes:</strong> dispersão, outliers, inflação de zero</p></li>
+<li><p><strong>Significância dos coeficientes:</strong> “Para cada aumento de 1 unidade em X, Y muda em β unidades, mantendo as outras variáveis constantes.”</p></li>
+<li><p><strong>Tamanho de efeito</strong>: <strong><code>R² adjusted</code></strong>, mostra em % quanto do fenômeno é explicado pelo modelo</p></li>
+<li><p><strong>Comparar com um modelo mais simples</strong></p></li>
+<li><p><strong>Visualização</strong></p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>GLM - Poisson</h2>
+<h4>Dados de contagem</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
-<span id="cb100-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb100-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb100-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
-<span id="cb100-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
-<span id="cb100-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
-<span id="cb100-7"><a href=""></a>)</span>
-<span id="cb100-8"><a href=""></a></span>
-<span id="cb100-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/dados_count_poisson.csv"</span>)</span>
+<span id="cb102-2"><a href=""></a>dados_count</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-  temperatura umidade contagem
-        &lt;dbl&gt;   &lt;dbl&gt;    &lt;int&gt;
-1        20.8    70.0        3
-2        30.8    56.6       15
-3        23.2    64.4        5
-4        32.7    87.7       20
-5        33.8    64.1       18
-6        15.9    84.5        2</code></pre>
+<pre><code># A tibble: 100 × 3
+   temperatura umidade contagem
+         &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+ 1        33.3    66.0       16
+ 2        26.4    46.8        3
+ 3        27.7    81.9       11
+ 4        27.3    59.9        8
+ 5        20.2    44.6        1
+ 6        25.4    67.6        5
+ 7        33.0    66.2       20
+ 8        34.6    48.6       16
+ 9        22.2    51.7        3
+10        29.3    79.0       15
+# ℹ 90 more rows</code></pre>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>GLM - Poisson</h2>
+<h2>1. GLM - Poisson</h2>
 <h4>Ajustar o modelo</h4>
+<div style="font-size: 60%">
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p>Para cada 1°C de aumento na temperatura, a contagem <strong>aumenta</strong> em 11% (exp(0.091) = 1.09)</p></li>
+<li><p>Para cada 1% de aumento na umidade, a contagem <strong>aumenta</strong> em 2% (exp(0.015) = 1.01)</p></li>
+</ul>
+</div>
 <div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
-<span id="cb102-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb102-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
-<span id="cb102-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb102-5"><a href=""></a></span>
-<span id="cb102-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
+<span id="cb104-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb104-3"><a href=""></a>                             <span class="at">data =</span> dados_count,</span>
+<span id="cb104-4"><a href=""></a>                             <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb104-5"><a href=""></a></span>
+<span id="cb104-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm(formula = contagem ~ temperatura + umidade, family = poisson(link = "log"), 
+stats::glm(formula = contagem ~ temperatura + umidade, family = poisson(link = "log"), 
     data = dados_count)
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -1.505446   0.273903  -5.496 3.88e-08 ***
-temperatura  0.091568   0.006922  13.228  &lt; 2e-16 ***
-umidade      0.015957   0.002814   5.670 1.42e-08 ***
+(Intercept) -1.853389   0.262534  -7.060 1.67e-12 ***
+temperatura  0.098789   0.007279  13.572  &lt; 2e-16 ***
+umidade      0.018447   0.002468   7.476 7.67e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for poisson family taken to be 1)
 
-    Null deviance: 326.50  on 99  degrees of freedom
-Residual deviance: 111.26  on 97  degrees of freedom
-AIC: 476.12
+    Null deviance: 383.05  on 99  degrees of freedom
+Residual deviance: 102.43  on 97  degrees of freedom
+AIC: 478.33
 
 Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Poisson</h2>
-<h4>Interpretação dos coeficientes</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
-<span id="cb104-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept) temperatura     umidade 
-  0.2219182   1.0958910   1.0160846 </code></pre>
-</div>
-</div>
-<p><strong>Interpretação:</strong></p>
-<ul>
-<li><p>Para cada 1°C de aumento na temperatura, a contagem <strong>aumenta</strong> em 11% (exp(0.10) = 1.11)</p></li>
-<li><p>Para cada 1% de aumento na umidade, a contagem <strong>aumenta</strong> em 2% (exp(0.02) = 1.02)</p></li>
-</ul>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>GLM</h2>
+<h2>2. GLM - Poisson</h2>
 <h4>Verificação de pressupostos - DHARMa</h4>
-<div style="font-size: 70%">
+<div style="font-size: 50%">
+<p><strong>Dispersão dos resíduos e homodecasticidade</strong></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Usa função <code>simulateResiduals()</code></p>
+<ul>
+<li>Simula resíduos padronizados a partir do modelo ajustado</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Permite testar se os resíduos seguem <strong>uma distribuição uniforme</strong></p></li>
+<li><p><code>Dispersion test &gt; 0.05</code>, não há <strong>overdispersion</strong> nem <strong>underdispersion</strong></p></li>
+<li><p><strong>Linha praticamente horizontal (flat)</strong> → indica que os resíduos <strong>não dependem do valor previsto</strong>, ou seja:</p>
+<ul>
+<li><p><strong>Homoscedasticidade</strong>: variância constante dos resíduos</p></li>
+<li><p><strong>Função de ligação adequada</strong>: o modelo captura corretamente a relação entre X e Y</p></li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. GLM - Poisson</h2>
+<h4>Verificação de pressupostos - DHARMa</h4>
+<div style="font-size: 50%">
+<p><strong>Dispersão dos resíduos e homodecasticidade</strong></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Usa função <code>simulateResiduals()</code></p>
+<ul>
+<li>Simula resíduos padronizados a partir do modelo ajustado</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Permite testar se os resíduos seguem <strong>uma distribuição uniforme</strong></p></li>
+<li><p><code>Dispersion test &gt; 0.05</code>, não há <strong>overdispersion</strong> nem <strong>underdispersion</strong></p></li>
+<li><p><strong>Linha praticamente horizontal (flat)</strong> → indica que os resíduos <strong>não dependem do valor previsto</strong>, ou seja:</p>
+<ul>
+<li><p><strong>Homoscedasticidade</strong>: variância constante dos resíduos</p></li>
+<li><p><strong>Função de ligação adequada</strong>: o modelo captura corretamente a relação entre X e Y</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
-<span id="cb106-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a>simulacao <span class="ot">&lt;-</span> DHARMa<span class="sc">::</span><span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2049,15 +2191,21 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div>
 </div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>GLM</h2>
-<h4>Testes de adequação do modelo</h4>
-<div style="font-size: 70%">
+<h2>3. GLM - Poisson</h2>
+<h4>Testes de adequação do modelo - DHARMa</h4>
+<div class="columns">
+<div class="column" style="font-size: 60%">
+<p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
+<ul>
+<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+</ul>
+</div><div class="column" style="font-size: 80%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
-<span id="cb107-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -2071,15 +2219,32 @@ Number of Fisher Scoring iterations: 4</code></pre>
     simulated
 
 data:  simulationOutput
-dispersion = 1.0816, p-value = 0.552
+dispersion = 1.0065, p-value = 0.984
 alternative hypothesis: two.sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
-<span id="cb109-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>3. GLM - Poisson</h2>
+<h4>Testes de adequação do modelo - DHARMa</h4>
+<div class="columns">
+<div class="column" style="font-size: 60%">
+<p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
+<ul>
+<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+</ul>
+<p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
+<ul>
+<li><strong>0 outliers detectados</strong>, p = 1, nenhum problema estatisticamente significativo</li>
+</ul>
+</div><div class="column" style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-58-2.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-59-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2091,17 +2256,38 @@ data:  simulacao
 outliers at both margin(s) = 0, observations = 100, p-value = 1
 alternative hypothesis: two.sided
  percent confidence interval:
- 0.00000 0.02525
+ 0.00 0.03
 sample estimates:
-outlier frequency (expected: 0.0058 ) 
+outlier frequency (expected: 0.0064 ) 
                                     0 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
-<span id="cb111-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+<h2>3. GLM - Poisson</h2>
+<h4>Testes de adequação do modelo - DHARMa</h4>
+<div class="columns">
+<div class="column" style="font-size: 60%">
+<p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
+<ul>
+<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+</ul>
+<p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
+<ul>
+<li><strong>0 outliers detectados</strong>, p = 1, nenhum problema estatisticamente significativo</li>
+</ul>
+<p><strong>Zero-inflation test</strong>: <strong>excesso de zeros</strong> comparado à expectativa do modelo</p>
+<ul>
+<li>r<strong>atioObsSim = 0.73</strong>, os zeros observados são <strong>aproximadamente consistentes</strong> com os <strong>zeros esperados</strong> pelo modelo</li>
+</ul>
+</div><div class="column" style="font-size: 80%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-58-3.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-60-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2111,388 +2297,199 @@ outlier frequency (expected: 0.0058 )
     simulation under H0 = fitted model
 
 data:  simulationOutput
-ratioObsSim = 0.72886, p-value = 1
+ratioObsSim = 0.75075, p-value = 1
 alternative hypothesis: two.sided</code></pre>
 </div>
 </div>
-</div>
+</div></div>
 </section>
 <section class="slide level2">
-<h2>Interpretando os Testes de Diagnóstico</h2>
-<div style="font-size: 70%">
-<p><strong>Teste de Superdispersão (Overdispersion)</strong></p>
+<h2>3. GLM - Poisson</h2>
+<h4>Testes de adequação do modelo - DHARMa</h4>
+<div class="columns">
+<div class="column" style="font-size: 60%">
+<p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
 <ul>
-<li><p>Verifica se a <strong>variância</strong> é maior que o esperado pela distribuição</p></li>
-<li><p><strong>p &lt; 0.05</strong>: modelo está <strong>subdispersando</strong> (variância menor)</p></li>
-<li><p><strong>p &gt; 0.05 E ratio &gt; 1</strong>: modelo está <strong>superdispersando</strong> (variância maior)</p></li>
-<li><p><strong>Solução</strong>: usar Binomial Negativa ou modelo misto</p></li>
+<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
 </ul>
-<p><strong>Teste de Outliers</strong></p>
+<p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
 <ul>
-<li><p>Detecta observações com <strong>resíduos extremos</strong></p></li>
-<li><p><strong>p &lt; 0.05</strong>: presença de outliers significativos</p></li>
-<li><p><strong>Ação</strong>: investigar se são erros de medição ou observações legítimas</p></li>
+<li><strong>0 outliers detectados</strong>, p = 1, nenhum problema estatisticamente significativo</li>
 </ul>
-<p><strong>Teste de Excesso de Zeros</strong></p>
+<p><strong>Zero-inflation test</strong>: <strong>excesso de zeros</strong> comparado à expectativa do modelo</p>
 <ul>
-<li><p>Verifica se há <strong>mais zeros</strong> do que esperado pela distribuição</p></li>
-<li><p><strong>p &lt; 0.05</strong>: modelo não captura bem os zeros</p></li>
-<li><p><strong>Solução</strong>: usar modelos Zero-Inflated (ZIP, ZINB)</p></li>
+<li>r<strong>atioObsSim = 0.73</strong>, os zeros observados são <strong>aproximadamente consistentes</strong> com os <strong>zeros esperados</strong> pelo modelo</li>
 </ul>
-<p><strong>Regra geral:</strong> Valores de p &gt; 0.05 nos testes indicam que o modelo está adequado!</p>
-</div>
+<p><strong>O modelo parece muito bem ajustado</strong>: dispersão ok, sem outliers e sem excesso de zeros</p>
+</div><div class="column" style="font-size: 80%">
+<p><strong>O modelo parece muito bem ajustado</strong>: dispersão ok, sem outliers e sem excesso de zeros</p>
+</div></div>
 </section>
 <section class="slide level2">
-<h2>GLM - Overdispersion</h2>
-<div style="font-size: 70%">
-<p><strong>O que é superdispersão (overdispersion)?</strong></p>
-<ul>
-<li><p>Quando a <strong>variância</strong> dos dados é <strong>maior</strong> que a esperada pelo modelo</p></li>
-<li><p>Comum em dados de contagem</p></li>
-</ul>
-<p><strong>Como detectar?</strong></p>
-<ul>
-<li><p>Razão deviance/df &gt; 1.5</p></li>
-<li><p>Teste de DHARMa</p></li>
-</ul>
-<p><strong>Soluções:</strong></p>
-<ul>
-<li><p><strong>Binomial Negativa</strong>: permite maior variância</p></li>
-<li><p><strong>Modelo misto</strong>: adiciona efeitos aleatórios</p></li>
-<li><p><strong>Quasi-Poisson</strong>: ajusta erros padrão</p></li>
-</ul>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Binomial Negativa</h2>
-<div style="font-size: 70%">
+<h2>5. GLM - Poisson</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div class="columns" style="font-size: 60%">
+<p><strong>Z-value:</strong> <code>Estimates/SE</code>: quantos <code>SD</code> o coeficiente estimado está de zero</p><p>Fazemos uma comparação de modelo para saber se ele é significativo.</p><div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
-<span id="cb113-2"><a href=""></a></span>
-<span id="cb113-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
-<span id="cb113-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb113-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
-<span id="cb113-6"><a href=""></a></span>
-<span id="cb113-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="fu">summary</span>(modelo_poisson) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-glm.nb(formula = contagem ~ temperatura + umidade, data = dados_count, 
-    init.theta = 131.8817654, link = log)
+stats::glm(formula = contagem ~ temperatura + umidade, family = poisson(link = "log"), 
+    data = dados_count)
 
 Coefficients:
              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept) -1.497868   0.282807  -5.296 1.18e-07 ***
-temperatura  0.091531   0.007128  12.841  &lt; 2e-16 ***
-umidade      0.015858   0.002914   5.442 5.27e-08 ***
+(Intercept) -1.853389   0.262534  -7.060 1.67e-12 ***
+temperatura  0.098789   0.007279  13.572  &lt; 2e-16 ***
+umidade      0.018447   0.002468   7.476 7.67e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-(Dispersion parameter for Negative Binomial(131.8818) family taken to be 1)
+(Dispersion parameter for poisson family taken to be 1)
 
-    Null deviance: 308.71  on 99  degrees of freedom
-Residual deviance: 105.81  on 97  degrees of freedom
-AIC: 477.96
+    Null deviance: 383.05  on 99  degrees of freedom
+Residual deviance: 102.43  on 97  degrees of freedom
+AIC: 478.33
 
-Number of Fisher Scoring iterations: 1
-
-              Theta:  132 
-          Std. Err.:  347 
-
- 2 x log-likelihood:  -469.961 </code></pre>
+Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<pre><code></code></pre>
+<pre><code></code></pre>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>GLM - Comparação de modelos</h2>
-<div style="font-size: 70%">
+<h2>5. GLM - Poisson</h2>
+<h4>Interpretação dos coeficientes</h4>
+<div class="columns" style="font-size: 60%">
+<p><strong>Z-value:</strong> <code>Estimates/SE</code>: quantos <code>SD</code> o coeficiente estimado está de zero</p><p>Fazemos uma comparação de modelo para saber se ele é significativo.</p><div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb115-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="fu">summary</span>(modelo_poisson) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>               df      AIC
-modelo_poisson  3 476.1200
-modelo_nb       4 477.9613</code></pre>
+<pre><code>
+Call:
+stats::glm(formula = contagem ~ temperatura + umidade, family = poisson(link = "log"), 
+    data = dados_count)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -1.853389   0.262534  -7.060 1.67e-12 ***
+temperatura  0.098789   0.007279  13.572  &lt; 2e-16 ***
+umidade      0.018447   0.002468   7.476 7.67e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 383.05  on 99  degrees of freedom
+Residual deviance: 102.43  on 97  degrees of freedom
+AIC: 478.33
+
+Number of Fisher Scoring iterations: 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
-<span id="cb117-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
-<span id="cb117-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a>modelo_null <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb119-2"><a href=""></a>                   <span class="at">family =</span> poisson, </span>
+<span id="cb119-3"><a href=""></a>                   <span class="at">data =</span> dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href=""></a><span class="fu">anova</span>(modelo_null, modelo_poisson, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
-Model 1: contagem ~ temperatura + umidade
+Model 1: contagem ~ 1
 Model 2: contagem ~ temperatura + umidade
-  Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
-1        97     111.26                     
-2        97     105.81  0   5.4463         </code></pre>
-</div>
-</div>
-<p><strong>Modelo Binomial Negativa é melhor</strong> (AIC menor)</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Visualização</h2>
-<h4>Efeitos do modelo</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
-<span id="cb119-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
-<span id="cb119-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
-<span id="cb119-4"><a href=""></a></span>
-<span id="cb119-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
-<span id="cb119-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
-<span id="cb119-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
-<span id="cb119-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-61-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Visualização</h2>
-<h4>Efeitos do modelo - Umidade</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
-<span id="cb120-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
-<span id="cb120-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
-<span id="cb120-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-62-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Visualização com sjPlot</h2>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
-<span id="cb121-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb121-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-63-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Visualização com sjPlot</h2>
-<h4>Efeitos marginais</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
-<span id="cb122-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
-<span id="cb122-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
-<span id="cb122-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-64-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>GLM - Regressão Logística</h2>
-<h4>Dados binários</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
-<span id="cb123-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb123-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb123-4"><a href=""></a></span>
-<span id="cb123-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
-<span id="cb123-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
-<span id="cb123-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
-<span id="cb123-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb123-9"><a href=""></a></span>
-<span id="cb123-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-glm(formula = grande ~ Sepal.Length + Sepal.Width, family = binomial(link = "logit"), 
-    data = dados_bin)
-
-Coefficients:
-             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)  -24.8676     5.2044  -4.778 1.77e-06 ***
-Sepal.Length   4.7560     0.8228   5.781 7.44e-09 ***
-Sepal.Width   -0.9321     0.6933  -1.345    0.179    
+  Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+1        99     383.05                          
+2        97     102.43  2   280.61 &lt; 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-(Dispersion parameter for binomial family taken to be 1)
-
-    Null deviance: 207.944  on 149  degrees of freedom
-Residual deviance:  75.819  on 147  degrees of freedom
-AIC: 81.819
-
-Number of Fisher Scoring iterations: 6</code></pre>
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>GLM - Regressão Logística</h2>
-<h4>Odds Ratio</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
-<span id="cb125-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h2>7. GLM - Poisson</h2>
+<h4>Tamanho do efeito</h4>
+<div class="columns" style="font-size: 70%">
+<p>Usamos <code>Nagelkerke's R²</code>para determinar quanto o <strong>modelo explicou</strong> de contagem.</p><ul>
+<li><p><strong>Pseudo-R²</strong> → equivalente ao R² da regressão linear, mas para GLMs (não assume normalidade dos resíduos</p></li>
+<li><p>96% do modelo foi explicado pelo conjunto de variáveis</p></li>
+</ul><div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href=""></a>fmsb<span class="sc">::</span><span class="fu">NagelkerkeR2</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> (Intercept) Sepal.Length  Sepal.Width 
-1.585347e-11 1.162813e+02 3.937108e-01 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                    2.5 %       97.5 %
-(Intercept)  1.413519e-16 1.305991e-07
-Sepal.Length 2.880461e+01 7.586175e+02
-Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
+<pre><code>$N
+[1] 100
+
+$R2
+[1] 0.9604021</code></pre>
 </div>
 </div>
-<p><strong>Interpretação:</strong></p>
-<ul>
-<li><p>Para cada 1 cm de aumento na sépala, as chances de ter pétala grande <strong>aumentam</strong> 8.4 vezes</p></li>
-<li><p>Para cada 1 cm de aumento na largura da sépala, as chances <strong>diminuem</strong> 0.07 vezes</p></li>
-</ul>
 </div>
 </section>
 <section class="slide level2">
-<h2>Entendendo Odds Ratio (OR)</h2>
-<div style="font-size: 70%">
-<p><strong>O que é Odds Ratio?</strong></p>
+<h2>8. GLM - Poisson, Visualização</h2>
+<h4>Efeitos marginais</h4>
+<div style="font-size: 60%">
+<p><strong><code>plot_model()</code></strong> mostra <strong>como a variável resposta</strong> Y muda quando você altera uma variável <strong>preditora</strong> X, mantendo as outras variáveis constantes em certos valores.</p>
+<p>O gráfico mostra <strong>como a variável Y muda com a temperatura</strong>, e como essa relação muda dependendo de <strong>umidade</strong>.</p>
 <ul>
-<li><p>Mede a <strong>razão das chances</strong> entre dois grupos ou níveis de uma variável</p></li>
-<li><p><strong>OR = 1</strong>: sem efeito (chances iguais)</p></li>
-<li><p><strong>OR &gt; 1</strong>: aumento das chances (efeito positivo)</p></li>
-<li><p><strong>OR &lt; 1</strong>: diminuição das chances (efeito negativo)</p></li>
+<li>Definir o parâmetro: <code>type = "pred"</code> → quer dizer <strong>gráfico de predição / efeitos marginais</strong>.</li>
 </ul>
-<p><strong>Exemplo prático:</strong></p>
-<ul>
-<li><p>OR = 2: as chances <strong>dobram</strong></p></li>
-<li><p>OR = 0.5: as chances são <strong>reduzidas pela metade</strong></p></li>
-<li><p>OR = 8.4: as chances são <strong>8.4 vezes maiores</strong></p></li>
-</ul>
-<p><strong>Conversão para porcentagem:</strong></p>
-<ul>
-<li><p>OR = 2 → aumento de 100% nas chances</p></li>
-<li><p>OR = 1.5 → aumento de 50% nas chances</p></li>
-<li><p>OR = 0.7 → diminuição de 30% nas chances [(1-0.7)×100]</p></li>
-</ul>
-<p><strong>Importante:</strong> OR ≠ Risco Relativo! OR tende a exagerar o efeito quando eventos são comuns.</p>
 </div>
-</section>
-<section class="slide level2">
-<h2>GLM - Regressão Logística</h2>
-<h4>Visualização</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="co"># Predições</span></span>
-<span id="cb129-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
-<span id="cb129-3"><a href=""></a></span>
-<span id="cb129-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
-<span id="cb129-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb129-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb129-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
-<span id="cb129-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb129-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb129-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
-<span id="cb129-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb129-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb129-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb129-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
-<span id="cb129-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="font-size: 60%">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href=""></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(modelo_poisson, </span>
+<span id="cb124-2"><a href=""></a>                   <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb124-3"><a href=""></a>                   <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
+<span id="cb124-4"><a href=""></a>                   <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-66-1.png" width="480"></p>
 </figure>
 </div>
 </div>
-</div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Resumo dos Modelos</h2>
-<div style="font-size: 60%">
-<table class="caption-top">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Modelo</th>
-<th>Uso</th>
-<th>Distribuição</th>
-<th>Link</th>
-<th>Pressupostos</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>lm</strong></td>
-<td>Resposta contínua</td>
-<td>Normal</td>
-<td>Identity</td>
-<td>Linearidade, normalidade resíduos, homocedasticidade</td>
-</tr>
-<tr class="even">
-<td><strong>glm Poisson</strong></td>
-<td>Contagem</td>
-<td>Poisson</td>
-<td>Log</td>
-<td>Média = Variância</td>
-</tr>
-<tr class="odd">
-<td><strong>glm Neg. Binomial</strong></td>
-<td>Contagem c/ superdispersão</td>
-<td>Neg. Binomial</td>
-<td>Log</td>
-<td>Overdispersion permitida</td>
-</tr>
-<tr class="even">
-<td><strong>glm Logística</strong></td>
-<td>Binária</td>
-<td>Binomial</td>
-<td>Logit</td>
-<td>Independência</td>
-</tr>
-<tr class="odd">
-<td><strong>glm Gamma</strong></td>
-<td>Contínua positiva</td>
-<td>Gamma</td>
-<td>Log</td>
-<td>Valores &gt; 0</td>
-</tr>
-</tbody>
-</table>
+<h2>GLM - Poisson, Report</h2>
+<div class="columns">
+<p>Usar a função <code>report()</code> para obter uma descrição do modelo</p><div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a>report<span class="sc">::</span><span class="fu">report</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a poisson model (estimated using ML) to predict contagem with
+temperatura and umidade (formula: contagem ~ temperatura + umidade). The
+model's explanatory power is substantial (Nagelkerke's R2 = 0.96). The model's
+intercept, corresponding to temperatura = 0 and umidade = 0, is at -1.85 (95%
+CI [-2.37, -1.34], p &lt; .001). Within this model:
+
+  - The effect of temperatura is statistically significant and positive (beta =
+0.10, 95% CI [0.08, 0.11], p &lt; .001; Std. beta = 0.51, 95% CI [0.44, 0.59])
+  - The effect of umidade is statistically significant and positive (beta = 0.02,
+95% CI [0.01, 0.02], p &lt; .001; Std. beta = 0.28, 95% CI [0.21, 0.35])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald z-distribution approximation.</code></pre>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Como Escolher o Teste Estatístico?</h2>
-<div style="font-size: 70%">
+<div style="font-size: 60%">
 <p><strong>Fluxograma de decisão:</strong></p>
 <ol type="1">
 <li><strong>Tipo de variáveis?</strong>
@@ -2519,7 +2516,9 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <section class="slide level2">
 <h2>Fluxo de Análise</h2>
 <div style="font-size: 70%">
-<p><strong>1. Exploração dos dados</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Exploração dos dados</strong></p>
 <ul>
 <li>Estatística descritiva</li>
 <li>Visualizações</li>
@@ -2531,6 +2530,7 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <li>Tipo de preditoras</li>
 <li>Objetivo da análise</li>
 </ul>
+</div><div class="column" style="width:50%;">
 <p><strong>3. Verificação de pressupostos</strong></p>
 <ul>
 <li>Normalidade, homocedasticidade, etc.</li>
@@ -2539,45 +2539,45 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <p><strong>4. Ajuste do modelo</strong></p>
 <p><strong>5. Diagnóstico</strong></p>
 <p><strong>6. Interpretação e visualização</strong></p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
 <h2>Boas Práticas</h2>
 <div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><strong>Sempre:</strong></p>
 <p>✓ Visualize seus dados <strong>antes</strong> de modelar</p>
 <p>✓ Verifique <strong>pressupostos</strong> dos testes</p>
 <p>✓ Reporte <strong>tamanho de efeito</strong>, não apenas p-value</p>
 <p>✓ Use <strong>gráficos</strong> para comunicar resultados</p>
 <p>✓ Interprete resultados no <strong>contexto biológico</strong></p>
+</div><div class="column" style="width:50%;">
 <p><strong>Evite:</strong></p>
 <p>✗ Confiar cegamente em p-values</p>
 <p>✗ Ignorar pressupostos violados</p>
 <p>✗ “P-hacking” (testar múltiplos modelos até achar significância)</p>
 <p>✗ Extrapolar além dos dados</p>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Recursos Adicionais</h2>
-<div style="font-size: 70%">
-<p><strong>Livros:</strong></p>
-<ul>
-<li><p><em>Statistical Rethinking</em> - Richard McElreath</p></li>
-<li><p><em>Regression and Other Stories</em> - Gelman, Hill &amp; Vehtari</p></li>
-<li><p><em>Data Analysis Using Regression and Multilevel/Hierarchical Models</em> - Gelman &amp; Hill</p></li>
-</ul>
-<p><strong>Pacotes úteis:</strong></p>
-<ul>
-<li><p><code>performance</code>: diagnóstico de modelos</p></li>
-<li><p><code>easystats</code>: conjunto de pacotes para estatística</p></li>
-<li><p><code>ggeffects</code>: visualização de efeitos</p></li>
-<li><p><code>emmeans</code>: comparações post-hoc</p></li>
-</ul>
-<p><strong>Online:</strong></p>
-<ul>
-<li><a href="https://statsandr.com/blog/what-statistical-test-should-i-do/">Statistical tests cheat sheet</a></li>
-</ul>
+<h2>Don’t give up!!!</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/got-game-of-thrones.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
 </div>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/curve.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section class="slide level2">
 <h2>Obrigado!</h2>
@@ -2588,6 +2588,22 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <p><strong>Materiais do curso:</strong></p>
 <p>GitHub: <a href="https://github.com/seu-usuario/seu-repo">seu-repositorio</a></p>
 </div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cat.gif" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+</section>
+<section class="slide level2">
+<h2></h2>
 
 </section>
     </div>

@@ -460,13 +460,24 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 <section class="slide level2">
 <h2>Análises Estatísticas</h2>
 <h4>Pacotes necessários</h4>
-<div style="font-size: 70%">
+<div style="font-size: 65%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)      <span class="co"># Manipulação e visualização</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(car)            <span class="co"># Testes de pressupostos</span></span>
-<span id="cb1-3"><a href=""></a><span class="fu">library</span>(corrplot)       <span class="co"># Matriz de correlação</span></span>
-<span id="cb1-4"><a href=""></a><span class="fu">library</span>(ggcorrplot)     <span class="co"># Heatmap de correlação</span></span>
-<span id="cb1-5"><a href=""></a><span class="fu">library</span>(nortest)        <span class="co"># teste de normalidade shapiro-francia</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)     <span class="co"># Manipulação e visualização</span></span>
+<span id="cb1-2"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(car)) <span class="fu">install.packages</span>(<span class="st">"car"</span>)                 <span class="co"># Testes de pressupostos</span></span>
+<span id="cb1-3"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(corrplot)) <span class="fu">install.packages</span>(<span class="st">"corrplot"</span>)       <span class="co"># Matriz de correlação</span></span>
+<span id="cb1-4"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggcorrplot)) <span class="fu">install.packages</span>(<span class="st">"ggcorrplot"</span>)   <span class="co"># Heatmap de correlação</span></span>
+<span id="cb1-5"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(qqplotr)) <span class="fu">install.packages</span>(<span class="st">"qqplotr"</span>)         <span class="co"># Plota intervalo de confiança do qqplot</span></span>
+<span id="cb1-6"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(nortest)) <span class="fu">install.packages</span>(<span class="st">"nortest"</span>)         <span class="co"># teste de normalidade shapiro-francia</span></span>
+<span id="cb1-7"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(report)) <span class="fu">install.packages</span>(<span class="st">"report"</span>)           <span class="co"># cria sumário dos resultados dos modelos</span></span>
+<span id="cb1-8"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rstatix)) <span class="fu">install.packages</span>(<span class="st">"rstatix"</span>)         <span class="co"># Testes estatísticos</span></span>
+<span id="cb1-9"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(effectsize)) <span class="fu">install.packages</span>(<span class="st">"effectsize"</span>)   <span class="co"># Tamanho de efeito</span></span>
+<span id="cb1-10"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(emmeans)) <span class="fu">install.packages</span>(<span class="st">"emmeans"</span>)         <span class="co"># Médias marginais e post-hoc</span></span>
+<span id="cb1-11"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(sjPlot)) <span class="fu">install.packages</span>(<span class="st">"sjPlot"</span>)           <span class="co"># Visualização de modelos</span></span>
+<span id="cb1-12"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(ggeffects)) <span class="fu">install.packages</span>(<span class="st">"ggeffects"</span>)     <span class="co"># Efeitos de modelos</span></span>
+<span id="cb1-13"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(see)) <span class="fu">install.packages</span>(<span class="st">"see"</span>)                 <span class="co"># Necessário para Performance</span></span>
+<span id="cb1-14"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(performance)) <span class="fu">install.packages</span>(<span class="st">"performance"</span>) <span class="co"># Diagnóstico de modelos</span></span>
+<span id="cb1-15"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(DHARMa)) <span class="fu">install.packages</span>(<span class="st">"DHARMa"</span>)           <span class="co"># Diagnóstico de GLMs</span></span>
+<span id="cb1-16"><a href=""></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(fmsb)) <span class="fu">install.packages</span>(<span class="st">"fmsb"</span>)               <span class="co"># Calcula pseudo r2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -842,6 +853,22 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cat.gif" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios</h2>
+</section>
+<section class="slide level2">
+<h2></h2>
 
 </section>
     </div>
