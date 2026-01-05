@@ -655,6 +655,7 @@ sample estimates:
 <li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
 <li><p><strong>Tamanho de efeito</strong>: <code>R²</code> simples, mostra em % quanto do fenômeno é explicado pelo modelo</p></li>
 <li><p><strong>Visualização Gráfica da relação linear</strong></p></li>
+<li><p><strong>Interpretação dos coeficientes</strong></p></li>
 </ol>
 </div>
 </section>
@@ -1138,7 +1139,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-32-1.png" width="384"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-31-1.png" width="384"></p>
 </figure>
 </div>
 </div>
@@ -1146,11 +1147,11 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 60%">
 <div class="columns">
@@ -1188,7 +1189,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 60%">
 <div class="columns">
@@ -1227,7 +1228,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 60%">
 <div class="columns">
@@ -1267,7 +1268,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 60%">
 <div class="columns">
@@ -1308,7 +1309,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Simples</h2>
+<h2>7. Regressão Linear Simples</h2>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 60%">
 <div class="columns">
@@ -1318,7 +1319,7 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 <li><p><strong>Coeficiente angular</strong> de <strong>pct_flo (0.089):</strong> Para <strong>cada aumento de 1 unidade em <code>pct_flo</code></strong>, o número esperado de espécies (<strong>n_sp</strong>) <strong>aumenta em 0.089</strong>, em média.</p></li>
 <li><p><code>R²</code> : O modelo explica <strong>75.6%</strong> da variação observada no número de espécies (n_sp).</p></li>
 <li><p>p-value (&lt; 0.001): indicando que o efeito de <code>pct_flo</code> sobre <code>n_sp</code> é <strong>estatisticamente significativo</strong>.</p></li>
-<li><p><code>Estatística F</code> (F = 58.84): modelo linear é significativamente <strong>melhor do que</strong> um modelo <strong>sem preditore</strong></p></li>
+<li><p><code>Estatística F</code> (F = 58.84): modelo linear é significativamente <strong>melhor do que</strong> um modelo <strong>sem preditore;</strong> F muito grande (ex.: 10, 50, 100…)</p></li>
 </ul>
 </div><div class="column" style="font-size: 110%">
 <p><code>y = β0 + β1 * x</code></p>
@@ -1350,10 +1351,10 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear - Multipla</h2>
+<h2>Regressão Linear - Múltipla</h2>
 <div class="columns" style="font-size: 55%">
 <p>Na regressão linear, você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos</p><p>O que seria “o mais correto” para uma regressão <code>linear múltipla</code>:</p><ol type="1">
-<li><p><strong>Ajustar o modelo:</strong> <code>lm(y ~ x1, data = dados)</code></p></li>
+<li><p><strong>Ajustar o modelo:</strong> <code>lm(y ~ x1 + x2, data = dados)</code></p></li>
 <li><p><strong>Normalidade dos resíduos</strong>: <code>Shapiro nos resíduos</code> do modelo + <code>QQ-plot</code></p></li>
 <li><p><strong>Homocedasticidade</strong>: <strong>Breusch–Pagan</strong>, testa se variância dos resíduos é constante</p></li>
 <li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
@@ -1364,111 +1365,493 @@ F-statistic: 58.84 on 1 and 19 DF,  p-value: 3.111e-07</code></pre>
 </ul></li>
 <li><p><strong>Significância dos coeficientes:</strong> “Para cada aumento de 1 unidade em X, Y muda em β unidades, mantendo as outras variáveis constantes.”</p></li>
 <li><p><strong>Tamanho de efeito</strong>: <strong><code>R² adjusted</code></strong>, mostra em % quanto do fenômeno é explicado pelo modelo</p></li>
-<li><p><strong>Visualização Gráfica da relação linear</strong></p></li>
 <li><p><strong>Comparar com um modelo mais simples</strong></p></li>
+<li><p><strong>Interpretação dos coeficientes</strong></p></li>
 </ol>
 </div>
 </section>
 <section class="slide level2">
-<h2></h2>
-</section>
-<section class="slide level2">
-<h2>Regressão Linear Múltipla</h2>
+<h2>1. Regressão Linear Múltipla</h2>
 <div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="co"># Modelo com múltiplos preditores</span></span>
-<span id="cb63-2"><a href=""></a>modelo_lm_mult <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width, </span>
-<span id="cb63-3"><a href=""></a>                     <span class="at">data =</span> iris)</span>
-<span id="cb63-4"><a href=""></a><span class="fu">summary</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>anf.lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo <span class="sc">+</span> conect,</span>
+<span id="cb63-2"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb63-3"><a href=""></a>anf.lm2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo       conect  
+    2.47342      0.05717      0.04969  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="column" style="width:100%;">
+
+</div></div></div>
+</div><div class="column" style="width:50%;">
+<pre><code></code></pre>
+<div class="columns">
+<div class="column" style="width:100%;">
+<pre><code></code></pre>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>1. Regressão Linear Múltipla</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>anf.lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo <span class="sc">+</span> conect,</span>
+<span id="cb67-2"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb67-3"><a href=""></a>anf.lm2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo       conect  
+    2.47342      0.05717      0.04969  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="column" style="width:100%;">
+
+</div></div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">summary</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
--1.25582 -0.46922 -0.05741  0.45530  1.75599 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  -2.52476    0.56344  -4.481 1.48e-05 ***
-Sepal.Length  1.77559    0.06441  27.569  &lt; 2e-16 ***
-Sepal.Width  -1.33862    0.12236 -10.940  &lt; 2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.6465 on 147 degrees of freedom
-Multiple R-squared:  0.8677,    Adjusted R-squared:  0.8659 
-F-statistic:   482 on 2 and 147 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<pre><code></code></pre>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Múltipla</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>anf.lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo <span class="sc">+</span> conect,</span>
+<span id="cb72-2"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb72-3"><a href=""></a>anf.lm2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo       conect  
+    2.47342      0.05717      0.04969  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<p>Modelo <strong>significativo</strong> e com distribuição dos <strong>resíduos normais</strong>.</p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a><span class="fu">summary</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a><span class="fu">shapiro.test</span>(anf.lm2<span class="sc">$</span>residuals) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anf.lm2$residuals
+W = 0.9519, p-value = 0.3698</code></pre>
+</div>
+</div>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Múltipla</h2>
+<div style="font-size: 70%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>anf.lm2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_sp <span class="sc">~</span> pct_flo <span class="sc">+</span> conect,</span>
+<span id="cb78-2"><a href=""></a>             <span class="at">data =</span> dados.anf)</span>
+<span id="cb78-3"><a href=""></a>anf.lm2</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Coefficients:
+(Intercept)      pct_flo       conect  
+    2.47342      0.05717      0.04969  </code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<p>Modelo <strong>significativo</strong> e com distribuição dos <strong>resíduos normais</strong>.</p>
+<p><strong>E a homocedasticidade????</strong></p>
+</div></div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">summary</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="fu">shapiro.test</span>(anf.lm2<span class="sc">$</span>residuals) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  anf.lm2$residuals
+W = 0.9519, p-value = 0.3698</code></pre>
+</div>
+</div>
+</div></div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>2. Regressão Linear Múltipla</h2>
+<div style="font-size: 55%">
+<p>Função <code>check_model()</code> faz checagem do <strong>QQ-Plot</strong> e muito <strong>mais</strong></p>
+</div>
+<div style="font-size: 70%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>performance<span class="sc">::</span><span class="fu">check_model</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-46-1.png" width="1152"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
 </section>
 <section class="slide level2">
-<h2>Regressão Linear Múltipla</h2>
+<h2>3. Regressão Linear Simples</h2>
+<h4>Teste da homocedasticidade</h4>
+<div style="font-size: 60%">
+<p>Função <code>bptest()</code>, <strong>Breusch–Pagan:</strong></p>
+<ul>
+<li><p><strong>H₀ (hipótese nula)</strong>: a variância dos resíduos é constante<br>
+→ <strong>homocedasticidade</strong></p></li>
+<li><p><strong>H₁</strong>: a variância dos resíduos não é constante<br>
+→ <strong>heterocedasticidade</strong></p>
+<ul>
+<li>O BP mede o quanto a <strong>variância</strong> dos resíduos depende das variáveis <strong>explicativas</strong>.
+<ul>
+<li><strong>Muito pequeno</strong> (<code>≈ 0</code>): Forte evidência a favor da <strong>homocedasticidade</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 90%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a>lmtest<span class="sc">::</span><span class="fu">bptest</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  anf.lm2
+BP = 0.10911, df = 2, p-value = 0.9469</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>5. Regressão Linear Múltipla</h2>
 <h4>Verificar multicolinearidade</h4>
 <div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="co"># VIF - valores &gt; 10 indicam multicolinearidade</span></span>
-<span id="cb65-2"><a href=""></a><span class="fu">vif</span>(modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sepal.Length  Sepal.Width 
-    1.014016     1.014016 </code></pre>
-</div>
-</div>
-<p><strong>VIF &lt; 5</strong>: Não há problema de multicolinearidade</p>
-<p><strong>VIF &gt; 10</strong>: Multicolinearidade alta - considerar remover variáveis</p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Regressão Linear</h2>
-<h4>Comparação de modelos</h4>
-<div style="font-size: 70%">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a><span class="co"># Comparar modelos</span></span>
-<span id="cb67-2"><a href=""></a><span class="fu">anova</span>(anf.lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: n_sp
-          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-pct_flo    1 97.260  97.260  58.839 3.111e-07 ***
-Residuals 19 31.407   1.653                      
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb69-2"><a href=""></a><span class="fu">AIC</span>(anf.lm, modelo_lm_mult)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               df       AIC
-anf.lm          3  74.04803
-modelo_lm_mult  4 299.78749</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-<h2>Critérios de Seleção de Modelos</h2>
-<div style="font-size: 70%">
-<p><strong>AIC (Akaike Information Criterion)</strong></p>
+<p><strong><code>vif()</code></strong> mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras:</p>
 <ul>
-<li><p>Mede o <strong>balanço</strong> entre ajuste do modelo e complexidade</p></li>
-<li><p><strong>Penaliza</strong> modelos com muitos parâmetros (evita overfitting)</p></li>
-<li><p><strong>Menor AIC = melhor modelo</strong></p></li>
-<li><p>Regra prática: ΔAIC &gt; 2 indica diferença relevante</p></li>
+<li><p>duas ou mais variáveis preditoras estão fortemente correlacionadas entre si?</p>
+<ul>
+<li><p><strong>VIF &lt; 5</strong>: Não há problema de multicolinearidade</p></li>
+<li><p><strong>VIF &gt; 10</strong>: Multicolinearidade alta - considerar remover variáveis</p></li>
+</ul></li>
 </ul>
+</div>
+</section>
+<section class="slide level2">
+<h2>5. Regressão Linear Múltipla</h2>
+<h4>Verificar multicolinearidade</h4>
+<div style="font-size: 70%">
+<p><strong><code>vif()</code></strong> mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras:</p>
+<ul>
+<li><p>duas ou mais variáveis preditoras estão fortemente correlacionadas entre si?</p>
+<ul>
+<li><p><strong>VIF &lt; 5</strong>: Não há problema de multicolinearidade</p></li>
+<li><p><strong>VIF &gt; 10</strong>: Multicolinearidade alta - considerar remover variáveis</p></li>
+</ul></li>
+</ul>
+</div>
+<div style="font-size: 100%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a>car<span class="sc">::</span><span class="fu">vif</span>(anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> pct_flo   conect 
+6.609632 6.609632 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>6. Regressão Linear Múltipla</h2>
+<h4>Significância dos coeficientes</h4>
+<div>
+<div class="columns" style="font-size: 70%">
+<div class="column" style="width:50%;">
+<p>Quais coeficientes (<code>βx</code>) foram significativos</p>
+<ul>
+<li><p>Quais variáveis preditoras <strong>contribuem</strong> de forma estatisticamente relevante para <strong>explicar</strong> a variável resposta.</p>
+<ul>
+<li><p>A significância de cada coeficiente é testada por meio do teste t:</p>
+<ul>
+<li>avalia o efeito isolado de cada preditor, controlando os demais.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Nenhuma variável isolada explica bem o <code>n_sp</code></strong></p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">summary</span>(anf.lm2) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>7. Regressão Linear Múltipla</h2>
+<h4>Tamanho de efeito <code>Adjusted R²</code></h4>
+<div style="font-size: 70%">
+<p><strong>Adjusted R²</strong> mede <strong>quanto da variação da variável resposta (Y)</strong> é explicada pelo modelo de regressão</p>
+<div class="columns" style="font-size: 90%">
+<div class="column" style="width:50%;">
+<p>Comparar modelos com diferentes números de preditores</p>
+<p>Penaliza adição de variáveis que não melhoram muito o ajuste</p>
+<ul>
+<li><p>O <strong>Adjusted R²</strong> corrige o R² levando em conta:</p>
+<ul>
+<li><p>Número de preditores no modelo</p></li>
+<li><p>Tamanho da amostra</p></li>
+</ul></li>
+</ul>
+<p>Apenas <strong>~25,2%</strong> da variação ficou nos <strong>resíduos</strong> (erro) <strong>e 74,8% é explicado</strong> por cobertura florestal e conectividade</p>
+</div><div class="column" style="font-size: 110%">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">summary</span>(anf.lm2) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n_sp ~ pct_flo + conect, data = dados.anf)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.83913 -1.03298 -0.06612  0.72096  3.15925 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.47342    0.89344   2.768   0.0127 *
+pct_flo      0.05717    0.02945   1.942   0.0680 .
+conect       0.04969    0.04281   1.161   0.2610  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.274 on 18 degrees of freedom
+Multiple R-squared:  0.7729,    Adjusted R-squared:  0.7477 
+F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>8. Regressão Linear Múltipla</h2>
+<h4>Comparação de modelos</h4>
+<div style="font-size: 50%">
+<div class="columns">
+<div class="column" style="width:50%;">
 <p><strong>ANOVA de modelos aninhados</strong></p>
 <ul>
 <li><p>Compara modelos onde um é <strong>subconjunto</strong> do outro</p></li>
 <li><p>Testa se adicionar variáveis melhora significativamente o modelo</p></li>
 <li><p>Se p &lt; 0.05: modelo mais complexo é <strong>significativamente melhor</strong></p></li>
 </ul>
-<p><strong>R² ajustado</strong></p>
-<ul>
-<li><p>Penaliza adição de variáveis que não melhoram muito o ajuste</p></li>
-<li><p>Use para comparar modelos com diferentes números de preditores</p></li>
-</ul>
+</div><div class="column" style="width:50%;">
+
+</div></div>
 </div>
+<div style="font-size: 80%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="fu">anova</span>(anf.lm, anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: n_sp ~ pct_flo
+Model 2: n_sp ~ pct_flo + conect
+  Res.Df    RSS Df Sum of Sq     F Pr(&gt;F)
+1     19 31.407                          
+2     18 29.220  1    2.1866 1.347  0.261</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<pre><code></code></pre>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>8. Regressão Linear Múltipla</h2>
+<h4>Comparação de modelos</h4>
+<div style="font-size: 50%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>ANOVA de modelos aninhados</strong></p>
+<ul>
+<li><p>Compara modelos onde um é <strong>subconjunto</strong> do outro</p></li>
+<li><p>Testa se adicionar variáveis melhora significativamente o modelo</p></li>
+<li><p>Se p &lt; 0.05: modelo mais complexo é <strong>significativamente melhor</strong></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>AIC (Akaike Information Criterion): comparar modelos</strong></p>
+<ul>
+<li><p>Mede o <strong>balanço</strong> entre ajuste do modelo e complexidade</p></li>
+<li><p><strong>Penaliza</strong> modelos com muitos parâmetros (evita overfitting)</p></li>
+<li><p><strong>Menor AIC = melhor modelo</strong></p></li>
+<li><p>Regra prática: ΔAIC &gt; 2 indica diferença relevante</p></li>
+</ul>
+</div></div>
+</div>
+<div style="font-size: 80%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="fu">anova</span>(anf.lm, anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Model 1: n_sp ~ pct_flo
+Model 2: n_sp ~ pct_flo + conect
+  Res.Df    RSS Df Sum of Sq     F Pr(&gt;F)
+1     19 31.407                          
+2     18 29.220  1    2.1866 1.347  0.261</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="fu">AIC</span>(anf.lm, anf.lm2)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        df      AIC
+anf.lm   3 74.04803
+anf.lm2  4 74.53257</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>9. Regressão Linear Múltipla</h2>
+<h4>Interpretação dos coeficientes</h4>
 </section>
 <section class="slide level2">
 <h2>Modelos Lineares Generalizados (GLM)</h2>
@@ -1573,15 +1956,15 @@ modelo_lm_mult  4 299.78749</code></pre>
 <h4>Dados de contagem</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
-<span id="cb71-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb71-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb71-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
-<span id="cb71-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
-<span id="cb71-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
-<span id="cb71-7"><a href=""></a>)</span>
-<span id="cb71-8"><a href=""></a></span>
-<span id="cb71-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="co"># Criar dados de contagem (exemplo)</span></span>
+<span id="cb100-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb100-3"><a href=""></a>dados_count <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb100-4"><a href=""></a>  <span class="at">temperatura =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">15</span>, <span class="dv">35</span>),</span>
+<span id="cb100-5"><a href=""></a>  <span class="at">umidade =</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">90</span>),</span>
+<span id="cb100-6"><a href=""></a>  <span class="at">contagem =</span> <span class="fu">rpois</span>(<span class="dv">100</span>, <span class="at">lambda =</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> temperatura <span class="sc">+</span> <span class="fl">0.02</span> <span class="sc">*</span> umidade))</span>
+<span id="cb100-7"><a href=""></a>)</span>
+<span id="cb100-8"><a href=""></a></span>
+<span id="cb100-9"><a href=""></a><span class="fu">head</span>(dados_count)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   temperatura umidade contagem
@@ -1601,12 +1984,12 @@ modelo_lm_mult  4 299.78749</code></pre>
 <h4>Ajustar o modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
-<span id="cb73-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb73-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
-<span id="cb73-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
-<span id="cb73-5"><a href=""></a></span>
-<span id="cb73-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href=""></a><span class="co"># Modelo Poisson</span></span>
+<span id="cb102-2"><a href=""></a>modelo_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb102-3"><a href=""></a>                      <span class="at">data =</span> dados_count,</span>
+<span id="cb102-4"><a href=""></a>                      <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>))</span>
+<span id="cb102-5"><a href=""></a></span>
+<span id="cb102-6"><a href=""></a><span class="fu">summary</span>(modelo_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1637,8 +2020,8 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Interpretação dos coeficientes</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
-<span id="cb75-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = razão de taxa (rate ratio)</span></span>
+<span id="cb104-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_poisson))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(Intercept) temperatura     umidade 
   0.2219182   1.0958910   1.0160846 </code></pre>
@@ -1656,12 +2039,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Verificação de pressupostos - DHARMa</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
-<span id="cb77-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href=""></a><span class="co"># Diagnóstico com DHARMa</span></span>
+<span id="cb106-2"><a href=""></a>simulacao <span class="ot">&lt;-</span> <span class="fu">simulateResiduals</span>(modelo_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-57-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1673,12 +2056,12 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <h4>Testes de adequação do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
-<span id="cb78-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href=""></a><span class="co"># Teste de superdispersão</span></span>
+<span id="cb107-2"><a href=""></a><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-58-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1691,12 +2074,12 @@ data:  simulationOutput
 dispersion = 1.0816, p-value = 0.552
 alternative hypothesis: two.sided</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
-<span id="cb80-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href=""></a><span class="co"># Teste de outliers</span></span>
+<span id="cb109-2"><a href=""></a><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-2.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-58-2.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1713,12 +2096,12 @@ sample estimates:
 outlier frequency (expected: 0.0058 ) 
                                     0 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
-<span id="cb82-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href=""></a><span class="co"># Teste de zeros</span></span>
+<span id="cb111-2"><a href=""></a><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-45-3.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-58-3.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1784,13 +2167,13 @@ alternative hypothesis: two.sided</code></pre>
 <h2>GLM - Binomial Negativa</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
-<span id="cb84-2"><a href=""></a></span>
-<span id="cb84-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
-<span id="cb84-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
-<span id="cb84-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
-<span id="cb84-6"><a href=""></a></span>
-<span id="cb84-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href=""></a><span class="fu">library</span>(MASS)</span>
+<span id="cb113-2"><a href=""></a></span>
+<span id="cb113-3"><a href=""></a><span class="co"># Modelo Binomial Negativa</span></span>
+<span id="cb113-4"><a href=""></a>modelo_nb <span class="ot">&lt;-</span> <span class="fu">glm.nb</span>(contagem <span class="sc">~</span> temperatura <span class="sc">+</span> umidade,</span>
+<span id="cb113-5"><a href=""></a>                    <span class="at">data =</span> dados_count)</span>
+<span id="cb113-6"><a href=""></a></span>
+<span id="cb113-7"><a href=""></a><span class="fu">summary</span>(modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1825,16 +2208,16 @@ Number of Fisher Scoring iterations: 1
 <h2>GLM - Comparação de modelos</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
-<span id="cb86-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href=""></a><span class="co"># AIC - menor é melhor</span></span>
+<span id="cb115-2"><a href=""></a><span class="fu">AIC</span>(modelo_poisson, modelo_nb)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               df      AIC
 modelo_poisson  3 476.1200
 modelo_nb       4 477.9613</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
-<span id="cb88-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
-<span id="cb88-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href=""></a><span class="co"># Teste de razão de verossimilhança</span></span>
+<span id="cb117-2"><a href=""></a>lrtest <span class="ot">&lt;-</span> <span class="fu">anova</span>(modelo_poisson, modelo_nb, <span class="at">test =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb117-3"><a href=""></a>lrtest</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
@@ -1853,18 +2236,18 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
-<span id="cb90-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
-<span id="cb90-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
-<span id="cb90-4"><a href=""></a></span>
-<span id="cb90-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
-<span id="cb90-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
-<span id="cb90-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
-<span id="cb90-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href=""></a><span class="co"># Predições do modelo</span></span>
+<span id="cb119-2"><a href=""></a>pred_temp <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"temperatura [all]"</span>)</span>
+<span id="cb119-3"><a href=""></a>pred_umid <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_nb, <span class="at">terms =</span> <span class="st">"umidade [all]"</span>)</span>
+<span id="cb119-4"><a href=""></a></span>
+<span id="cb119-5"><a href=""></a><span class="fu">plot</span>(pred_temp) <span class="sc">+</span> </span>
+<span id="cb119-6"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Temperatura"</span>,</span>
+<span id="cb119-7"><a href=""></a>       <span class="at">x =</span> <span class="st">"Temperatura (°C)"</span>,</span>
+<span id="cb119-8"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-61-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1876,14 +2259,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos do modelo - Umidade</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
-<span id="cb91-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
-<span id="cb91-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
-<span id="cb91-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href=""></a><span class="fu">plot</span>(pred_umid) <span class="sc">+</span> </span>
+<span id="cb120-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efeito da Umidade"</span>,</span>
+<span id="cb120-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Umidade (%)"</span>,</span>
+<span id="cb120-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Contagem predita"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-49-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-62-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1894,13 +2277,13 @@ Model 2: contagem ~ temperatura + umidade
 <h2>GLM - Visualização com sjPlot</h2>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
-<span id="cb92-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb92-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href=""></a><span class="co"># Gráfico de coeficientes</span></span>
+<span id="cb121-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">show.values =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb121-3"><a href=""></a>           <span class="at">title =</span> <span class="st">"Coeficientes do Modelo Binomial Negativa"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-50-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-63-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1912,14 +2295,14 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Efeitos marginais</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
-<span id="cb93-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
-<span id="cb93-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
-<span id="cb93-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href=""></a><span class="co"># Efeitos marginais</span></span>
+<span id="cb122-2"><a href=""></a><span class="fu">plot_model</span>(modelo_nb, <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb122-3"><a href=""></a>           <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"temperatura"</span>, <span class="st">"umidade [50, 70, 90]"</span>),</span>
+<span id="cb122-4"><a href=""></a>           <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-51-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-64-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1931,16 +2314,16 @@ Model 2: contagem ~ temperatura + umidade
 <h4>Dados binários</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
-<span id="cb94-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
-<span id="cb94-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
-<span id="cb94-4"><a href=""></a></span>
-<span id="cb94-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
-<span id="cb94-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
-<span id="cb94-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
-<span id="cb94-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb94-9"><a href=""></a></span>
-<span id="cb94-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href=""></a><span class="co"># Criar dados binários</span></span>
+<span id="cb123-2"><a href=""></a>dados_bin <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb123-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">grande =</span> <span class="fu">ifelse</span>(Petal.Length <span class="sc">&gt;</span> <span class="fu">median</span>(Petal.Length), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb123-4"><a href=""></a></span>
+<span id="cb123-5"><a href=""></a><span class="co"># Modelo logístico</span></span>
+<span id="cb123-6"><a href=""></a>modelo_logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(grande <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Sepal.Width,</span>
+<span id="cb123-7"><a href=""></a>                    <span class="at">data =</span> dados_bin,</span>
+<span id="cb123-8"><a href=""></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb123-9"><a href=""></a></span>
+<span id="cb123-10"><a href=""></a><span class="fu">summary</span>(modelo_logit)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1971,13 +2354,13 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <h4>Odds Ratio</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
-<span id="cb96-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href=""></a><span class="co"># Exponencial dos coeficientes = odds ratio</span></span>
+<span id="cb125-2"><a href=""></a><span class="fu">exp</span>(<span class="fu">coef</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> (Intercept) Sepal.Length  Sepal.Width 
 1.585347e-11 1.162813e+02 3.937108e-01 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a><span class="fu">exp</span>(<span class="fu">confint</span>(modelo_logit))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                    2.5 %       97.5 %
 (Intercept)  1.413519e-16 1.305991e-07
@@ -2022,25 +2405,25 @@ Sepal.Width  8.722560e-02 1.402213e+00</code></pre>
 <h4>Visualização</h4>
 <div style="font-size: 70%">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href=""></a><span class="co"># Predições</span></span>
-<span id="cb100-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
-<span id="cb100-3"><a href=""></a></span>
-<span id="cb100-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
-<span id="cb100-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb100-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb100-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
-<span id="cb100-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb100-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
-<span id="cb100-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
-<span id="cb100-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb100-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb100-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
-<span id="cb100-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
-<span id="cb100-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="co"># Predições</span></span>
+<span id="cb129-2"><a href=""></a>pred_logit <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(modelo_logit, <span class="at">terms =</span> <span class="st">"Sepal.Length [all]"</span>)</span>
+<span id="cb129-3"><a href=""></a></span>
+<span id="cb129-4"><a href=""></a><span class="fu">ggplot</span>(dados_bin, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> grande)) <span class="sc">+</span></span>
+<span id="cb129-5"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb129-6"><a href=""></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb129-7"><a href=""></a>              <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted, <span class="at">ymin =</span> conf.low, <span class="at">ymax =</span> conf.high),</span>
+<span id="cb129-8"><a href=""></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb129-9"><a href=""></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pred_logit, </span>
+<span id="cb129-10"><a href=""></a>            <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> predicted),</span>
+<span id="cb129-11"><a href=""></a>            <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb129-12"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb129-13"><a href=""></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento da Sépala (cm)"</span>,</span>
+<span id="cb129-14"><a href=""></a>       <span class="at">y =</span> <span class="st">"Probabilidade de pétala grande"</span>,</span>
+<span id="cb129-15"><a href=""></a>       <span class="at">title =</span> <span class="st">"Regressão Logística"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-54-1.png" width="960"></p>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-67-1.png" width="960"></p>
 </figure>
 </div>
 </div>

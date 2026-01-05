@@ -426,6 +426,8 @@ O que seria "o mais correto" para uma regressão `linear simples`:
 5.  **Tamanho de efeito**: `R²` simples, mostra em % quanto do fenômeno é explicado pelo modelo
 
 6.  **Visualização Gráfica da relação linear**
+
+7.  **Interpretação dos coeficientes**
 :::
 
 ## 1. Regressão Linear Simples
@@ -670,10 +672,6 @@ performance::check_model(anf.lm)
 
 -   **H₁**: a variância dos resíduos não é constante\
     → **heterocedasticidade**
-
-```{r}
-
-```
 :::
 
 ## 3. Regressão Linear Simples
@@ -773,7 +771,6 @@ summary(anf.lm)
 #### Visualização do modelo
 
 ::: {style="font-size: 70%"}
-
 ```{r}
 #| output-location: column
 #| fig-width: 4
@@ -787,11 +784,11 @@ ggplot(dados.anf, aes(x = pct_flo, y = tam_medio_femur)) +
 ```
 :::
 
-## Regressão Linear Simples
+## 7. Regressão Linear Simples
 
 #### Interpretação dos coeficientes
 
-## Regressão Linear Simples
+## 7. Regressão Linear Simples
 
 #### Interpretação dos coeficientes
 
@@ -813,31 +810,7 @@ summary(anf.lm)
 :::::
 ::::::
 
-## Regressão Linear Simples
-
-#### Interpretação dos coeficientes
-
-:::::: {style="font-size: 60%"}
-::::: columns
-::: {.column width="50%"}
--   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
-
--   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
-:::
-
-::: {.column width="50%" style="font-size: 110%"}
-`y = β0 + β1 * x`
-
-`n_sp = 3.20 + 0.089 × pct_flo`
-
-```{r}
-summary(anf.lm) 
-```
-:::
-:::::
-::::::
-
-## Regressão Linear Simples
+## 7. Regressão Linear Simples
 
 #### Interpretação dos coeficientes
 
@@ -847,8 +820,6 @@ summary(anf.lm)
 -   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
 
 -   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
-
--   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
 :::
 
 ::: {.column width="50%" style="font-size: 110%"}
@@ -863,7 +834,7 @@ summary(anf.lm)
 :::::
 ::::::
 
-## Regressão Linear Simples
+## 7. Regressão Linear Simples
 
 #### Interpretação dos coeficientes
 
@@ -875,8 +846,6 @@ summary(anf.lm)
 -   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
 
 -   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
-
--   p-value (\< 0.001): indicando que o efeito de `pct_flo` sobre `n_sp` é **estatisticamente significativo**.
 :::
 
 ::: {.column width="50%" style="font-size: 110%"}
@@ -891,7 +860,7 @@ summary(anf.lm)
 :::::
 ::::::
 
-## Regressão Linear Simples
+## 7. Regressão Linear Simples
 
 #### Interpretação dos coeficientes
 
@@ -905,8 +874,6 @@ summary(anf.lm)
 -   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
 
 -   p-value (\< 0.001): indicando que o efeito de `pct_flo` sobre `n_sp` é **estatisticamente significativo**.
-
--    `Estatística F` (F = 58.84): modelo linear é significativamente **melhor do que** um modelo **sem preditore**
 :::
 
 ::: {.column width="50%" style="font-size: 110%"}
@@ -921,14 +888,44 @@ summary(anf.lm)
 :::::
 ::::::
 
-## Regressão Linear - Multipla
+## 7. Regressão Linear Simples
+
+#### Interpretação dos coeficientes
+
+:::::: {style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+-   **Intercept (3.20):** Quando **pct_flo = 0**, o número esperado de espécies (**n_sp**) é **≈ 3.2**.
+
+-   **Coeficiente angular** de **pct_flo (0.089):** Para **cada aumento de 1 unidade em `pct_flo`**, o número esperado de espécies (**n_sp**) **aumenta em 0.089**, em média.
+
+-   `R²` : O modelo explica **75.6%** da variação observada no número de espécies (n_sp).
+
+-   p-value (\< 0.001): indicando que o efeito de `pct_flo` sobre `n_sp` é **estatisticamente significativo**.
+
+-   `Estatística F` (F = 58.84): modelo linear é significativamente **melhor do que** um modelo **sem preditore;** F muito grande (ex.: 10, 50, 100…)
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+`y = β0 + β1 * x`
+
+`n_sp = 3.20 + 0.089 × pct_flo`
+
+```{r}
+summary(anf.lm) 
+```
+:::
+:::::
+::::::
+
+## Regressão Linear - Múltipla
 
 ::: {.columns style="font-size: 55%"}
 Na regressão linear, você precisa **ajustar o modelo primeiro** para então verificar a maioria dos pressupostos
 
 O que seria "o mais correto" para uma regressão `linear múltipla`:
 
-1.  **Ajustar o modelo:** `lm(y ~ x1, data = dados)`
+1.  **Ajustar o modelo:** `lm(y ~ x1 + x2, data = dados)`
 
 2.  **Normalidade dos resíduos**: `Shapiro nos resíduos` do modelo + `QQ-plot`
 
@@ -946,55 +943,332 @@ O que seria "o mais correto" para uma regressão `linear múltipla`:
 
 7.  **Tamanho de efeito**: **`R² adjusted`**, mostra em % quanto do fenômeno é explicado pelo modelo
 
-8.  **Visualização Gráfica da relação linear**
+8.  **Comparar com um modelo mais simples**
 
-9.  **Comparar com um modelo mais simples**
+9.  **Interpretação dos coeficientes**
 :::
 
-## Regressão Linear Múltipla
+## 1. Regressão Linear Múltipla
+
+::::::::::: {style="font-size: 70%"}
+:::::::::: columns
+:::::: {.column width="50%"}
+```{r}
+anf.lm2 <- lm(n_sp ~ pct_flo + conect,
+             data = dados.anf)
+anf.lm2
+```
+
+::::: columns
+:::: {.column width="100%"}
+::: {.column width="100%"}
+:::
+::::
+:::::
+::::::
+
+::::: {.column width="50%"}
+```         
+```
+
+:::: columns
+::: {.column width="100%"}
+```         
+```
+:::
+::::
+:::::
+::::::::::
+:::::::::::
+
+## 1. Regressão Linear Múltipla
+
+::::::::::: {style="font-size: 70%"}
+:::::::::: columns
+:::::: {.column width="50%"}
+```{r}
+anf.lm2 <- lm(n_sp ~ pct_flo + conect,
+             data = dados.anf)
+anf.lm2
+```
+
+::::: columns
+:::: {.column width="100%"}
+::: {.column width="100%"}
+:::
+::::
+:::::
+::::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm2)
+```
+
+:::: columns
+::: {.column width="100%"}
+```         
+```
+:::
+::::
+:::::
+::::::::::
+:::::::::::
+
+## 2. Regressão Linear Múltipla
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+anf.lm2 <- lm(n_sp ~ pct_flo + conect,
+             data = dados.anf)
+anf.lm2
+```
+
+:::: columns
+::: {.column width="100%"}
+Modelo **significativo** e com distribuição dos **resíduos normais**.
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm2)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+shapiro.test(anf.lm2$residuals) 
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Múltipla
+
+:::::::::: {style="font-size: 70%"}
+::::::::: columns
+::::: {.column width="50%"}
+```{r}
+anf.lm2 <- lm(n_sp ~ pct_flo + conect,
+             data = dados.anf)
+anf.lm2
+```
+
+:::: columns
+::: {.column width="100%"}
+Modelo **significativo** e com distribuição dos **resíduos normais**.
+
+**E a homocedasticidade????**
+:::
+::::
+:::::
+
+::::: {.column width="50%"}
+```{r}
+summary(anf.lm2)
+```
+
+:::: columns
+::: {.column width="100%"}
+```{r}
+shapiro.test(anf.lm2$residuals) 
+```
+:::
+::::
+:::::
+:::::::::
+::::::::::
+
+## 2. Regressão Linear Múltipla
+
+::: {style="font-size: 55%"}
+Função `check_model()` faz checagem do **QQ-Plot** e muito **mais**
+:::
 
 ::: {style="font-size: 70%"}
 ```{r}
-# Modelo com múltiplos preditores
-modelo_lm_mult <- lm(Petal.Length ~ Sepal.Length + Sepal.Width, 
-                     data = iris)
-summary(modelo_lm_mult)
+#| fig-width: 12 
+#| fig-height: 6.7 
+performance::check_model(anf.lm2)
 ```
 :::
 
-## Regressão Linear Múltipla
+## 3. Regressão Linear Simples
+
+#### Teste da homocedasticidade
+
+::: {style="font-size: 60%"}
+Função `bptest()`, **Breusch–Pagan:**
+
+-   **H₀ (hipótese nula)**: a variância dos resíduos é constante\
+    → **homocedasticidade**
+
+-   **H₁**: a variância dos resíduos não é constante\
+    → **heterocedasticidade**
+
+    -   O BP mede o quanto a **variância** dos resíduos depende das variáveis **explicativas**.
+        -   **Muito pequeno** (`≈ 0`): Forte evidência a favor da **homocedasticidade**
+:::
+
+::: {style="font-size: 90%"}
+```{r}
+lmtest::bptest(anf.lm2)
+```
+:::
+
+## 5. Regressão Linear Múltipla
 
 #### Verificar multicolinearidade
 
 ::: {style="font-size: 70%"}
-```{r}
-# VIF - valores > 10 indicam multicolinearidade
-vif(modelo_lm_mult)
-```
+**`vif()`** mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras:
 
-**VIF \< 5**: Não há problema de multicolinearidade
+-   duas ou mais variáveis preditoras estão fortemente correlacionadas entre si?
 
-**VIF \> 10**: Multicolinearidade alta - considerar remover variáveis
+    -   **VIF \< 5**: Não há problema de multicolinearidade
+
+    -   **VIF \> 10**: Multicolinearidade alta - considerar remover variáveis
 :::
 
-## Regressão Linear
+## 5. Regressão Linear Múltipla
+
+#### Verificar multicolinearidade
+
+::: {style="font-size: 70%"}
+**`vif()`** mede o quanto a variância do coeficiente β está inflada por causa da correlação com outras preditoras:
+
+-   duas ou mais variáveis preditoras estão fortemente correlacionadas entre si?
+
+    -   **VIF \< 5**: Não há problema de multicolinearidade
+
+    -   **VIF \> 10**: Multicolinearidade alta - considerar remover variáveis
+:::
+
+::: {style="font-size: 100%"}
+```{r}
+car::vif(anf.lm2)
+```
+:::
+
+## 6. Regressão Linear Múltipla
+
+#### Significância dos coeficientes
+
+<div>
+
+::::: {.columns style="font-size: 70%"}
+::: {.column width="50%"}
+Quais coeficientes (`βx`) foram significativos
+
+-   Quais variáveis preditoras **contribuem** de forma estatisticamente relevante para **explicar** a variável resposta.
+
+    -   A significância de cada coeficiente é testada por meio do teste t:
+
+        -   avalia o efeito isolado de cada preditor, controlando os demais.
+
+**Nenhuma variável isolada explica bem o `n_sp`**
+:::
+
+::: {.column width="50%"}
+```{r}
+summary(anf.lm2) 
+
+```
+:::
+:::::
+
+</div>
+
+## 7. Regressão Linear Múltipla
+
+#### Tamanho de efeito `Adjusted R²`
+
+:::::: {style="font-size: 70%"}
+**Adjusted R²** mede **quanto da variação da variável resposta (Y)** é explicada pelo modelo de regressão
+
+::::: {.columns style="font-size: 90%"}
+::: {.column width="50%"}
+Comparar modelos com diferentes números de preditores
+
+Penaliza adição de variáveis que não melhoram muito o ajuste
+
+-   O **Adjusted R²** corrige o R² levando em conta:
+
+    -   Número de preditores no modelo
+
+    -   Tamanho da amostra
+
+Apenas **\~25,2%** da variação ficou nos **resíduos** (erro) **e 74,8% é explicado** por cobertura florestal e conectividade
+:::
+
+::: {.column width="50%" style="font-size: 110%"}
+```{r}
+summary(anf.lm2) 
+```
+:::
+:::::
+::::::
+
+## 8. Regressão Linear Múltipla
 
 #### Comparação de modelos
 
-::: {style="font-size: 70%"}
-```{r}
-# Comparar modelos
-anova(anf.lm, modelo_lm_mult)
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
+**ANOVA de modelos aninhados**
 
-# AIC - menor é melhor
-AIC(anf.lm, modelo_lm_mult)
+-   Compara modelos onde um é **subconjunto** do outro
+
+-   Testa se adicionar variáveis melhora significativamente o modelo
+
+-   Se p \< 0.05: modelo mais complexo é **significativamente melhor**
+:::
+
+::: {.column width="50%"}
+:::
+:::::
+::::::
+
+:::::: {style="font-size: 80%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+anova(anf.lm, anf.lm2)
 ```
 :::
 
-## Critérios de Seleção de Modelos
+::: {.column width="50%"}
+```{}
+```
+:::
+:::::
+::::::
 
-::: {style="font-size: 70%"}
-**AIC (Akaike Information Criterion)**
+## 8. Regressão Linear Múltipla
+
+#### Comparação de modelos
+
+:::::: {style="font-size: 50%"}
+::::: columns
+::: {.column width="50%"}
+**ANOVA de modelos aninhados**
+
+-   Compara modelos onde um é **subconjunto** do outro
+
+-   Testa se adicionar variáveis melhora significativamente o modelo
+
+-   Se p \< 0.05: modelo mais complexo é **significativamente melhor**
+:::
+
+::: {.column width="50%"}
+**AIC (Akaike Information Criterion): comparar modelos**
 
 -   Mede o **balanço** entre ajuste do modelo e complexidade
 
@@ -1003,21 +1277,29 @@ AIC(anf.lm, modelo_lm_mult)
 -   **Menor AIC = melhor modelo**
 
 -   Regra prática: ΔAIC \> 2 indica diferença relevante
-
-**ANOVA de modelos aninhados**
-
--   Compara modelos onde um é **subconjunto** do outro
-
--   Testa se adicionar variáveis melhora significativamente o modelo
-
--   Se p \< 0.05: modelo mais complexo é **significativamente melhor**
-
-**R² ajustado**
-
--   Penaliza adição de variáveis que não melhoram muito o ajuste
-
--   Use para comparar modelos com diferentes números de preditores
 :::
+:::::
+::::::
+
+:::::: {style="font-size: 80%"}
+::::: columns
+::: {.column width="50%"}
+```{r}
+anova(anf.lm, anf.lm2)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+AIC(anf.lm, anf.lm2)
+```
+:::
+:::::
+::::::
+
+## 9. Regressão Linear Múltipla
+
+#### Interpretação dos coeficientes
 
 ## Modelos Lineares Generalizados (GLM)
 
