@@ -96,7 +96,7 @@ lang: pt-br
 #### Análises
 
 ::: {.columns style="font-size: 80%;"}
--   Estatísticas univariada e multivariada
+-   Estatísticas univariadas e multivariadas
 :::
 
 ::: {.columns style="font-size: 80%;"}
@@ -209,7 +209,7 @@ lang: pt-br
 
 ## Git
 
-É um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo (Exemplo: alguns livros digitais são disponibilizados no GitHub e escrito aos poucos publicamente).
+É um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo (Exemplo: alguns livros digitais são disponibilizados no GitHub e escritos aos poucos publicamente).
 
 -   É um **sistema de controle de versão**.
 

@@ -6,7 +6,7 @@ date: "01/08/2026"
 date-format: long
 format: 
   revealjs:
-    transition: slide
+    àstransition: slide
     theme: [custom.scss]
     slide-number: c/t
     show-slide-number: all
@@ -91,7 +91,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 #### Abrindo **`.csv`**
 
 -   Por **padrão** as colunas são **separadas por** **`","`**
--   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçario (**`header = TRUE`**)
+-   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçalho (**`header = TRUE`**)
 -   No entanto, **no Brasil separamos** por `";"`, por isso **usamos** **`read.csv2()`** ao invés de **`read.csv()`**
 
 ```{r}
@@ -112,7 +112,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 #### Abrindo **`.csv`**
 
 -   Por **padrão** as colunas são **separadas por** **`","`**
--   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçario (**`header = TRUE`**)
+-   Não precisa definir como estão separados (**`sep = " "`**) e nem o cabeçalho (**`header = TRUE`**)
 -   No entanto, **no Brasil separamos** por `";"`, por isso **usamos** **`read.csv2()`** ao invés de **`read.csv()`**
 
 ```{r}
@@ -131,7 +131,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 
 #### Exportando `.txt` e `.csv`
 
-Indica o **objeto** que quer salva, seguido do **caminho da pasta** e do **nome** que vai **dar para a** **tabela** a ser salva.
+Indica o **objeto** que quer salvar, seguido do caminho da pasta e do nome que vai dar à **tabela** a ser salva.
 
 OBS: **`NUNCA`** use **ponto** `.` como separador dos nomes, pois o `.` indica a **extensão do arquivo**.
 
@@ -150,7 +150,7 @@ Formatos mais comuns são arquivos: **`.txt`** e **`.csv`**
 
 #### Exportando `.txt` e `.csv`
 
-Indica o **objeto** que quer salva, seguido do **caminho da pasta** e do **nome** que vai **dar para a** **tabela** a ser salva.
+Indica o **objeto** que quer salvar, seguido do caminho da pasta e do nome que vai dar à **tabela** a ser salva.
 
 OBS: **`NUNCA`** use **ponto** `.` como separador dos nomes, pois o `.` indica a **extensão do arquivo**.
 
@@ -697,7 +697,7 @@ order(dados.csv$Date)
 ::: {.columns style="font-size: 80%"}
 Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 
--   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date
 
     ::: {.columns style="font-size: 140%"}
     ```{r}
@@ -716,7 +716,7 @@ Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 ::: {.columns style="font-size: 80%"}
 Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 
--   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date
 
 -   aplicamos isso usando a lógica `[X,]`, pedindo para as **linhas** do `data frame` seguirem a **mesma ordem** das **linhas** do `order(dados.csv$Date)`
 
@@ -737,7 +737,7 @@ Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 ::: {.columns style="font-size: 80%"}
 Pode ordenar um **vetor** ou **data frame** inteiro, se usado corretamente.
 
--   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date
+-   `order(dados.csv$Date)` cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date
 
 -   aplicamos isso usando a lógica `[X,]`, pedindo para as **linhas** do `data frame` seguirem a **mesma ordem** das **linhas** do `order(dados.csv$Date)`
 
@@ -951,7 +951,7 @@ head(is.na(dados.traits$sla), n = 20)
 #### Valores Ausentes
 
 ::::: {.columns style="font-size: 70%"}
-`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+`complete.cases()` - **mantém** apenas **linhas** **sem** `NA`
 
 ::: {.column width="50%" style="font-size: 120%"}
 ```{r}
@@ -974,7 +974,7 @@ complete.cases(dados.csv)
 #### Valores Ausentes
 
 ::::: {.columns style="font-size: 70%"}
-`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+`complete.cases()` - **mantém** apenas **linhas** **sem** `NA`
 
 `table()` - **tabula** o número de **elementos repetidos**
 
@@ -999,7 +999,7 @@ table(complete.cases(dados.csv))
 #### Valores Ausentes
 
 ::::: {.columns style="font-size: 70%"}
-`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+`complete.cases()` - **mantém** apenas **linhas** **sem** `NA`
 
 `table()` - **tabula** o número de **elementos repetidos**
 
@@ -1025,7 +1025,7 @@ dados_completos <- dados.csv[complete.cases(dados.csv), ]
 #### Valores Ausentes
 
 ::::: {.columns style="font-size: 70%"}
-`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+`complete.cases()` - **mantém** apenas **linhas** **sem** `NA`
 
 `table()` - **tabula** o número de **elementos repetidos**
 
@@ -1052,7 +1052,7 @@ dim(dados_completos)
 #### Valores Ausentes
 
 ::::: {.columns style="font-size: 70%"}
-`complete.cases()` - **mantem** apenas **linhas** **sem** `NA`
+`complete.cases()` - **mantém** apenas **linhas** **sem** `NA`
 
 `table()` - **tabula** o número de **elementos repetidos**
 
@@ -1188,7 +1188,7 @@ Usando `dados.csv` faça
 :::::: {.columns style="font-size: 60%"}
 User `head()` se quiser ver o **output** mais **curto**
 
-Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+Calcule a **abundância média** (`Abundance` / `Richness`). Dica: use `$`
 
 ::: {.column width="100%" style="font-size: 100%"}
 ```{r}
@@ -1224,7 +1224,7 @@ Usando `dados.csv` faça
 :::::: {.columns style="font-size: 60%"}
 User `head()` se quiser ver o **output** mais **curto**
 
-Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+Calcule a **abundância média** (`Abundance` / `Richness`). Dica: use `$`
 
 ::: {.column width="100%" style="font-size: 100%"}
 ```{r}
@@ -1262,7 +1262,7 @@ Usando `dados.csv` faça
 :::::: {.columns style="font-size: 60%"}
 User `head()` se quiser ver o **output** mais **curto**
 
-Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+Calcule a **abundância média** (`Abundance` / `Richness`). Dica: use `$`
 
 ::: {.column width="100%" style="font-size: 100%"}
 ```{r}
@@ -1300,7 +1300,7 @@ Usando `dados.csv` faça
 :::::: {.columns style="font-size: 60%"}
 User `head()` se quiser ver o **output** mais **curto**
 
-Calcule **abundância média** (`Abundance` / `Richness`). Dica: use `$`
+Calcule a **abundância média** (`Abundance` / `Richness`). Dica: use `$`
 
 ::: {.column width="100%" style="font-size: 100%"}
 ```{r}
@@ -1338,7 +1338,7 @@ Usando `dados.csv` faça
 :::: {.columns style="font-size: 60%"}
 **Filtre** `dados.csv$Date` para o ano de **2019**., salve em um **novo objeto**, e cheque as **dimensões**. **Slide (22)**
 
-OBS: só use **aspas** quando filtar usando `mode` `character`
+OBS: só use **aspas** quando filtrar usando `mode` `character`
 
 ::: {.column width="50%" style="font-size: 85%"}
 ```{r}
@@ -1356,7 +1356,7 @@ Usando `dados.csv` faça
 :::: {.columns style="font-size: 60%"}
 **Filtre** `dados.csv$Date` para o ano de **2019**., salve em um **novo objeto**, e cheque as **dimensões**. **Slide (22)**
 
-OBS: só use **aspas** quando filtar usando `mode` `character`
+OBS: só use **aspas** quando filtrar usando `mode` `character`
 
 ::: {.column width="50%" style="font-size: 85%"}
 ```{r}
@@ -1377,7 +1377,7 @@ Usando `dados.csv` faça
 :::: {.columns style="font-size: 60%"}
 **Filtre** `dados.csv` para o **ano** de **`2019` & local `CBO`**. Salve em um **novo objeto**. **Slide (22)**
 
-OBS: só use **aspas** quando filtar usando `mode` `character`
+OBS: só use **aspas** quando filtrar usando `mode` `character`
 
 ::: {.column width="100%" style="font-size: 85%"}
 ```{r}
@@ -1401,7 +1401,7 @@ Usando `dados.csv` faça
 :::: {.columns style="font-size: 60%"}
 **Filtre** `dados.csv` para o **ano** de **`2019` & local `CBO`**. Salve em um **novo objeto**. **Slide (22)**
 
-OBS: só use **aspas** quando filtar usando `mode` `character`
+OBS: só use **aspas** quando filtrar usando `mode` `character`
 
 ::: {.column width="100%" style="font-size: 85%"}
 ```{r}

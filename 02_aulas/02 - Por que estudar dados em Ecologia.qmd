@@ -165,6 +165,4 @@ INCAB, 2025
 [R for Data Science (2e)](https://r4ds.hadley.nz/)
 
 [The Analysis of Biological Data](https://whitlockschluter3e.zoology.ubc.ca/)
-
-
 :::

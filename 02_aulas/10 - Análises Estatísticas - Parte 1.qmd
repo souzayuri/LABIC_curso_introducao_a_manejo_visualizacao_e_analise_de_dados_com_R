@@ -75,7 +75,7 @@ lang: pt-br
 ::: {.column width="70%"}
 **2. Coleta dos dados**
 
-Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+Ir ao campo, anotar e/ou medir diversas variáveis: caderno de campo, instrumentos, sorte, mosquitos, carrapatos...
 :::
 
 ::: {.column width="30%"}
@@ -91,7 +91,7 @@ Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrume
 ::: {.column width="70%"}
 **2. Coleta dos dados**
 
-Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+Ir ao campo, anotar e/ou medir diversas variáveis: caderno de campo, instrumentos, sorte, mosquitos, carrapatos...
 
 Voltar do campo, com cadernos, planilhas, câmeras...
 
@@ -109,7 +109,7 @@ Planilhar dados, visualizar fotos, identificar os bichos, e café, muito, café.
 ::: {.column width="70%"}
 **2. Coleta dos dados**
 
-Ir para campo, anotar e/ou medir diversas variáveis, caderno de campo, instrumentos, sorte, mosquitos, carrapatos....
+Ir ao campo, anotar e/ou medir diversas variáveis: caderno de campo, instrumentos, sorte, mosquitos, carrapatos...
 
 Voltar do campo, com cadernos, planilhas, câmeras...
 
@@ -191,7 +191,7 @@ Não há **recursos financeiros**, **tempo** ou **pessoal** para fazer **censos*
 :::
 
 ::: {.columns style="font-size: 60%"}
-Usamos uma parcela da realidade para **tentar** definir a ralidade em si
+Usamos uma parcela da realidade para **tentar** definir a realidade em si
 :::
 
 ## Análises Estatísticas
@@ -229,7 +229,7 @@ Usamos uma parcela da realidade para **tentar** definir a ralidade em si
 **Variável resposta \[dependente\] (Y)**: espera-se que varie, i.e., seja dependente, da(s) variável(is) preditoras
 
 ::: {.columns style="font-size: 130%"}
-***Modelo estatístico**: é a tentativa de explicar a variação de **variáveis respostas (Y)** em **função de variáveis preditoras (X)***
+***Modelo estatístico**: é a tentativa de explicar a variação de **variáveis-resposta (Y)** em **função de variáveis preditoras (X)***
 :::
 
 ![](img/download.gif){fig-align="center" width="400"}
@@ -240,7 +240,7 @@ Usamos uma parcela da realidade para **tentar** definir a ralidade em si
 #### Modelo estatístico
 
 ::: {.columns style="font-size: 60%"}
-E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+E o que garante que podemos **concluir nossas hipóteses** sobre a **população** a partir das **amostras**?
 :::
 
 ## Análises Estatísticas
@@ -248,7 +248,7 @@ E o que garante que podemos **concluir nossas hipóteses** a respeito da **popul
 #### Modelo estatístico
 
 :::::: {.columns style="font-size: 60%"}
-E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+E o que garante que podemos **concluir nossas hipóteses** sobre a **população** a partir das **amostras**?
 
 ::: {.columns style="font-size: 150%"}
 **`O delineamento amostral!!!`**
@@ -267,7 +267,7 @@ E o que garante que podemos **concluir nossas hipóteses** a respeito da **popul
 #### Modelo estatístico
 
 ::::::: {.columns style="font-size: 60%"}
-E o que garante que podemos **concluir nossas hipóteses** a respeito da **população** a partir das **amostras**?
+E o que garante que podemos **concluir nossas hipóteses** sobre a **população** a partir das **amostras**?
 
 ::: {.columns style="font-size: 150%"}
 **`O delineamento amostral!!!`**
@@ -307,7 +307,7 @@ E o que garante que podemos **concluir nossas hipóteses** a respeito da **popul
 ::: {.columns style="font-size: 60%"}
 **Univariada**
 
--   É a análise estatística de **uma** única **variável resposta** por vez.\
+-   É a análise estatística de **uma** única **variável-resposta** por vez.\
     Foca em descrever seu comportamento isolado, como **distribuição**, **tendência central** (média, mediana), **dispersão** (variância, desvio-padrão) e **frequência**.
 
 **Multivariada**
@@ -437,11 +437,11 @@ if(!require(fmsb)) install.packages("fmsb")               # Calcula pseudo r2
 
 -   **Ferramentas**: `Medidas de tendência central`, `Medidas de dispersão` e `Correlação`
 
-    -   Medidas de **tendência central**: `minimo`, `máximo`, `média`, `mediana` e `moda`
+    -   Medidas de **tendência central**: `mínimo`, `máximo`, `média`, `mediana` e `moda`
 
     -   Medidas de **dispersão**: `variância`, `desvio padrão` e `erro padrão`
 
--   No R, se houver `NA`s na **coluna** que vai ser usada para calcular as descritivas, então precisamos **remover** eles.
+-   No R, se houver `NA`s na **coluna** que vai ser usada para calcular as descritivas, então precisamos **removê-los**.
 :::
 
 ## Análises Estatísticas Descritivas
@@ -465,7 +465,7 @@ head(iris, n = 5)
 
 ## Análises Estatísticas Descritivas
 
-#### Minimo, Máximo, Média, Mediana, Moda
+#### Mínimo, Máximo, Média, Mediana, Moda
 
 ::: {style="font-size: 60%"}
 **Menor** e **maior** valor no conjunto de dados:
@@ -482,7 +482,7 @@ max(iris$Sepal.Length)
 
 ## Análises Estatísticas Descritivas
 
-#### Minimo, Máximo, Média, Mediana, Moda
+#### Mínimo, Máximo, Média, Mediana, Moda
 
 ::: {style="font-size: 60%"}
 A **média** é a soma de todos os valores dividida pelo número de observações.
@@ -628,7 +628,7 @@ sd(iris$Sepal.Length) /sqrt(length(iris$Sepal.Length))
 
 ## Análises Estatísticas Descritivas
 
-#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
+#### No `tidyverse`: mínimo, máximo, média, mediana, moda
 
 ::: {style="font-size: 70%"}
 Precisa remover os `NA`s se houver, usando o argumento `na.rm = TRUE`
@@ -651,7 +651,7 @@ iris %>%
 
 ## Análises Estatísticas Descritivas
 
-#### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
+#### No `tidyverse`: mínimo, máximo, média, mediana, moda
 
 #### agrupando por espécies
 
@@ -721,7 +721,7 @@ ggplot(iris, aes(x = Sepal.Length)) +
 ::: columns
 -   Carregue o banco de dados `biota_plant_traits.csv`
 
--   Calcular todas as variáveis descritivas para `leaf_damage` agrupado por tratamento. Lembre de remover os `NA`s se houverem.
+-   Calcular todas as variáveis descritivas de leaf_damage, agrupadas por tratamento. Lembre-se de remover os NAs, se houverem.
 :::
 
 ## Exercícios
@@ -733,7 +733,7 @@ ggplot(iris, aes(x = Sepal.Length)) +
 dados.biota.pt <- readr::read_csv("../01_dados/biota_plant_traits.csv")
 ```
 
--   Calcular todas as variáveis descritivas para `leaf_damage` agrupado por tratamento. Lembre de remover os `NA`s se houverem.
+-   Calcular todas as variáveis descritivas de leaf_damage, agrupadas por tratamento. Lembre-se de remover os NAs, se houverem.
 
 ::: columns
 ```{r}

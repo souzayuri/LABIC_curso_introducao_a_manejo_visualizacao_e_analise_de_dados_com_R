@@ -69,7 +69,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -81,7 +81,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -100,7 +100,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -126,7 +126,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -139,7 +139,7 @@ lang: pt-br
     x
     ```
 
--   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+-   para adicionar um valor manualmente à lista de valores, você precisa concatenar usando "**`c()`**"
 
     ```{r}
     y <- c(10,20)
@@ -160,7 +160,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -196,7 +196,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -234,7 +234,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -274,7 +274,7 @@ lang: pt-br
 ##### Comandos gerais
 
 ::: {.columns style="font-size: 50%;"}
--   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (simbolo de *menos*)
+-   Atribuir um valor a um objeto: **palavra** ***`<-`*** **dados** / Atalho para o "**`<-`**": **`alt` + `-`** (símbolo de *menos*)
 
     ```{r}
     x <- 10
@@ -287,7 +287,7 @@ lang: pt-br
     x
     ```
 
--   para adicionar um valor manualmente a lista de valores, você precisa concatenar usando "**`c()`**"
+-   para adicionar um valor manualmente à lista de valores, você precisa concatenar usando "**`c()`**"
 
     ```{r}
     y <- c(10,20) 
@@ -1760,7 +1760,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.no <- factor(x = c("closed", "open", 
@@ -1797,7 +1797,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.no <- factor(x = c("closed", "open", 
@@ -1836,7 +1836,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.no <- factor(x = c("closed", "open", 
@@ -1882,7 +1882,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.no <- factor(x = c("closed", "open", 
@@ -1930,7 +1930,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
@@ -1969,7 +1969,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
@@ -2010,7 +2010,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
@@ -2054,7 +2054,7 @@ Medidas de uma **variável qualitativa**, podendo ser **`nominal`** ou **`ordina
 
 ::::: columns
 ::: {.column width="50%" style="font-size: 100%"}
-**Váriaveis nominais**
+**variáveis nominais**
 
 ```{r}
 fa.num.no <- factor(x = c(1, 1, 1, 2, 3, 4,
@@ -2427,7 +2427,7 @@ mode(fa.or)
 ::: {.columns style="font-size: 70%"}
 -   A matrix representa os dados no formato de **tabela**, dispondo um `vetor` com `linhas` e `colunas`
 
--   As **linhas** representam **unidades amostrais** (locais, transectos, parcelas) e as **coluncas** representam **variáveis quantitativas** (discretas ou contínuas) ou **descrições** (informações em texto)
+-   As **linhas** representam **unidades amostrais** (locais, transectos, parcelas) e as **colunas** representam **variáveis quantitativas** (discretas ou contínuas) ou **descrições** (informações em texto)
 :::
 ::::
 
@@ -2596,7 +2596,7 @@ ma.cbind
 -   a `aplicação` de um procedimento em um `array` afeta `todas` as `dimensões` dele
 
     ::::: columns
-    `array`: *dispõem um vetor em um certo número de linhas, colunas e dimensões*...
+    `array`: *dispõe um vetor em um certo número de linhas, colunas e dimensões*...
 
     ::: {.column width="50%"}
     ```{r}
@@ -2625,7 +2625,7 @@ ma.cbind
 -   a `aplicação` de um procedimento em um `array` afeta `todas` as `dimensões` dele
 
     ::::: columns
-    `array`: *dispõem um vetor em um certo número de linhas, colunas e dimensões*...
+    `array`: *dispõe um vetor em um certo número de linhas, colunas e dimensões*...
 
     ::: {.column width="50%"}
     ```{r}
@@ -2653,7 +2653,7 @@ ma.cbind
 
 ## Tipos de dados
 
-#### Agora veremos as estruturas heterogêneos
+#### Agora veremos as estruturas heterogêneas
 
 ![](img/homogeneas_heterogenea.png)
 
@@ -2868,7 +2868,7 @@ df
 :::::: {.columns style="font-size: 85%"}
 Há **uma forma** de se construir um **data frame** no R
 
-`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**. Pórem, se usarmos o **`cbind`** **haverá** **`coerção`**
+`data frame` : combina vetores **horizontalmente**, **um ao lado do outro**. Semelhante à função **`cbind`**. Porém, se usarmos o **`cbind`** **haverá** **`coerção`**
 
 ::::: columns
 ::: {.column width="50%"}
@@ -2972,7 +2972,7 @@ str(df.cb)
 ## Tipos de dados
 
 :::: {style="font-size: 80%"}
-`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+`list` : heterogêneo (*mais de um* **`modo`**), unidimensional (**`uma dimensão`**).
 
 -   Tipo **especial de vetor** que aceita **objetos** como **elementos**
 -   Estrutura de dados utilizado para **agrupar objetos**
@@ -2992,7 +2992,7 @@ str(df.cb)
 ## Tipos de dados
 
 ::::::: {style="font-size: 60%"}
-`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+`list` : heterogêneo (*mais de um* **`modo`**), unidimensional (**`uma dimensão`**).
 
 -   Tipo **especial de vetor** que aceita **objetos** como **elementos**
 -   Estrutura de dados utilizado para **agrupar objetos**
@@ -3034,7 +3034,7 @@ li
 ## Tipos de dados
 
 ::::::: {style="font-size: 60%"}
-`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+`list` : heterogêneo (*mais de um* **`modo`**), unidimensional (**`uma dimensão`**).
 
 -   Tipo **especial de vetor** que aceita **objetos** como **elementos**
 -   Estrutura de dados utilizado para **agrupar objetos**
@@ -3080,7 +3080,7 @@ li[[4]]
 ## Tipos de dados
 
 ::::::: {style="font-size: 60%"}
-`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+`list` : heterogêneo (*mais de um* **`modo`**), unidimensional (**`uma dimensão`**).
 
 -   Tipo **especial de vetor** que aceita **objetos** como **elementos**
 -   Estrutura de dados utilizado para **agrupar objetos**
@@ -3126,7 +3126,7 @@ li[[1]]
 ## Tipos de dados
 
 ::::::: {style="font-size: 60%"}
-`list` : heterogêneo (*mais de um* **`modo`**), unimensional (**`uma dimensões`**).
+`list` : heterogêneo (*mais de um* **`modo`**), unidimensional (**`uma dimensão`**).
 
 -   Tipo **especial de vetor** que aceita **objetos** como **elementos**
 -   Estrutura de dados utilizado para **agrupar objetos**
@@ -3391,7 +3391,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 ::: {.column width="50%" style="font-size: 130%"}
 ```{r}
@@ -3420,7 +3420,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
 
@@ -3451,7 +3451,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
 
@@ -3484,7 +3484,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
 
@@ -3517,7 +3517,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
 
@@ -3552,7 +3552,7 @@ Podemos usar as funções como as:
 Para converter dados de um `modo` para `outro modo`. Essa mudança é `sempre` feita por `vetor` ou `coluna`.
 
 ::::: {.columns style="font-size: 100%"}
-Usamos `$` para `selecionar` uma `coluna` especifica de um `data frame`
+Usamos `$` para `selecionar` uma `coluna` específica de um `data frame`
 
 A lógica é: dizemos ao R para **`substituir`** uma **`coluna`** pela **`mesma coluna`**, mas agora com um **`diferente modo`**
 
@@ -3581,8 +3581,7 @@ str(df.con)
 #### Checar elementos únicos
 
 ::: columns
-`unique()` checa quantos **elementos unicos** existem em uma `coluna`
-Retorna um `vector` com os elementos únicos daquela coluna
+`unique()` checa quantos **elementos únicos** existem em uma `coluna` Retorna um `vector` com os elementos únicos daquela coluna
 
 ```{r}
 
@@ -3594,8 +3593,7 @@ Retorna um `vector` com os elementos únicos daquela coluna
 #### Checar elementos únicos
 
 ::: columns
-`unique()` checa quantos **elementos unicos** existem em uma `coluna`
-Retorna um `vector` com os elementos únicos daquela coluna
+`unique()` checa quantos **elementos únicos** existem em uma `coluna` Retorna um `vector` com os elementos únicos daquela coluna
 
 ```{r}
 unique(df$especies)

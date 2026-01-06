@@ -288,7 +288,7 @@
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Abrindo <strong><code>.csv</code></strong></h4>
 <ul>
 <li>Por <strong>padrão</strong> as colunas são <strong>separadas por</strong> <strong><code>","</code></strong></li>
-<li>Não precisa definir como estão separados (<strong><code>sep = " "</code></strong>) e nem o cabeçario (<strong><code>header = TRUE</code></strong>)</li>
+<li>Não precisa definir como estão separados (<strong><code>sep = " "</code></strong>) e nem o cabeçalho (<strong><code>header = TRUE</code></strong>)</li>
 <li>No entanto, <strong>no Brasil separamos</strong> por <code>";"</code>, por isso <strong>usamos</strong> <strong><code>read.csv2()</code></strong> ao invés de <strong><code>read.csv()</code></strong></li>
 </ul>
 <div class="cell">
@@ -309,7 +309,7 @@
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Abrindo <strong><code>.csv</code></strong></h4>
 <ul>
 <li>Por <strong>padrão</strong> as colunas são <strong>separadas por</strong> <strong><code>","</code></strong></li>
-<li>Não precisa definir como estão separados (<strong><code>sep = " "</code></strong>) e nem o cabeçario (<strong><code>header = TRUE</code></strong>)</li>
+<li>Não precisa definir como estão separados (<strong><code>sep = " "</code></strong>) e nem o cabeçalho (<strong><code>header = TRUE</code></strong>)</li>
 <li>No entanto, <strong>no Brasil separamos</strong> por <code>";"</code>, por isso <strong>usamos</strong> <strong><code>read.csv2()</code></strong> ao invés de <strong><code>read.csv()</code></strong></li>
 </ul>
 <div class="cell">
@@ -345,7 +345,7 @@
 <h2>Importação e exportação de dados</h2>
 <div class="columns" style="font-size: 80%">
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Exportando <code>.txt</code> e <code>.csv</code></h4>
-<p>Indica o <strong>objeto</strong> que quer salva, seguido do <strong>caminho da pasta</strong> e do <strong>nome</strong> que vai <strong>dar para a</strong> <strong>tabela</strong> a ser salva.</p>
+<p>Indica o <strong>objeto</strong> que quer salvar, seguido do caminho da pasta e do nome que vai dar à <strong>tabela</strong> a ser salva.</p>
 <p>OBS: <strong><code>NUNCA</code></strong> use <strong>ponto</strong> <code>.</code> como separador dos nomes, pois o <code>.</code> indica a <strong>extensão do arquivo</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados_aula_R.txt"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -356,7 +356,7 @@
 <h2>Importação e exportação de dados</h2>
 <div class="columns" style="font-size: 80%">
 <p>Formatos mais comuns são arquivos: <strong><code>.txt</code></strong> e <strong><code>.csv</code></strong></p><h4>Exportando <code>.txt</code> e <code>.csv</code></h4>
-<p>Indica o <strong>objeto</strong> que quer salva, seguido do <strong>caminho da pasta</strong> e do <strong>nome</strong> que vai <strong>dar para a</strong> <strong>tabela</strong> a ser salva.</p>
+<p>Indica o <strong>objeto</strong> que quer salvar, seguido do caminho da pasta e do nome que vai dar à <strong>tabela</strong> a ser salva.</p>
 <p>OBS: <strong><code>NUNCA</code></strong> use <strong>ponto</strong> <code>.</code> como separador dos nomes, pois o <code>.</code> indica a <strong>extensão do arquivo</strong>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">write.table</span>(dados.txt, <span class="st">"../01_dados/dados_aula_R.txt"</span>)</span>
@@ -1232,7 +1232,7 @@
 <p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
 <div class="columns" style="font-size: 80%">
 <p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
-<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date</p>
 <div class="columns" style="font-size: 140%">
 
 </div></li>
@@ -1247,7 +1247,7 @@
 <p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
 <div class="columns" style="font-size: 80%">
 <p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
-<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p></li>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date</p></li>
 <li><p>aplicamos isso usando a lógica <code>[X,]</code>, pedindo para as <strong>linhas</strong> do <code>data frame</code> seguirem a <strong>mesma ordem</strong> das <strong>linhas</strong> do <code>order(dados.csv$Date)</code></p>
 <div class="columns" style="font-size: 140%">
 
@@ -1263,7 +1263,7 @@
 <p><code>order()</code> ordena baseado na <strong>posição</strong> dos elementos.</p>
 <div class="columns" style="font-size: 80%">
 <p>Pode ordenar um <strong>vetor</strong> ou <strong>data frame</strong> inteiro, se usado corretamente.</p><ul>
-<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordernar por Date</p></li>
+<li><p><code>order(dados.csv$Date)</code> cria um vetor mostrando a ordem que as linhas ficariam após ordenar por Date</p></li>
 <li><p>aplicamos isso usando a lógica <code>[X,]</code>, pedindo para as <strong>linhas</strong> do <code>data frame</code> seguirem a <strong>mesma ordem</strong> das <strong>linhas</strong> do <code>order(dados.csv$Date)</code></p>
 <div class="columns" style="font-size: 140%">
 <div class="cell">
@@ -2274,7 +2274,7 @@
 <div class="columns" style="font-size: 70%">
 <h4>Valores Ausentes</h4>
 <div class="columns" style="font-size: 70%">
-<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><div class="column" style="font-size: 120%">
+<p><code>complete.cases()</code> - <strong>mantém</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><div class="column" style="font-size: 120%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2305,7 +2305,7 @@
 <div class="columns" style="font-size: 70%">
 <h4>Valores Ausentes</h4>
 <div class="columns" style="font-size: 70%">
-<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<p><code>complete.cases()</code> - <strong>mantém</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2342,7 +2342,7 @@ FALSE  TRUE
 <div class="columns" style="font-size: 70%">
 <h4>Valores Ausentes</h4>
 <div class="columns" style="font-size: 70%">
-<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<p><code>complete.cases()</code> - <strong>mantém</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2381,7 +2381,7 @@ FALSE  TRUE
 <div class="columns" style="font-size: 70%">
 <h4>Valores Ausentes</h4>
 <div class="columns" style="font-size: 70%">
-<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<p><code>complete.cases()</code> - <strong>mantém</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2424,7 +2424,7 @@ FALSE  TRUE
 <div class="columns" style="font-size: 70%">
 <h4>Valores Ausentes</h4>
 <div class="columns" style="font-size: 70%">
-<p><code>complete.cases()</code> - <strong>mantem</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
+<p><code>complete.cases()</code> - <strong>mantém</strong> apenas <strong>linhas</strong> <strong>sem</strong> <code>NA</code></p><p><code>table()</code> - <strong>tabula</strong> o número de <strong>elementos repetidos</strong></p><div class="column" style="font-size: 120%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a><span class="fu">complete.cases</span>(dados.csv)  </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2593,7 +2593,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule a <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
 
 </div><p><strong>Organize</strong> os resultados acima em <strong>ordem <code>crescente</code></strong> e <strong><code>decrescente</code></strong>. <strong>Slide (27)</strong></p><div class="column" style="font-size: 100%">
 
@@ -2606,7 +2606,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule a <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb187"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
 <span id="cb187-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2626,7 +2626,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule a <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
 <span id="cb189-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2652,7 +2652,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
+<p>User <code>head()</code> se quiser ver o <strong>output</strong> mais <strong>curto</strong></p><p>Calcule a <strong>abundância média</strong> (<code>Abundance</code> / <code>Richness</code>). Dica: use <code>$</code></p><div class="column" style="font-size: 100%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href=""></a>dados.ric.abn <span class="ot">&lt;-</span> dados.csv<span class="sc">$</span>Abundance<span class="sc">/</span>dados.csv<span class="sc">$</span>Richness</span>
 <span id="cb193-2"><a href=""></a><span class="fu">head</span>(dados.ric.abn, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2684,7 +2684,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtrar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
 
 </div></div>
 </div>
@@ -2693,7 +2693,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<p><strong>Filtre</strong> <code>dados.csv$Date</code> para o ano de <strong>2019</strong>., salve em um <strong>novo objeto</strong>, e cheque as <strong>dimensões</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtrar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href=""></a>filtrado <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados.csv, Date <span class="sc">==</span> <span class="dv">2019</span>)</span>
 <span id="cb199-2"><a href=""></a><span class="fu">head</span>(filtrado, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2723,7 +2723,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtrar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
 
 </div><p>Cheque o número de elementos repetidos da coluna <code>Plots</code>. <strong>Slide (44)</strong></p>
 </div>
@@ -2733,7 +2733,7 @@ FALSE  TRUE
 <h2>Exercícios</h2>
 <div class="columns">
 <p>Usando <code>dados.csv</code> faça</p><div class="columns" style="font-size: 60%">
-<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
+<p><strong>Filtre</strong> <code>dados.csv</code> para o <strong>ano</strong> de <strong><code>2019</code> &amp; local <code>CBO</code></strong>. Salve em um <strong>novo objeto</strong>. <strong>Slide (22)</strong></p><p>OBS: só use <strong>aspas</strong> quando filtrar usando <code>mode</code> <code>character</code></p><div class="column" style="font-size: 85%">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb203"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href=""></a>filtrado.cbo <span class="ot">&lt;-</span> <span class="fu">subset</span>(dados.csv, Date <span class="sc">==</span> <span class="dv">2019</span> <span class="sc">&amp;</span> Location <span class="sc">==</span> <span class="st">"CBO"</span>)</span>
 <span id="cb203-2"><a href=""></a><span class="fu">head</span>(filtrado.cbo, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2948,7 +2948,7 @@ FALSE  TRUE
         previewLinks: true,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
+        transition: 'none',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',

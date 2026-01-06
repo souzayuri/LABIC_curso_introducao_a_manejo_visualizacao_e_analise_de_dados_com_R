@@ -27,7 +27,7 @@ lang: pt-br
 #### Pacotes
 
 ::: {style="font-size: 70%"}
--   O R apresenta **pacotes**, que são um **conjunto de funções**.
+-   O R apresenta **pacotes**, que são conjuntos **de funções**.
 
 -   Existem pacotes para **diversos tipos de funcionalidades** e uso
 
@@ -233,7 +233,7 @@ readr::read_csv2
 
     -   **Água** é o **input/entrada**, os equipamentos/processos **seguintes são funções** e são seguidos por um **`%>%` (pipe)**
 
-    -   O efeito **acaba na última função** a qual não tem mais nenhum `%>%` associado
+    -   O efeito **acaba na última função** à qual não tem mais nenhum `%>%` associado
 :::
 
 ## Manipulação de dados
@@ -257,7 +257,7 @@ readr::read_csv2
 
     -   **Água** é o **input/entrada**, os equipamentos/processos **seguintes são funções** e são seguidos por um **`%>%` (pipe)**
 
-    -   O efeito **acaba na última função** a qual não tem mais nenhum `%>%` associado
+    -   O efeito **acaba na última função** à qual não tem mais nenhum `%>%` associado
 
     -   O que resta é o output/resultado: a bebida pronta após todos os processos.
 :::
@@ -792,7 +792,7 @@ dados_csv %>%
 :::
 
 ::: {.column width="50%"}
-**Linhas únicas** baseado em `colunas especificas`
+**Linhas únicas** baseado em `colunas específicas`
 
 ```{r}
 dados_csv %>% 
@@ -982,7 +982,7 @@ head(dados_csv %>%
 `mutate()` **Criar ou modificar colunas**
 
 ::: {.columns style="font-size: 90%"}
-Ex: adicionar o numero das linhas com `ID` através da função `row_number()`
+Ex: adicionar o número das linhas com `ID` através da função `row_number()`
 
 ```{r}
 
@@ -1459,7 +1459,7 @@ dados_csv %>%
 
     -   `Uma coluna` contendo o nome das colunas anteriores
 
-    -   `Outra coluna` com valores que existiam nas celulas
+    -   `Outra coluna` com valores que existiam nas células
 
 -   Formato **mais usado** em `análises`
 :::
@@ -1486,7 +1486,7 @@ dados_csv %>%
 
     -   `Uma coluna` contendo o nome das colunas anteriores
 
-    -   `Outra coluna` com valores que existiam nas celulas
+    -   `Outra coluna` com valores que existiam nas células
 
 -   Formato **mais usado** em `análises`
 :::
@@ -1519,7 +1519,7 @@ dados_csv_long
 
     -   `Uma coluna` contendo o nome das colunas anteriores
 
-    -   `Outra coluna` com valores que existiam nas celulas
+    -   `Outra coluna` com valores que existiam nas células
 
 -   Formato **mais usado** em `análises`
 :::
@@ -1547,10 +1547,10 @@ dados_csv %>%
 ::::: columns
 ::: {.column width="50%"}
 -   **Reduz o número** de `coluna` - data frame mais longo/visual
--   Pega uma **`coluna`** que contem **nome de variáveis** e **transforma** cada uma em uma `nova coluna`
+-   Pega uma **`coluna`** que contém **nome de variáveis** e **transforma** cada uma em uma `nova coluna`
     -   `Uma coluna` contendo o nome das colunas a serem criadas
 
-    -   `Outra coluna` com valores que são atribuitos as novas colunas e células
+    -   `Outra coluna` com valores que são atribuídos as novas colunas e células
 -   Formato **mais usado** em `análises` que requerem formato de `matrix`
 :::
 
@@ -1571,10 +1571,10 @@ dados_csv %>%
 ::::: columns
 ::: {.column width="50%"}
 -   **Reduz o número** de `coluna` - data frame mais longo/visual
--   Pega uma **`coluna`** que contem **nome de variáveis** e **transforma** cada uma em uma `nova coluna`
+-   Pega uma **`coluna`** que contém **nome de variáveis** e **transforma** cada uma em uma `nova coluna`
     -   `Uma coluna` contendo o nome das colunas a serem criadas
 
-    -   `Outra coluna` com valores que são atribuitos as novas colunas e células
+    -   `Outra coluna` com valores que são atribuídos às novas colunas e células
 -   Formato **mais usado** em `análises` que requerem formato de `matrix`
 :::
 
@@ -1666,7 +1666,7 @@ traits
 :::::: {style="font-size: 50%"}
 `left_join()` **-** `left_join(Tabela da Esquerda, Tabela da Direita)`
 
--   **Manter todas as linhas da tabela da `esquerda` e adiciona as da `direita.`**
+-   **Manter todas as linhas da tabela à `esquerda` e adicionar as da `direita.`**
 -   Se as linhas já **existirem** nas da esquerda, então **não há alteração**.
 
 ::::: {.columns style="font-size: 90%"}
@@ -1943,7 +1943,7 @@ Usando a **tabela carregada, crie** um **novo** `data frame` com apenas as colun
 
 -   **Nessa ordem: `scientific_name`**, **`interaction`**, e **`interaction_latrine`**. dica: `select()`
 
--   Calcule o numero **total de interações** por **espécie** e **tipo de interação** `(interaction)`. Dica: `group_by()`, `summarise()` e `sum()`
+-   Calcule o número **total de interações** por **espécie** e **tipo de interação** `(interaction)`. Dica: `group_by()`, `summarise()` e `sum()`
 
 -   usando esse mesmo `data frame`, **transforme a tabela** em `wide` (largo) colocando os nomes em **`interaction`** **como colunas individuais**, e os valores em **`interaction_latrine`** como os **valores das células**. dica: `pivot_wider()`
 

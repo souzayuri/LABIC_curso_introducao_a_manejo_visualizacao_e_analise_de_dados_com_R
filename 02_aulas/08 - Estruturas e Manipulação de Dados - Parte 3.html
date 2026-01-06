@@ -213,7 +213,7 @@
 <h4>Pacotes</h4>
 <div style="font-size: 70%">
 <ul>
-<li><p>O R apresenta <strong>pacotes</strong>, que são um <strong>conjunto de funções</strong>.</p></li>
+<li><p>O R apresenta <strong>pacotes</strong>, que são conjuntos <strong>de funções</strong>.</p></li>
 <li><p>Existem pacotes para <strong>diversos tipos de funcionalidades</strong> e uso</p></li>
 <li><p>A função do pacote é providenciar um <strong>conjunto de funções</strong>, assim você <strong>não</strong> precisa escrever elas.</p></li>
 <li><p>Dentre esses pacotes, o mais famoso é o <code>tidyverse</code>:</p>
@@ -384,7 +384,7 @@
 <li><p>Analogia: <code>produção de uma bebida</code></p>
 <ul>
 <li><p><strong>Água</strong> é o <strong>input/entrada</strong>, os equipamentos/processos <strong>seguintes são funções</strong> e são seguidos por um <strong><code>%&gt;%</code> (pipe)</strong></p></li>
-<li><p>O efeito <strong>acaba na última função</strong> a qual não tem mais nenhum <code>%&gt;%</code> associado</p></li>
+<li><p>O efeito <strong>acaba na última função</strong> à qual não tem mais nenhum <code>%&gt;%</code> associado</p></li>
 </ul></li>
 </ul>
 </section>
@@ -405,7 +405,7 @@
 <li><p>Analogia: <code>produção de uma bebida</code></p>
 <ul>
 <li><p><strong>Água</strong> é o <strong>input/entrada</strong>, os equipamentos/processos <strong>seguintes são funções</strong> e são seguidos por um <strong><code>%&gt;%</code> (pipe)</strong></p></li>
-<li><p>O efeito <strong>acaba na última função</strong> a qual não tem mais nenhum <code>%&gt;%</code> associado</p></li>
+<li><p>O efeito <strong>acaba na última função</strong> à qual não tem mais nenhum <code>%&gt;%</code> associado</p></li>
 <li><p>O que resta é o output/resultado: a bebida pronta após todos os processos.</p></li>
 </ul></li>
 </ul>
@@ -1178,16 +1178,16 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <pre><code># A tibble: 10 × 18
    Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 VGM_p07c VGM          7 closed     2019     -45.2    -23.4     787.         8
- 2 ITA_p08c ITA          8 closed     2019     -45.1    -23.3    1028.         4
- 3 CAR_p01c CAR          1 closed     2019     -47.9    -25.1      30.2        8
- 4 ITA_p10c ITA         10 closed     2019     -45.1    -23.3    1070.         6
- 5 CAR_p04c CAR          4 closed     2017     -47.9    -25.1      22.0       11
- 6 CBO_p05c CBO          5 closed     2019     -48.0    -24.1     771.         5
- 7 VGM_p15c VGM         15 closed     2017     -45.2    -23.4     794.         5
- 8 CAR_p11c CAR         11 closed     2019     -47.9    -25.1     146.         7
- 9 ITA_p02o ITA          2 open       2017     -45.1    -23.3     990.         8
-10 CBO_p06o CBO          6 open       2017     -48.0    -24.1     807.        12
+ 1 CBO_p06c CBO          6 closed     2017     -48.0    -24.1      806.        6
+ 2 CAR_p15c CAR         15 closed     2019     -47.9    -25.1      191.        5
+ 3 ITA_p10c ITA         10 closed     2019     -45.1    -23.3     1070.        6
+ 4 ITA_p12o ITA         12 open       2017     -45.1    -23.3     1088.        3
+ 5 CAR_p12c CAR         12 closed     2017     -47.9    -25.1      136.        6
+ 6 CBO_p05o CBO          5 open       2017     -48.0    -24.1      772.        6
+ 7 ITA_p06o ITA          6 open       2019     -45.1    -23.3     1010.        6
+ 8 VGM_p05o VGM          5 open       2017     -45.2    -23.4      777.        9
+ 9 VGM_p07o VGM          7 open       2017     -45.2    -23.4      787.        4
+10 CBO_p14o CBO         14 open       2019     -48.0    -24.1      745.        4
 # ℹ 9 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -1214,16 +1214,16 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <pre><code># A tibble: 10 × 18
    Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 CBO_p04o CBO          4 open       2019     -48.0    -24.1     827.         6
- 2 ITA_p01o ITA          1 open       2019     -45.1    -23.3     999.        10
- 3 CBO_p04c CBO          4 closed     2017     -48.0    -24.1     824.         7
- 4 VGM_p09c VGM          9 closed     2019     -45.2    -23.4     800.         8
- 5 CAR_p09o CAR          9 open       2019     -47.9    -25.1      88.2        4
+ 1 CBO_p06c CBO          6 closed     2017     -48.0    -24.1     806.         6
+ 2 ITA_p12c ITA         12 closed     2017     -45.1    -23.3    1088.         4
+ 3 VGM_p05o VGM          5 open       2017     -45.2    -23.4     777.         9
+ 4 CBO_p14c CBO         14 closed     2017     -48.0    -24.1     748.        10
+ 5 CAR_p04o CAR          4 open       2017     -47.9    -25.1      23.6        7
  6 CAR_p12c CAR         12 closed     2019     -47.9    -25.1     136.         5
- 7 CBO_p02c CBO          2 closed     2019     -48.0    -24.1     743.         7
- 8 CAR_p03o CAR          3 open       2019     -47.9    -25.1      11.7        6
- 9 VGM_p09o VGM          9 open       2019     -45.2    -23.4     800.         6
-10 CBO_p15o CBO         15 open       2019     -48.0    -24.1     747.         4
+ 7 CAR_p02o CAR          2 open       2017     -47.9    -25.1      20.7        7
+ 8 CAR_p02c CAR          2 closed     2017     -47.9    -25.1      22.2       11
+ 9 CAR_p14o CAR         14 open       2017     -47.9    -25.1     188.         8
+10 CBO_p12c CBO         12 closed     2019     -48.0    -24.1     747.         6
 # ℹ 9 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -1239,23 +1239,23 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 <pre><code># A tibble: 17 × 18
    Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 CBO_p12c CBO         12 closed     2019     -48.0    -24.1     747.         6
- 2 VGM_p08o VGM          8 open       2017     -45.2    -23.4     796.        11
- 3 CAR_p08c CAR          8 closed     2019     -47.9    -25.1      33.4       11
- 4 VGM_p12c VGM         12 closed     2017     -45.2    -23.4     793.        11
- 5 CAR_p05o CAR          5 open       2019     -47.9    -25.1      17.5        5
- 6 CAR_p15o CAR         15 open       2019     -47.9    -25.1     192.         3
- 7 VGM_p14c VGM         14 closed     2019     -45.2    -23.4     796.        11
- 8 ITA_p01o ITA          1 open       2019     -45.1    -23.3     999.        10
- 9 VGM_p09o VGM          9 open       2017     -45.2    -23.4     800.         6
-10 CBO_p15c CBO         15 closed     2019     -48.0    -24.1     745.         8
-11 CBO_p05c CBO          5 closed     2019     -48.0    -24.1     771.         5
-12 CBO_p11c CBO         11 closed     2017     -48.0    -24.1     802.        14
-13 VGM_p06c VGM          6 closed     2017     -45.2    -23.4     778.        11
-14 ITA_p01c ITA          1 closed     2017     -45.1    -23.3     999.         9
-15 CBO_p04o CBO          4 open       2017     -48.0    -24.1     827.         5
-16 CBO_p05c CBO          5 closed     2017     -48.0    -24.1     771.         6
-17 CBO_p01c CBO          1 closed     2019     -48.0    -24.1     731.        12
+ 1 VGM_p01c VGM          1 closed     2019     -45.2    -23.4     806.         4
+ 2 VGM_p04c VGM          4 closed     2019     -45.2    -23.4     759.        11
+ 3 ITA_p15c ITA         15 closed     2017     -45.1    -23.3    1081.         9
+ 4 ITA_p06c ITA          6 closed     2019     -45.1    -23.3    1010.         5
+ 5 CBO_p05o CBO          5 open       2017     -48.0    -24.1     772.         6
+ 6 VGM_p05o VGM          5 open       2019     -45.2    -23.4     777.         8
+ 7 CBO_p15c CBO         15 closed     2017     -48.0    -24.1     745.         6
+ 8 ITA_p01o ITA          1 open       2017     -45.1    -23.3     999.        10
+ 9 CBO_p01o CBO          1 open       2017     -48.0    -24.1     728.         9
+10 CAR_p08o CAR          8 open       2017     -47.9    -25.1      35.4        4
+11 CBO_p06o CBO          6 open       2017     -48.0    -24.1     807.        12
+12 ITA_p10c ITA         10 closed     2019     -45.1    -23.3    1070.         6
+13 CBO_p15c CBO         15 closed     2019     -48.0    -24.1     745.         8
+14 VGM_p07o VGM          7 open       2017     -45.2    -23.4     787.         4
+15 CBO_p15o CBO         15 open       2019     -48.0    -24.1     747.         4
+16 ITA_p12c ITA         12 closed     2019     -45.1    -23.3    1088.         5
+17 CAR_p15c CAR         15 closed     2019     -47.9    -25.1     191.         5
 # ℹ 9 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -1299,7 +1299,7 @@ $ hbvr_body_size_kg     &lt;dbl&gt; 0.00000, 220.00000, 0.00000, 0.00000, 0.0000
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p><strong>Linhas únicas</strong> baseado em <code>colunas especificas</code></p>
+<p><strong>Linhas únicas</strong> baseado em <code>colunas específicas</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>dados_csv <span class="sc">%&gt;%</span> </span>
 <span id="cb67-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">distinct</span>(Location)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2569,7 +2569,7 @@ VGM_p15c           0.00000</code></pre>
 <div style="font-size: 70%">
 <p><code>mutate()</code> <strong>Criar ou modificar colunas</strong></p>
 <div class="columns" style="font-size: 90%">
-<p>Ex: adicionar o numero das linhas com <code>ID</code> através da função <code>row_number()</code></p><div class="cell">
+<p>Ex: adicionar o número das linhas com <code>ID</code> através da função <code>row_number()</code></p><div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>dados_csv <span class="ot">&lt;-</span> dados_csv <span class="sc">%&gt;%</span> </span>
 <span id="cb86-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">ID =</span> dplyr<span class="sc">::</span><span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
 <span id="cb86-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ID, dplyr<span class="sc">::</span><span class="fu">everything</span>())</span>
@@ -3135,7 +3135,7 @@ VGM_p15c           0.00000</code></pre>
 <li><p>Pega um <strong>conjunto de <code>colunas</code></strong> e <strong>transforma</strong> em <code>linhas</code></p>
 <ul>
 <li><p><code>Uma coluna</code> contendo o nome das colunas anteriores</p></li>
-<li><p><code>Outra coluna</code> com valores que existiam nas celulas</p></li>
+<li><p><code>Outra coluna</code> com valores que existiam nas células</p></li>
 </ul></li>
 <li><p>Formato <strong>mais usado</strong> em <code>análises</code></p></li>
 </ul>
@@ -3156,7 +3156,7 @@ VGM_p15c           0.00000</code></pre>
 <li><p>Pega um <strong>conjunto de <code>colunas</code></strong> e <strong>transforma</strong> em <code>linhas</code></p>
 <ul>
 <li><p><code>Uma coluna</code> contendo o nome das colunas anteriores</p></li>
-<li><p><code>Outra coluna</code> com valores que existiam nas celulas</p></li>
+<li><p><code>Outra coluna</code> com valores que existiam nas células</p></li>
 </ul></li>
 <li><p>Formato <strong>mais usado</strong> em <code>análises</code></p></li>
 </ul>
@@ -3201,7 +3201,7 @@ VGM_p15c           0.00000</code></pre>
 <li><p>Pega um <strong>conjunto de <code>colunas</code></strong> e <strong>transforma</strong> em <code>linhas</code></p>
 <ul>
 <li><p><code>Uma coluna</code> contendo o nome das colunas anteriores</p></li>
-<li><p><code>Outra coluna</code> com valores que existiam nas celulas</p></li>
+<li><p><code>Outra coluna</code> com valores que existiam nas células</p></li>
 </ul></li>
 <li><p>Formato <strong>mais usado</strong> em <code>análises</code></p></li>
 </ul>
@@ -3242,10 +3242,10 @@ VGM_p15c           0.00000</code></pre>
 <div class="column" style="width:50%;">
 <ul>
 <li><strong>Reduz o número</strong> de <code>coluna</code> - data frame mais longo/visual</li>
-<li>Pega uma <strong><code>coluna</code></strong> que contem <strong>nome de variáveis</strong> e <strong>transforma</strong> cada uma em uma <code>nova coluna</code>
+<li>Pega uma <strong><code>coluna</code></strong> que contém <strong>nome de variáveis</strong> e <strong>transforma</strong> cada uma em uma <code>nova coluna</code>
 <ul>
 <li><p><code>Uma coluna</code> contendo o nome das colunas a serem criadas</p></li>
-<li><p><code>Outra coluna</code> com valores que são atribuitos as novas colunas e células</p></li>
+<li><p><code>Outra coluna</code> com valores que são atribuídos as novas colunas e células</p></li>
 </ul></li>
 <li>Formato <strong>mais usado</strong> em <code>análises</code> que requerem formato de <code>matrix</code></li>
 </ul>
@@ -3263,10 +3263,10 @@ VGM_p15c           0.00000</code></pre>
 <div class="column" style="width:50%;">
 <ul>
 <li><strong>Reduz o número</strong> de <code>coluna</code> - data frame mais longo/visual</li>
-<li>Pega uma <strong><code>coluna</code></strong> que contem <strong>nome de variáveis</strong> e <strong>transforma</strong> cada uma em uma <code>nova coluna</code>
+<li>Pega uma <strong><code>coluna</code></strong> que contém <strong>nome de variáveis</strong> e <strong>transforma</strong> cada uma em uma <code>nova coluna</code>
 <ul>
 <li><p><code>Uma coluna</code> contendo o nome das colunas a serem criadas</p></li>
-<li><p><code>Outra coluna</code> com valores que são atribuitos as novas colunas e células</p></li>
+<li><p><code>Outra coluna</code> com valores que são atribuídos às novas colunas e células</p></li>
 </ul></li>
 <li>Formato <strong>mais usado</strong> em <code>análises</code> que requerem formato de <code>matrix</code></li>
 </ul>
@@ -3370,16 +3370,16 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 10 × 12
    Id_plot  Location Plots Treatment  Date leaf_thickness seed_mass leaf_area
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 VGM_p11c VGM         11 closed     2019          NA          NA        NA 
- 2 VGM_p12o VGM         12 open       2019          NA          NA        NA 
- 3 CBO_p01o CBO          1 open       2017           0.22      758.    10361.
- 4 ITA_p12o ITA         12 open       2019          NA          NA        NA 
- 5 CAR_p01c CAR          1 closed     2019          NA          NA        NA 
- 6 VGM_p07c VGM          7 closed     2017           0.2      1860.     4996.
- 7 ITA_p01c ITA          1 closed     2019          NA          NA        NA 
- 8 CBO_p11c CBO         11 closed     2017           1.58     1104.     9149.
- 9 CAR_p14c CAR         14 closed     2017           3.52     1874.    14279.
-10 VGM_p15o VGM         15 open       2019          NA          NA        NA 
+ 1 ITA_p01c ITA          1 closed     2019          NA          NA        NA 
+ 2 CAR_p12c CAR         12 closed     2019          NA          NA        NA 
+ 3 CAR_p11c CAR         11 closed     2017           1.84     2651.    10583.
+ 4 CBO_p12o CBO         12 open       2017           3.08      485.    11484.
+ 5 VGM_p05o VGM          5 open       2017           0.84     5380.    10953.
+ 6 ITA_p02o ITA          2 open       2019          NA          NA        NA 
+ 7 VGM_p12c VGM         12 closed     2017           0.86      750.     9507.
+ 8 CBO_p05o CBO          5 open       2017           0.21      823.     8570.
+ 9 CAR_p08o CAR          8 open       2017           0.5      1145.     7248.
+10 CBO_p15c CBO         15 closed     2017           0.24     1393.    13935.
 # ℹ 4 more variables: sla &lt;dbl&gt;, seed_length &lt;dbl&gt;, carbon_nitro &lt;dbl&gt;,
 #   leaf_damage &lt;dbl&gt;</code></pre>
 </div>
@@ -3392,7 +3392,7 @@ VGM_p15c           0.00000</code></pre>
 <div style="font-size: 50%">
 <p><code>left_join()</code> <strong>-</strong> <code>left_join(Tabela da Esquerda, Tabela da Direita)</code></p>
 <ul>
-<li><strong>Manter todas as linhas da tabela da <code>esquerda</code> e adiciona as da <code>direita.</code></strong></li>
+<li><strong>Manter todas as linhas da tabela à <code>esquerda</code> e adicionar as da <code>direita.</code></strong></li>
 <li>Se as linhas já <strong>existirem</strong> nas da esquerda, então <strong>não há alteração</strong>.</li>
 </ul>
 <div class="columns" style="font-size: 90%">
@@ -3407,16 +3407,16 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 10 × 12
    Id_plot  Location Plots Treatment  Date leaf_thickness seed_mass leaf_area
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
- 1 ITA_p12c ITA         12 closed     2017           0.19    1358.      6422.
- 2 VGM_p09c VGM          9 closed     2019          NA         NA         NA 
- 3 ITA_p02c ITA          2 closed     2017           0.21    3532.     13040.
- 4 ITA_p08o ITA          8 open       2019          NA         NA         NA 
- 5 ITA_p04o ITA          4 open       2019          NA         NA         NA 
- 6 VGM_p10o VGM         10 open       2017           0.21      99.1     6426.
- 7 CAR_p14c CAR         14 closed     2019          NA         NA         NA 
- 8 CAR_p04o CAR          4 open       2019          NA         NA         NA 
- 9 VGM_p15c VGM         15 closed     2019          NA         NA         NA 
-10 VGM_p05c VGM          5 closed     2017           0.51    8179.      8910.
+ 1 ITA_p08o ITA          8 open       2017           0.22     1087.    10058.
+ 2 CAR_p09o CAR          9 open       2017           1.41      600.     8383.
+ 3 CBO_p01c CBO          1 closed     2019          NA          NA        NA 
+ 4 CAR_p05c CAR          5 closed     2017           1.1      1575.     9104 
+ 5 VGM_p04c VGM          4 closed     2019          NA          NA        NA 
+ 6 VGM_p06o VGM          6 open       2017           0.2       707.     5644.
+ 7 CBO_p12c CBO         12 closed     2019          NA          NA        NA 
+ 8 CAR_p15o CAR         15 open       2017           2.57      852.    19629.
+ 9 CAR_p12c CAR         12 closed     2019          NA          NA        NA 
+10 VGM_p08c VGM          8 closed     2019          NA          NA        NA 
 # ℹ 4 more variables: sla &lt;dbl&gt;, seed_length &lt;dbl&gt;, carbon_nitro &lt;dbl&gt;,
 #   leaf_damage &lt;dbl&gt;</code></pre>
 </div>
@@ -3485,11 +3485,11 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 5 × 12
   Id_plot  Location Plots Treatment  Date leaf_thickness seed_mass leaf_area
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 VGM_p01c VGM          1 closed     2019          NA          NA        NA 
-2 CBO_p09c CBO          9 closed     2017           2.43      325.    19999.
-3 CAR_p10c CAR         10 closed     2019          NA          NA        NA 
-4 VGM_p15c VGM         15 closed     2017           0.21     6742.    10864.
-5 VGM_p08o VGM          8 open       2017           0.17      654.     9962.
+1 CAR_p12c CAR         12 closed     2019          NA          NA        NA 
+2 ITA_p08o ITA          8 open       2017           0.22     1087.    10058.
+3 CAR_p04o CAR          4 open       2019          NA          NA        NA 
+4 CBO_p14c CBO         14 closed     2017           1.9       722.     9437.
+5 CAR_p11c CAR         11 closed     2019          NA          NA        NA 
 # ℹ 4 more variables: sla &lt;dbl&gt;, seed_length &lt;dbl&gt;, carbon_nitro &lt;dbl&gt;,
 #   leaf_damage &lt;dbl&gt;</code></pre>
 </div>
@@ -3518,11 +3518,11 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 5 × 12
   Id_plot  Location Plots Treatment  Date leaf_thickness seed_mass leaf_area
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 ITA_p08c ITA          8 closed     2019          NA          NA        NA 
-2 VGM_p07o VGM          7 open       2017           0.23      969.    14779.
-3 CAR_p01o CAR          1 open       2019          NA          NA        NA 
-4 CBO_p02c CBO          2 closed     2019          NA          NA        NA 
-5 VGM_p06o VGM          6 open       2019          NA          NA        NA 
+1 ITA_p15o ITA         15 open       2017           0.21      534.     8827.
+2 VGM_p14c VGM         14 closed     2017           0.21      994.     6226.
+3 CBO_p01c CBO          1 closed     2017           1.29      985.    17069.
+4 CAR_p15c CAR         15 closed     2019          NA          NA        NA 
+5 CBO_p02o CBO          2 open       2017           0.21     1300.    12923.
 # ℹ 4 more variables: sla &lt;dbl&gt;, seed_length &lt;dbl&gt;, carbon_nitro &lt;dbl&gt;,
 #   leaf_damage &lt;dbl&gt;</code></pre>
 </div>
@@ -3533,11 +3533,11 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 5 × 18
   Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 ITA_p06o ITA          6 open       2017     -45.1    -23.3     1010.        6
-2 VGM_p07c VGM          7 closed     2017     -45.2    -23.4      787.        8
-3 CBO_p06o CBO          6 open       2017     -48.0    -24.1      807.       12
-4 VGM_p01o VGM          1 open       2019     -45.2    -23.4      808.        3
-5 CAR_p15o CAR         15 open       2017     -47.9    -25.1      192.        4
+1 VGM_p04c VGM          4 closed     2017     -45.2    -23.4      759.        9
+2 CBO_p06c CBO          6 closed     2019     -48.0    -24.1      806.        7
+3 CBO_p01o CBO          1 open       2019     -48.0    -24.1      728.        9
+4 CBO_p11o CBO         11 open       2019     -48.0    -24.1      804.        8
+5 VGM_p04o VGM          4 open       2019     -45.2    -23.4      762.        7
 # ℹ 9 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -3568,11 +3568,11 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 5 × 12
   Id_plot  Location Plots Treatment  Date leaf_thickness seed_mass leaf_area
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 ITA_p15o ITA         15 open       2019          NA          NA        NA 
-2 ITA_p14o ITA         14 open       2017           1.75     2955.    19197.
-3 VGM_p09c VGM          9 closed     2019          NA          NA        NA 
-4 VGM_p06o VGM          6 open       2019          NA          NA        NA 
-5 CBO_p09o CBO          9 open       2017           0.21     1288.    17124.
+1 CBO_p06c CBO          6 closed     2017           0.26      371.     6270.
+2 CBO_p14o CBO         14 open       2019          NA          NA        NA 
+3 CBO_p14o CBO         14 open       2017           1.46      301.    10565.
+4 VGM_p09c VGM          9 closed     2017           1.84      585.    11285.
+5 ITA_p12o ITA         12 open       2019          NA          NA        NA 
 # ℹ 4 more variables: sla &lt;dbl&gt;, seed_length &lt;dbl&gt;, carbon_nitro &lt;dbl&gt;,
 #   leaf_damage &lt;dbl&gt;</code></pre>
 </div>
@@ -3583,11 +3583,11 @@ VGM_p15c           0.00000</code></pre>
 <pre><code># A tibble: 5 × 18
   Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 CBO_p05o CBO          5 open       2019     -48.0    -24.1      772.        6
-2 VGM_p15c VGM         15 closed     2019     -45.2    -23.4      794.        5
-3 VGM_p08o VGM          8 open       2017     -45.2    -23.4      796.       11
-4 ITA_p04o ITA          4 open       2019     -45.1    -23.3      989.        6
-5 CBO_p15c CBO         15 closed     2017     -48.0    -24.1      745.        6
+1 CAR_p03c CAR          3 closed     2019     -47.9    -25.1      17.1        7
+2 CBO_p15c CBO         15 closed     2019     -48.0    -24.1     745.         8
+3 CBO_p01c CBO          1 closed     2019     -48.0    -24.1     731.        12
+4 VGM_p15o VGM         15 open       2019     -45.2    -23.4     795.         4
+5 ITA_p08o ITA          8 open       2017     -45.1    -23.3    1024.         4
 # ℹ 9 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -3600,11 +3600,10 @@ VGM_p15c           0.00000</code></pre>
 <span id="cb145-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">inner_join</span>(traits.sample, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Id_plot"</span>,<span class="st">"Location"</span>, <span class="st">"Plots"</span>, </span>
 <span id="cb145-3"><a href=""></a>                                          <span class="st">"Treatment"</span>, <span class="st">"Date"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 25
+<pre><code># A tibble: 1 × 25
   Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
   &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 VGM_p07o VGM          7 open       2019     -45.2    -23.4      787.        4
-2 ITA_p08c ITA          8 closed     2017     -45.1    -23.3     1028.        4
+1 ITA_p06c ITA          6 closed     2017     -45.1    -23.3     1010.        6
 # ℹ 16 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -3646,20 +3645,20 @@ VGM_p15c           0.00000</code></pre>
 <span id="cb147-3"><a href=""></a>                                         <span class="st">"Treatment"</span>, <span class="st">"Date"</span>))</span>
 <span id="cb147-4"><a href=""></a>dados_fj</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 38 × 25
+<pre><code># A tibble: 39 × 25
    Id_plot  Location Plots Treatment  Date Longitude Latitude Elevation Richness
    &lt;chr&gt;    &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
- 1 CBO_p05o CBO          5 open       2019     -48.0    -24.1      772.        6
- 2 VGM_p15c VGM         15 closed     2019     -45.2    -23.4      794.        5
- 3 VGM_p08o VGM          8 open       2017     -45.2    -23.4      796.       11
- 4 ITA_p04o ITA          4 open       2019     -45.1    -23.3      989.        6
- 5 CBO_p15c CBO         15 closed     2017     -48.0    -24.1      745.        6
- 6 CBO_p15o CBO         15 open       2017     -48.0    -24.1      747.        6
- 7 CAR_p11o CAR         11 open       2017     -47.9    -25.1      148.        4
- 8 VGM_p07o VGM          7 open       2019     -45.2    -23.4      787.        4
- 9 CBO_p05c CBO          5 closed     2017     -48.0    -24.1      771.        6
-10 ITA_p08c ITA          8 closed     2017     -45.1    -23.3     1028.        4
-# ℹ 28 more rows
+ 1 CAR_p03c CAR          3 closed     2019     -47.9    -25.1      17.1        7
+ 2 CBO_p15c CBO         15 closed     2019     -48.0    -24.1     745.         8
+ 3 CBO_p01c CBO          1 closed     2019     -48.0    -24.1     731.        12
+ 4 VGM_p15o VGM         15 open       2019     -45.2    -23.4     795.         4
+ 5 ITA_p08o ITA          8 open       2017     -45.1    -23.3    1024.         4
+ 6 CAR_p04c CAR          4 closed     2017     -47.9    -25.1      22.0       11
+ 7 CBO_p11c CBO         11 closed     2019     -48.0    -24.1     802.        12
+ 8 VGM_p05c VGM          5 closed     2019     -45.2    -23.4     773.        14
+ 9 VGM_p05c VGM          5 closed     2017     -45.2    -23.4     773.        14
+10 CAR_p08c CAR          8 closed     2019     -47.9    -25.1      33.4       11
+# ℹ 29 more rows
 # ℹ 16 more variables: Abundance &lt;dbl&gt;, D_Shannon &lt;dbl&gt;, D_Simpson &lt;dbl&gt;,
 #   Canopy_cover &lt;dbl&gt;, N_M_Trees_adult &lt;dbl&gt;, N_M_Eedulis_adult &lt;dbl&gt;,
 #   effort_cam_day_summed &lt;dbl&gt;, med_lar_mamm_spp_rich &lt;dbl&gt;,
@@ -3808,7 +3807,7 @@ Tapirus_terrestris
 <div class="columns" style="font-size: 55%">
 <p>Usando a <strong>tabela carregada, crie</strong> um <strong>novo</strong> <code>data frame</code> com apenas as colunas:</p><ul>
 <li><p><strong>Nessa ordem: <code>scientific_name</code></strong>, <strong><code>interaction</code></strong>, e <strong><code>interaction_latrine</code></strong>. dica: <code>select()</code></p></li>
-<li><p>Calcule o numero <strong>total de interações</strong> por <strong>espécie</strong> e <strong>tipo de interação</strong> <code>(interaction)</code>. Dica: <code>group_by()</code>,&nbsp;<code>summarise()</code> e <code>sum()</code></p></li>
+<li><p>Calcule o número <strong>total de interações</strong> por <strong>espécie</strong> e <strong>tipo de interação</strong> <code>(interaction)</code>. Dica: <code>group_by()</code>,&nbsp;<code>summarise()</code> e <code>sum()</code></p></li>
 <li><p>usando esse mesmo <code>data frame</code>, <strong>transforme a tabela</strong> em <code>wide</code> (largo) colocando os nomes em <strong><code>interaction</code></strong> <strong>como colunas individuais</strong>, e os valores em <strong><code>interaction_latrine</code></strong> como os <strong>valores das células</strong>. dica: <code>pivot_wider()</code></p></li>
 </ul><div class="cell">
 <div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href=""></a>dados_exer_slc <span class="ot">&lt;-</span> dados_exer <span class="sc">%&gt;%</span> </span>

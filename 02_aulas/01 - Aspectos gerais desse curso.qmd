@@ -34,8 +34,6 @@ lang: pt-br
 <br>
 
 <strong> EXPERIÊNCIA </strong>
-
-
 :::
 ::::
 ::::::
@@ -43,7 +41,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
 
 ## Yuri Souza
 
@@ -59,7 +56,6 @@ lang: pt-br
 <strong> EXPERIÊNCIA </strong>
 
 -   Bacharel em Ecologia<br>(UNESP, 2013-2016)
-
 :::
 ::::
 ::::::
@@ -67,7 +63,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
 
 ## Yuri Souza
 
@@ -84,7 +79,6 @@ lang: pt-br
 
 -   Bacharel em Ecologia<br>(UNESP, 2013-2016)
 -   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
-
 :::
 ::::
 ::::::
@@ -92,7 +86,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
 
 ## Yuri Souza
 
@@ -110,7 +103,6 @@ lang: pt-br
 -   Bacharel em Ecologia<br>(UNESP, 2013-2016)
 -   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
 -   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
-
 :::
 ::::
 ::::::
@@ -118,7 +110,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
 
 ## Yuri Souza
 
@@ -137,7 +128,6 @@ lang: pt-br
 -   Mestre em Ecologia e Biodiversidade<br>(UNESP, 2019-2021)
 -   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
 -   Mestre em Biologia<br>(University of Miami, 2022-2025)
-
 :::
 ::::
 ::::::
@@ -145,7 +135,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
 
 ## Yuri Souza
 
@@ -165,7 +154,6 @@ lang: pt-br
 -   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
 -   Mestre em Biologia<br>(University of Miami, 2022-2025)
 -   Analista de Dados<br>(IPÊ/INCAB, 2025)
-
 :::
 ::::
 ::::::
@@ -173,8 +161,6 @@ lang: pt-br
 ::: footer
 <https://souzayuri.github.io/>
 :::
-
-
 
 ## Yuri Souza
 
@@ -194,7 +180,7 @@ lang: pt-br
 -   MBA em Data Science & Analytics<br>(USP-ESAQL, 2021-2023)
 -   Mestre em Biologia<br>(University of Miami, 2022-2025)
 -   Analista de Dados<br>(IPÊ/INCAB, 2025)
--   <strong> Não sou estátistico nem programador </strong>
+-   <strong> Não sou estatístico nem programador </strong>
 :::
 ::::
 ::::::
@@ -294,11 +280,11 @@ Your browser does not support the video tag. </video>
 
 ## Importante
 
-<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem o máximo possível!<br>
+<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem ao máximo possível!<br>
 
 ## Importante
 
-<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem o máximo possível!<br> <br> <strong>Evitem</strong> celular, redes sociais e outras <strong>distrações!</strong><br> <br> Estudar R e estatística geraram <strong>muitas oportunidades</strong> de parcerias em pesquisas e trabalho!<br>
+<br> Esse curso está sendo pago com <strong>dinheiro público!</strong><br> <br> Aproveitem ao máximo possível!<br> <br> <strong>Evitem</strong> celular, redes sociais e outras <strong>distrações!</strong><br> <br> Estudar R e estatística geraram <strong>muitas oportunidades</strong> de parcerias em pesquisas e trabalho!<br>
 
 ## Importante
 
@@ -314,11 +300,11 @@ Your browser does not support the video tag. </video>
 
 ## Importante
 
-<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender à <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br>
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender a <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br>
 
 ## Importante
 
-<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender à <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br> Ponto positivo: <strong>há muito material disponível e grátis</strong> (e AI🙃)!<br><br>
+<br> Só se aprende R...<br> <br> ...<strong>'errando'</strong><br> <br> Esse curso é apenas o começo, o aprendizado <strong>é com vocês!</strong><br> <br> Será como reaprender a <strong>pensar, falar e escrever</strong><br> <br> Aprender leva tempo! <strong>Muito tempo...</strong><br> <br> Ponto positivo: <strong>há muito material disponível e grátis</strong> (e AI🙃)!<br><br>
 
 ## IMPORTANTE!!!
 
