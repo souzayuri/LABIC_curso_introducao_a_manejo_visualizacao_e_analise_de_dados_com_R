@@ -550,6 +550,7 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 <li><p>Medidas de <strong>tendência central</strong>: <code>minimo</code>, <code>máximo</code>, <code>média</code>, <code>mediana</code> e <code>moda</code></p></li>
 <li><p>Medidas de <strong>dispersão</strong>: <code>variância</code>, <code>desvio padrão</code> e <code>erro padrão</code></p></li>
 </ul></li>
+<li><p>No R, se houver <code>NA</code>s na <strong>coluna</strong> que vai ser usada para calcular as descritivas, então precisamos <strong>remover</strong> eles.</p></li>
 </ul>
 </div>
 </section>
@@ -764,18 +765,19 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 <h2>Análises Estatísticas Descritivas</h2>
 <h4>No <code>tidyverse</code>: Minimo, Máximo, Média, Mediana, Moda</h4>
 <div style="font-size: 70%">
+<p>Precisa remover os <code>NA</code>s se houver, usando o argumento <code>na.rm = TRUE</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Estatísticas descritivas por grupo</span></span>
 <span id="cb22-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb22-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
 <span id="cb22-4"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb22-5"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length),</span>
-<span id="cb22-6"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length),</span>
-<span id="cb22-7"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb22-8"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length),</span>
-<span id="cb22-9"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length),</span>
-<span id="cb22-10"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length),</span>
-<span id="cb22-11"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb22-5"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-6"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-7"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-8"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-9"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-10"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-11"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
 <span id="cb22-12"><a href=""></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    n min_sepala max_sepala media_sepala mediana_sepala var_sepala dp_sepala
@@ -791,19 +793,20 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 <h4>No <code>tidyverse</code>: Minimo, Máximo, Média, Mediana, Moda</h4>
 <h4>agrupando por espécies</h4>
 <div style="font-size: 70%">
+<p>Precisa remover os <code>NA</code>s se houver, usando o argumento <code>na.rm = TRUE</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="co"># Estatísticas descritivas por grupo</span></span>
 <span id="cb24-2"><a href=""></a>iris <span class="sc">%&gt;%</span> </span>
 <span id="cb24-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span> </span>
 <span id="cb24-4"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
 <span id="cb24-5"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb24-6"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length),</span>
-<span id="cb24-7"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length),</span>
-<span id="cb24-8"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length),</span>
-<span id="cb24-9"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length),</span>
-<span id="cb24-10"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length),</span>
-<span id="cb24-11"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length),</span>
-<span id="cb24-12"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb24-6"><a href=""></a>    <span class="at">min_sepala =</span> <span class="fu">min</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-7"><a href=""></a>    <span class="at">max_sepala =</span> <span class="fu">max</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-8"><a href=""></a>    <span class="at">media_sepala =</span> <span class="fu">mean</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-9"><a href=""></a>    <span class="at">mediana_sepala =</span> <span class="fu">median</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-10"><a href=""></a>    <span class="at">var_sepala =</span> <span class="fu">var</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-11"><a href=""></a>    <span class="at">dp_sepala =</span> <span class="fu">sd</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb24-12"><a href=""></a>    <span class="at">se_sepala =</span> (<span class="fu">sd</span>(Sepal.Length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
 <span id="cb24-13"><a href=""></a>    ) <span class="sc">%&gt;%</span> </span>
 <span id="cb24-14"><a href=""></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -866,9 +869,49 @@ Foca em descrever seu comportamento isolado, como <strong>distribuição</strong
 </section>
 <section class="slide level2">
 <h2>Exercícios</h2>
+<div class="columns">
+<ul>
+<li><p>Carregue o banco de dados <code>biota_plant_traits.csv</code></p></li>
+<li><p>Calcular todas as variáveis descritivas para <code>leaf_damage</code> agrupado por tratamento. Lembre de remover os <code>NA</code>s se houverem.</p></li>
+</ul>
+</div>
 </section>
 <section class="slide level2">
-<h2></h2>
+<h2>Exercícios</h2>
+<div class="columns">
+<ul>
+<li>Carregue o banco de dados <code>biota_plant_traits.csv</code></li>
+</ul><div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a>dados.biota.pt <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../01_dados/biota_plant_traits.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><ul>
+<li>Calcular todas as variáveis descritivas para <code>leaf_damage</code> agrupado por tratamento. Lembre de remover os <code>NA</code>s se houverem.</li>
+</ul><div class="columns">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>dados.biota.pt <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(Treatment) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(</span>
+<span id="cb29-4"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb29-5"><a href=""></a>    <span class="at">min_carbon.nitro =</span> <span class="fu">min</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-6"><a href=""></a>    <span class="at">max_carbon.nitro =</span> <span class="fu">max</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-7"><a href=""></a>    <span class="at">media_carbon.nitro =</span> <span class="fu">mean</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-8"><a href=""></a>    <span class="at">mediana_carbon.nitro =</span> <span class="fu">median</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-9"><a href=""></a>    <span class="at">var_carbon.nitro =</span> <span class="fu">var</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-10"><a href=""></a>    <span class="at">dp_carbon.nitro =</span> <span class="fu">sd</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb29-11"><a href=""></a>    <span class="at">se_carbon.nitro =</span> (<span class="fu">sd</span>(leaf_damage, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb29-12"><a href=""></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-13"><a href=""></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 9
+  Treatment     n min_carbon.nitro max_carbon.nitro media_carbon.nitro
+  &lt;chr&gt;     &lt;int&gt;            &lt;dbl&gt;            &lt;dbl&gt;              &lt;dbl&gt;
+1 closed       86            0.923             2.87               1.76
+2 open         86            1.27              2.79               1.92
+# ℹ 4 more variables: mediana_carbon.nitro &lt;dbl&gt;, var_carbon.nitro &lt;dbl&gt;,
+#   dp_carbon.nitro &lt;dbl&gt;, se_carbon.nitro &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
 
 </section>
     </div>

@@ -1762,7 +1762,6 @@ O que seria "o mais correto" para uma **Kruskal–Wallis test** **ideal de um fa
     -   Visualização dos dados por **Boxplot**
 :::
 
-
 ## Exercícios
 
 ::: columns
@@ -1771,5 +1770,80 @@ O que seria "o mais correto" para uma **Kruskal–Wallis test** **ideal de um fa
 
 ## Exercícios
 
+::: {.columns style="font-size: 60%"}
+1.  Carregue o banco de dados `biota_plant_traits.csv`
+2.  Veja se existe diferenças estatística entre a **`média`** de **`leaf_damage`** por **`tratamento`**
+3.  Qual o tamanho do efeito?
+4.  Faça um `boxplot()`
+:::
+
+## Exercícios
+
+::: {.columns style="font-size: 60%"}
+1.  Carregue o banco de dados `biota_plant_traits.csv`
+
+```{r}
+dados.biota.pt <- readr::read_csv("../01_dados/biota_plant_traits.csv")
+```
+:::
+
+## Exercícios
+
+:::::: {.columns style="font-size: 60%"}
+2.  Veja se existe diferenças estatística entre a **`média`** de **`leaf_damage`** por **`tratamento`**
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+dados.biota.pt.slc <- dados.biota.pt %>%    
+  dplyr::select(c(4,12)) %>% 
+  drop_na()
+
+car::leveneTest(leaf_damage ~ Treatment, data = dados.biota.pt)
+
+sf.test(dados.biota.pt$leaf_damage)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+dados.biota.pt.slc.test <- t.test(leaf_damage ~ Treatment, data = dados.biota.pt)
+dados.biota.pt.slc.test
+```
+:::
+:::::
+::::::
+
+## Exercícios
+
+::: {.columns style="font-size: 60%"}
+3.  Qual o tamanho do efeito?
+
+```{r}
+effectsize::cohens_d(leaf_damage ~ Treatment, data = dados.biota.pt)
+
+```
+:::
+
+## Exercícios
+
+::: {.columns style="font-size: 60%"}
+4.  Faça um `boxplot()`
+
+```{r}
+#| output-location: column
+#| fig-width: 5
+#| fig-height: 3
+
+ggplot(dados.biota.pt, aes(x = Treatment, 
+                      y = leaf_damage, 
+                      fill = Treatment)) +
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.2, alpha = 0.7) +
+  geom_jitter(width = 0.1, alpha = 0.3) +
+  theme_minimal() +
+  labs(x = "Tratamento", 
+       y = "Dano foliar")
+```
+:::
 ##
- 

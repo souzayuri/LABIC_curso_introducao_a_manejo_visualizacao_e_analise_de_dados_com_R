@@ -1514,6 +1514,7 @@ O que seria "o mais correto" para uma regressão `GLM Poisson`:
 
 dados_count <- read_csv("../01_dados/dados_count_poisson.csv")
 dados_count
+
 ```
 :::
 
@@ -1556,7 +1557,7 @@ Usa função `simulateResiduals()`
 
 <!-- -->
 
--    Permite testar se os resíduos seguem **uma distribuição uniforme**
+-   Permite testar se os resíduos seguem **uma distribuição uniforme**
 
 -   `Dispersion test > 0.05`, não há **overdispersion** nem **underdispersion**
 
@@ -1584,7 +1585,7 @@ Usa função `simulateResiduals()`
 
 <!-- -->
 
--    Permite testar se os resíduos seguem **uma distribuição uniforme**
+-   Permite testar se os resíduos seguem **uma distribuição uniforme**
 
 -   `Dispersion test > 0.05`, não há **overdispersion** nem **underdispersion**
 
@@ -1714,10 +1715,10 @@ summary(modelo_poisson)
 :::
 
 ::: {.column width="50%"}
-```{}
+```         
 ```
 
-```{}
+```         
 ```
 :::
 :::::
@@ -1769,7 +1770,7 @@ fmsb::NagelkerkeR2(modelo_poisson)
 ```
 :::
 
-## 8. GLM - Poisson, Visualização 
+## 8. GLM - Poisson, Visualização
 
 #### Efeitos marginais
 
@@ -1856,6 +1857,336 @@ report::report(modelo_poisson)
 :::::
 ::::::
 
+## Exercícios
+
+::: columns
+![](img/cat.gif){fig-align="center" width="400"}
+:::
+
+## Exercícios lm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+
+
+
+```
+:::
+
+## Exercícios lm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+dados_riqueza <- read_csv("../01_dados/riqueza_lais.csv")
+
+dados_riqueza_lm <- lm(Richness_total ~ Forest_cover, data = dados_riqueza)
+
+summary(dados_riqueza_lm)
+
+
+```
+:::
+
+## Exercícios lm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+shapiro.test(dados_riqueza_lm$residuals)
+
+
+```
+:::
+
+## Exercícios lm()
+
+:::::: {.columns style="font-size: 60%"}
+::::: columns
+::: {.column width="50%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+performance::check_model(dados_riqueza_lm) 
+```
+:::
+:::::
+::::::
+
+## Exercícios lm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+
+lmtest::bptest(dados_riqueza_lm)
+
+
+```
+:::
+
+## Exercícios lm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`riqueza_lais`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 5
+#| fig-height: 3.5
+#| output-location: column
+ggplot(dados_riqueza, aes(x = Forest_cover, y = Richness_total)) +
+  geom_smooth(method = "lm")
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm`.csv**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da cobertura florestal e elevação?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+dados_glm <- read_csv("../01_dados/exercicio_glm.csv")
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| output-location: column
+exercicio_poisson <- glm(
+  n_especies_mamiferos ~ cobertura_floresta + elevacao,
+  family = poisson(link = "log"),
+  data = dados_glm)
+
+summary(exercicio_poisson)
+
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+simulacao <- DHARMa::simulateResiduals(exercicio_poisson, plot = TRUE)
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+DHARMa::testDispersion(simulacao)
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+DHARMa::testOutliers(simulacao)
+
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 6
+#| fig-height: 4
+DHARMa::testZeroInflation(simulacao)
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+
+modelo_null <- glm(n_especies_mamiferos ~ 1, 
+                   family = poisson, 
+                   data = dados_glm)
+
+anova(modelo_null, exercicio_poisson)
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+fmsb::NagelkerkeR2(exercicio_poisson)
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+#| fig-width: 5
+#| fig-height: 3.5
+#| output-location: column
+sjPlot::plot_model(exercicio_poisson, 
+                   type = "pred", 
+                   terms = c("cobertura_floresta", "elevacao [0, 500, 1000, 1500]"),
+                   title = "Efeitos Marginais")
+```
+:::
+
+## Exercícios glm()
+
+::: {.columns style="font-size: 60%"}
+1.  Faça uma regressão linear usando os dados **`exercicio_glm.csv`**
+
+    -   **Responda**: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?
+
+        -   chequem todos os pressupostos para saber se o modelo é confiável
+
+        -   façam um gráfico
+
+```{r}
+report::report(exercicio_poisson)
+
+```
+:::
+
 ## Boas Práticas
 
 :::::: {style="font-size: 70%"}
@@ -1905,21 +2236,13 @@ report::report(modelo_poisson)
 ::: {style="font-size: 80%"}
 **Dúvidas?**
 
-Email: [seu.email\@email.com](mailto:seu.email@email.com)
+Email: [desouza.s.yuri\@gmail.com](mailto:desouza.s.yuri@gmail.com)
 
 Website: [souzayuri.github.io](https://souzayuri.github.io/)
 
 **Materiais do curso:**
 
-GitHub: [seu-repositorio](https://github.com/seu-usuario/seu-repo)
+[GitHub](https://github.com/souzayuri/LABIC_curso_introducao_a_manejo_visualizacao_e_analise_de_dados_com_R)
+
+![](img/starbucks-coffee.gif){fig-align="center"}
 :::
-
-## Exercícios
-
-::: columns
-![](img/cat.gif){fig-align="center" width="400"}
-:::
-
-## Exercícios
-
-##

@@ -440,6 +440,8 @@ if(!require(fmsb)) install.packages("fmsb")               # Calcula pseudo r2
     -   Medidas de **tendência central**: `minimo`, `máximo`, `média`, `mediana` e `moda`
 
     -   Medidas de **dispersão**: `variância`, `desvio padrão` e `erro padrão`
+
+-   No R, se houver `NA`s na **coluna** que vai ser usada para calcular as descritivas, então precisamos **remover** eles.
 :::
 
 ## Análises Estatísticas Descritivas
@@ -629,18 +631,20 @@ sd(iris$Sepal.Length) /sqrt(length(iris$Sepal.Length))
 #### No `tidyverse`: Minimo, Máximo, Média, Mediana, Moda
 
 ::: {style="font-size: 70%"}
+Precisa remover os `NA`s se houver, usando o argumento `na.rm = TRUE`
+
 ```{r}
 # Estatísticas descritivas por grupo
 iris %>% 
   dplyr::summarise(
     n = n(),
-    min_sepala = min(Sepal.Length),
-    max_sepala = max(Sepal.Length),
-    media_sepala = mean(Sepal.Length),
-    mediana_sepala = median(Sepal.Length),
-    var_sepala = var(Sepal.Length),
-    dp_sepala = sd(Sepal.Length),
-    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    min_sepala = min(Sepal.Length, na.rm = TRUE),
+    max_sepala = max(Sepal.Length, na.rm = TRUE),
+    media_sepala = mean(Sepal.Length, na.rm = TRUE),
+    mediana_sepala = median(Sepal.Length, na.rm = TRUE),
+    var_sepala = var(Sepal.Length, na.rm = TRUE),
+    dp_sepala = sd(Sepal.Length, na.rm = TRUE),
+    se_sepala = (sd(Sepal.Length, na.rm = TRUE) / sqrt(n()))
     )
 ```
 :::
@@ -652,19 +656,21 @@ iris %>%
 #### agrupando por espécies
 
 ::: {style="font-size: 70%"}
+Precisa remover os `NA`s se houver, usando o argumento `na.rm = TRUE`
+
 ```{r}
 # Estatísticas descritivas por grupo
 iris %>% 
   dplyr::group_by(Species) %>% 
   dplyr::summarise(
     n = n(),
-    min_sepala = min(Sepal.Length),
-    max_sepala = max(Sepal.Length),
-    media_sepala = mean(Sepal.Length),
-    mediana_sepala = median(Sepal.Length),
-    var_sepala = var(Sepal.Length),
-    dp_sepala = sd(Sepal.Length),
-    se_sepala = (sd(Sepal.Length) / sqrt(n()))
+    min_sepala = min(Sepal.Length, na.rm = TRUE),
+    max_sepala = max(Sepal.Length, na.rm = TRUE),
+    media_sepala = mean(Sepal.Length, na.rm = TRUE),
+    mediana_sepala = median(Sepal.Length, na.rm = TRUE),
+    var_sepala = var(Sepal.Length, na.rm = TRUE),
+    dp_sepala = sd(Sepal.Length, na.rm = TRUE),
+    se_sepala = (sd(Sepal.Length, na.rm = TRUE) / sqrt(n()))
     ) %>% 
     dplyr::ungroup()
 ```
@@ -712,4 +718,38 @@ ggplot(iris, aes(x = Sepal.Length)) +
 
 ## Exercícios
 
-##
+::: columns
+-   Carregue o banco de dados `biota_plant_traits.csv`
+
+-   Calcular todas as variáveis descritivas para `leaf_damage` agrupado por tratamento. Lembre de remover os `NA`s se houverem.
+:::
+
+## Exercícios
+
+:::: columns
+-   Carregue o banco de dados `biota_plant_traits.csv`
+
+```{r}
+dados.biota.pt <- readr::read_csv("../01_dados/biota_plant_traits.csv")
+```
+
+-   Calcular todas as variáveis descritivas para `leaf_damage` agrupado por tratamento. Lembre de remover os `NA`s se houverem.
+
+::: columns
+```{r}
+dados.biota.pt %>% 
+  dplyr::group_by(Treatment) %>% 
+  dplyr::summarise(
+    n = n(),
+    min_carbon.nitro = min(leaf_damage, na.rm = TRUE),
+    max_carbon.nitro = max(leaf_damage, na.rm = TRUE),
+    media_carbon.nitro = mean(leaf_damage, na.rm = TRUE),
+    mediana_carbon.nitro = median(leaf_damage, na.rm = TRUE),
+    var_carbon.nitro = var(leaf_damage, na.rm = TRUE),
+    dp_carbon.nitro = sd(leaf_damage, na.rm = TRUE),
+    se_carbon.nitro = (sd(leaf_damage, na.rm = TRUE) / sqrt(n()))
+    ) %>% 
+  dplyr::ungroup()
+```
+:::
+::::

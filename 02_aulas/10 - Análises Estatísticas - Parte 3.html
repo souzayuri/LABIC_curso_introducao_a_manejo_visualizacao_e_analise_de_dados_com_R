@@ -2256,9 +2256,9 @@ data:  simulacao
 outliers at both margin(s) = 0, observations = 100, p-value = 1
 alternative hypothesis: two.sided
  percent confidence interval:
- 0.00 0.03
+ 0.00 0.02
 sample estimates:
-outlier frequency (expected: 0.0064 ) 
+outlier frequency (expected: 0.0066 ) 
                                     0 </code></pre>
 </div>
 </div>
@@ -2543,6 +2543,502 @@ computed using a Wald z-distribution approximation.</code></pre>
 </div>
 </section>
 <section class="slide level2">
+<h2>Exercícios</h2>
+<div class="columns">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cat.gif" class="quarto-figure quarto-figure-center" width="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href=""></a>dados_riqueza <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/riqueza_lais.csv"</span>)</span>
+<span id="cb127-2"><a href=""></a></span>
+<span id="cb127-3"><a href=""></a>dados_riqueza_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Richness_total <span class="sc">~</span> Forest_cover, <span class="at">data =</span> dados_riqueza)</span>
+<span id="cb127-4"><a href=""></a></span>
+<span id="cb127-5"><a href=""></a><span class="fu">summary</span>(dados_riqueza_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Richness_total ~ Forest_cover, data = dados_riqueza)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.8914 -1.6127 -0.2086  1.2722  5.7169 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  12.41948    1.26629   9.808  1.2e-08 ***
+Forest_cover -0.02504    0.02218  -1.129    0.274    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.603 on 18 degrees of freedom
+Multiple R-squared:  0.06611,   Adjusted R-squared:  0.01422 
+F-statistic: 1.274 on 1 and 18 DF,  p-value: 0.2738</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href=""></a><span class="fu">shapiro.test</span>(dados_riqueza_lm<span class="sc">$</span>residuals)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  dados_riqueza_lm$residuals
+W = 0.9637, p-value = 0.6201</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href=""></a>performance<span class="sc">::</span><span class="fu">check_model</span>(dados_riqueza_lm) </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-71-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href=""></a>lmtest<span class="sc">::</span><span class="fu">bptest</span>(dados_riqueza_lm)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  dados_riqueza_lm
+BP = 0.19331, df = 1, p-value = 0.6602</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios lm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>riqueza_lais</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura vegetal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href=""></a><span class="fu">ggplot</span>(dados_riqueza, <span class="fu">aes</span>(<span class="at">x =</span> Forest_cover, <span class="at">y =</span> Richness_total)) <span class="sc">+</span></span>
+<span id="cb134-2"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-73-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm</code>.csv</strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da cobertura florestal e elevação?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href=""></a>dados_glm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../01_dados/exercicio_glm.csv"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href=""></a>exercicio_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
+<span id="cb136-2"><a href=""></a>  n_especies_mamiferos <span class="sc">~</span> cobertura_floresta <span class="sc">+</span> elevacao,</span>
+<span id="cb136-3"><a href=""></a>  <span class="at">family =</span> <span class="fu">poisson</span>(<span class="at">link =</span> <span class="st">"log"</span>),</span>
+<span id="cb136-4"><a href=""></a>  <span class="at">data =</span> dados_glm)</span>
+<span id="cb136-5"><a href=""></a></span>
+<span id="cb136-6"><a href=""></a><span class="fu">summary</span>(exercicio_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = n_especies_mamiferos ~ cobertura_floresta + elevacao, 
+    family = poisson(link = "log"), data = dados_glm)
+
+Coefficients:
+                     Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)         0.6789168  0.1967742   3.450  0.00056 ***
+cobertura_floresta  0.0186050  0.0024662   7.544 4.55e-14 ***
+elevacao           -0.0011868  0.0001754  -6.765 1.33e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 219.32  on 99  degrees of freedom
+Residual deviance: 105.01  on 97  degrees of freedom
+AIC: 343.47
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href=""></a>simulacao <span class="ot">&lt;-</span> DHARMa<span class="sc">::</span><span class="fu">simulateResiduals</span>(exercicio_poisson, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-77-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testDispersion</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-78-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa nonparametric dispersion test via sd of residuals fitted vs.
+    simulated
+
+data:  simulationOutput
+dispersion = 1.074, p-value = 0.624
+alternative hypothesis: two.sided</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testOutliers</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-79-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa bootstrapped outlier test
+
+data:  simulacao
+outliers at both margin(s) = 0, observations = 100, p-value = 1
+alternative hypothesis: two.sided
+ percent confidence interval:
+ 0.00 0.02
+sample estimates:
+outlier frequency (expected: 0.0039 ) 
+                                    0 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href=""></a>DHARMa<span class="sc">::</span><span class="fu">testZeroInflation</span>(simulacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-80-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DHARMa zero-inflation test via comparison to expected zeros with
+    simulation under H0 = fitted model
+
+data:  simulationOutput
+ratioObsSim = 0.90272, p-value = 0.712
+alternative hypothesis: two.sided</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href=""></a>modelo_null <span class="ot">&lt;-</span> <span class="fu">glm</span>(n_especies_mamiferos <span class="sc">~</span> <span class="dv">1</span>, </span>
+<span id="cb145-2"><a href=""></a>                   <span class="at">family =</span> poisson, </span>
+<span id="cb145-3"><a href=""></a>                   <span class="at">data =</span> dados_glm)</span>
+<span id="cb145-4"><a href=""></a></span>
+<span id="cb145-5"><a href=""></a><span class="fu">anova</span>(modelo_null, exercicio_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Deviance Table
+
+Model 1: n_especies_mamiferos ~ 1
+Model 2: n_especies_mamiferos ~ cobertura_floresta + elevacao
+  Resid. Df Resid. Dev Df Deviance  Pr(&gt;Chi)    
+1        99     219.32                          
+2        97     105.01  2   114.31 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href=""></a>fmsb<span class="sc">::</span><span class="fu">NagelkerkeR2</span>(exercicio_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$N
+[1] 100
+
+$R2
+[1] 0.7667134</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href=""></a>sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(exercicio_poisson, </span>
+<span id="cb149-2"><a href=""></a>                   <span class="at">type =</span> <span class="st">"pred"</span>, </span>
+<span id="cb149-3"><a href=""></a>                   <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"cobertura_floresta"</span>, <span class="st">"elevacao [0, 500, 1000, 1500]"</span>),</span>
+<span id="cb149-4"><a href=""></a>                   <span class="at">title =</span> <span class="st">"Efeitos Marginais"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="10---Análises-Estatísticas---Parte-3_files/figure-revealjs/unnamed-chunk-83-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Exercícios glm()</h2>
+<div class="columns" style="font-size: 60%">
+<ol type="1">
+<li><p>Faça uma regressão linear usando os dados <strong><code>exercicio_glm.csv</code></strong></p>
+<ul>
+<li><p><strong>Responda</strong>: A riqueza de espécies aumenta ou diminui em funçao da altitude e cobertura florestal?</p>
+<ul>
+<li><p>chequem todos os pressupostos para saber se o modelo é confiável</p></li>
+<li><p>façam um gráfico</p></li>
+</ul></li>
+</ul></li>
+</ol><div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href=""></a>report<span class="sc">::</span><span class="fu">report</span>(exercicio_poisson)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a poisson model (estimated using ML) to predict n_especies_mamiferos
+with cobertura_floresta and elevacao (formula: n_especies_mamiferos ~
+cobertura_floresta + elevacao). The model's explanatory power is substantial
+(Nagelkerke's R2 = 0.77). The model's intercept, corresponding to
+cobertura_floresta = 0 and elevacao = 0, is at 0.68 (95% CI [0.29, 1.06], p &lt;
+.001). Within this model:
+
+  - The effect of cobertura floresta is statistically significant and positive
+(beta = 0.02, 95% CI [0.01, 0.02], p &lt; .001; Std. beta = 0.53, 95% CI [0.39,
+0.67])
+  - The effect of elevacao is statistically significant and negative (beta =
+-1.19e-03, 95% CI [-1.54e-03, -8.47e-04], p &lt; .001; Std. beta = -0.47, 95% CI
+[-0.61, -0.34])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald z-distribution approximation.</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
 <h2>Boas Práticas</h2>
 <div style="font-size: 70%">
 <div class="columns">
@@ -2583,27 +3079,16 @@ computed using a Wald z-distribution approximation.</code></pre>
 <h2>Obrigado!</h2>
 <div style="font-size: 80%">
 <p><strong>Dúvidas?</strong></p>
-<p>Email: <a href="mailto:seu.email@email.com">seu.email@email.com</a></p>
+<p>Email: <a href="mailto:desouza.s.yuri@gmail.com">desouza.s.yuri@gmail.com</a></p>
 <p>Website: <a href="https://souzayuri.github.io/">souzayuri.github.io</a></p>
 <p><strong>Materiais do curso:</strong></p>
-<p>GitHub: <a href="https://github.com/seu-usuario/seu-repo">seu-repositorio</a></p>
-</div>
-</section>
-<section class="slide level2">
-<h2>Exercícios</h2>
-<div class="columns">
+<p><a href="https://github.com/souzayuri/LABIC_curso_introducao_a_manejo_visualizacao_e_analise_de_dados_com_R">GitHub</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/cat.gif" class="quarto-figure quarto-figure-center" width="400"></p>
+<p><img data-src="img/starbucks-coffee.gif" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
-</section>
-<section class="slide level2">
-<h2>Exercícios</h2>
-</section>
-<section class="slide level2">
-<h2></h2>
 
 </section>
     </div>
