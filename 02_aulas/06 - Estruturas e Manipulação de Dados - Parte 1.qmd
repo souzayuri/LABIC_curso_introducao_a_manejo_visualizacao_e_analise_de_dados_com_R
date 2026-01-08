@@ -62,6 +62,23 @@ lang: pt-br
 
 ## Comandos básicos de R
 
+##### Comandos gerais  - como usar esses slides
+
+```{r eval = FALSE}
+binarios <- c(
+  "01100110","01100101","01101100","01101001","01111010",
+  "00100000",
+  "01100001","01101110","01101001","01110110","01100101",
+  "01110010","01110011","01100001","01110010","01101001","01101111",
+  "00100000",
+  "01001100","01100001","01101001","01110011")
+
+texto <- rawToChar(as.raw(strtoi(binarios, base = 2)))
+texto
+```
+
+## Comandos básicos de R
+
 ##### Comandos gerais
 
 ## Comandos básicos de R
