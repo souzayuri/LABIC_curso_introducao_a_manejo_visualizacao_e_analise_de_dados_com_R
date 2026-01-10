@@ -856,7 +856,7 @@ O que seria “o mais correto” para um **t-test ideal**:
 :::::::: {style="font-size: 60%"}
 **Interpretação (não intuitiva** 💀**):**
 
--   `H0`: os dados seguem distribuição normal
+-   `H0`: os dados seguem distribuição normal (fazer para ambas as variaveis)
 -   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
 -   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
 -   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
@@ -888,7 +888,7 @@ O que seria “o mais correto” para um **t-test ideal**:
 :::::::: {style="font-size: 60%"}
 **Interpretação (não intuitiva** 💀**):**
 
--   `H0`: os dados seguem distribuição normal
+-   `H0`: os dados seguem distribuição normal (fazer para ambas as variaveis)
 -   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
 -   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
 -   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
@@ -924,7 +924,7 @@ nortest::sf.test(iris$Sepal.Length)
 :::::::: {style="font-size: 60%"}
 **Interpretação (não intuitiva** 💀**):**
 
--   `H0`: os dados seguem distribuição normal
+-   `H0`: os dados seguem distribuição normal (fazer para ambas as variaveis)
 -   `Se p > 0.05`: **não rejeitamos H0** (dados são normais)
 -   `Se p < 0.05`: **rejeitamos H0** (dados não são normais)
 -   **`W ≈ 1`** → dados **muito próximos** de uma **normal**
