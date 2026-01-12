@@ -1484,7 +1484,8 @@ Não há `ε` explícito, a distribuição de `Y` é definida (família: `binomi
 #### Dados de contagem
 
 ::: {.columns style="font-size: 55%"}
-Na GLM você precisa **ajustar o modelo primeiro** para então verificar a maioria dos pressupostos
+Na GLM você precisa **ajustar o modelo primeiro** para então verificar a maioria dos pressupostos.
+Alguns pressupostos são **os mesmos** para **diferentes** famílias de distribuição, mas outros **podem mudar**.
 
 O que seria "o mais correto" para uma regressão `GLM Poisson`:
 
@@ -1600,7 +1601,7 @@ simulacao <- DHARMa::simulateResiduals(modelo_poisson, plot = TRUE)
 ::: {.column width="50%" style="font-size: 60%"}
 **Dispersion test**: se o modelo tem **overdispersion** ou **underdispersion**
 
--   `p = 0.552`: O modelo não apresenta problemas de dispersão.
+-   `p = 0.984`: O modelo não apresenta problemas de dispersão.
 :::
 
 ::: {.column width="50%" style="font-size: 80%"}
@@ -1619,7 +1620,7 @@ DHARMa::testDispersion(simulacao)
 ::: {.column width="50%" style="font-size: 60%"}
 **Dispersion test**: se o modelo tem **overdispersion** ou **underdispersion**
 
--   `p = 0.552`: O modelo não apresenta problemas de dispersão.
+-   `p = 0.984`: O modelo não apresenta problemas de dispersão.
 
 **Bootstrapped outlier test**: se há **outliers extremos** nos resíduos simulados
 
@@ -1642,7 +1643,7 @@ DHARMa::testOutliers(simulacao)
 ::: {.column width="50%" style="font-size: 60%"}
 **Dispersion test**: se o modelo tem **overdispersion** ou **underdispersion**
 
--   `p = 0.552`: O modelo não apresenta problemas de dispersão.
+-   `p = 0.984`: O modelo não apresenta problemas de dispersão.
 
 **Bootstrapped outlier test**: se há **outliers extremos** nos resíduos simulados
 
@@ -1668,7 +1669,7 @@ DHARMa::testZeroInflation(simulacao)
 ::: {.column width="50%" style="font-size: 60%"}
 **Dispersion test**: se o modelo tem **overdispersion** ou **underdispersion**
 
--   `p = 0.552`: O modelo não apresenta problemas de dispersão.
+-   `p = 0.984`: O modelo não apresenta problemas de dispersão.
 
 **Bootstrapped outlier test**: se há **outliers extremos** nos resíduos simulados
 

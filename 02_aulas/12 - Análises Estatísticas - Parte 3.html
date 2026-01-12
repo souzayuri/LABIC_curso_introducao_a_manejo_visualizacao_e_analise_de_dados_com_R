@@ -2052,7 +2052,7 @@ F-statistic: 30.63 on 2 and 18 DF,  p-value: 1.607e-06</code></pre>
 <h2>GLM - Poisson</h2>
 <h4>Dados de contagem</h4>
 <div class="columns" style="font-size: 55%">
-<p>Na GLM você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos</p><p>O que seria “o mais correto” para uma regressão <code>GLM Poisson</code>:</p><ol type="1">
+<p>Na GLM você precisa <strong>ajustar o modelo primeiro</strong> para então verificar a maioria dos pressupostos. Alguns pressupostos são <strong>os mesmos</strong> para <strong>diferentes</strong> famílias de distribuição, mas outros <strong>podem mudar</strong>.</p><p>O que seria “o mais correto” para uma regressão <code>GLM Poisson</code>:</p><ol type="1">
 <li><p><strong>Ajustar o modelo:</strong> <code>glm(y ~ x1 + x2, data = dados, family = poisson(link = "log"))</code></p></li>
 <li><p><strong>Dispersão dos resíduos e homodecasticidade: DHARMa testes</strong></p></li>
 <li><p><strong>Independência das observações:</strong> O valor de uma observação <strong>não influencia</strong> nem é influenciado por outra.</p></li>
@@ -2195,7 +2195,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 <div class="column" style="font-size: 60%">
 <p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
 <ul>
-<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+<li><code>p = 0.984</code>: O modelo não apresenta problemas de dispersão.</li>
 </ul>
 </div><div class="column" style="font-size: 80%">
 <div class="cell">
@@ -2226,7 +2226,7 @@ alternative hypothesis: two.sided</code></pre>
 <div class="column" style="font-size: 60%">
 <p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
 <ul>
-<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+<li><code>p = 0.984</code>: O modelo não apresenta problemas de dispersão.</li>
 </ul>
 <p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
 <ul>
@@ -2247,12 +2247,12 @@ alternative hypothesis: two.sided</code></pre>
     DHARMa bootstrapped outlier test
 
 data:  simulacao
-outliers at both margin(s) = 0, observations = 100, p-value = 1
+outliers at both margin(s) = 0, observations = 100, p-value = 0.96
 alternative hypothesis: two.sided
  percent confidence interval:
- 0.00 0.03
+ 0.00 0.02
 sample estimates:
-outlier frequency (expected: 0.0061 ) 
+outlier frequency (expected: 0.0068 ) 
                                     0 </code></pre>
 </div>
 </div>
@@ -2265,7 +2265,7 @@ outlier frequency (expected: 0.0061 )
 <div class="column" style="font-size: 60%">
 <p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
 <ul>
-<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+<li><code>p = 0.984</code>: O modelo não apresenta problemas de dispersão.</li>
 </ul>
 <p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
 <ul>
@@ -2304,7 +2304,7 @@ alternative hypothesis: two.sided</code></pre>
 <div class="column" style="font-size: 60%">
 <p><strong>Dispersion test</strong>: se o modelo tem <strong>overdispersion</strong> ou <strong>underdispersion</strong></p>
 <ul>
-<li><code>p = 0.552</code>: O modelo não apresenta problemas de dispersão.</li>
+<li><code>p = 0.984</code>: O modelo não apresenta problemas de dispersão.</li>
 </ul>
 <p><strong>Bootstrapped outlier test</strong>: se há <strong>outliers extremos</strong> nos resíduos simulados</p>
 <ul>
@@ -2872,7 +2872,7 @@ alternative hypothesis: two.sided
  percent confidence interval:
  0.00 0.02
 sample estimates:
-outlier frequency (expected: 0.0039 ) 
+outlier frequency (expected: 0.0041 ) 
                                     0 </code></pre>
 </div>
 </div>
